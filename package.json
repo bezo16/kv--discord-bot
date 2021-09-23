@@ -1,0 +1,22 @@
+{
+  "name": "bg2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "build": "npm install"
+  },
+  "author": "jebo",
+  "license": "ISC",
+  "dependencies": {
+    "discord-canvas": "^1.4.1",
+    "discord.js": "^12.5.1",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12"
+  },
+  "engines": {
+    "node": "14.15.4",
+    "npm": "6.14.10"
+  }
+}
