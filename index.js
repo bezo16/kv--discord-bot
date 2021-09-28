@@ -66,6 +66,7 @@ client.once('ready',() => {
 
 client.on('message',message =>{ 
 
+
     // funkcie
     async function sendImageQuote(text,quote) {
 
@@ -241,47 +242,6 @@ client.on('message',message =>{
         message.channel.send(atachment)
     }
 
-    async function sendImageQuote2(text,quoteNum) {
-
-        let imageUrl
-        let textLength = 0
-        let resultText = ''
-        let quoteImage
-        // quoteImage = await fetch('https://picsum.photos/1000')
-        console.log(quoteImage)
-        quoteImage.url = './img/kv1.jpg'
-        imageUrl = quoteImage.url
-
-        const canvas = Canvas.createCanvas(600,600)
-        const ctx = canvas.getContext('2d')
-        const background = await Canvas.loadImage(imageUrl)
-        ctx.drawImage(background,0,0,canvas.width,canvas.height)
-        ctx.filter = 'brightness(80%)'
-
-        let splitedText = text.split(' ')
-        splitedText.forEach((item,index) =>{
-            textLength += item.length
-            if(textLength < 30) {
-                resultText += `${item} `
-            }
-            else {
-                resultText += `\n${item} `
-                textLength = 0
-            }
-        })
-       
-        resultText += `\n\n\n ${quoteNum}`
-        ctx.font="30px tahoma";
-        ctx.shadowColor="black";
-        ctx.shadowBlur=7;
-        ctx.lineWidth=5;
-        ctx.strokeText(resultText,25,100);
-        ctx.shadowBlur=0;
-        ctx.fillStyle="white";
-        ctx.fillText(resultText,25,100);
-        const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'welcomebic.png')
-        message.channel.send(atachment)
-    }
     
     if(message.content.split(" ").length === 2){ 
 
@@ -493,8 +453,9 @@ client.on('message',message =>{
     
     if(secondWord.toLowerCase() === 'r') { 
        let quote = Math.floor(Math.random() * miso.length) 
+       console.log('dlžka is : ' + miso.length)
  
-    sendImageQuote2(miso[quote].quote,miso[quote].author)
+    sendImageQuote(miso[quote].quote,miso[quote].author)
      }
  }               
 
@@ -504,7 +465,32 @@ client.on('message',message =>{
 } 
 
 
+                        /////////////////////////// CUSTOM
+                        /////////////////////////// CUSTOM
+                        /////////////////////////// CUSTOM
+                        /////////////////////////// CUSTOM
+                        /////////////////////////// CUSTOM
+                        /////////////////////////// CUSTOM
 
+
+                        if(message.content.split(' ')[0] === 'customquote' && message.content.includes('"')) {
+                            let text = message.content.slice(message.content.indexOf('"') + 1,message.content.lastIndexOf('"'))
+                            let book = message.content.slice(message.content.indexOf('{') + 1,message.content.indexOf('}'))
+                            sendImageQuote(`${text}`,`${book}`)
+                        }
+
+
+
+
+
+
+                        /////////////////////////// CUSTOM
+                        /////////////////////////// CUSTOM
+                        /////////////////////////// CUSTOM
+                        /////////////////////////// CUSTOM
+                        /////////////////////////// CUSTOM
+                        /////////////////////////// CUSTOM
+                        /////////////////////////// CUSTOM
 
 
 
