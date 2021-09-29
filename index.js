@@ -77,7 +77,7 @@ client.once('ready',() => {
                 console.log(diff)
                 if(diff == 0 && !ekadashiFound) {
                     ekadashiFound = true
-                    client.channels.cache.get('814821228157730826').send(ekadashiText)
+                    client.channels.cache.get('849347945798959124').send(ekadashiText)
                     setTimeout(() => {
                         ekadashiFound = false
                     }, 100000000);
