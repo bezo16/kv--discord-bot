@@ -1,12 +1,14 @@
 require('dotenv').config()
 rkQuotesSb = require('./rk-sb')
- rkQuotesBg = require('./rk-bg')
+rkQuotesBg = require('./rk-bg')
+const ekadashi = require('./eka')
  const { registerFont, createCanvas } = require('canvas') 
 // importy knižnic
 const Discord = require('discord.js')
 const fetch = require('node-fetch');
 const fs = require('fs')
 const Canvas = require('canvas')
+const moment = require('moment')
 // config discord knižnice
 const client = new Discord.Client()
 //
@@ -16,9 +18,6 @@ let cc = JSON.parse(fs.readFileSync(__dirname + '/cc.json'));  // vytiahne data 
 let miso = JSON.parse(fs.readFileSync(__dirname + '/citaty.json'));  
 let bg = JSON.parse(fs.readFileSync(__dirname + '/bg.json'));
 
-sb.forEach(chap => {
-    console.log(chap.length)
-})
 // FONTS 
 registerFont('Gabriola.ttf', { family: 'Comic Sans' })
 
@@ -60,6 +59,38 @@ setInterval(() => {
 }, 7200000);
 
 client.once('ready',() => {   
+    
+    /// EKADASI
+    /// EKADASI
+    /// EKADASI
+
+
+    let ekadashiFound = false
+    // setInterval(() => {
+        if(!ekadashiFound) {
+
+            ekadashi.forEach(eka => {
+                let ekadashiText = `zajtra(${eka.date}) bude ${eka.name} ekadašhi \nprečitajte si viac o ekadaši: ${eka.link}`
+                let date1 = moment(eka.date)
+                let date2 = moment()
+                let diff = date1.diff(date2,'days')
+                console.log(diff)
+                if(diff == 0 && !ekadashiFound) {
+                    ekadashiFound = true
+                    client.channels.cache.get('814821228157730826').send(ekadashiText)
+                    setTimeout(() => {
+                        ekadashiFound = false
+                    }, 100000000);
+                }
+            })
+        }
+        
+        
+    // }, 3600000 * 4);
+
+
+    /// EKADASI
+    /// EKADASI
     
     
 })
@@ -453,7 +484,6 @@ client.on('message',message =>{
     
     if(secondWord.toLowerCase() === 'r') { 
        let quote = Math.floor(Math.random() * miso.length) 
-       console.log('dlžka is : ' + miso.length)
  
     sendImageQuote(miso[quote].quote,miso[quote].author)
      }
@@ -494,6 +524,9 @@ client.on('message',message =>{
                         /////////////////////////// CUSTOM
                         /////////////////////////// CUSTOM
                         /////////////////////////// CUSTOM
+
+
+                    
 
 
 

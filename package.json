@@ -13,6 +13,7 @@
     "discord-canvas": "^1.4.1",
     "discord.js": "^12.5.1",
     "dotenv": "^10.0.0",
+    "moment": "^2.29.1",
     "nodemon": "^2.0.12"
   },
   "engines": {
