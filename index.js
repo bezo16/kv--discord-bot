@@ -70,12 +70,21 @@ client.once('ready',() => {
         if(!ekadashiFound) {
 
             ekadashi.forEach(eka => {
-                let ekadashiText = `zajtra(${eka.date}) bude ${eka.name} ekadašhi \nprečitajte si viac o ekadaši: ${eka.link}`
+                let ekadashiText = ``
                 let date1 = moment(eka.date)
                 let date2 = moment()
                 let diff = date1.diff(date2,'days')
                 console.log(diff)
                 if(diff == 0 && !ekadashiFound) {
+                    ekadashiText = `zajtra(${eka.date}) bude ${eka.name} ekadašhi \nprečitajte si viac o ekadaši: ${eka.link}`
+                    ekadashiFound = true
+                    client.channels.cache.get('849347945798959124').send(ekadashiText)
+                    setTimeout(() => {
+                        ekadashiFound = false
+                    }, 100000000);
+                }
+                if(diff == 3 && !ekadashiFound) {
+                    ekadashiText = `za tri dni(${eka.date}) bude ${eka.name} ekadašhi \nprečitajte si viac o ekadaši: ${eka.link}`
                     ekadashiFound = true
                     client.channels.cache.get('849347945798959124').send(ekadashiText)
                     setTimeout(() => {
