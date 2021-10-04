@@ -16,7 +16,7 @@ const client = new Discord.Client()
 let sb = JSON.parse(fs.readFileSync(__dirname + '/sb2.json'));  // vytiahne data z sb2.json (tam su všetky verše srimadu)
 let cc = JSON.parse(fs.readFileSync(__dirname + '/cc.json'));  // vytiahne data z cc.json (tam su všetky verše srimadu)
 let miso = JSON.parse(fs.readFileSync(__dirname + '/citaty.json'));  
-let bg = JSON.parse(fs.readFileSync(__dirname + '/bg.json'));
+let bg = JSON.parse(fs.readFileSync(__dirname + '/BG-cs.json'));
 
 // FONTS 
 registerFont('Gabriola.ttf', { family: 'Comic Sans' })
@@ -40,7 +40,7 @@ setInterval(() => {
 
             let gitaEmbed = new Discord.MessageEmbed()
             .setColor('#0099ff')
-            .setTitle(bg.bg[chapter - 1][quote - 1].text)
+            .setTitle(bg[chapter - 1][quote - 1])
             .setDescription(`[Bhagavad-Gītā ${chapter}.${quote}](https://vedabase.io/sk/library/bg/${chapter}/${quote}/)`)
             client.channels.cache.get(channelID).send(gitaEmbed)
         } else {
@@ -304,9 +304,9 @@ client.on('message',message =>{
              if(chapter < 1 ) chapter = 1                
              if(chapterText < 1 ) chapterText = 1
              if(chapter > 18) chapter = 18
-             if(chapterText > bg.bg[chapter-1].length) chapterText = bg.bg[chapter-1].length
+             if(chapterText > bg[chapter-1].length) chapterText = bg[chapter-1].length
 
-             let resultText = bg.bg[chapter-1][chapterText-1].text
+             let resultText = bg[chapter-1][chapterText-1]
              if(firstWord.toLowerCase() === 'bgi') sendImageQuote(resultText, `Bhagavad-Gītā ${chapter}.${chapterText}`) 
              else if(firstWord.toLowerCase() === 'bg') {
                  let gitaEmbed = new Discord.MessageEmbed()
@@ -323,8 +323,8 @@ client.on('message',message =>{
             }
             if(secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === 'bg'){ 
                 chapter = Math.floor(Math.random() * 18);   
-                chapterText = Math.floor(Math.random() * bg.bg[chapter].length)
-                let resultText = bg.bg[chapter][chapterText].text
+                chapterText = Math.floor(Math.random() * bg[chapter].length)
+                let resultText = bg[chapter][chapterText]
                 let resultQuote = ` ${chapter +1}.${chapterText +1}`
                 let gitaEmbed = new Discord.MessageEmbed()
                  .setColor('#0099ff')
@@ -334,8 +334,8 @@ client.on('message',message =>{
             }
             if(secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === 'bgi'){ 
                 chapter = Math.floor(Math.random() * 18);   
-                chapterText = Math.floor(Math.random() * bg.bg[chapter].length)
-                let resultText = bg.bg[chapter][chapterText].text
+                chapterText = Math.floor(Math.random() * bg[chapter].length)
+                let resultText = bg[chapter][chapterText]
                 let resultQuote = `Bhagavad-Gītā ${chapter +1}.${chapterText +1}`
                 sendImageQuote(resultText,resultQuote)
             }
@@ -351,14 +351,14 @@ client.on('message',message =>{
                 let selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length )].split('.')
                 let chapter = selectedQuoteBg[0]
                 let quote = selectedQuoteBg[1]
-                 message.channel.send(`${bg.bg[chapter -1][quote -1].text}  Bhagavad-Gītā ** ${chapter}.${quote} ** `)
+                 message.channel.send(`${bg[chapter -1][quote -1].text}  Bhagavad-Gītā ** ${chapter}.${quote} ** `)
             }
 
             if(secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === 'bgi') {
                 let selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length )].split('.')
                 let chapter = selectedQuoteBg[0]
                 let quote = selectedQuoteBg[1]
-                sendImageQuote(`${bg.bg[chapter -1][quote -1].text}`,`Bhagavad-Gītā ${chapter}.${quote}`)
+                sendImageQuote(`${bg[chapter -1][quote -1]}`,`Bhagavad-Gītā ${chapter}.${quote}`)
             }
 }
 
