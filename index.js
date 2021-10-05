@@ -81,7 +81,7 @@ client.once('ready',() => {
                     client.channels.cache.get('849347945798959124').send(ekadashiText)
                     setTimeout(() => {
                         ekadashiFound = false
-                    }, 100000000);
+                    }, 86400000);
                 }
                 if(diff == 3 && !ekadashiFound) {
                     ekadashiText = `za tri dni(${eka.date}) bude ${eka.name} ekadašhi \nprečitajte si viac o ekadaši: ${eka.link}`
@@ -89,7 +89,7 @@ client.once('ready',() => {
                     client.channels.cache.get('849347945798959124').send(ekadashiText)
                     setTimeout(() => {
                         ekadashiFound = false
-                    }, 100000000);
+                    }, 86400000);
                 }
             })
         }
