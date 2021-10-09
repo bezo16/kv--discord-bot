@@ -536,7 +536,7 @@ client.on('message',message =>{
                           path: "foo.png"
                         });
                       
-                        await browser.close();
+                        await browser.close(); 
 
                         const screenshot = await Canvas.loadImage('./foo.png')
                         const canvas = Canvas.createCanvas(800,1220)
