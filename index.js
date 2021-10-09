@@ -544,6 +544,7 @@ client.on('message',message =>{
                         ctx.drawImage(screenshot,0,0,canvas.width,canvas.height)
                         const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'screenshot.png')
                         message.channel.send(atachment)
+                        message.channel.send('testik')
                         fs.unlink('./foo.png',() => {})
                     })();
                     
