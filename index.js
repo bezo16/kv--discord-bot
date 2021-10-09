@@ -9,6 +9,8 @@ const fetch = require('node-fetch');
 const fs = require('fs')
 const Canvas = require('canvas')
 const moment = require('moment')
+const puppeteer = require("puppeteer");
+const fullScreenshot = require("fullpage-puppeteer-screenshot");
 // config discord knižnice
 const client = new Discord.Client()
 //
@@ -501,39 +503,63 @@ client.on('message',message =>{
                       
 
 
+ 
+ 
+                                           /////////////////////////// CUSTOM
+                                           /////////////////////////// CUSTOM
+                                           /////////////////////////// CUSTOM
+                                           /////////////////////////// CUSTOM
+                                           /////////////////////////// CUSTOM
+                                           /////////////////////////// CUSTOM
+ 
+ 
+                if(message.content.split(' ')[0].toLowerCase() === 'customquote' && message.content.includes('"') && message.content.includes('{') && message.content.includes('}')) {
+                    let text = message.content.slice(message.content.indexOf('"') + 1,message.content.lastIndexOf('"'))
+                    let book = message.content.slice(message.content.indexOf('{') + 1,message.content.indexOf('}'))
+                    sendImageQuote(`${text}`,`${book}`)
+                    setTimeout(() => {
+                        message.delete()
+                       }, 2000);
+                   }
+                   
+                   
+                   
+                   if(secondWord.toLowerCase() === 'events' && firstWord.toLowerCase() === 'kv') {
+                    (async () => {
+                        const browser = await puppeteer.launch();
+                        const page = await browser.newPage();
+                        await page.goto("https://objective-archimedes-06e9ca.netlify.app/", {
+                          waitUntil: "networkidle2"
+                        });
+                      
+                        await fullScreenshot(page, {
+                          path: "foo.png"
+                        });
+                      
+                        await browser.close();
+
+                        const screenshot = await Canvas.loadImage('./foo.png')
+                        const canvas = Canvas.createCanvas(800,1220)
+                        const ctx = canvas.getContext('2d')
+                        ctx.drawImage(screenshot,0,0,canvas.width,canvas.height)
+                        const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'screenshot.png')
+                        message.channel.send(atachment)
+                        fs.unlink('./foo.png',() => {})
+                    })();
+                    
+                    
+                    
+                }
+    
+                                             /////////////////////////// CUSTOM
+                                             /////////////////////////// CUSTOM
+                                             /////////////////////////// CUSTOM
+                                             /////////////////////////// CUSTOM
+                                             /////////////////////////// CUSTOM
+                                             /////////////////////////// CUSTOM
+                                             /////////////////////////// CUSTOM
+
 } 
-
-
-                        /////////////////////////// CUSTOM
-                        /////////////////////////// CUSTOM
-                        /////////////////////////// CUSTOM
-                        /////////////////////////// CUSTOM
-                        /////////////////////////// CUSTOM
-                        /////////////////////////// CUSTOM
-
-
-                        if(message.content.split(' ')[0].toLowerCase() === 'customquote' && message.content.includes('"') && message.content.includes('{') && message.content.includes('}')) {
-                            let text = message.content.slice(message.content.indexOf('"') + 1,message.content.lastIndexOf('"'))
-                            let book = message.content.slice(message.content.indexOf('{') + 1,message.content.indexOf('}'))
-                            sendImageQuote(`${text}`,`${book}`)
-                            setTimeout(() => {
-                                message.delete()
-                            }, 2000);
-                        }
-
-
-
-
-
-
-                        /////////////////////////// CUSTOM
-                        /////////////////////////// CUSTOM
-                        /////////////////////////// CUSTOM
-                        /////////////////////////// CUSTOM
-                        /////////////////////////// CUSTOM
-                        /////////////////////////// CUSTOM
-                        /////////////////////////// CUSTOM
-
 
                     
 
