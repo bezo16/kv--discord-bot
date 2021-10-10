@@ -19,6 +19,7 @@ let sb = JSON.parse(fs.readFileSync(__dirname + '/sb2.json'));  // vytiahne data
 let cc = JSON.parse(fs.readFileSync(__dirname + '/cc.json'));  // vytiahne data z cc.json (tam su všetky verše srimadu)
 let miso = JSON.parse(fs.readFileSync(__dirname + '/citaty.json'));  
 let bg = JSON.parse(fs.readFileSync(__dirname + '/BG-cs.json'));
+let bgsk = JSON.parse(fs.readFileSync(__dirname + '/BG-sk.json'));
 
 // FONTS 
 registerFont('Gabriola.ttf', { family: 'Comic Sans' })
@@ -297,7 +298,7 @@ client.on('message',message =>{
 
         let firstWord = message.content.split(" ")[0]  
         let secondWord = message.content.split(" ")[1]  
-    if( firstWord.toLowerCase() === 'bg' || firstWord.toLowerCase() === 'bgi') {
+    if( firstWord.toLowerCase() === 'bg' || firstWord.toLowerCase() === 'bgi' || firstWord.toLowerCase() === 'bgsk') {
         if(secondWord.includes('.')  && secondWord.charAt(0) != '.' && secondWord.charAt(secondWord.length-1) != '.' ){ 
             let splitSecondWord = secondWord.split(".")
             let chapter = splitSecondWord[0]           
@@ -308,9 +309,13 @@ client.on('message',message =>{
              if(chapter > 18) chapter = 18
              if(chapterText > bg[chapter-1].length) chapterText = bg[chapter-1].length
 
+             // LANGUAGES
+             
              let resultText = bg[chapter-1][chapterText-1]
+             if(firstWord.toLowerCase() === 'bgsk') resultText = bgsk[chapter-1][chapterText-1]
+
              if(firstWord.toLowerCase() === 'bgi') sendImageQuote(resultText, `Bhagavad-Gītā ${chapter}.${chapterText}`) 
-             else if(firstWord.toLowerCase() === 'bg') {
+             else if(firstWord.toLowerCase() === 'bg' || firstWord.toLowerCase() === 'bgsk') {
                  let gitaEmbed = new Discord.MessageEmbed()
                  .setColor('#0099ff')
 	             .setTitle( resultText)
@@ -363,6 +368,8 @@ client.on('message',message =>{
                 sendImageQuote(`${bg[chapter -1][quote -1]}`,`Bhagavad-Gītā ${chapter}.${quote}`)
             }
 }
+
+
 
 
 
