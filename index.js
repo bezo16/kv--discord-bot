@@ -525,29 +525,28 @@ client.on('message',message =>{
                    
                    
                    if(secondWord.toLowerCase() === 'events' && firstWord.toLowerCase() === 'kv') {
-                    // (async () => {
-                    //     const browser = await puppeteer.launch();
-                    //     const page = await browser.newPage();
-                    //     await page.goto("https://objective-archimedes-06e9ca.netlify.app/", {
-                    //       waitUntil: "networkidle2"
-                    //     });
+                    async function sendScreen()  {
+                        const browser = await puppeteer.launch();
+                        const page = await browser.newPage();
+                        await page.goto("https://objective-archimedes-06e9ca.netlify.app/", {
+                          waitUntil: "networkidle2"
+                        });
                       
-                    //     await fullScreenshot(page, {
-                    //       path: "foo.png"
-                    //     });
+                        await fullScreenshot(page, {
+                          path: "foo.png"
+                        });
                       
-                    //     await browser.close(); 
+                        await browser.close(); 
 
-                    //     const screenshot = await Canvas.loadImage('./foo.png')
-                    //     const canvas = Canvas.createCanvas(800,1220)
-                    //     const ctx = canvas.getContext('2d')
-                    //     ctx.drawImage(screenshot,0,0,canvas.width,canvas.height)
-                    //     const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'screenshot.png')
-                    //     message.channel.send(atachment)
-                    //     fs.unlink('./foo.png',() => {})
-                    // })();
+                        const screenshot = await Canvas.loadImage('./foo.png')
+                        const canvas = Canvas.createCanvas(800,1220)
+                        const ctx = canvas.getContext('2d')
+                        ctx.drawImage(screenshot,0,0,canvas.width,canvas.height)
+                        const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'screenshot.png')
+                        message.channel.send(atachment)
+                        fs.unlink('./foo.png',() => {})
+                    } sendScreen()
                     
-                    message.channel.send('testik')
                     
                     
                 }
