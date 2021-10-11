@@ -510,27 +510,14 @@ client.on('message',message =>{
                       
 
 
- 
- 
-                                           /////////////////////////// CUSTOM
-                                           /////////////////////////// CUSTOM
-                                           /////////////////////////// CUSTOM
-                                           /////////////////////////// CUSTOM
-                                           /////////////////////////// CUSTOM
-                                           /////////////////////////// CUSTOM
- 
- 
-                if(message.content.split(' ')[0].toLowerCase() === 'customquote' && message.content.includes('"') && message.content.includes('{') && message.content.includes('}')) {
-                    let text = message.content.slice(message.content.indexOf('"') + 1,message.content.lastIndexOf('"'))
-                    let book = message.content.slice(message.content.indexOf('{') + 1,message.content.indexOf('}'))
-                    sendImageQuote(`${text}`,`${book}`)
-                    setTimeout(() => {
-                        message.delete()
-                       }, 2000);
-                   }
-                   
-                   
-                   
+                                           /////////////////////////// EVENTS
+                                           /////////////////////////// EVENTS
+                                           /////////////////////////// EVENTS
+                                           /////////////////////////// EVENTS
+
+
+
+                              
                    if(secondWord.toLowerCase() === 'events' && firstWord.toLowerCase() === 'kv') {
                     async function sendScreen()  {
                         const browser = await puppeteer.launch();
@@ -554,10 +541,10 @@ client.on('message',message =>{
                         fs.unlink('./foo.png',() => {})
                     } sendScreen()
                 }
-
+                
                 if(secondWord.toLowerCase().includes('events') && firstWord.toLowerCase() === 'kv' && !isNaN(secondWord.charAt(6)) && secondWord.length > 6) {
-
-
+                    
+                    
                     let year = secondWord.slice(6,8)
                     let month = secondWord.slice(8)
 
@@ -585,6 +572,36 @@ client.on('message',message =>{
                         fs.unlink('./foo.png',() => {})
                     } sendScreenDate()
                 }
+
+
+
+
+                                           /////////////////////////// EVENTS
+                                           /////////////////////////// EVENTS
+                                           /////////////////////////// EVENTS
+                                           /////////////////////////// EVENTS
+ 
+ 
+} 
+                                           /////////////////////////// CUSTOM
+                                           /////////////////////////// CUSTOM
+                                           /////////////////////////// CUSTOM
+                                           /////////////////////////// CUSTOM
+                                           /////////////////////////// CUSTOM
+                                           /////////////////////////// CUSTOM
+ 
+ 
+                if(message.content.split(' ')[0].toLowerCase() === 'customquote' && message.content.includes('"') && message.content.includes('{') && message.content.includes('}')) {
+                    let text = message.content.slice(message.content.indexOf('"') + 1,message.content.lastIndexOf('"'))
+                    let book = message.content.slice(message.content.indexOf('{') + 1,message.content.indexOf('}'))
+                    console.log(text,book)
+                    sendImageQuote(`${text}`,`${book}`)
+                    setTimeout(() => {
+                        message.delete()
+                       }, 2000);
+                   }
+                   
+                   
     
                                              /////////////////////////// CUSTOM
                                              /////////////////////////// CUSTOM
@@ -594,7 +611,6 @@ client.on('message',message =>{
                                              /////////////////////////// CUSTOM
                                              /////////////////////////// CUSTOM
 
-} 
 
                     
 
