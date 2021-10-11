@@ -298,7 +298,7 @@ client.on('message',message =>{
 
         let firstWord = message.content.split(" ")[0]  
         let secondWord = message.content.split(" ")[1]  
-    if( firstWord.toLowerCase() === 'bg' || firstWord.toLowerCase() === 'bgi' || firstWord.toLowerCase() === 'bgsk') {
+    if( firstWord.toLowerCase() === 'bg' || firstWord.toLowerCase() === 'bgi' || firstWord.toLowerCase() === 'bgsk' || firstWord.toLowerCase() === 'bgisk') {
         if(secondWord.includes('.')  && secondWord.charAt(0) != '.' && secondWord.charAt(secondWord.length-1) != '.' ){ 
             let splitSecondWord = secondWord.split(".")
             let chapter = splitSecondWord[0]           
@@ -312,9 +312,9 @@ client.on('message',message =>{
              // LANGUAGES
              
              let resultText = bg[chapter-1][chapterText-1]
-             if(firstWord.toLowerCase() === 'bgsk') resultText = bgsk[chapter-1][chapterText-1]
+             if(firstWord.toLowerCase() === 'bgsk' || firstWord.toLowerCase() === 'bgisk') resultText = bgsk[chapter-1][chapterText-1]
 
-             if(firstWord.toLowerCase() === 'bgi') sendImageQuote(resultText, `Bhagavad-Gītā ${chapter}.${chapterText}`) 
+             if(firstWord.toLowerCase() === 'bgi' || firstWord.toLowerCase() === 'bgisk') sendImageQuote(resultText, `Bhagavad-Gītā ${chapter}.${chapterText}`) 
              else if(firstWord.toLowerCase() === 'bg' || firstWord.toLowerCase() === 'bgsk') {
                  let gitaEmbed = new Discord.MessageEmbed()
                  .setColor('#0099ff')
