@@ -520,7 +520,8 @@ client.on('message',message =>{
                               
                    if(secondWord.toLowerCase() === 'events' && firstWord.toLowerCase() === 'kv') {
                     async function sendScreen()  {
-                        const browser = await puppeteer.launch();
+                        const browser = await puppeteer.launch({headless: true,
+                            args: ['--no-sandbox']});
                         const page = await browser.newPage();
                         await page.goto("https://objective-archimedes-06e9ca.netlify.app/?st=1", {
                           waitUntil: "networkidle2"
@@ -551,7 +552,8 @@ client.on('message',message =>{
                     console.log(year,month)
 
                     async function sendScreenDate()  {
-                        const browser = await puppeteer.launch();
+                        const browser = await puppeteer.launch({headless: true,
+                            args: ['--no-sandbox']});
                         const page = await browser.newPage();
                         await page.goto(`https://objective-archimedes-06e9ca.netlify.app/?date=20${year}-${month}-01&st=1`, {
                           waitUntil: "networkidle2"
