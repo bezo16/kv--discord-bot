@@ -69,7 +69,7 @@ client.once('ready',() => {
 
 
     let ekadashiFound = false
-    // setInterval(() => {
+    setInterval(() => {
         if(!ekadashiFound) {
 
             ekadashi.forEach(eka => {
@@ -79,26 +79,44 @@ client.once('ready',() => {
                 let diff = date1.diff(date2,'days')
                 console.log(diff)
                 if(diff == 0 && !ekadashiFound) {
-                    ekadashiText = `zajtra(${eka.date}) bude ${eka.name} ekadašhi \nprečitajte si viac o ekadaši: ${eka.link}`
+                    ekadashiText = `Dnes (${eka.date.split('-')[2]}.${eka.date.split('-')[1]}.${eka.date.split('-')[0]}) bude ${eka.name}, prečítajte si viac: ${eka.link}`
                     ekadashiFound = true
                     client.channels.cache.get('849347945798959124').send(ekadashiText)
                     setTimeout(() => {
                         ekadashiFound = false
-                    }, 86400000);
+                    }, 8640000);
                 }
-                if(diff == 3 && !ekadashiFound) {
-                    ekadashiText = `za tri dni(${eka.date}) bude ${eka.name} ekadašhi \nprečitajte si viac o ekadaši: ${eka.link}`
+                if(diff == 1 && !ekadashiFound) {
+                    ekadashiText = `Zajtra (${eka.date.split('-')[2]}.${eka.date.split('-')[1]}.${eka.date.split('-')[0]}) bude ${eka.name}, prečítajte si viac: ${eka.link}`
                     ekadashiFound = true
                     client.channels.cache.get('849347945798959124').send(ekadashiText)
                     setTimeout(() => {
                         ekadashiFound = false
-                    }, 86400000);
+                    }, 8640000);
                 }
             })
         }
         
         
-    // }, 3600000 * 4);
+    }, 3600000 * 4);
+
+    setInterval(() => {
+        
+        ekadashi.forEach(eka => {
+            if(eka.end) {
+
+                let end = moment(eka.end)
+                if(end.month() === moment().month() && end.day() === moment().day() && end.hours() === moment().hours() && end.minutes() === moment().minutes() ) {
+                    let startDva = Number(eka.end.split(' ')[1].split(':')[0]) * 60 + Number(eka.end.split(' ')[1].split(':')[1])    
+                    let endDva = Number(eka.break.split(':')[0] * 60) + Number(eka.break.split(':')[1])
+                    let minutesLeft = endDva - startDva 
+                    console.log(`ekadaši konči!! na ukončenie maš ${minutesLeft}minut (${eka.end.split(' ')[1]}-${eka.end})`)
+                }
+                
+            }
+        })
+        
+    }, 4000);
 
 
     /// EKADASI
@@ -207,6 +225,15 @@ client.on('message',message =>{
             posY = 75
             posYChange = 42
             charLength = 42
+        }
+
+        // 1000 - 1100
+        if(text.length > 1000 && text.length <= 1100 ) {
+
+            ctx.font="24px Gabriola";
+            posY = 85
+            posYChange = 35
+            charLength = 66
         }
 
 
@@ -346,21 +373,12 @@ client.on('message',message =>{
                 let resultQuote = `Bhagavad-Gītā ${chapter +1}.${chapterText +1}`
                 sendImageQuote(resultText,resultQuote)
             }
-            if(secondWord ==='?' && firstWord.toLowerCase() === 'bg'){        
-                message.channel.send('bg x.y (x = čislo kapitoly,y = čislo verša) \nbg k (vypis kapitol s popisom každej kapitoly) \nbg r (náhodny verš) \nbg i (info o bhaghavad gite)')
-            }
-            if(secondWord.toLowerCase() ==='i' && firstWord.toLowerCase() === 'bg'){    
-                message.channel.send('Bhagavad gítá je jedna z najvýznamnejších posvätných kníh hinduizmu. Niekedy býva dokonca označovaná za „Bibliu hinduizmu“, pretože ju ako autoritu prijímajú všetky hlavné filozofické tradície (daršany). Obyčajne sa chápe ako samostatná kniha, ale je vlastne súčasťou rozsiahleho staroindického eposu Mahábhárata (konkrétne kapitoly 25-42 knihy Bhíšmaparvan). Je rozdelená na 18 spevov a dohromady má 700 veršov. Jej význam vo vývoji indického myslenia je vskutku veľký. \nhttps://vedabase.io/sk/library/bg/')
-
-            }
-            
             if(secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === 'bg') {
                 let selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length )].split('.')
                 let chapter = selectedQuoteBg[0]
                 let quote = selectedQuoteBg[1]
                  message.channel.send(`${bg[chapter -1][quote -1].text}  Bhagavad-Gītā ** ${chapter}.${quote} ** `)
             }
-
             if(secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === 'bgi') {
                 let selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length )].split('.')
                 let chapter = selectedQuoteBg[0]
@@ -491,23 +509,8 @@ client.on('message',message =>{
           message.channel.send(`${chapter[quoteNum]} ** ${cantoNum+1}.${chapterNum+1}.${quoteNum+1} ** `)
         }
     }
-                            ///////////////////////////// mišo  /////////////////////////////////////////
-                            ///////////////////////////// mišo  /////////////////////////////////////////
-                            ///////////////////////////// mišo  /////////////////////////////////////////
-                            ///////////////////////////// mišo  /////////////////////////////////////////
-                            ///////////////////////////// mišo  /////////////////////////////////////////
-                            ///////////////////////////// mišo  /////////////////////////////////////////
+                       
              
-   if(firstWord.toLowerCase() === 'miso') {
-    
-    if(secondWord.toLowerCase() === 'r') { 
-       let quote = Math.floor(Math.random() * miso.length) 
- 
-    sendImageQuote(miso[quote].quote,miso[quote].author)
-     }
- }               
-
-                      
 
 
                                            /////////////////////////// EVENTS
