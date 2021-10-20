@@ -17,7 +17,9 @@ let eka = [
         { 
         name: 'Ramá ékádaší',
         date: '2021-11-01',
-        link: 'https://yogapit.sk/program/rama-ekadasi/'
+        link: 'https://yogapit.sk/program/rama-ekadasi/',
+        end:  '2021-11-02 06:38',
+        break: '07:03'
      },
         
         { 
