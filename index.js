@@ -110,13 +110,13 @@ client.once('ready',() => {
                     let startDva = Number(eka.end.split(' ')[1].split(':')[0]) * 60 + Number(eka.end.split(' ')[1].split(':')[1])    
                     let endDva = Number(eka.break.split(':')[0] * 60) + Number(eka.break.split(':')[1])
                     let minutesLeft = endDva - startDva 
-                    console.log(`ekadaši konči!! na ukončenie maš ${minutesLeft}minut (${eka.end.split(' ')[1]}-${eka.end})`)
+                    client.channels.cache.get('849347945798959124').send(`ekadaši konči!! na ukončenie maš ${minutesLeft}minut (${eka.end.split(' ')[1]}-${eka.end})`)
                 }
                 
             }
         })
         
-    }, 4000);
+    }, 60000);
 
 
     /// EKADASI
