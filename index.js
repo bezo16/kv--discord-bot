@@ -248,6 +248,7 @@ client.on('message',message =>{
 
                     if(letter === String.fromCharCode(7779)) item += 's'
                     else if(letter === 'ṇ') item += 'n'
+                    else if(letter === 'ṅ') item += 'n'
                     else if(letter === 'Ṛ') item += 'R'
                     else if(letter === 'ṛ') item += 'r'
                     else if(letter === 'ṭ') item += 't'
