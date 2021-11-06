@@ -533,7 +533,7 @@ client.on('message',message =>{
                 if(canto > 12) canto = 12
                 if(cc[canto -1].length  < chapter) chapter = cc[canto -1].length
                 if(cc[canto -1][chapter -1].length  < quote) quote = cc[canto -1][chapter -1].length
-                 sendImageQuote(cc[canto -1][chapter -1][quote -1],`Śrī Caitanya-caritāmrta ${canto}.${chapter}.${quote}`)
+                 sendImageQuote(cc[canto -1][chapter -1][quote -1],`Śrī Caitanya-Caritāmrta ${canto}.${chapter}.${quote}`)
                  }
              }
      
@@ -543,7 +543,7 @@ client.on('message',message =>{
            let chapterNum = Math.floor(Math.random() * canto.length)
            let chapter = canto[chapterNum]
            let quoteNum = Math.floor(Math.random() * chapter.length)
-           sendImageQuote(chapter[quoteNum],`Śrī Caitanya-caritāmrta ${cantoNum +1}.${chapterNum +1}.${quoteNum +1}`)
+           sendImageQuote(chapter[quoteNum],`Śrī Caitanya-Caritāmrta ${cantoNum +1}.${chapterNum +1}.${quoteNum +1}`)
          }
      }
                        
