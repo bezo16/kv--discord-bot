@@ -4,7 +4,7 @@ let eka = [
         name: 'Indíra ékádaší',
         date: '2021-10-02',
         link: 'https://yogapit.sk/program/indira-ekadasi/',
-        end: '2021-10-20 11:24',
+        end: '2021-10-25 12:15',
         break: '12:25',
      },
         

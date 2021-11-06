@@ -78,7 +78,7 @@ client.once('ready',() => {
                 let date2 = moment()
                 let diff = date1.diff(date2,'days')
                 console.log(diff)
-                if(diff == 0 && !ekadashiFound) {
+                if(diff == 0 && !ekadashiFound ) {
                     ekadashiText = `Dnes (${eka.date.split('-')[2]}.${eka.date.split('-')[1]}.${eka.date.split('-')[0]}) bude ${eka.name}, prečítajte si viac: ${eka.link}`
                     ekadashiFound = true
                     client.channels.cache.get('849347945798959124').send(ekadashiText)
@@ -86,19 +86,19 @@ client.once('ready',() => {
                         ekadashiFound = false
                     }, 8640000);
                 }
-                if(diff == 1 && !ekadashiFound) {
+                if(diff == 1 && !ekadashiFound && date1.hours() === 19) {
                     ekadashiText = `Zajtra (${eka.date.split('-')[2]}.${eka.date.split('-')[1]}.${eka.date.split('-')[0]}) bude ${eka.name}, prečítajte si viac: ${eka.link}`
                     ekadashiFound = true
                     client.channels.cache.get('849347945798959124').send(ekadashiText)
                     setTimeout(() => {
                         ekadashiFound = false
-                    }, 8640000);
+                    }, 3600000);
                 }
             })
         }
         
         
-    }, 3600000 * 4);
+    }, 3600000);
 
     setInterval(() => {
         
@@ -110,7 +110,7 @@ client.once('ready',() => {
                     let startDva = Number(eka.end.split(' ')[1].split(':')[0]) * 60 + Number(eka.end.split(' ')[1].split(':')[1])    
                     let endDva = Number(eka.break.split(':')[0] * 60) + Number(eka.break.split(':')[1])
                     let minutesLeft = endDva - startDva 
-                    client.channels.cache.get('849347945798959124').send(`ekadaši konči!! na ukončenie maš ${minutesLeft}minut (${eka.end.split(' ')[1]}-${eka.end})`)
+                    client.channels.cache.get('849347945798959124').send(`ekadaši konči!! na ukončenie maš ${minutesLeft}minut (${eka.end.split(' ')[1].split('-')[0]}-${eka.break})`)
                 }
                 
             }
@@ -158,7 +158,7 @@ client.on('message',message =>{
         console.log('text : ' + text.length)
         let textWidth = null
 
-        // DEFAULT 0 - 100
+        //  0 - 100
         ctx.font="54px Gabriola";
         let posY = 160
         let posYChange = 72 
@@ -225,6 +225,15 @@ client.on('message',message =>{
             posY = 75
             posYChange = 42
             charLength = 42
+        }
+         
+        // 601 - 700
+        if(text.length > 600 && text.length <= 700 ) {
+        
+        ctx.font="30px Gabriola";
+        posY = 75
+        posYChange = 41
+        charLength = 44
         }
 
         // 1000 - 1100
@@ -510,6 +519,33 @@ client.on('message',message =>{
           message.channel.send(`${chapter[quoteNum]} ** ${cantoNum+1}.${chapterNum+1}.${quoteNum+1} ** `)
         }
     }
+
+
+    if(firstWord.toLowerCase() === 'cci') {
+        if(secondWord.charAt(0) !== '.' && secondWord.charAt(secondWord.length -1) !== '.' && secondWord.includes('.')) { 
+            let canto = secondWord.split('.')[0]
+            let chapter = secondWord.split('.')[1]
+            let quote = secondWord.split('.')[2]
+            if(!isNaN(canto) && !isNaN(chapter) && !isNaN(quote)) { 
+                if(canto < 1) canto = 1
+                if(chapter < 1) chapter = 1
+                if(quote < 1) quote = 1
+                if(canto > 12) canto = 12
+                if(cc[canto -1].length  < chapter) chapter = cc[canto -1].length
+                if(cc[canto -1][chapter -1].length  < quote) quote = cc[canto -1][chapter -1].length
+                 sendImageQuote(cc[canto -1][chapter -1][quote -1],`Śrī Caitanya-caritāmrta ${canto}.${chapter}.${quote}`)
+                 }
+             }
+     
+        if(secondWord.toLowerCase() === 'r') { 
+           let cantoNum = Math.floor(Math.random() * 3)    
+           let canto = cc[cantoNum]
+           let chapterNum = Math.floor(Math.random() * canto.length)
+           let chapter = canto[chapterNum]
+           let quoteNum = Math.floor(Math.random() * chapter.length)
+           sendImageQuote(chapter[quoteNum],`Śrī Caitanya-caritāmrta ${cantoNum +1}.${chapterNum +1}.${quoteNum +1}`)
+         }
+     }
                        
              
 
