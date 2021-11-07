@@ -1,7 +1,8 @@
 require('dotenv').config()
-rkQuotesSb = require('./rk-sb')
-rkQuotesBg = require('./rk-bg')
-const ekadashi = require('./eka')
+rkQuotesSb = require('./data/rk-sb')
+rkQuotesBg = require('./data/rk-bg')
+const ekadashi = require('./data/eka')
+const resize = require('./resizes')
  const { registerFont, createCanvas } = require('canvas') 
 // importy knižnic
 const Discord = require('discord.js')
@@ -15,11 +16,11 @@ const fullScreenshot = require("fullpage-puppeteer-screenshot");
 const client = new Discord.Client()
 //
 
-let sb = JSON.parse(fs.readFileSync(__dirname + '/sb2.json'));  // vytiahne data z sb2.json (tam su všetky verše srimadu)
-let cc = JSON.parse(fs.readFileSync(__dirname + '/cc.json'));  // vytiahne data z cc.json (tam su všetky verše srimadu)
-let miso = JSON.parse(fs.readFileSync(__dirname + '/citaty.json'));  
-let bg = JSON.parse(fs.readFileSync(__dirname + '/BG-cs.json'));
-let bgsk = JSON.parse(fs.readFileSync(__dirname + '/BG-sk.json'));
+let sb = JSON.parse(fs.readFileSync(__dirname + '/data/sb2.json'));  // vytiahne data z sb2.json (tam su všetky verše srimadu)
+let cc = JSON.parse(fs.readFileSync(__dirname + '/data/cc.json'));  // vytiahne data z cc.json (tam su všetky verše srimadu)
+let miso = JSON.parse(fs.readFileSync(__dirname + '/data/citaty.json'));  
+let bg = JSON.parse(fs.readFileSync(__dirname + '/data/BG-cs.json'));
+let bgsk = JSON.parse(fs.readFileSync(__dirname + '/data/BG-sk.json'));
 
 // FONTS 
 registerFont('Gabriola.ttf', { family: 'Comic Sans' })
@@ -134,6 +135,7 @@ client.on('message',message =>{
         let imageUrl
         let textLength = 0
         let resultText = ''
+        let textWidth = null
         // let quoteImage = await fetch('https://picsum.photos/600')
         let quoteImage = {url:''}
         let randomNum = Math.floor(Math.random() * 64) + 1
@@ -154,98 +156,16 @@ client.on('message',message =>{
         ctx.drawImage(background2,( 350 - (logoWidth / 2)),canvas.height - 85,logoWidth,logoHeight)
 
 
-        // SIZES  SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES
         console.log('text : ' + text.length)
-        let textWidth = null
+        // SIZES  SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES
+        let resizeValues = {
 
-        //  0 - 100
-        ctx.font="54px Gabriola";
-        let posY = 160
-        let posYChange = 72 
-        let charLength = 20
-
-        // 101 - 200
-        if(text.length > 100 && text.length <= 150 ) {
-
-            ctx.font="54px Gabriola";
-            posY = 170
-            posYChange = 64 
-            charLength = 24
+             posY : 160,
+             posYChange : 72,
+             charLength : 20,
         }
 
-        // 151 - 200
-        if(text.length > 150 && text.length <= 200 ) {
-
-            ctx.font="49px Gabriola";
-            posY = 120
-            posYChange = 59 
-            charLength = 24
-        }
-
-        // 201 - 350
-        if(text.length > 200 && text.length <= 250 ) {
-
-            ctx.font="44px Gabriola";
-            posY = 110
-            posYChange = 54
-            charLength = 25
-        }
-
-        // 251 - 300
-        if(text.length > 250 && text.length <= 300 ) {
-
-            ctx.font="40px Gabriola";
-            posY = 120
-            posYChange = 50
-            charLength = 26
-        }
-
-        // 301 - 400
-        if(text.length > 300 && text.length <= 400 ) {
-
-            ctx.font="38px Gabriola";
-            posY = 110
-            posYChange = 46
-            charLength = 30
-        }
-
-        // 401 - 500
-        if(text.length > 400 && text.length <= 500 ) {
-
-            ctx.font="36px Gabriola";
-            posY = 90
-            posYChange = 46
-            charLength = 44
-        }
-
-        // 501 - 600
-        if(text.length > 500 && text.length <= 600 ) {
-
-            ctx.font="32px Gabriola";
-            posY = 75
-            posYChange = 42
-            charLength = 42
-        }
-         
-        // 601 - 700
-        if(text.length > 600 && text.length <= 700 ) {
-        
-        ctx.font="30px Gabriola";
-        posY = 75
-        posYChange = 41
-        charLength = 44
-        }
-
-        // 1000 - 1100
-        if(text.length > 1000 && text.length <= 1100 ) {
-
-            ctx.font="24px Gabriola";
-            posY = 85
-            posYChange = 35
-            charLength = 66
-        }
-
-
+        resize(text,ctx,resizeValues)
         //  SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES END
        
         let splitedText = text.split(' ')
@@ -265,7 +185,7 @@ client.on('message',message =>{
                     else item += letter
                 }) 
 
-            if(textLength < charLength) {
+            if(textLength < resizeValues.charLength) {
                 resultText += `${item} `
                 if(index === splitedText.length - 1) {
                     console.log('jj')
@@ -274,12 +194,12 @@ client.on('message',message =>{
                     ctx.shadowColor="black";
                     ctx.shadowBlur= 5;
                     ctx.lineWidth= 4;
-                    ctx.strokeText(resultText,((350) - (textWidth.width / 2)),posY);
+                    ctx.strokeText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
                     ctx.shadowBlur=0;
                     ctx.fillStyle="white";
-                    ctx.fillText(resultText,((350) - (textWidth.width / 2)),posY);
+                    ctx.fillText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
                     resultText = ''
-                    posY += posYChange
+                    resizeValues.posY += resizeValues.posYChange
                 }
             }
             else {
@@ -289,12 +209,12 @@ client.on('message',message =>{
                 ctx.shadowColor="black";
                 ctx.shadowBlur=8;
                 ctx.lineWidth=3;
-                ctx.strokeText(resultText,((350) - (textWidth.width / 2)),posY);
+                ctx.strokeText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
                 ctx.shadowBlur=0;
                 ctx.fillStyle="white";
-                ctx.fillText(resultText,((350) - (textWidth.width / 2)),posY);
+                ctx.fillText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
                 resultText = ''
-                posY += posYChange
+                resizeValues.posY += resizeValues.posYChange
             }
         })
         
@@ -302,14 +222,14 @@ client.on('message',message =>{
         
         
         
-        posY += (posYChange * 0.35)
+        resizeValues.posY += (resizeValues.posYChange * 0.35)
         ctx.font="30px Gabriola";
         ctx.shadowBlur = 0;
         
         let quoteText = quote
         textWidth = ctx.measureText(quoteText)
         
-        ctx.fillText(quoteText,((350) - (textWidth.width / 2)),posY );
+        ctx.fillText(quoteText,((350) - (textWidth.width / 2)),resizeValues.posY );
         
         
         ctx.font="26px Gabriola";
