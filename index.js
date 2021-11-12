@@ -129,6 +129,17 @@ client.once('ready',() => {
 client.on('message',message =>{ 
 
 
+
+    if(message.content === 'testikfajnovy') {
+        rkQuotesBg.forEach(text => {
+            let chapter = Number(text.split('.')[0])
+            let quote = Number(text.split('.')[1])
+            console.log(chapter,quote)
+            message.channel.send(bg[chapter - 1][quote - 1])
+        })
+    }
+
+
     // funkcie
     async function sendImageQuote(text,quote) {
 
