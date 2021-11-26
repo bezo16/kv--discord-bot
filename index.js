@@ -33,9 +33,9 @@ registerFont('Gabriola.ttf', { family: 'Comic Sans' })
 
 
 setInterval(() => {
-        // client.channels.cache.get('810552435981680702').send('sb top') 
-        let random = Math.floor(Math.random() * 2)  
-        let channelID = '810552435981680702'
+        // let random = Math.floor(Math.random() * 2)  
+        let random = 0  
+        let channelID = '810552435981680702' 
         if(random === 1) {
             let selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length )].split('.')
             let chapter = Number(selectedQuoteBg[0])
@@ -48,25 +48,45 @@ setInterval(() => {
             .setDescription(`[Bhagavad-Gītā ${chapter}.${quote}](https://vedabase.io/sk/library/bg/${chapter}/${quote}/)`)
             client.channels.cache.get(channelID).send(gitaEmbed)
         } else {
-            let selQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length )].split('.')
-            let cantoNum = Number(selQuote[0])   
-            let chapterNum = Number(selQuote[1])
-            let quoteNum = Number(selQuote[2])
+            let ranQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length )]
+            if(typeof(ranQuote) == 'object') {
+                console.log(ranQuote)
+                for(i = 0; i < ranQuote.length; i++) {
+                    let cantoNum = Number(ranQuote[i].split('.')[0])   
+                    let chapterNum = Number(ranQuote[i].split('.')[1])
+                    let quoteNum = Number(ranQuote[i].split('.')[2])
+                    
+                    let srimadEmbed = new Discord.MessageEmbed()
+                    .setColor('#0099ff')
+                    // .setTitle('Śrīmad-Bhāgavatam')
+                    .setDescription(`${sb[cantoNum -1][chapterNum -1][quoteNum -1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum }/${quoteNum}/)`)
+                    
+                    client.channels.cache.get(channelID).send(srimadEmbed)
+                }
+            }
+            else {
 
-            let srimadEmbed = new Discord.MessageEmbed()
-            .setColor('#0099ff')
-	        // .setTitle('Śrīmad-Bhāgavatam')
-	        .setDescription(`${sb[cantoNum -1][chapterNum -1][quoteNum -1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum }/${quoteNum}/)`)
-
-            client.channels.cache.get(channelID).send(srimadEmbed)
+                let selQuote = ranQuote.split('.')
+                let cantoNum = Number(selQuote[0])   
+                let chapterNum = Number(selQuote[1])
+                let quoteNum = Number(selQuote[2])
+                
+                let srimadEmbed = new Discord.MessageEmbed()
+                .setColor('#0099ff')
+                // .setTitle('Śrīmad-Bhāgavatam')
+                .setDescription(`${sb[cantoNum -1][chapterNum -1][quoteNum -1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum }/${quoteNum}/)`)
+                
+                client.channels.cache.get(channelID).send(srimadEmbed)
+            }
         }      
-}, 7200000);
+}, 3600000 * 4);
 
 client.once('ready',() => {   
     
     /// EKADASI
     /// EKADASI
     /// EKADASI
+    
 
 
     let ekadashiFound = false
@@ -78,16 +98,15 @@ client.once('ready',() => {
                 let date1 = moment(eka.date)
                 let date2 = moment()
                 let diff = date1.diff(date2,'days')
-                console.log(diff)
-                if(diff == 0 && !ekadashiFound ) {
+                if(diff == 0 && !ekadashiFound && date2.hours() === 5 ) {
                     ekadashiText = `Dnes (${eka.date.split('-')[2]}.${eka.date.split('-')[1]}.${eka.date.split('-')[0]}) bude ${eka.name}, prečítajte si viac: ${eka.link}`
                     ekadashiFound = true
                     client.channels.cache.get('849347945798959124').send(ekadashiText)
                     setTimeout(() => {
                         ekadashiFound = false
-                    }, 8640000);
+                    }, 3600000);
                 }
-                if(diff == 1 && !ekadashiFound && date1.hours() === 19) {
+                if(diff == 1 && !ekadashiFound && date2.hours() === 19) {
                     ekadashiText = `Zajtra (${eka.date.split('-')[2]}.${eka.date.split('-')[1]}.${eka.date.split('-')[0]}) bude ${eka.name}, prečítajte si viac: ${eka.link}`
                     ekadashiFound = true
                     client.channels.cache.get('849347945798959124').send(ekadashiText)
@@ -97,9 +116,56 @@ client.once('ready',() => {
                 }
             })
         }
-        
-        
     }, 3600000);
+
+        //TEST
+        // console.log('test')
+        // ekadashi.forEach(eka => {
+        //     let ekadashiText = ``
+        //     let date1 = moment(eka.date)
+        //     let date2 = moment()
+        //     let diff = date1.diff(date2,'days')
+        //     console.log(diff)
+        //     if(diff == 0 && !ekadashiFound) {
+        //         ekadashiText = `Dnes (${eka.date.split(' ')[0].split('-')[2]}.${eka.date.split(' ')[0].split('-')[1]}) bude ${eka.name}, prečítajte si viac: ${eka.link}`
+        //         ekadashiFound = true
+        //         client.channels.cache.get('814821228157730826').send(ekadashiText)
+        //         setTimeout(() => {
+        //             ekadashiFound = false
+        //         }, 3600000);
+        //     }
+        //     if(diff == 1 && !ekadashiFound) {
+        //         ekadashiText = `Zajtra (${eka.date.split(' ')[0].split('-')[2]}.${eka.date.split(' ')[0].split('-')[1]}) bude ${eka.name}, prečítajte si viac: ${eka.link}`
+        //         ekadashiFound = true
+        //         client.channels.cache.get('814821228157730826').send(ekadashiText)
+        //         setTimeout(() => {
+        //             ekadashiFound = false
+        //         }, 3600000);
+        //     }
+        // })
+
+
+
+
+
+        // ekadashi.forEach(eka => {
+        //     if(eka.end) {
+
+        //         let end = moment(eka.end)
+        //         if(end.month() === moment().month() && end.day() === moment().day() && end.hours() === moment().hours() && end.minutes() === moment().minutes() ) {
+        //             let startDva = Number(eka.end.split(' ')[1].split(':')[0]) * 60 + Number(eka.end.split(' ')[1].split(':')[1])    
+        //             let endDva = Number(eka.break.split(':')[0] * 60) + Number(eka.break.split(':')[1])
+        //             let minutesLeft = endDva - startDva 
+        //             client.channels.cache.get('814821228157730826').send(`ekadaši konči!! na ukončenie maš ${minutesLeft}minut (${eka.end.split(' ')[1].split('-')[0]}-${eka.break})`)
+        //         }
+                
+        //     }
+        // })
+
+
+        //TEST
+        
+        
 
     setInterval(() => {
         
