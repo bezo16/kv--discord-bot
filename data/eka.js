@@ -8,7 +8,7 @@ let eka = [
       date: '2021-11-20 20:00',
       link: 'https://yogapit.sk/program/indira-ekadasi/',
       end: '2021-11-19 16:27',
-      break: '18:25',
+      break: '2021-11-19 19:27',
    },
 
     { 
@@ -41,7 +41,7 @@ let eka = [
         
         { 
         name: 'Utpanna ékádaší',
-        date: '2021-11-30',
+        date: '2021-11-30 20:00',
         link: 'https://yogapit.sk/program/utpanna-ekadasi/'
      },
         
