@@ -1,60 +1,47 @@
 let eka = [
 
-
-
-
    { 
-      name: 'Indíra ékádaší',
-      date: '2021-11-20 20:00',
-      link: 'https://yogapit.sk/program/indira-ekadasi/',
-      end: '2021-11-19 16:27',
-      break: '2021-11-19 19:27',
+      name: 'Putradá ékádaší',
+      date: '2022-01-14 07:35',
+      link: 'https://yogapit.sk/program/putrada-ekadasi/',
+      break: '2022-01-15 10:33',
+      end: '2022-01-15 07:38',
    },
 
-    { 
-        name: 'Indíra ékádaší',
-        date: '2021-10-02',
-        link: 'https://yogapit.sk/program/indira-ekadasi/',
-        end: '2021-10-25 12:15',
-        break: '12:25',
-     },
-        
-        { 
-        name: 'Pasankusa ékádaší',
-        date: '2021-10-16',
-        link: 'https://yogapit.sk/program/pasankusa-ekadasi/'
-     },
-        
-        { 
-        name: 'Ramá ékádaší',
-        date: '2021-11-01',
-        link: 'https://yogapit.sk/program/rama-ekadasi/',
-        end:  '2021-11-02 06:38',
-        break: '07:03'
-     },
-        
-        { 
-        name: 'Utthana (Haribodhiní) ékádaší',
-        date: '2021-11-14',
-        link: 'https://yogapit.sk/program/haribodhini-ekadasi-utthana/'
-     },
-        
-        { 
-        name: 'Utpanna ékádaší',
-        date: '2021-11-30 20:00',
-        link: 'https://yogapit.sk/program/utpanna-ekadasi/'
-     },
-        
-        { 
-        name: 'Mokšadá ekádaší',
-        date: '2021-12-14',
-        link: 'https://yogapit.sk/program/moksada-ekadasi/' 
-    },
-        
-        { 
-        name: 'Saphalá ékádaší',
-        date: '2021-12-30',
-        link: 'https://yogapit.sk/program/saphala-ekadasi-21/' 
-    },
+   { 
+      name: 'Šat-tila ékádaší',
+      date: '2022-01-28 07:25',
+      link: 'https://yogapit.sk/program/sat-tila-ekadasi/',
+      break: '2022-01-29 10:31',
+      end: '2022-01-29 07:24',
+   },
+
+   { 
+      name: 'Bhaimi (Džajá) ékádaší',
+      date: '2022-02-12 07:04',
+      link: 'https://yogapit.sk/program/dzaja-ekadasi-bhaimi/',
+      break: '2022-02-13 10:25',
+      end: '2022-02-13 07:35',
+   },
+
+   { 
+      name: 'Vidžajá ékádaší',
+      date: '2022-02-27 06:37',
+      link: 'https://yogapit.sk/program/vidzaja-ekadasi/',
+      break: '2022-02-28 10:15',
+      end: '2022-02-28 06:35',
+   },
+
+   { 
+      name: 'Ámálakí ékádaší',
+      date: '2022-03-14 06:07',
+      link: 'https://yogapit.sk/program/amalaki-ekadasi/',
+      break: '2022-03-15 08:44',
+      end: '2022-03-15 06:05',
+   },
+
+
+
+   
 ]
 module.exports = eka

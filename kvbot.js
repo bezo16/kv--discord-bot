@@ -1,7 +1,6 @@
 require('dotenv').config()
 const { registerFont, createCanvas } = require('canvas') 
 // importy knižnic
-const GoogleImages = require('google-images');
 const Discord = require('discord.js')
 const fetch = require('node-fetch');
 const fs = require('fs')
@@ -10,9 +9,10 @@ const moment = require('moment')
 const request = require('request')
 const puppeteer = require("puppeteer");
 const fullScreenshot = require("fullpage-puppeteer-screenshot");
+const Instagram = require('instagram-web-api')
 // config knižnic
 const client = new Discord.Client()
-const googleClient = new GoogleImages(process.env.CSEID, 'AIzaSyAJ4kIpfcFC8ndxWZ_LrBdgVhgYoRVpJZo');
+const instagramClient = new Instagram({ username : process.env.IGUSERNAME, password: process.env.IGPASSWORD })
 // IMPORTY DATA
 const ekadashi = require('./data/eka')
 const rkQuotesSb = require('./data/rk-sb')
@@ -30,12 +30,6 @@ const { send } = require('process');
 registerFont('Gabriola.ttf', { family: 'Comic Sans' })
 
 
-// fetch('https://api.npoint.io/10cbc25e6d2e724ce7c8')  // vytiahne data z internetovej databaze fetch je asynchronny
-// .then(res => res.json())
-// .then(data =>{   
-//                 bg = data})
-
-
 
 // LOCAL FUNCTIONS 
    const download = function(uri, filename, callback){
@@ -49,6 +43,15 @@ registerFont('Gabriola.ttf', { family: 'Comic Sans' })
 
 
 
+const postImageInstagram = async () => {
+    let chapter = Math.floor(Math.random() * 18);   
+    let chapterText = Math.floor(Math.random() * bg[chapter].length)
+    let resultText = bg[chapter][chapterText]
+    let resultQuote = ` ${chapter +1}.${chapterText +1}`
+    console.log('post image instagram')
+    console.log(resultText,resultQuote)
+} 
+postImageInstagram()
 
 
 
@@ -617,16 +620,7 @@ client.on('message',message =>{
                     if(data.content) message.channel.send(data.content)
                     else message.channel.send(`${author} nema žiadne známe citáty`)
 
-
-                    googleClient.search('Albert einstein')
-                        .then(images => {
-                             console.log(images)
-                             images.forEach(img => {
-                                 urls.push(img.url)
-                             })
-                             console.log(urls)
-                         
-                         });
+                  
                         const canvas = Canvas.createCanvas(700,700)
                         const ctx = canvas.getContext('2d')
 
