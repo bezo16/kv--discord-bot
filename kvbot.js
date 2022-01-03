@@ -24,7 +24,6 @@ let bg = JSON.parse(fs.readFileSync(__dirname + '/data/BG-cs.json'));
 let bgsk = JSON.parse(fs.readFileSync(__dirname + '/data/BG-sk.json'));
 // IMPORTY FUNKCIE
 const resize = require('./resizes');
-const { send } = require('process');
 
 // FONTS 
 registerFont('Gabriola.ttf', { family: 'Comic Sans' })
@@ -41,17 +40,131 @@ registerFont('Gabriola.ttf', { family: 'Comic Sans' })
     });
   };
 
-
-
-const postImageInstagram = async () => {
+  async function postImageInstagram() {
     let chapter = Math.floor(Math.random() * 18);   
     let chapterText = Math.floor(Math.random() * bg[chapter].length)
     let resultText = bg[chapter][chapterText]
     let resultQuote = ` ${chapter +1}.${chapterText +1}`
     console.log('post image instagram')
     console.log(resultText,resultQuote)
+    console.log(sendImageQuote('test','bg 2.2',true))
 } 
 postImageInstagram()
+
+ // funkcie
+ async function sendImageQuote(text,quote,canvasreturn=false) {
+
+    let imageUrl
+    let textLength = 0
+    let resultText = ''
+    let textWidth = null
+    // let quoteImage = await fetch('https://picsum.photos/600')
+    let quoteImage = {url:''}
+    let randomNum = Math.floor(Math.random() * 64) + 1
+    quoteImage.url =  `./img/bg${randomNum}.jpg` 
+    // quoteImage.url =  `./img/kv19.jpg` 
+    imageUrl = quoteImage.url
+    imageUrl2 = `./img/logo.png`
+
+    const canvas = Canvas.createCanvas(700,700)
+    const ctx = canvas.getContext('2d')
+    
+    const background = await Canvas.loadImage(imageUrl)
+    ctx.drawImage(background,0,0,canvas.width,canvas.height)
+    
+    const background2 = await Canvas.loadImage(imageUrl2)
+    let logoWidth = 70
+    let logoHeight = 50
+    ctx.drawImage(background2,( 350 - (logoWidth / 2)),canvas.height - 85,logoWidth,logoHeight)
+
+
+    console.log(quote + ' ' + text.length)
+    // SIZES  SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES
+    let resizeValues = {
+
+         posY : 160,
+         posYChange : 72,
+         charLength : 20,
+    }
+
+    resize(text,ctx,resizeValues)
+    //  SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES END
+    let font = ctx.font.slice(0,2)
+
+   
+    let splitedText = text.split(' ')
+    splitedText.forEach((item,index) =>{
+        textLength += item.length
+        let splititem = item.split('')
+            item = ''
+            splititem.forEach(letter => {
+
+                if(letter === String.fromCharCode(7779)) item += 's'
+                else if(letter === 'ṇ') item += 'n'
+                else if(letter === 'ṅ') item += 'n'
+                else if(letter === 'Ṛ') item += 'R'
+                else if(letter === 'ṛ') item += 'r'
+                else if(letter === 'ḥ') item += 'h'
+                else if(letter === 'ṭ') item += 't'
+                else if(letter === 'ḍ') item += 'd'
+                else item += letter
+            }) 
+
+        if(textLength < resizeValues.charLength) {
+            resultText += `${item} `
+            if(index === splitedText.length - 1) {
+                textLength = 0
+                textWidth = ctx.measureText(resultText)
+                ctx.shadowColor="black";
+                ctx.shadowBlur= 5;
+                ctx.lineWidth= 4;
+                ctx.strokeText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
+                ctx.shadowBlur=0;
+                ctx.fillStyle="white";
+                ctx.fillText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
+                resultText = ''
+                resizeValues.posY += resizeValues.posYChange
+            }
+        }
+        else {
+            resultText += `${item} `
+            textLength = 0
+            textWidth = ctx.measureText(resultText)
+            ctx.shadowColor="black";
+            ctx.shadowBlur=8;
+            ctx.lineWidth=3;
+            ctx.strokeText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
+            ctx.shadowBlur=0;
+            ctx.fillStyle="white";
+            ctx.fillText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
+            resultText = ''
+            resizeValues.posY += resizeValues.posYChange
+        }
+    })
+    
+    
+    ctx.font = `${Math.floor(font * 0.5 )}px Gabriola`
+    ctx.shadowBlur = 1;
+    
+    let quoteText = quote
+    textWidth = ctx.measureText(quoteText)
+    
+    ctx.fillText(quoteText,((350) - (textWidth.width / 2)),resizeValues.posY );
+
+    ctx.font = "30px Gabriola"
+    
+    ctx.fillStyle = "white";
+    let reinText = `@reinkarnacia.sk`
+    textWidth = ctx.measureText(reinText)
+    ctx.fillText(reinText,((350) - (textWidth.width / 2)),canvas.height - 15 );
+
+    if(canvasreturn) return canvas
+    else {
+        const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'bot-quotes.png')
+        message.channel.send(atachment)
+    }
+}
+
 
 
 
@@ -163,129 +276,6 @@ client.on('message',message =>{
 
 
 
-    if(message.content === 'testikfajnovy') {
-        rkQuotesBg.forEach(text => {
-            let chapter = Number(text.split('.')[0])
-            let quote = Number(text.split('.')[1])
-            console.log(chapter,quote)
-            message.channel.send(bg[chapter - 1][quote - 1])
-        })
-    }
-
-
-    // funkcie
-    async function sendImageQuote(text,quote) {
-
-        let imageUrl
-        let textLength = 0
-        let resultText = ''
-        let textWidth = null
-        // let quoteImage = await fetch('https://picsum.photos/600')
-        let quoteImage = {url:''}
-        let randomNum = Math.floor(Math.random() * 64) + 1
-        quoteImage.url =  `./img/bg${randomNum}.jpg` 
-        // quoteImage.url =  `./img/kv19.jpg` 
-        imageUrl = quoteImage.url
-        imageUrl2 = `./img/logo.png`
-
-        const canvas = Canvas.createCanvas(700,700)
-        const ctx = canvas.getContext('2d')
-        
-        const background = await Canvas.loadImage(imageUrl)
-        ctx.drawImage(background,0,0,canvas.width,canvas.height)
-        
-        const background2 = await Canvas.loadImage(imageUrl2)
-        let logoWidth = 70
-        let logoHeight = 50
-        ctx.drawImage(background2,( 350 - (logoWidth / 2)),canvas.height - 85,logoWidth,logoHeight)
-
-
-        console.log(quote + ' ' + text.length)
-        // SIZES  SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES
-        let resizeValues = {
-
-             posY : 160,
-             posYChange : 72,
-             charLength : 20,
-        }
-
-        resize(text,ctx,resizeValues)
-        //  SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES END
-        let font = ctx.font.slice(0,2)
-
-       
-        let splitedText = text.split(' ')
-        splitedText.forEach((item,index) =>{
-            textLength += item.length
-            let splititem = item.split('')
-                item = ''
-                splititem.forEach(letter => {
-
-                    if(letter === String.fromCharCode(7779)) item += 's'
-                    else if(letter === 'ṇ') item += 'n'
-                    else if(letter === 'ṅ') item += 'n'
-                    else if(letter === 'Ṛ') item += 'R'
-                    else if(letter === 'ṛ') item += 'r'
-                    else if(letter === 'ḥ') item += 'h'
-                    else if(letter === 'ṭ') item += 't'
-                    else if(letter === 'ḍ') item += 'd'
-                    else item += letter
-                }) 
-
-            if(textLength < resizeValues.charLength) {
-                resultText += `${item} `
-                if(index === splitedText.length - 1) {
-                    textLength = 0
-                    textWidth = ctx.measureText(resultText)
-                    ctx.shadowColor="black";
-                    ctx.shadowBlur= 5;
-                    ctx.lineWidth= 4;
-                    ctx.strokeText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
-                    ctx.shadowBlur=0;
-                    ctx.fillStyle="white";
-                    ctx.fillText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
-                    resultText = ''
-                    resizeValues.posY += resizeValues.posYChange
-                }
-            }
-            else {
-                resultText += `${item} `
-                textLength = 0
-                textWidth = ctx.measureText(resultText)
-                ctx.shadowColor="black";
-                ctx.shadowBlur=8;
-                ctx.lineWidth=3;
-                ctx.strokeText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
-                ctx.shadowBlur=0;
-                ctx.fillStyle="white";
-                ctx.fillText(resultText,((350) - (textWidth.width / 2)),resizeValues.posY);
-                resultText = ''
-                resizeValues.posY += resizeValues.posYChange
-            }
-        })
-        
-        
-        
-        
-        
-        ctx.font = `${Math.floor(font * 0.5 )}px Gabriola`
-        ctx.shadowBlur = 1;
-        
-        let quoteText = quote
-        textWidth = ctx.measureText(quoteText)
-        
-        ctx.fillText(quoteText,((350) - (textWidth.width / 2)),resizeValues.posY );
-
-        ctx.font = "30px Gabriola"
-        
-        ctx.fillStyle = "white";
-        let reinText = `@reinkarnacia.sk`
-        textWidth = ctx.measureText(reinText)
-        ctx.fillText(reinText,((350) - (textWidth.width / 2)),canvas.height - 15 );
-        
-        const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'bot-quotes.png')
-        message.channel.send(atachment)
-    }
 
     
     if(message.content.split(" ").length === 2){ 
