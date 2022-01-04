@@ -3,6 +3,7 @@ const { registerFont, createCanvas } = require('canvas')
 // importy knižnic
 const Discord = require('discord.js')
 const fetch = require('node-fetch');
+const Jimp = require("jimp")
 const fs = require('fs')
 const Canvas = require('canvas')
 const moment = require('moment')
@@ -41,13 +42,38 @@ registerFont('Gabriola.ttf', { family: 'Comic Sans' })
   };
 
   async function postImageInstagram() {
+    console.log('post image instagram')
     let chapter = Math.floor(Math.random() * 18);   
     let chapterText = Math.floor(Math.random() * bg[chapter].length)
     let resultText = bg[chapter][chapterText]
     let resultQuote = ` ${chapter +1}.${chapterText +1}`
-    console.log('post image instagram')
-    console.log(resultText,resultQuote)
-    console.log(sendImageQuote('test','bg 2.2',true))
+    await sendImageQuote(resultText,'Bhagavad-Gītā ' + resultQuote,true).then(res => {
+        fs.writeFileSync('./temp/igImage.png', res)
+    })
+    ;(async () => {
+        await instagramClient.login() 
+        console.log('loged')
+          
+        Jimp.read("./temp/igImage.png", function (err2, image) {
+            if (err2) {
+                console.log(err2)
+              } else {
+                  image.write("./temp/igImage.jpg")
+              }
+          })
+        console.log('jimped jpg image')  
+
+        setTimeout( async () => {
+            
+            
+            const photo = './temp/igImage.jpg'
+            console.log('before uplaod')
+            await instagramClient.uploadPhoto({ photo, caption: 'Bhagavad-Gītā ' + resultQuote, post: 'feed' }) 
+            console.log('after uplaod')
+            fs.unlink('./temp/igImage.jpg',() => {})
+            console.log('after delete image')
+        }, 10000);
+      })()
 } 
 postImageInstagram()
 
@@ -158,7 +184,7 @@ postImageInstagram()
     textWidth = ctx.measureText(reinText)
     ctx.fillText(reinText,((350) - (textWidth.width / 2)),canvas.height - 15 );
 
-    if(canvasreturn) return canvas
+    if(canvasreturn) return canvas.toBuffer()
     else {
         const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'bot-quotes.png')
         message.channel.send(atachment)
