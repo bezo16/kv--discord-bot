@@ -17,6 +17,7 @@ const instagramClient = new Instagram({ username : process.env.IGUSERNAME, passw
 // IMPORTY DATA
 const ekadashi = require('./data/eka')
 const rkQuotesSb = require('./data/rk-sb')
+const ig = require('./data/ig')
 const rkQuotesBg = require('./data/rk-bg')
 let sb = JSON.parse(fs.readFileSync(__dirname + '/data/sb2.json'));  // vytiahne data z sb2.json (tam su všetky verše srimadu)
 let cc = JSON.parse(fs.readFileSync(__dirname + '/data/cc.json'));  // vytiahne data z cc.json (tam su všetky verše srimadu)
@@ -30,7 +31,6 @@ const resize = require('./resizes');
 registerFont('Gabriola.ttf', { family: 'Comic Sans' })
 
 
-
 // LOCAL FUNCTIONS 
    const download = function(uri, filename, callback){
       request.head(uri, function(err, res, body){
@@ -42,9 +42,10 @@ registerFont('Gabriola.ttf', { family: 'Comic Sans' })
   };
 
   async function postImageInstagram() {
+    let selQuote = ig[Math.floor(Math.random() * ig.length)]
     console.log('post image instagram')
-    let chapter = Math.floor(Math.random() * 18);   
-    let chapterText = Math.floor(Math.random() * bg[chapter].length)
+    let chapter = Number(selQuote.split('.')[0]) - 1  
+    let chapterText = Number(selQuote.split('.')[1]) - 1  
     let resultText = bg[chapter][chapterText]
     let resultQuote = ` ${chapter +1}.${chapterText +1}`
     await sendImageQuote(resultText,'Bhagavad-Gītā ' + resultQuote,true).then(res => {
@@ -62,20 +63,24 @@ registerFont('Gabriola.ttf', { family: 'Comic Sans' })
               }
           })
         console.log('jimped jpg image')  
-
         setTimeout( async () => {
-            
-            
             const photo = './temp/igImage.jpg'
             console.log('before uplaod')
             await instagramClient.uploadPhoto({ photo, caption: 'Bhagavad-Gītā ' + resultQuote, post: 'feed' }) 
             console.log('after uplaod')
             fs.unlink('./temp/igImage.jpg',() => {})
+            fs.unlink('./temp/igImage.png',() => {})
             console.log('after delete image')
         }, 10000);
       })()
-} 
-postImageInstagram()
+    } 
+    // postImageInstagram()
+
+    postImageInstagram()
+    setInterval(() => {
+        postImageInstagram()
+    }, 3600000 * 12);
+
 
  // funkcie
  async function sendImageQuote(text,quote,canvasreturn=false) {
