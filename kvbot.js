@@ -1,9 +1,7 @@
 require('dotenv').config()
 const { registerFont, createCanvas } = require('canvas') 
-// importy knižnic
 const Discord = require('discord.js')
 const fetch = require('node-fetch');
-// const Jimp = require("jimp") 
 const fs = require('fs') 
 const Canvas = require('canvas')
 const moment = require('moment')
@@ -14,7 +12,7 @@ const Instagram = require('instagram-web-api')
 // config knižnic
 const client = new Discord.Client()
 const instagramClient = new Instagram({ username : process.env.IGUSERNAME, password: process.env.IGPASSWORD }) 
-// IMPORTY DATA
+// DATA
 const ekadashi = require('./data/eka')
 const rkQuotesSb = require('./data/rk-sb')
 const ig = require('./data/newig')
@@ -24,34 +22,25 @@ let cc = JSON.parse(fs.readFileSync(__dirname + '/data/cc.json'));  // vytiahne 
 let miso = JSON.parse(fs.readFileSync(__dirname + '/data/citaty.json'));  
 let bg = JSON.parse(fs.readFileSync(__dirname + '/data/BG-cs.json'));
 let bgsk = JSON.parse(fs.readFileSync(__dirname + '/data/BG-sk.json'));
-// IMPORTY FUNKCIE
+// FUNKCIE
 const resize = require('./functions/resizes');
 const postImageInstagram = require('./functions/postImageInstagram');
 const bgHandler = require('./functions/bgHandler');
-
 // FONTS 
-registerFont('Gabriola.ttf', { family: 'Comic Sans' })
+registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
 
 
 // LOCAL FUNCTIONS 
-   const download = function(uri, filename, callback){
-      request.head(uri, function(err, res, body){
-      console.log('content-type:', res.headers['content-type']);
-      console.log('content-length:', res.headers['content-length']);
-  
-      request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-    });
-  };
-
-    // postImageInstagram(ig,sendImageQuote,instagramClient) 
+    // postImageInstagram('',ig,sendImageQuote,instagramClient) 
     // setInterval(() => {
     //     postImageInstagram()
     // }, 3600000 * 5);
 
 
  // funkcie
- async function sendImageQuote(text,quote,canvasreturn=false) {
-
+ async function sendImageQuote(message,text,quote,canvasreturn=false) {
+     console.log('pes')
+    console.log(message)
     let imageUrl
     let textLength = 0
     let resultText = ''
@@ -313,7 +302,7 @@ client.on('message',message =>{
                     message.channel.send(srimadEmbed)
                 }
                  else {
-                    sendImageQuote(sendMessageText,` Śrīmad-Bhāgavatam ${canto}.${chapter}.${quote}`) 
+                    sendImageQuote(message,sendMessageText,` Śrīmad-Bhāgavatam ${canto}.${chapter}.${quote}`) 
                 }
                 }
             }
@@ -337,7 +326,7 @@ client.on('message',message =>{
             let chapterNum = Math.floor(Math.random() * canto.length)
             let chapter = canto[chapterNum]
             let quoteNum = Math.floor(Math.random() * chapter.length)
-            sendImageQuote(chapter[quoteNum],` Śrīmad-Bhāgavatam ${cantoNum+1}.${chapterNum+1}.${quoteNum+1}  `)
+            sendImageQuote(message,chapter[quoteNum],` Śrīmad-Bhāgavatam ${cantoNum+1}.${chapterNum+1}.${quoteNum+1}  `)
           }   
           
     
@@ -354,7 +343,7 @@ client.on('message',message =>{
             let cantoNum = Number(selQuote[0])   
             let chapterNum = Number(selQuote[1])
             let quoteNum = Number(selQuote[2])
-            sendImageQuote(sb[cantoNum -1][chapterNum -1][quoteNum -1],`Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
+            sendImageQuote(message,sb[cantoNum -1][chapterNum -1][quoteNum -1],`Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
           }
 
 } 
@@ -407,7 +396,7 @@ client.on('message',message =>{
                 if(canto > 12) canto = 12
                 if(cc[canto -1].length  < chapter) chapter = cc[canto -1].length
                 if(cc[canto -1][chapter -1].length  < quote) quote = cc[canto -1][chapter -1].length
-                 sendImageQuote(cc[canto -1][chapter -1][quote -1],`Śrī Caitanya-Caritāmrta ${canto}.${chapter}.${quote}`)
+                 sendImageQuote(message,cc[canto -1][chapter -1][quote -1],`Śrī Caitanya-Caritāmrta ${canto}.${chapter}.${quote}`)
                  }
              }
      
@@ -417,7 +406,7 @@ client.on('message',message =>{
            let chapterNum = Math.floor(Math.random() * canto.length)
            let chapter = canto[chapterNum]
            let quoteNum = Math.floor(Math.random() * chapter.length)
-           sendImageQuote(chapter[quoteNum],`Śrī Caitanya-Caritāmrta ${cantoNum +1}.${chapterNum +1}.${quoteNum +1}`)
+           sendImageQuote(message,chapter[quoteNum],`Śrī Caitanya-Caritāmrta ${cantoNum +1}.${chapterNum +1}.${quoteNum +1}`)
          }
      }
                        
@@ -514,38 +503,12 @@ client.on('message',message =>{
                 if(message.content.split(' ')[0].toLowerCase() === 'customquote' && message.content.includes('"') && message.content.includes('{') && message.content.includes('}')) {
                     let text = message.content.slice(message.content.indexOf('"') + 1,message.content.lastIndexOf('"'))
                     let book = message.content.slice(message.content.indexOf('{') + 1,message.content.indexOf('}'))
-                    sendImageQuote(`${text}`,`${book}`)
+                    sendImageQuote(message,`${text}`,`${book}`)
                     setTimeout(() => {
                         message.delete()
                        }, 2000);
                    }
 
-
-             if(message.content.split(' ')[0].toLowerCase() === 'makequote' && message.content.split(' ').length > 1) {
-                    
-                    let author = message.content.split(' ').slice(1).join(' ').toLowerCase()
-                    let urls = []
-                    console.log(author)
-                    fetch(`https://api.quotable.io/random?author=${author}`).then(resp => resp.json()).then(data => {
-                    console.log(data.content)
-                    if(data.content) message.channel.send(data.content)
-                    else message.channel.send(`${author} nema žiadne známe citáty`)
-
-                  
-                        const canvas = Canvas.createCanvas(700,700)
-                        const ctx = canvas.getContext('2d')
-
-                        async function sendQuote() {
-                            download(urls[0], './temp/temp.jpg', function(){
-                                console.log('img saved')
-                            });
-                            const background = await Canvas.loadImage(url[0])
-                            ctx.drawImage(background,0,0,canvas.width,canvas.height)
-                            const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'bot-quotes.png')
-                            message.channel.send(atachment)
-                        } sendQuote()
-                })
-             }  
                    
                    
     

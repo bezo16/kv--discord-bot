@@ -1,14 +1,14 @@
 let Jimp = require('jimp')
 let fs = require('fs')
 
-async function postImageInstagram(quotes,func,instagramClient) {
+async function postImageInstagram(message = '',quotes,func,instagramClient) {
     let selectedQuote = quotes[Math.floor(Math.random() * quotes.length)]
     let resultText = selectedQuote.content
     let resultQuote = selectedQuote.quote
     console.log('post image instagram')
 
 
-    await func(resultText, resultQuote,true).then(res => {
+    await func(message,resultText, resultQuote,true).then(res => {
         fs.writeFileSync('./temp/igImage.png', res)
     })
     ;(async () => {

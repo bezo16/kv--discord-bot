@@ -20,7 +20,7 @@ function bgHandler(message,bg,sendImg) {
              let resultText = bg[chapter-1][chapterText-1]
              if(firstWord.toLowerCase() === 'bgsk' || firstWord.toLowerCase() === 'bgisk') resultText = bgsk[chapter-1][chapterText-1]
 
-             if(firstWord.toLowerCase() === 'bgi' || firstWord.toLowerCase() === 'bgisk') sendImg(resultText, `Bhagavad-Gītā ${chapter}.${chapterText}`) 
+             if(firstWord.toLowerCase() === 'bgi' || firstWord.toLowerCase() === 'bgisk') sendImg(message,resultText, `Bhagavad-Gītā ${chapter}.${chapterText}`) 
              else if(firstWord.toLowerCase() === 'bg' || firstWord.toLowerCase() === 'bgsk') {
                  let gitaEmbed = new Discord.MessageEmbed()
                  .setColor('#0099ff')
@@ -50,7 +50,7 @@ function bgHandler(message,bg,sendImg) {
                 chapterText = Math.floor(Math.random() * bg[chapter].length)
                 let resultText = bg[chapter][chapterText]
                 let resultQuote = `Bhagavad-Gītā ${chapter +1}.${chapterText +1}`
-                sendImg(resultText,resultQuote)
+                sendImg(message,resultText,resultQuote)
             }
             if(secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === 'bg') {
                 let selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length )].split('.')
@@ -62,7 +62,7 @@ function bgHandler(message,bg,sendImg) {
                 let selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length )].split('.')
                 let chapter = selectedQuoteBg[0]
                 let quote = selectedQuoteBg[1]
-                sendImg(`${bg[chapter -1][quote -1]}`,`Bhagavad-Gītā ${chapter}.${quote}`)
+                sendImg(message,`${bg[chapter -1][quote -1]}`,`Bhagavad-Gītā ${chapter}.${quote}`)
             }
 }
 }
