@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const puppeteer = require('puppeteer')
 const Canvas = require('canvas')
+
    
    function kvEvents(message) {
     let firstWord = message.content.split(" ")[0].toLowerCase()

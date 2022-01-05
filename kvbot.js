@@ -11,11 +11,11 @@ const instagramClient = new Instagram({ username : process.env.IGUSERNAME, passw
 const rkQuotesSb = require('./data/rk-sb')
 const ig = require('./data/newig')
 const rkQuotesBg = require('./data/rk-bg')
-let sb = JSON.parse(fs.readFileSync(__dirname + '/data/sb2.json'));  // vytiahne data z sb2.json (tam su všetky verše srimadu)
-let cc = JSON.parse(fs.readFileSync(__dirname + '/data/cc.json'));  // vytiahne data z cc.json (tam su všetky verše srimadu)
-let miso = JSON.parse(fs.readFileSync(__dirname + '/data/citaty.json'));  
-let bg = JSON.parse(fs.readFileSync(__dirname + '/data/BG-cs.json'));
-let bgsk = JSON.parse(fs.readFileSync(__dirname + '/data/BG-sk.json'));
+const sb = JSON.parse(fs.readFileSync(__dirname + '/data/sb2.json'));
+const cc = JSON.parse(fs.readFileSync(__dirname + '/data/cc.json'));  
+const miso = JSON.parse(fs.readFileSync(__dirname + '/data/citaty.json'));  
+const bg = JSON.parse(fs.readFileSync(__dirname + '/data/BG-cs.json'));
+const bgsk = JSON.parse(fs.readFileSync(__dirname + '/data/BG-sk.json'));
 // FUNKCIE
 const resize = require('./functions/resizes');
 const postImageInstagram = require('./functions/postImageInstagram');
@@ -24,6 +24,7 @@ const sbHandler = require('./functions/sbHandler');
 const ccHandler = require('./functions/ccHandler');
 const kvEvents = require('./functions/kvEvents');
 const ekadashi = require('./functions/ekadashi');
+const dailyQuotes = require('./functions/dailyQuotes')
 // FONTS 
 registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
 
@@ -147,64 +148,9 @@ registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
 
 
 
-
-setInterval(() => {
-        // let random = Math.floor(Math.random() * 2)  
-        let random = 0  
-        let channelID = '810552435981680702' 
-        if(random === 1) {
-            let selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length )].split('.')
-            let chapter = Number(selectedQuoteBg[0])
-            let quote = Number(selectedQuoteBg[1])
-
-            let gitaEmbed = new Discord.MessageEmbed()
-            .setColor('#0099ff')
-            .setTitle(bg[chapter - 1][quote - 1])
-            .setDescription(`[Bhagavad-Gītā ${chapter}.${quote}](https://vedabase.io/sk/library/bg/${chapter}/${quote}/)`)
-            client.channels.cache.get(channelID).send(gitaEmbed)
-        } else {
-            let ranQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length )]
-            if(typeof(ranQuote) == 'object') {
-                for(i = 0; i < ranQuote.length; i++) {
-                    let cantoNum = Number(ranQuote[i].split('.')[0])   
-                    let chapterNum = Number(ranQuote[i].split('.')[1])
-                    let quoteNum = Number(ranQuote[i].split('.')[2])
-                    
-                    let srimadEmbed = new Discord.MessageEmbed()
-                    .setColor('#0099ff')
-                    // .setTitle('Śrīmad-Bhāgavatam')
-                    .setDescription(`${sb[cantoNum -1][chapterNum -1][quoteNum -1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum }/${quoteNum}/)`)
-                    
-                    client.channels.cache.get(channelID).send(srimadEmbed)
-                }
-            }
-            else {
-
-                let selQuote = ranQuote.split('.')
-                let cantoNum = Number(selQuote[0])   
-                let chapterNum = Number(selQuote[1])
-                let quoteNum = Number(selQuote[2])
-                
-                let srimadEmbed = new Discord.MessageEmbed()
-                .setColor('#0099ff')
-                // .setTitle('Śrīmad-Bhāgavatam')
-                .setDescription(`${sb[cantoNum -1][chapterNum -1][quoteNum -1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum }/${quoteNum}/)`)
-                
-                client.channels.cache.get(channelID).send(srimadEmbed)
-            }
-        }      
-}, 3600000 * 8);
-
-
-
-
-
 client.once('ready',() => {   
-    /// EKADASI
-    ekadashi()
-
-
-    
+    ekadashi() // EKADASI
+    dailyQuotes(client) // automatic send of quotes to main chat
     
 })
 
@@ -212,18 +158,11 @@ client.on('message',message =>{
 
     if(message.content.split(" ").length === 2){ 
 
-                            bgHandler(message,bg,sendImageQuote)      // BHAGAVAD GITA
-                            sbHandler(message,sb,sendImageQuote)      // SRIMAD BHAGABATAM    
-                            ccHandler(message,cc,sendImageQuote)      // CC
+    bgHandler(message,bg,sendImageQuote)      // BHAGAVAD GITA
+    sbHandler(message,sb,sendImageQuote)      // SRIMAD BHAGABATAM    
+    ccHandler(message,cc,sendImageQuote)      // CC
 
-                            kvEvents(message) // EVENTS
-                     
-
-                                       
-
-
- 
- 
+    kvEvents(message)                         // EVENTS
 } 
                 
 
