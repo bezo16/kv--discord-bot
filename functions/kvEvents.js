@@ -4,8 +4,10 @@ const Canvas = require('canvas')
 
    
    function kvEvents(message) {
-    let firstWord = message.content.split(" ")[0].toLowerCase()
-    let secondWord = message.content.split(" ")[1].toLowerCase()     
+
+    if(message.content.split(' ').length === 2) {
+        let firstWord = message.content.split(" ")[0].toLowerCase()
+        let secondWord = message.content.split(" ")[1].toLowerCase()     
 
                     
         if(secondWord.toLowerCase() === 'events' && firstWord.toLowerCase() === 'kv') {
@@ -62,6 +64,7 @@ const Canvas = require('canvas')
             fs.unlink('./foo.png',() => {})
         } sendScreenDate()
     }
+} 
 }
 
 module.exports = kvEvents

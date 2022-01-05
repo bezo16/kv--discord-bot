@@ -1,9 +1,16 @@
 
 const Discord = require('discord.js')
+const fs = require('fs')
+const { dirname } = require('path');
+const appDir = dirname(require.main.filename);
+const cc = JSON.parse(fs.readFileSync(appDir + '/data/cc.json'));
 
-    function ccHandler(message,cc,sendImg) {
-    let firstWord = message.content.split(" ")[0].toLowerCase()
-    let secondWord = message.content.split(" ")[1].toLowerCase()    
+
+    function ccHandler(message,sendImg) {
+
+    if(message.content.split(' ').length === 2) {
+        let firstWord = message.content.split(" ")[0].toLowerCase()
+        let secondWord = message.content.split(" ")[1].toLowerCase()    
     
 
 
@@ -45,7 +52,7 @@ const Discord = require('discord.js')
             sendImg(message,chapter[quoteNum],`Śrī Caitanya-Caritāmrta ${cantoNum +1}.${chapterNum +1}.${quoteNum +1}`)
         }
 
-
+    }
 
     }
 

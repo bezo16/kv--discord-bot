@@ -1,7 +1,10 @@
 let Jimp = require('jimp')
 let fs = require('fs')
+const quotes = require('../data/newig')
+const Instagram = require('instagram-web-api')
+const instagramClient = new Instagram({username:process.env.IGUSERNAME,password:process.env.IGPASSWORD})
 
-async function postImageInstagram(message = '',quotes,func,instagramClient) {
+async function postImageInstagram(message = '',func) {
     let selectedQuote = quotes[Math.floor(Math.random() * quotes.length)]
     let resultText = selectedQuote.content
     let resultQuote = selectedQuote.quote

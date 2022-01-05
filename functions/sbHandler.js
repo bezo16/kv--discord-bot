@@ -1,6 +1,11 @@
 const Discord = require('discord.js')
+const fs = require('fs')
+const { dirname } = require('path');
+const appDir = dirname(require.main.filename);
+const sb = JSON.parse(fs.readFileSync(appDir + '/data/sb2.json'));
 
-    function sbHandler(message,sb,sendImg) {
+
+    function sbHandler(message,sendImg) {
     let firstWord = message.content.split(" ")[0]  
     let secondWord = message.content.split(" ")[1]
     
