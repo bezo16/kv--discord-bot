@@ -1,13 +1,10 @@
 const Discord = require('discord.js')
+const puppeteer = require('puppeteer')
+const Canvas = require('canvas')
    
-   function kvEvents() {
+   function kvEvents(message) {
     let firstWord = message.content.split(" ")[0].toLowerCase()
     let secondWord = message.content.split(" ")[1].toLowerCase()     
-    
-
-
-
-
 
                     
         if(secondWord.toLowerCase() === 'events' && firstWord.toLowerCase() === 'kv') {
@@ -18,7 +15,6 @@ const Discord = require('discord.js')
             await page.goto("https://objective-archimedes-06e9ca.netlify.app/?st=1", {
                 waitUntil: "networkidle2"
             });
-            
             await fullScreenshot(page, {
                 path: "foo.png"
             });
@@ -66,3 +62,5 @@ const Discord = require('discord.js')
         } sendScreenDate()
     }
 }
+
+module.exports = kvEvents

@@ -1,13 +1,9 @@
 require('dotenv').config()
 const { registerFont, createCanvas } = require('canvas') 
 const Discord = require('discord.js')
-const fetch = require('node-fetch');
 const fs = require('fs') 
 const Canvas = require('canvas')
 const moment = require('moment')
-const request = require('request')
-const puppeteer = require("puppeteer");
-const fullScreenshot = require("fullpage-puppeteer-screenshot");
 const Instagram = require('instagram-web-api')
 // config knižnic
 const client = new Discord.Client()
@@ -28,6 +24,7 @@ const postImageInstagram = require('./functions/postImageInstagram');
 const bgHandler = require('./functions/bgHandler');
 const sbHandler = require('./functions/sbHandler');
 const ccHandler = require('./functions/ccHandler');
+const kvEvents = require('./functions/kvEvents');
 // FONTS 
 registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
 
@@ -47,7 +44,6 @@ registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
     let textLength = 0
     let resultText = ''
     let textWidth = null
-    // let quoteImage = await fetch('https://picsum.photos/600')
     let quoteImage = {url:''}
     let randomNum = Math.floor(Math.random() * 64) + 1
     quoteImage.url =  `./img/bg${randomNum}.jpg` 
@@ -270,24 +266,19 @@ client.on('message',message =>{
                             sbHandler(message,sb,sendImageQuote)      // SRIMAD BHAGABATAM    
                             ccHandler(message,cc,sendImageQuote)      // CC
 
-                            kvEvents(message)
+                            kvEvents(message) // EVENTS
                      
 
-                                           /////////////////////////// EVENTS
-                                           /////////////////////////// EVENTS
-                                           /////////////////////////// EVENTS
-                                           ///////
-
-
-
-
-                                           /////////////////////////// EVENTS
+                                       
 
 
  
  
 } 
-                                           // END 2
+                
+
+
+
                                            /////////////////////////// CUSTOM
  
  
@@ -304,15 +295,6 @@ client.on('message',message =>{
                    
     
                                              /////////////////////////// CUSTOM
-                                             /////////////////////////// CUSTOM
-                                             /////////////////////////// CUSTOM
-                                             /////////////////////////// CUSTOM
-                                             /////////////////////////// CUSTOM
-                                             /////////////////////////// CUSTOM
-                                             /////////////////////////// CUSTOM
-
-
-                    
 
 
 
