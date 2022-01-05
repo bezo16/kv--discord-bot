@@ -27,6 +27,7 @@ const resize = require('./functions/resizes');
 const postImageInstagram = require('./functions/postImageInstagram');
 const bgHandler = require('./functions/bgHandler');
 const sbHandler = require('./functions/sbHandler');
+const ccHandler = require('./functions/ccHandler');
 // FONTS 
 registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
 
@@ -94,6 +95,7 @@ registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
                 else if(letter === 'ṛ') item += 'r'
                 else if(letter === 'ḥ') item += 'h'
                 else if(letter === 'ṭ') item += 't'
+                else if(letter === 'Ṭ') item += 'T'
                 else if(letter === 'ḍ') item += 'd'
                 else item += letter
             }) 
@@ -204,10 +206,11 @@ setInterval(() => {
         }      
 }, 3600000 * 4);
 
+
+
+
+
 client.once('ready',() => {   
-    
-    /// EKADASI
-    /// EKADASI
     /// EKADASI
 
     let ekadashiFound = false
@@ -256,152 +259,28 @@ client.once('ready',() => {
         })
     }, 60000);
     /// EKADASI
-    /// EKADASI
     
 })
 
 client.on('message',message =>{ 
 
-
-
-
-    
     if(message.content.split(" ").length === 2){ 
-        let firstWord = message.content.split(" ")[0]  
-        let secondWord = message.content.split(" ")[1]
 
                             bgHandler(message,bg,sendImageQuote)      // BHAGAVAD GITA
-                            sbHandler(message,sb,sendImageQuote)    // SRIMAD BHAGABATAM    
+                            sbHandler(message,sb,sendImageQuote)      // SRIMAD BHAGABATAM    
+                            ccHandler(message,cc,sendImageQuote)      // CC
 
-                            ///////////////////////////// CC  /////////////////////////////////////////
+                            kvEvents(message)
                      
 
-   if(firstWord.toLowerCase() === 'cc') {
-       if(secondWord.charAt(0) !== '.' && secondWord.charAt(secondWord.length -1) !== '.' && secondWord.includes('.')) { 
-           let canto = secondWord.split('.')[0]
-           let chapter = secondWord.split('.')[1]
-           let quote = secondWord.split('.')[2]
-           if(!isNaN(canto) && !isNaN(chapter) && !isNaN(quote)) { 
-               if(canto < 1) canto = 1
-               if(chapter < 1) chapter = 1
-               if(quote < 1) quote = 1
-               if(canto > 12) canto = 12
-               if(cc[canto -1].length  < chapter) chapter = cc[canto -1].length
-               if(cc[canto -1][chapter -1].length  < quote) quote = cc[canto -1][chapter -1].length
-                message.channel.send(cc[canto -1][chapter -1][quote -1])
-                }
-            }
-    
-       if(secondWord.toLowerCase() === 'r') { 
-          let cantoNum = Math.floor(Math.random() * 3)    
-          let canto = cc[cantoNum]
-          let chapterNum = Math.floor(Math.random() * canto.length)
-          let chapter = canto[chapterNum]
-          let quoteNum = Math.floor(Math.random() * chapter.length)
-          message.channel.send(`${chapter[quoteNum]} ** ${cantoNum+1}.${chapterNum+1}.${quoteNum+1} ** `)
-        }
-    }
-
-
-    if(firstWord.toLowerCase() === 'cci') {
-        if(secondWord.charAt(0) !== '.' && secondWord.charAt(secondWord.length -1) !== '.' && secondWord.includes('.')) { 
-            let canto = secondWord.split('.')[0]
-            let chapter = secondWord.split('.')[1]
-            let quote = secondWord.split('.')[2]
-            if(!isNaN(canto) && !isNaN(chapter) && !isNaN(quote)) { 
-                if(canto < 1) canto = 1
-                if(chapter < 1) chapter = 1
-                if(quote < 1) quote = 1
-                if(canto > 12) canto = 12
-                if(cc[canto -1].length  < chapter) chapter = cc[canto -1].length
-                if(cc[canto -1][chapter -1].length  < quote) quote = cc[canto -1][chapter -1].length
-                 sendImageQuote(message,cc[canto -1][chapter -1][quote -1],`Śrī Caitanya-Caritāmrta ${canto}.${chapter}.${quote}`)
-                 }
-             }
-     
-        if(secondWord.toLowerCase() === 'r') { 
-           let cantoNum = Math.floor(Math.random() * 3)    
-           let canto = cc[cantoNum]
-           let chapterNum = Math.floor(Math.random() * canto.length)
-           let chapter = canto[chapterNum]
-           let quoteNum = Math.floor(Math.random() * chapter.length)
-           sendImageQuote(message,chapter[quoteNum],`Śrī Caitanya-Caritāmrta ${cantoNum +1}.${chapterNum +1}.${quoteNum +1}`)
-         }
-     }
-                       
-             
-
-
                                            /////////////////////////// EVENTS
                                            /////////////////////////// EVENTS
                                            /////////////////////////// EVENTS
-                                           /////////////////////////// EVENTS
-
-
-
-                              
-                   if(secondWord.toLowerCase() === 'events' && firstWord.toLowerCase() === 'kv') {
-                    async function sendScreen()  {
-                        const browser = await puppeteer.launch({headless: true,
-                            args: ['--no-sandbox']});
-                        const page = await browser.newPage();
-                        await page.goto("https://objective-archimedes-06e9ca.netlify.app/?st=1", {
-                          waitUntil: "networkidle2"
-                        });
-                      
-                        await fullScreenshot(page, {
-                          path: "foo.png"
-                        });
-                      
-                        await browser.close(); 
-
-                        const screenshot = await Canvas.loadImage('./foo.png')
-                        const canvas = Canvas.createCanvas(1920,1400)
-                        const ctx = canvas.getContext('2d')
-                        ctx.drawImage(screenshot,0,0,canvas.width,canvas.height)
-                        const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'screenshot.png')
-                        message.channel.send(atachment)
-                        fs.unlink('./foo.png',() => {})
-                    } sendScreen()
-                }
-                
-                if(secondWord.toLowerCase().includes('events') && firstWord.toLowerCase() === 'kv' && !isNaN(secondWord.charAt(6)) && secondWord.length > 6) {
-                    
-                    
-                    let year = secondWord.slice(6,8)
-                    let month = secondWord.slice(8)
-
-
-                    async function sendScreenDate()  {
-                        const browser = await puppeteer.launch({headless: true,
-                            args: ['--no-sandbox']});
-                        const page = await browser.newPage();
-                        await page.goto(`https://objective-archimedes-06e9ca.netlify.app/?date=20${year}-${month}-01&st=1`, {
-                          waitUntil: "networkidle2"
-                        });
-                      
-                        await fullScreenshot(page, {
-                          path: "foo.png"
-                        });
-                      
-                        await browser.close(); 
-
-                        const screenshot = await Canvas.loadImage('./foo.png')
-                        const canvas = Canvas.createCanvas(1200,1000)
-                        const ctx = canvas.getContext('2d')
-                        ctx.drawImage(screenshot,0,0,canvas.width,canvas.height)
-                        const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'screenshot.png')
-                        message.channel.send(atachment)
-                        fs.unlink('./foo.png',() => {})
-                    } sendScreenDate()
-                }
+                                           ///////
 
 
 
 
-                                           /////////////////////////// EVENTS
-                                           /////////////////////////// EVENTS
-                                           /////////////////////////// EVENTS
                                            /////////////////////////// EVENTS
 
 
@@ -409,13 +288,6 @@ client.on('message',message =>{
  
 } 
                                            // END 2
-                                           // END 2
-                                           // END 2
-                                           /////////////////////////// CUSTOM
-                                           /////////////////////////// CUSTOM
-                                           /////////////////////////// CUSTOM
-                                           /////////////////////////// CUSTOM
-                                           /////////////////////////// CUSTOM
                                            /////////////////////////// CUSTOM
  
  
