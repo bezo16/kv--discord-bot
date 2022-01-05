@@ -38,8 +38,6 @@ registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
 
  // funkcie
  async function sendImageQuote(message,text,quote,canvasreturn=false) {
-     console.log('pes')
-    console.log(message)
     let imageUrl
     let textLength = 0
     let resultText = ''
@@ -47,7 +45,6 @@ registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
     let quoteImage = {url:''}
     let randomNum = Math.floor(Math.random() * 64) + 1
     quoteImage.url =  `./img/bg${randomNum}.jpg` 
-    // quoteImage.url =  `./img/kv19.jpg` 
     imageUrl = quoteImage.url
     imageUrl2 = `./img/logo.png`
 
@@ -64,16 +61,13 @@ registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
 
 
     console.log(quote + ' ' + text.length)
-    // SIZES  SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES
     let resizeValues = {
-
          posY : 160,
          posYChange : 72,
          charLength : 20,
     }
 
     resize(text,ctx,resizeValues)
-    //  SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES END
     let font = ctx.font.slice(0,2)
 
    
@@ -81,20 +75,20 @@ registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
     splitedText.forEach((item,index) =>{
         textLength += item.length
         let splititem = item.split('')
-            item = ''
-            splititem.forEach(letter => {
+        item = ''
+        splititem.forEach(letter => {
 
-                if(letter === String.fromCharCode(7779)) item += 's'
-                else if(letter === 'ṇ') item += 'n'
-                else if(letter === 'ṅ') item += 'n'
-                else if(letter === 'Ṛ') item += 'R'
-                else if(letter === 'ṛ') item += 'r'
-                else if(letter === 'ḥ') item += 'h'
-                else if(letter === 'ṭ') item += 't'
-                else if(letter === 'Ṭ') item += 'T'
-                else if(letter === 'ḍ') item += 'd'
-                else item += letter
-            }) 
+            if(letter === String.fromCharCode(7779)) item += 's'
+            else if(letter === 'ṇ') item += 'n'
+            else if(letter === 'ṅ') item += 'n'
+            else if(letter === 'Ṛ') item += 'R'
+            else if(letter === 'ṛ') item += 'r'
+            else if(letter === 'ḥ') item += 'h'
+            else if(letter === 'ṭ') item += 't'
+            else if(letter === 'Ṭ') item += 'T'
+            else if(letter === 'ḍ') item += 'd'
+            else item += letter
+        }) 
 
         if(textLength < resizeValues.charLength) {
             resultText += `${item} `
