@@ -1,19 +1,19 @@
-const Jimp,fs
+let Jimp = require('jimp')
+let fs = require('fs')
 
-async function postImageInstagram(ig,bg,func,instagramClient) {
-    let selQuote = ig[Math.floor(Math.random() * ig.length)]
+async function postImageInstagram(quotes,func,instagramClient) {
+    let selectedQuote = quotes[Math.floor(Math.random() * quotes.length)]
+    let resultText = selectedQuote.content
+    let resultQuote = selectedQuote.quote
     console.log('post image instagram')
-    let chapter = Number(selQuote.split('.')[0]) - 1  
-    let chapterText = Number(selQuote.split('.')[1]) - 1  
-    let resultText = bg[chapter][chapterText]
-    let resultQuote = ` ${chapter +1}.${chapterText +1}`
-    await func(resultText,'Bhagavad-Gītā ' + resultQuote,true).then(res => {
+
+
+    await func(resultText, resultQuote,true).then(res => {
         fs.writeFileSync('./temp/igImage.png', res)
     })
     ;(async () => {
         await instagramClient.login() 
         console.log('loged')
-          
         Jimp.read("./temp/igImage.png", function (err2, image) {
             if (err2) {
                 console.log(err2)
@@ -25,7 +25,7 @@ async function postImageInstagram(ig,bg,func,instagramClient) {
         setTimeout( async () => {
             const photo = './temp/igImage.jpg'
             console.log('before uplaod')
-            await instagramClient.uploadPhoto({ photo, caption: 'Bhagavad-Gītā ' + resultQuote, post: 'feed' }) 
+            await instagramClient.uploadPhoto({ photo, caption: resultQuote, post: 'feed' })  
             console.log('after uplaod')
             fs.unlink('./temp/igImage.jpg',() => {})
             fs.unlink('./temp/igImage.png',() => {})

@@ -68,529 +68,529 @@ quotes = [
     quote: 'Bhagavad-Gītā 2.71',
    },
    {
-    content: '',
-    quote: '',
+    content: 'Tím, že někdo jen přestane pracovat, se nemůže zbavit reakcí. A samotným odřeknutím nelze ani dosáhnout dokonalosti.',
+    quote: 'Bhagavad-Gītā 3.4',
    },
    {
-    content: '',
-    quote: '',
+    content: 'Každý je nucen bezmocně jednat podle vlastností, které získal od kvalit hmotné přírody — nikdo nemůže ani na okamžik zůstat nečinný.',
+    quote: 'Bhagavad-Gītā 3.5',
    },
    {
-    content: '',
-    quote: '',
+    content: 'Ten, kdo drží na uzdě své činné smysly, ale myslí dlí u smyslových objektů, klame sám sebe a je nazýván pokrytcem.',
+    quote: 'Bhagavad-Gītā 3.6',
    },
    {
-    content: '',
-    quote: '',
+    content: 'Konej svou předepsanou povinnost, neboť takové jednání je lepší než nečinnost. Bez práce nemůžeš ani udržet při životě hmotné tělo.',
+    quote: 'Bhagavad-Gītā 3.8',
    },
    {
-    content: '',
-    quote: '',
+    content: '“Oddaní Pána jsou osvobozeni od veškerých hříchů, neboť jedí jídlo, které je nejprve obětováno. Osoby, které však připravují jídlo pro svůj smyslový požitek, jedí bezesporu jen hřích.”',
+    quote: 'Bhagavad-Gītā 3.13',
    },
    {
-    content: '',
-    quote: '',
+    content: 'Cokoliv dělá velký člověk, dělají pak i obyčejní lidé. Celý svět následuje vzor, který svým příkladem stanoví.',
+    quote: 'Bhagavad-Gītā 3.21',
    },
    {
-    content: '',
-    quote: '',
+    content: 'Kdybych neplnil předepsané povinnosti, všechny tyto světy by čekala záhuba. Stal bych se původcem nežádoucího obyvatelstva, a tak bych zničil klid a mír všech živých bytostí.',
+    quote: 'Bhagavad-Gītā 3.24',
    },
    {
-    content: '',
-    quote: '',
+    content: 'Duše zmatená vlivem falešného ega se považuje za vykonavatele činností, které ve skutečnosti provádějí tři kvality hmotné přírody.',
+    quote: 'Bhagavad-Gītā 3.27',
    },
    {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
+    content: 'Je mnohem lepší konat své předepsané povinnosti, byť i nedokonale, než povinnosti druhého dokonale. Lépe je dočkat se záhuby při plnění vlastní povinnosti než se zaměstnat plněním povinností někoho jiného, neboť kráčet cestou jiných je nebezpečné.',
+    quote: 'Bhagavad-Gītā 3.35',
+   },
+   {
+    content: 'Ó potomku Bharaty, kdykoliv a kdekoliv nastává úpadek náboženského života a začíná převládat bezbožnost, v té době osobně sestupuji. Abych osvobodil zbožné a vyhladil ničemy a abych znovu nastolil zásady náboženství, objevuji se věk za věkem.',
+    quote: 'Bhagavad-Gītā 4.7-8',
+   },
+   {
+    content: 'Ten, kdo zná transcendentální povahu Mého zjevení a Mých činností, se po opuštění těla již znovu nenarodí v tomto hmotném světě. Dospěje do Mého věčného sídla, Arjuno.',
+    quote: 'Bhagavad-Gītā 4.9',
+   },
+   {
+    content: 'Každého odměňuji podle toho, jak se Mi odevzdává. Všichni v každém ohledu kráčejí po Mé cestě, synu Pṛthy.',
+    quote: 'Bhagavad-Gītā 4.11',
+   },
+   {
+    content: 'Snaž se poznat pravdu tak, že se obrátíš na duchovního učitele. Pokorně se ho dotazuj a služ mu. Osoby, které znají vlastní já, ti mohou předat poznání, jelikož vidí pravdu.',
+    quote: 'Bhagavad-Gītā 4.34',
+   },
+   {
+    content: 'Když jsi na lodi transcendentálního poznání, budeš schopen překonat oceán utrpení, i kdybys byl pokládán za nejhříšnějšího ze všech hříšníků.',
+    quote: 'Bhagavad-Gītā 4.36',
+   },
+   {
+    content: 'Ó Arjuno, tak jako planoucí oheň mění palivové dříví v popel, oheň poznání spaluje na popel všechny reakce za hmotné jednání.',
+    quote: 'Bhagavad-Gītā 4.37',
+   },
+   {
+    content: 'V tomto světě není nic tak vznešeného a čistého jako transcendentální poznání. Je to zralý plod veškeré mystiky a ten, kdo dosáhl ve vykonávání oddané služby zralosti, se posléze těší z tohoto poznání ve svém nitru.',
+    quote: 'Bhagavad-Gītā 4.38',
+   },
+   {
+    content: 'Člověk vyznačující se vírou, který je oddán transcendentálnímu poznání a ovládá své smysly, je způsobilý tohoto poznání nabýt; a jakmile toho dosáhne, rychle pozná nejvyšší duchovní klid a mír.Avšak nevědomí a nevěřící jedinci, kteří berou v pochybnost zjevená písma, vědomí Boha nedosáhnou — očekává je pád. Pochybující duši nečeká štěstí ani v tomto světě, ani v příštím.',
+    quote: 'Bhagavad-Gītā 4.39-40',
+   },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
    
  
 ]
