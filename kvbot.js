@@ -3,13 +3,11 @@ const { registerFont, createCanvas } = require('canvas')
 const Discord = require('discord.js')
 const fs = require('fs') 
 const Canvas = require('canvas')
-const moment = require('moment')
 const Instagram = require('instagram-web-api')
 // config knižnic
 const client = new Discord.Client()
 const instagramClient = new Instagram({ username : process.env.IGUSERNAME, password: process.env.IGPASSWORD }) 
 // DATA
-const ekadashi = require('./data/eka')
 const rkQuotesSb = require('./data/rk-sb')
 const ig = require('./data/newig')
 const rkQuotesBg = require('./data/rk-bg')
@@ -25,6 +23,7 @@ const bgHandler = require('./functions/bgHandler');
 const sbHandler = require('./functions/sbHandler');
 const ccHandler = require('./functions/ccHandler');
 const kvEvents = require('./functions/kvEvents');
+const ekadashi = require('./functions/ekadashi');
 // FONTS 
 registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
 
@@ -194,7 +193,7 @@ setInterval(() => {
                 client.channels.cache.get(channelID).send(srimadEmbed)
             }
         }      
-}, 3600000 * 4);
+}, 3600000 * 8);
 
 
 
@@ -202,53 +201,10 @@ setInterval(() => {
 
 client.once('ready',() => {   
     /// EKADASI
+    ekadashi()
 
-    let ekadashiFound = false
-    setInterval(() => {
-        if(!ekadashiFound) {
 
-            ekadashi.forEach(eka => {
-                let ekadashiText = ``
-                let date1 = moment(eka.date)
-                let date2 = moment()
-                let diff = date1.diff(date2,'days')
-                if(diff == 0 && !ekadashiFound && date2.hours() === 5 ) {
-                    ekadashiText = `Dnes (${eka.date.split('-')[2]}.${eka.date.split('-')[1]}.${eka.date.split('-')[0]}) bude ${eka.name}, prečítajte si viac: ${eka.link}`
-                    ekadashiFound = true
-                    client.channels.cache.get('849347945798959124').send(ekadashiText)
-                    setTimeout(() => {
-                        ekadashiFound = false
-                    }, 3600000);
-                }
-                if(diff == 1 && !ekadashiFound && date2.hours() === 19) {
-                    ekadashiText = `Zajtra (${eka.date.split('-')[2]}.${eka.date.split('-')[1]}.${eka.date.split('-')[0]}) bude ${eka.name}, prečítajte si viac: ${eka.link}`
-                    ekadashiFound = true
-                    client.channels.cache.get('849347945798959124').send(ekadashiText)
-                    setTimeout(() => {
-                        ekadashiFound = false
-                    }, 3600000);
-                }
-            })
-        }
-    }, 3600000);
-
-                
-
-    setInterval(() => {
-        
-        ekadashi.forEach(eka => {
-            if(eka.end) {
-                let end = moment(eka.end)
-                if(end.month() === moment().month() && end.day() === moment().day() && end.hours() === moment().hours() && end.minutes() === moment().minutes() ) {
-                    let startDva = Number(eka.end.split(' ')[1].split(':')[0]) * 60 + Number(eka.end.split(' ')[1].split(':')[1])    
-                    let endDva = Number(eka.break.split(':')[0] * 60) + Number(eka.break.split(':')[1])
-                    let minutesLeft = endDva - startDva 
-                    client.channels.cache.get('849347945798959124').send(`ekadaši konči!! na ukončenie maš ${minutesLeft}minut (${eka.end.split(' ')[1].split('-')[0]}-${eka.break})`)
-                }
-            }
-        })
-    }, 60000);
-    /// EKADASI
+    
     
 })
 
