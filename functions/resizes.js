@@ -1,7 +1,6 @@
 
 function resize(text,ctx,obj) {
 
-    console.log('testujem resize')
     
      // SIZES  SIZES SIZES SIZES SIZES SIZES SIZES SIZES SIZES
 

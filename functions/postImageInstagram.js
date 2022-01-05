@@ -16,7 +16,6 @@ async function postImageInstagram(message = '',func) {
     })
     ;(async () => {
         await instagramClient.login() 
-        console.log('loged')
         Jimp.read("./temp/igImage.png", function (err2, image) {
             if (err2) {
                 console.log(err2)
@@ -27,12 +26,9 @@ async function postImageInstagram(message = '',func) {
         console.log('jimped jpg image')  
         setTimeout( async () => {
             const photo = './temp/igImage.jpg'
-            console.log('before uplaod')
             await instagramClient.uploadPhoto({ photo, caption: resultQuote, post: 'feed' })  
-            console.log('after uplaod')
             fs.unlink('./temp/igImage.jpg',() => {})
             fs.unlink('./temp/igImage.png',() => {})
-            console.log('after delete image')
         }, 10000);
       })()
     } 
