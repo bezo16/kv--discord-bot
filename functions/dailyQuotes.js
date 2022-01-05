@@ -2,13 +2,17 @@ const Discord = require('discord.js')
 const fs = require('fs')
 const { dirname } = require('path');
 const appDir = dirname(require.main.filename);
-const sb = JSON.parse(fs.readFileSync(appDir + '/data/BG-cs.json'));
+const sb = JSON.parse(fs.readFileSync(appDir + '/data/sb2.json'));
 const bg = JSON.parse(fs.readFileSync(appDir + '/data/BG-cs.json'));
+const rkQuotesSb = require('../data/rk-sb')
+const rkQuotesBg = require('../data/rk-bg')
+require('dotenv').config()
+
 
 
     function dailyQuotes(client) {
-    let cooldown = 0.01 // time for next quote to main chat(pokec)
-    let channelID = '810552435981680702' // ID of pokec channel
+    let cooldown = 8 // time in hours for next quote to main chat(pokec)
+    let channelID = process.env.TESTCHANNELID // ID of pokec channel
 
         setInterval(() => {
             // let random = Math.floor(Math.random() * 2)  
