@@ -3,8 +3,9 @@ let fs = require('fs')
 const quotes = require('../data/newig')
 const Instagram = require('instagram-web-api')
 const instagramClient = new Instagram({username:process.env.IGUSERNAME,password:process.env.IGPASSWORD})
+let message = ''
 
-async function postImageInstagram(message = '',func) {
+async function postImageInstagram(func) {
     let selectedQuote = quotes[Math.floor(Math.random() * quotes.length)]
     let resultText = selectedQuote.content
     let resultQuote = selectedQuote.quote

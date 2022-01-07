@@ -1,6 +1,8 @@
 const Discord = require('discord.js')
 const Canvas = require('canvas') 
 const resize = require('../functions/resizes')
+const { registerFont} = require('canvas'); 
+registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
 
 async function sendImageQuote(message,text,quote,canvasreturn=false) {
     let imageUrl
