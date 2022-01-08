@@ -29,18 +29,24 @@ require('dotenv').config()
                 client.channels.cache.get(channelID).send(gitaEmbed)
             } else {
                 let ranQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length )]
+                let allQuotes = []
                 if(typeof(ranQuote) == 'object') {
                     for(i = 0; i < ranQuote.length; i++) {
                         let cantoNum = Number(ranQuote[i].split('.')[0])   
                         let chapterNum = Number(ranQuote[i].split('.')[1])
                         let quoteNum = Number(ranQuote[i].split('.')[2])
-                        
-                        let srimadEmbed = new Discord.MessageEmbed()
-                        .setColor('#0099ff')
-                        // .setTitle('Śrīmad-Bhāgavatam')
-                        .setDescription(`${sb[cantoNum -1][chapterNum -1][quoteNum -1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum }/${quoteNum}/)`)
-                        
-                        client.channels.cache.get(channelID).send(srimadEmbed)
+                        if(allQuotes.includes(sb[cantoNum -1][chapterNum -1][quoteNum -1])) console.log()
+                        else {
+
+                            allQuotes.push(sb[cantoNum -1][chapterNum -1][quoteNum -1])
+                            
+                            let srimadEmbed = new Discord.MessageEmbed()
+                            .setColor('#0099ff')
+                            // .setTitle('Śrīmad-Bhāgavatam')
+                            .setDescription(`${sb[cantoNum -1][chapterNum -1][quoteNum -1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum }/${quoteNum}/)`)
+                            
+                            client.channels.cache.get(channelID).send(srimadEmbed)
+                        }
                     }
                 }
                 else {
