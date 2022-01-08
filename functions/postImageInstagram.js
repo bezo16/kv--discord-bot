@@ -4,6 +4,7 @@ const quotes = require('../data/newig')
 const Instagram = require('instagram-web-api')
 const instagramClient = new Instagram({username:process.env.IGUSERNAME,password:process.env.IGPASSWORD})
 let message = ''
+let hashtags = '#duchovno#poznanie#bhagavadgita#hinduizmus#sanathanadharma#citaty#slovensko'
 
 async function postImageInstagram(func) {
     let selectedQuote = quotes[Math.floor(Math.random() * quotes.length)]
@@ -27,7 +28,7 @@ async function postImageInstagram(func) {
         console.log('jimped jpg image')  
         setTimeout( async () => {
             const photo = './temp/igImage.jpg'
-            await instagramClient.uploadPhoto({ photo, caption: resultQuote, post: 'feed' })  
+            await instagramClient.uploadPhoto({ photo, caption: resultQuote + `\n${hashtags}`, post: 'feed' })  
             fs.unlink('./temp/igImage.jpg',() => {})
             fs.unlink('./temp/igImage.png',() => {})
         }, 10000);

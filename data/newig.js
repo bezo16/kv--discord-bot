@@ -135,170 +135,170 @@ quotes = [
     content: 'Člověk vyznačující se vírou, který je oddán transcendentálnímu poznání a ovládá své smysly, je způsobilý tohoto poznání nabýt; a jakmile toho dosáhne, rychle pozná nejvyšší duchovní klid a mír.Avšak nevědomí a nevěřící jedinci, kteří berou v pochybnost zjevená písma, vědomí Boha nedosáhnou — očekává je pád. Pochybující duši nečeká štěstí ani v tomto světě, ani v příštím.',
     quote: 'Bhagavad-Gītā 4.39-40',
    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
+   {
+    content: 'Človek, ktorý netúži po výsledkoch svojich činov a ani k nim nechová nenávisť, si naozaj odrieka. Taký človek, zbavený všetkých dualít, sa ľahko vymaní z hmotného otroctva a je celkom oslobodený, ó, bojovník mocných paží.',
+    quote: 'Bhagavad-Gītā 5.3',
+   },
+   {
+    content: 'Samotné zrieknutie sa všetkých činností bez oddanej služby Pánovi nemôže nikoho urobiť šťastným. No múdry človek zamestnaný v oddanej službe môže okamžite dosiahnuť Najvyššieho.',
+    quote: 'Bhagavad-Gītā 5.6',
+   },
+   {
+    content: 'Kto si koná svoju povinnosť bez lipnutia a plody svojej práce prenecháva Najvyššiemu Pánovi, toho sa nedotkne hriech, tak, ako sa voda nedotkne lotosového listu.',
+    quote: 'Bhagavad-Gītā 5.10',
+   },
+   {
+    content: 'Tí, ktorých myseľ, viera a inteligencia sú uprené na Najvyššieho a ktorí hľadajú u Neho útočisko, sa dokonalým poznaním celkom očistia od všetkých pochybností, a takto kráčajú cestou oslobodenia.',
+    quote: 'Bhagavad-Gītā 5.17',
+   },
+   {
+    content: 'Vďaka správnemu poznaniu vidia múdri v učenom a pokornom brāhmaṇovi, v krave, v slonovi, v psovi a v pojedačovi psov jedno a to isté.',
+    quote: 'Bhagavad-Gītā 5.18',
+   },
+   {
+    content: 'Človek, ktorý sa neraduje, keď dosiahne niečo príjemné, a ani ho nerozruší, keď ho zastihne niečo nepríjemné, ktorý má neochvejnú inteligenciu, nie je pomýlený a pozná vedu o Bohu, už zotrváva v transcendencii.',
+    quote: 'Bhagavad-Gītā 5.20',
+   },
+   {
+    content: 'Pôžitky zrodené zo styku so zmyslovými predmetmi sú zdrojom strastí. Majú počiatok i koniec, ó, syn Kuntī, a múdry v nich nenachádza potešenie.',
+    quote: 'Bhagavad-Gītā 5.22',
+   },
+   {
+    content: 'Múdry človek, ktorý si Ma plne uvedomuje a vie, že Ja som konečným príjemcom všetkých obetí a pokánia, Najvyšším Pánom všetkých planét a polobohov a priateľom všetkých bytostí, sa oslobodí od hmotných strastí a dosiahne mier.“',
+    quote: 'Bhagavad-Gītā 5.29',
+   },
+   {
+    content: 'Vznešený riekol: „Pravý sannyāsīn a yogīn je ten, kto nelipne na plodoch svojho konania a robí to, čo treba vykonať, a nie ten, kto nezapáli oheň a je nečinný.',
+    quote: 'Bhagavad-Gītā 6.1',
+   },
+   {
+    content: 'Človek sa musí pomocou svojej mysle oslobodiť, nie degradovať. Myseľ je ako priateľom, tak aj nepriateľom podmienenej duše.',
+    quote: 'Bhagavad-Gītā 6.5',
+   },
+   {
+    content: 'Pre toho, kto si podmanil svoju myseľ, je táto najlepším priateľom, no pre toho, kto ju neovládol, je myseľ najväčším nepriateľom.',
+    quote: 'Bhagavad-Gītā 6.6',
+   },
+   {
+    content: 'Pokročilejší je ten, kto sa pozerá rovnako na priateľov, nepriateľov, druhov, na ľudí nestranných, závistlivcov, príbuzných, zbožných či hriešnikov.',
+    quote: 'Bhagavad-Gītā 6.9',
+   },
+   {
+    content: 'Yogīnom sa nemôže stať ten, kto sa prejedá, ani ten, kto je príliš málo, kto spí viac, než je treba, alebo spí málo, ó, Arjuna.',
+    quote: 'Bhagavad-Gītā 6.16',
+   },
+   {
+    content: 'Pravý yogīn Ma vidí vo všetkých bytostiach a všetky bytosti vidí vo Mne. Sebarealizovaný človek Mňa, Najvyššieho Pána, vidí všade.',
+    quote: 'Bhagavad-Gītā 6.29',
+   },
+   {
+    content: 'Kto Ma vidí všade a všetko vidí vo Mne, tomu sa nikdy nestratím a on sa nikdy nestratí Mne.',
+    quote: 'Bhagavad-Gītā 6.30',
+   },
+   {
+    content: 'Najvyšší Pán riekol: „Ó, syn Pṛthy, transcendentalistu, ktorý koná cnostne, nečaká skaza ani v tomto, ani v duchovnom svete, pretože kto činí dobro, Môj priateľ, toho zlo nikdy nepremôže.',
+    quote: 'Bhagavad-Gītā 6.40',
+   },
+   {
+    content: 'Za najvyššieho zo všetkých yogīnov považujem toho, kto je so Mnou najdôvernejšie spojený, neprestajne na Mňa myslí a oddane a láskyplne Mi slúži.“',
+    quote: 'Bhagavad-Gītā 6.47',
+   },
+   {
+    content: 'Z mnohých tisícov ľudí snáď len jeden usiluje o dokonalosť a z tých, ktorí ju dosiahli, Ma možno jediný pozná pravdivo.',
+    quote: 'Bhagavad-Gītā 7.3',
+   },
+   {
+    content: 'Celý svet je očarovaný tromi kvalitami hmotnej prírody (dobrom, vášňou a nevedomosťou) a nepozná Mňa, ktorý stojím nepominuteľný nad nimi.',
+    quote: 'Bhagavad-Gītā 7.13',
+   },
+   {
+    content: 'Ó, Arjuna, najlepší z Bharatovcov, štyri druhy zbožných ľudí Mi začnú oddane slúžiť: trpiaci, túžiaci po bohatstve, zvedaví a hľadajúci Absolútnu Pravdu.',
+    quote: 'Bhagavad-Gītā 7.16',
+   },
+   {
+    content: 'Po mnohých narodeniach a smrtiach sa človek, ktorý je v pravde obdarený poznaním, odovzdá Mne, vediac, že Ja som príčinou všetkých príčin a všetkého, čo jestvuje. Taká duša je veľmi vzácna.',
+    quote: 'Bhagavad-Gītā 7.19',
+   },
+   {
+    content: 'Tí, ktorých poznanie uniesli hmotné žiadosti, sa uchyľujú k polobohom a uctievajú ich podľa pravidiel a predpisov, zodpovedajúcich ich povahám.',
+    quote: 'Bhagavad-Gītā 7.20',
+   },
+   {
+    content: 'Ľudia chabého rozumu uctievajú polobohov, no plody, ktoré získajú, sú obmedzené a pominuteľné. Tí, čo uctievajú polobohov, idú na planéty polobohov, zatiaľ čo Moji oddaní dosiahnu Moju zvrchovanú planétu.',
+    quote: 'Bhagavad-Gītā 7.23',
+   },
+   {
+    content: 'Nikdy sa nezjavujem pochabým a hlúpym ľuďom. Pre nich som zahalený svojou vnútornou silou, a preto nechápu, že som nezrodený a večný.',
+    quote: 'Bhagavad-Gītā 7.25',
+   },
+   {
+    content: 'Ó, Bharatovec, hubiteľ nepriateľov, všetky živé bytosti sa rodia do sveta klamu a sú zmätené dualitou, ktorá vzniká z túžby a nenávisti.',
+    quote: 'Bhagavad-Gītā 7.27',
+   },
+   {
+    content: 'Inteligentní ľudia, ktorí sa snažia vyslobodiť zo staroby a smrti, sa prostredníctvom oddanej služby uchyľujú ku Mne. Sú vskutku Brahmanom, lebo vedia všetko o transcendentálnych činoch.',
+    quote: 'Bhagavad-Gītā 7.29',
+   },
+   {
+    content: 'Tí, ktorí Ma plne poznajú ako Najvyššieho Pána vládnuceho hmotnému stvoreniu, všetkým polobohom a obetiam, Ma môžu poznať a rozumieť, kto som, aj v okamihu smrti.“',
+    quote: 'Bhagavad-Gītā 7.30',
+   },
+   {
+    content: 'A každý, kdo na konci života při opouštění svého těla vzpomíná jen na Mě, dosáhne okamžitě Mého stavu bytí. O tom není pochyb.',
+    quote: 'Bhagavad-Gītā 8.5',
+   },
+   {
+    content: 'Ó synu Kuntī, každý naprosto jistě dosáhne právě toho stavu bytí, na který vzpomíná, když opouští své tělo.',
+    quote: 'Bhagavad-Gītā 8.5',
+   },
+   {
+    content: 'Ó synu Pṛthy! Pro toho, kdo na Mě vždy bez odchýlení vzpomíná, jsem snadno dosažitelný, díky jeho neustálé oddané službě.',
+    quote: 'Bhagavad-Gītā 8.14',
+   },
+   {
+    content: 'Velké duše, oddaní yogīni, kteří Mne dosáhli, se nikdy nevracejí do tohoto dočasného světa plného utrpení, neboť dospěli k nejvyšší dokonalosti.',
+    quote: 'Bhagavad-Gītā 8.15',
+   },
+   {
+    content: 'Všechny planety v hmotném světě, od té nejvýše až po tu nejníže ležící, jsou místy utrpení, kde dochází k opakovanému rození a umírání. Ó synu Kuntī, avšak ten, kdo dosáhne Mého sídla, se již nikdy znovu nerodí.',
+    quote: 'Bhagavad-Gītā 8.16',
+   },
+   {
+    content: 'Podle vyjádření Ved existují dvě cesty odchodu z tohoto světa, jedna plná světla a druhá temná. Ten, kdo odchází cestou světla, se nevrací, zatímco ten, kdo odchází tmou, se musí vrátit.',
+    quote: 'Bhagavad-Gītā 8.26',
+   },
+   {
+    content: 'Ten, kdo se vydá po cestě oddané služby, nepřichází o výsledky studia Ved, konání obětí, podstupování askeze, dávání milodarů, filozofického zaměření či práce konané s touhou po jejích plodech. Samotnou oddanou službou to vše získává a nakonec dospěje do nejvyššího věčného sídla.',
+    quote: 'Bhagavad-Gītā 8.28',
+   },
+   {
+    content: 'Celý vesmírný řád podléhá Mé vládě. Podle Mé vůle se vše samočinně znovu a znovu projevuje a podle ní je na konci zase ničeno.',
+    quote: 'Bhagavad-Gītā 9.8',
+   },
+   {
+    content: 'Ó synu Kuntī! Ti, kdo jsou oddáni jiným bohům a s vírou je uctívají, ve skutečnosti uctívají jen Mě, ale nesprávným způsobem.',
+    quote: 'Bhagavad-Gītā 9.23',
+   },
+   {
+    content: 'Ti, kdo uctívají polobohy, se narodí mezi polobohy; ti, kdo uctívají předky, půjdou k předkům; ti, kdo uctívají duchy, se narodí mezi takovými bytostmi a ti, kdo uctívají Mě, budou žít se Mnou.',
+    quote: 'Bhagavad-Gītā 9.25',
+   },
+   {
+    content: 'Jestliže Mi někdo s láskou a oddaností obětuje lístek, květ, ovoce či vodu, přijmu to.',
+    quote: 'Bhagavad-Gītā 9.26',
+   },
+   {
+    content: 'Ó synu Kuntī! Vše co děláš, jíš, obětuješ či rozdáváš, jakož i veškerou askezi, kterou podstupuješ, dělej jako oběť Mně. Tak nebudeš spoután prací a jejími příznivými a nepříznivými výsledky. S myslí na Mě upřenou v této náladě odříkání budeš osvobozen a dospěješ ke Mně.',
+    quote: 'Bhagavad-Gītā 9.27-28',
+   },
+   {
+    content: 'Vůči nikomu nechovám zášť a nikomu nestraním. Jsem stejně nakloněn všem. Ale každý, kdo Mi oddaně slouží, je Můj přítel — je u Mě — a Já jsem také přítelem jemu.',
+    quote: 'Bhagavad-Gītā 9.29',
+   },
+   {
+    content: 'Ó synu Pṛthy! Ti, kdo se ke Mně uchýlí, byť jsou i nižšího původu, ženy, vaiśyové (obchodníci) a śūdrové (dělníci), mohou dosáhnout nejvyššího cíle.',
+    quote: 'Bhagavad-Gītā 9.30',
+   },
 //    {
 //     content: '',
 //     quote: '',
