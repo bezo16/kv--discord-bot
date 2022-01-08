@@ -4,9 +4,10 @@ const fs = require('fs')
 const { dirname } = require('path');
 const appDir = dirname(require.main.filename);
 const cc = JSON.parse(fs.readFileSync(appDir + '/data/cc.json'));
+const sendImg = require('../functions/sendImageQuote')
 
 
-    function ccHandler(message,sendImg) {
+    function ccHandler(message) {
 
     if(message.content.split(' ').length === 2) {
         let firstWord = message.content.split(" ")[0].toLowerCase()

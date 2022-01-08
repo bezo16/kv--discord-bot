@@ -3,9 +3,10 @@ const fs = require('fs')
 const { dirname } = require('path');
 const appDir = dirname(require.main.filename);
 const sb = JSON.parse(fs.readFileSync(appDir + '/data/sb2.json'));
+const sendImg = require('../functions/sendImageQuote')
 
 
-    function sbHandler(message,sendImg) {
+    function sbHandler(message) {
     let firstWord = message.content.split(" ")[0]  
     let secondWord = message.content.split(" ")[1]
     

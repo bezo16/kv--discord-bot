@@ -3,10 +3,11 @@ let fs = require('fs')
 const quotes = require('../data/newig')
 const Instagram = require('instagram-web-api')
 const instagramClient = new Instagram({username:process.env.IGUSERNAME,password:process.env.IGPASSWORD})
+let func = require('../functions/sendImageQuote')
 let message = ''
 let hashtags = '#duchovno#poznanie#bhagavadgita#hinduizmus#sanathanadharma#citaty#slovensko'
 
-async function postImageInstagram(func) {
+async function postImageInstagram() {
     let selectedQuote = quotes[Math.floor(Math.random() * quotes.length)]
     let resultText = selectedQuote.content
     let resultQuote = selectedQuote.quote

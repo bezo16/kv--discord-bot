@@ -4,8 +4,10 @@ const { dirname } = require('path');
 const appDir = dirname(require.main.filename);
 const bg = JSON.parse(fs.readFileSync(appDir + '/data/BG-cs.json'));
 const bgsk = JSON.parse(fs.readFileSync(appDir + '/data/BG-sk.json'));
+const sendImg = require('../functions/sendImageQuote')
 
-function bgHandler(message,sendImg) {
+
+function bgHandler(message) {
 
     if(message.content.split(' ').length === 2) {
         let firstWord = message.content.split(" ")[0]  
