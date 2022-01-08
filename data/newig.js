@@ -299,298 +299,298 @@ quotes = [
     content: 'Ó synu Pṛthy! Ti, kdo se ke Mně uchýlí, byť jsou i nižšího původu, ženy, vaiśyové (obchodníci) a śūdrové (dělníci), mohou dosáhnout nejvyššího cíle.',
     quote: 'Bhagavad-Gītā 9.30',
    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
-//    {
-//     content: '',
-//     quote: '',
-//    },
+   {
+    content: 'Inteligenci, poznání, oproštěnost od pochyb a klamu, schopnost odpouštět, věrnost pravdě, ovládání smyslů, ovládání mysli, štěstí a neštěstí, zrození, smrt, strach, nepřítomnost strachu, nenásilí, vyrovnanost, spokojenost, askezi, dobročinnost, slávu a hanbu, tyto různé stavy živých bytostí nestvořil nikdo jiný než Já sám.',
+    quote: 'Bhagavad-Gītā 10.4-5',
+   },
+   {
+    content: 'Těm, kteří jsou neustále oddáni láskyplné službě Mně, dávám poznání, které jim umožní ke Mně dospět.',
+    quote: 'Bhagavad-Gītā 10.10',
+   },
+   {
+    content: 'Věz, že všechny vznešené, krásné a působivé výtvory povstávají z pouhého zlomku Mé nádhery.',
+    quote: 'Bhagavad-Gītā 10.41',
+   },
+   {
+    content: 'Arjuna řekl: Ó Pane smyslů, svět se raduje, když slyší Tvé jméno, a tak k Tobě každý začíná být poután. Dokonalé bytosti Ti projevují úctu, ale démoni se bojí a prchají na všechny strany. To vše je jak má být.',
+    quote: 'Bhagavad-Gītā 11.36',
+   },
+   {
+    content: 'Můj milý Arjuno, pouze výlučnou oddanou službou Mne lze poznat takového, jaký jsem, jak tady před tebou stojím, a tak Mne přímo vidět. Jedině tímto způsobem je možné proniknout do tajemství toho, jak Mi porozumět.',
+    quote: 'Bhagavad-Gītā 11.54',
+   },
+   {
+    content: 'Ó synu Pāṇḍua, ten, kdo Mi prokazuje čistou oddanou službu, bez znečištění plodonosnými činnostmi a myšlenkovou spekulací, kdo pracuje pro Mě, činí Mě nejvyšším cílem svého života a je přátelský ke všem živým bytostem, zaručeně dospěje ke Mně.',
+    quote: 'Bhagavad-Gītā 11.55',
+   },
+   {
+    content: 'Avšak ty, kdo Mě uctívají — odevzdávají Mi všechny své činnosti, jsou neochvějně oddáni Mně, prokazují Mi výlučnou oddanou službu a neustále o Mně meditují s myslí upřenou na Mne — ty rychle vysvobodím z oceánu zrození a smrti, synu Pṛthy.',
+    quote: 'Bhagavad-Gītā 12.6-7',
+   },
+   {
+    content: 'Jestliže v praxi nedokážeš dodržovat usměrnění bhakti-yogy, snaž se pro Mě pracovat, neboť prací pro Mě dospěješ k dokonalosti.',
+    quote: 'Bhagavad-Gītā 12.10',
+   },
+   {
+    content: 'Ten, kdo v sobě nechová zášť a je naopak vlídným přítelem všech živých bytostí, nepovažuje se za vlastníka a je prostý falešného ega, vyrovnaný při štěstí i neštěstí, snášenlivý a vždy spokojený, ovládající sám sebe a s odhodláním vykonávající oddanou službu s myslí a inteligencí upřenou na Mě — tento Můj oddaný je Mi velice drahý.',
+    quote: 'Bhagavad-Gītā 12.13-14',
+   },
+   {
+    content: 'Ten, kdo nikoho nepřivádí do nesnází a není nikdy nikým znepokojen, kdo zůstává klidný při štěstí i neštěstí a strachu i úzkosti, je Mi velmi drahý.',
+    quote: 'Bhagavad-Gītā 12.15',
+   },
+   {
+    content: 'Můj oddaný, který není závislý na obvyklém běhu událostí a je čistý, znalý, bezstarostný, nedotčený bolestmi jakéhokoliv druhu a nesnaží se pracně o výsledek, je Mi nadmíru drahý.',
+    quote: 'Bhagavad-Gītā 12.16',
+   },
+   {
+    content: 'Ten, kdo se neraduje ani netruchlí, neběduje ani netouží a zříká se příznivých i nepříznivých věcí — takový oddaný je Mi velice drahý.',
+    quote: 'Bhagavad-Gītā 12.17',
+   },
+   {
+    content: 'Ten, kdo hledí stejně na přátele i nepřátele a zůstává vyrovnaný, ať se setkává s poctou či zneuctěním, teplem či zimou, štěstím či neštěstím, slávou či hanbou, kdo není ve styku se znečišťující společností, vždy je mlčenlivý a se vším spokojený, nestará se o to, kde bude bydlet, neochvějně setrvává na úrovni poznání a je zaměstnaný oddanou službou — ten je Mi velmi drahý.',
+    quote: 'Bhagavad-Gītā 12.18-19',
+   },
+   {
+    content: 'Ti, kdo kráčejí touto nepomíjivou cestou oddané služby, učinili Mě svým nejvyšším cílem a plně a s vírou se odevzdávají, jsou Mi nesmírně drazí.',
+    quote: 'Bhagavad-Gītā 12.20',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
+   {
+    content: '',
+    quote: '',
+   },
    
  
 ]
