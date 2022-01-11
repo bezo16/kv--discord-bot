@@ -14,7 +14,11 @@ const custom = require('./handlers/custom');
 client.once('ready',() => {   
     ekadashi()
     dailyQuotes(client)
-    postImageInstagram() 
+
+    setTimeout(() => {
+        postImageInstagram() 
+        setTimeout(postImageInstagram,3600000 * 10)
+    }, 3600000 * 10);
     
 })
 client.on('message',message => { 

@@ -9,7 +9,6 @@ let hashtags = '#duchovno#poznanie#bhagavadgita#hinduizmus#sanathanadharma#citat
 
 async function postImageInstagram() {
 
-    setInterval(() => {
         
         
         let selectedQuote = quotes[Math.floor(Math.random() * quotes.length)]
@@ -38,7 +37,6 @@ async function postImageInstagram() {
                 fs.unlink('./temp/igImage.png',() => {})
             }, 10000);
         })()
-    }, 3600000 * 10);
     } 
 
 
