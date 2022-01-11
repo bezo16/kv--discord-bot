@@ -439,158 +439,158 @@ quotes = [
     content: 'Kdo Mi slouží s naprostou a výlučnou, neselhávající oddaností, okamžitě překonává kvality hmotné přírody a tak se dostává na úroveň Brahmanu.',
     quote: 'Bhagavad-Gītā 14.26',
    },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
-   {
-    content: '',
-    quote: '',
-   },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
+//    {
+//     content: '',
+//     quote: '',
+//    },
    
  
 ]
