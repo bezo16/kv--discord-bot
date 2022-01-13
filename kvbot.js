@@ -11,11 +11,12 @@ const ekadashi = require('./handlers/ekadashi');
 const dailyQuotes = require('./handlers/dailyQuotes')
 const custom = require('./handlers/custom');
 
-client.once('ready',() => {   
+client.once('ready',() => {     
     ekadashi()
     dailyQuotes(client)
 
     postImageInstagram()
+    
     
 })
 
