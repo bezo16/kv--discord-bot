@@ -15,12 +15,10 @@ client.once('ready',() => {
     ekadashi()
     dailyQuotes(client)
 
-    setTimeout(() => {
-        postImageInstagram() 
-        setTimeout(postImageInstagram,3600000 * 10)
-    }, 3600000 * 10);
+    postImageInstagram()
     
 })
+
 client.on('message',message => { 
     if(message.author.bot) return 
     
@@ -31,4 +29,4 @@ client.on('message',message => {
     kvEvents(message)
     custom(message)
 })
-client.login(process.env.TOKEN) 
+client.login(process.env.TOKEN)
