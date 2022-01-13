@@ -33,5 +33,6 @@ client.on('message',message => {
 
 
     if(message.content === 'pes') message.channel.send('JURHWUAHRUAHRUAHRU')
+    
 })
 client.login(process.env.TOKEN)
