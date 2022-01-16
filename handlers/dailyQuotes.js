@@ -12,7 +12,7 @@ require('dotenv').config()
 
     function dailyQuotes(client) {
     let cooldown = 8 // time in hours for next quote to main chat(pokec)
-    let channelID = process.env.TESTCHANNELID // ID of pokec channel
+    let channelID = process.env.MAINCHANNELID // ID of pokec channel
 
         setInterval(() => {
             // let random = Math.floor(Math.random() * 2)  

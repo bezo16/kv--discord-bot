@@ -30,7 +30,5 @@ client.on('message',message => {
     kvEvents(message)
     custom(message)
 
-    if(message.content === 'pes') message.channel.send('DOBRY VECEEEEEERR123123123')
-
 })
 client.login(process.env.TOKEN)
