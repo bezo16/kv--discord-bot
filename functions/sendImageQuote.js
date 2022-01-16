@@ -50,6 +50,7 @@ async function sendImageQuote(message,text,quote,canvasreturn=false) {
             else if(letter === 'ṅ') item += 'n'
             else if(letter === 'Ṛ') item += 'R'
             else if(letter === 'ṛ') item += 'r'
+            else if(letter === 'ṁ') item += 'm'
             else if(letter === 'ḥ') item += 'h'
             else if(letter === 'ṭ') item += 't'
             else if(letter === 'Ṭ') item += 'T'
