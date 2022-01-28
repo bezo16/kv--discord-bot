@@ -4,6 +4,7 @@ const axios = require('axios');
 const quotes = require('../data/newig')
 let func = require('../functions/sendImageQuote')
 let message = ''
+require('dotenv').config()
 
 async function fbHandler() {
 
@@ -29,7 +30,7 @@ async function fbHandler() {
             console.log('jimped jpg image')  
             setTimeout( async () => {
                 const photo = './temp/fbImage.jpg'
-                await axios.post(`https://graph.facebook.com/111383764782486/photos?url=${photo}&access_token=EAAHQ2UMugWcBAPw29NXJZAT6V19tg8DTg8XXDOHrzsW2aFBdTD7gSIcbkN3CW8ZB0cKxK8yUuzEMkHDtSSDghBIk2nlHAzWBgjQjdZABZBn0pmcFmC1UazcvGjRzvp68DC4SeHBZBlHgXoZB6vHovPF6MZB8yE3CttaDLOQHgPGmeh91ZAsSl3D3edGLfqfqkwMZD`)
+                await axios.post(`https://graph.facebook.com/111383764782486/photos?url=${photo}&access_token=${process.env.FB_ACCESS_TOKEN}`)
                 .then((res) => console.log(res))
                 fs.unlink('./temp/fbImage.jpg',() => {})
                 fs.unlink('./temp/fbImage.png',() => {})
