@@ -31,7 +31,7 @@ client.on('message',message => {
     sbHandler(message) 
     ccHandler(message)
 
-    if(message.content === '?purna') message.channel.send('prijemny mlady oddany a talentovany barber a večny vtipkar')
+    if(message.content === '?purna') message.channel.send('prijemny mlady oddany a talentovany barber a večny vtipKAR')
 
     kvEvents(message)
     custom(message)
