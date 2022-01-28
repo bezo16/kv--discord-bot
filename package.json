@@ -10,9 +10,12 @@
   "author": "jebo",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.25.0",
     "discord-canvas": "^1.4.1",
     "discord.js": "^12.5.1",
     "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "form-data": "^4.0.0",
     "fullpage-puppeteer-screenshot": "^1.0.1",
     "google-images": "^2.1.0",
     "instagram-web-api": "^2.2.2",
