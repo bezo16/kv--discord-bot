@@ -32,7 +32,7 @@ client.on('message',message => {
     ccHandler(message)
 
     if(message.content === '?purna') message.channel.send('prijemny mlady oddany a talentovany barber a večny vtipKAR ')
-    if(message.content === '?bezo' || message.content === '?bezo16') message.channel.send('dagy gogod222')
+    if(message.content === '?bezo' || message.content === '?bezo16') message.channel.send('dagy gogod2222')
 
     kvEvents(message)
     custom(message)
