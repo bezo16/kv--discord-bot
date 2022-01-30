@@ -19,7 +19,7 @@ client.once('ready',() => {
     dailyQuotes(client)
     fbHandler()
 
-    // postImageInstagram() 
+    postImageInstagram() 
 
 
 })
