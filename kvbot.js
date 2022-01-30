@@ -9,6 +9,7 @@ const bgHandler = require('./handlers/bgHandler');
 const sbHandler = require('./handlers/sbHandler');
 const ccHandler = require('./handlers/ccHandler');
 const fbHandler = require('./handlers/fbHandler');
+const vedicMantras = require('./handlers/vedicMantras');
 const kvEvents = require('./handlers/kvEvents');
 const ekadashi = require('./handlers/ekadashi');
 const dailyQuotes = require('./handlers/dailyQuotes')
@@ -31,8 +32,8 @@ client.on('message',message => {
     sbHandler(message) 
     ccHandler(message)
 
-    if(message.content === '?pancha-tattva') message.channel.send('śrī-kṛṣṇa-caitanya prabhu-nityānanda,śrī-advaita gadādhara śrīvāsādi-gaura-bhakta-vṛnda')
 
+    vedicMantras(message)
     kvEvents(message)
     custom(message)
 

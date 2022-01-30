@@ -10,7 +10,7 @@ require('dotenv').config()
 const photo = '173.212.239.101:7777/fbImage.jpg'
 
 async function fbHandler() {
-        setTimeout(() => {
+        setTimeout(async () => {
 
             
             

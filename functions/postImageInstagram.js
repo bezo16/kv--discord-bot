@@ -10,7 +10,7 @@ let hashtags = '#duchovno#poznanie#bhagavadgita#hinduizmus#sanathanadharma#citat
 
 
 async function postImageInstagram() {
-        setTimeout(() => {
+        setTimeout( async () => {
         console.log('post image instagram')
             
             
