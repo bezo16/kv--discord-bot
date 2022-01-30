@@ -9,7 +9,9 @@ require('dotenv').config()
 async function fbHandler() {
 
         
-        
+     
+        await fs.unlink('./temp/fbImage.png',() => {})
+        await fs.unlink('./temp/fbImage.jpg',() => {})
         let selectedQuote = quotes[Math.floor(Math.random() * quotes.length)]
         let resultText = selectedQuote.content
         let resultQuote = selectedQuote.quote
@@ -29,11 +31,9 @@ async function fbHandler() {
             })
             console.log('jimped jpg image')  
             setTimeout( async () => {
-                const photo = './temp/fbImage.jpg'
+                const photo = '173.212.239.101:7777/fbImage.jpg'
                 await axios.post(`https://graph.facebook.com/111383764782486/photos?url=${photo}&access_token=${process.env.FB_ACCESS_TOKEN}`)
                 .then((res) => console.log(res))
-                fs.unlink('./temp/fbImage.jpg',() => {})
-                fs.unlink('./temp/fbImage.png',() => {})
             }, 10000);
         setTimeout(fbHandler, 3600000 * (Math.random() * 10 + 10))
     } 
