@@ -31,8 +31,7 @@ client.on('message',message => {
     sbHandler(message) 
     ccHandler(message)
 
-    if(message.content === '?purna') message.channel.send('prijemny mlady oddany a talentovany barber a večny vtipKAR ')
-    if(message.content === '?bezo' || message.content === '?bezo16') message.channel.send('dagy gogod22222')
+    if(message.content === '?pancha-tattva') message.channel.send('śrī-kṛṣṇa-caitanya prabhu-nityānanda,śrī-advaita gadādhara śrīvāsādi-gaura-bhakta-vṛnda')
 
     kvEvents(message)
     custom(message)
