@@ -9,7 +9,6 @@ require('dotenv').config()
 
 const photo = '173.212.239.101:7777/fbImage.jpg'
 
-    setTimeout(async () => {
 async function fbHandler() {
 
             
@@ -40,5 +39,4 @@ async function fbHandler() {
 
 
         } 
-    },3600000 * (Math.random() * 1 + 1))
         module.exports = fbHandler
