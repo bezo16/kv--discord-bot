@@ -32,7 +32,7 @@ async function fbHandler() {
                 .then((res) => console.log(res))
                 .catch(err => console.log(err))
             }, 10000);
-            setTimeout(fbHandler, 3600000 * (Math.random() * 10 + 10))
+            setTimeout(fbHandler, 3600000 * (Math.random() * 1 + 1))
 
 
 
@@ -40,5 +40,5 @@ async function fbHandler() {
 
 
         } 
-    },3600000 * (Math.random() * 10 + 10))
+    },3600000 * (Math.random() * 1 + 1))
         module.exports = fbHandler
