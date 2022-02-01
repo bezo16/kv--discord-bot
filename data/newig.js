@@ -28,7 +28,7 @@ quotes = [
     quote: 'Bhagavad-Gītā 2.30',
    },
    {
-    content: 'Bojuj pro samotný boj a neuvažuj o štěstí či neštěstí, ztrátě či zisku nebo vítězství či porážce — tak na tebe nikdy nedolehne následek hříchu.',
+    content: 'Bojuj pro samotný boj a neuvažuj o štěstí či neštěstí, ztrátě či zisku nebo vítězství či porážce - tak na tebe nikdy nedolehne následek hříchu.',
     quote: 'Bhagavad-Gītā 2.38',
    },
    {
@@ -72,7 +72,7 @@ quotes = [
     quote: 'Bhagavad-Gītā 3.4',
    },
    {
-    content: 'Každý je nucen bezmocně jednat podle vlastností, které získal od kvalit hmotné přírody — nikdo nemůže ani na okamžik zůstat nečinný.',
+    content: 'Každý je nucen bezmocně jednat podle vlastností, které získal od kvalit hmotné přírody - nikdo nemůže ani na okamžik zůstat nečinný.',
     quote: 'Bhagavad-Gītā 3.5',
    },
    {
@@ -132,7 +132,7 @@ quotes = [
     quote: 'Bhagavad-Gītā 4.38',
    },
    {
-    content: 'Člověk vyznačující se vírou, který je oddán transcendentálnímu poznání a ovládá své smysly, je způsobilý tohoto poznání nabýt; a jakmile toho dosáhne, rychle pozná nejvyšší duchovní klid a mír.Avšak nevědomí a nevěřící jedinci, kteří berou v pochybnost zjevená písma, vědomí Boha nedosáhnou — očekává je pád. Pochybující duši nečeká štěstí ani v tomto světě, ani v příštím.',
+    content: 'Člověk vyznačující se vírou, který je oddán transcendentálnímu poznání a ovládá své smysly, je způsobilý tohoto poznání nabýt; a jakmile toho dosáhne, rychle pozná nejvyšší duchovní klid a mír.Avšak nevědomí a nevěřící jedinci, kteří berou v pochybnost zjevená písma, vědomí Boha nedosáhnou - očekává je pád. Pochybující duši nečeká štěstí ani v tomto světě, ani v příštím.',
     quote: 'Bhagavad-Gītā 4.39-40',
    },
    {
@@ -292,7 +292,7 @@ quotes = [
     quote: 'Bhagavad-Gītā 9.27-28',
    },
    {
-    content: 'Vůči nikomu nechovám zášť a nikomu nestraním. Jsem stejně nakloněn všem. Ale každý, kdo Mi oddaně slouží, je Můj přítel — je u Mě — a Já jsem také přítelem jemu.',
+    content: 'Vůči nikomu nechovám zášť a nikomu nestraním. Jsem stejně nakloněn všem. Ale každý, kdo Mi oddaně slouží, je Můj přítel - je u Mě - a Já jsem také přítelem jemu.',
     quote: 'Bhagavad-Gītā 9.29',
    },
    {
@@ -324,7 +324,7 @@ quotes = [
     quote: 'Bhagavad-Gītā 11.55',
    },
    {
-    content: 'Avšak ty, kdo Mě uctívají — odevzdávají Mi všechny své činnosti, jsou neochvějně oddáni Mně, prokazují Mi výlučnou oddanou službu a neustále o Mně meditují s myslí upřenou na Mne — ty rychle vysvobodím z oceánu zrození a smrti, synu Pṛthy.',
+    content: 'Avšak ty, kdo Mě uctívají - odevzdávají Mi všechny své činnosti, jsou neochvějně oddáni Mně, prokazují Mi výlučnou oddanou službu a neustále o Mně meditují s myslí upřenou na Mne - ty rychle vysvobodím z oceánu zrození a smrti, synu Pṛthy.',
     quote: 'Bhagavad-Gītā 12.6-7',
    },
    {
@@ -332,7 +332,7 @@ quotes = [
     quote: 'Bhagavad-Gītā 12.10',
    },
    {
-    content: 'Ten, kdo v sobě nechová zášť a je naopak vlídným přítelem všech živých bytostí, nepovažuje se za vlastníka a je prostý falešného ega, vyrovnaný při štěstí i neštěstí, snášenlivý a vždy spokojený, ovládající sám sebe a s odhodláním vykonávající oddanou službu s myslí a inteligencí upřenou na Mě — tento Můj oddaný je Mi velice drahý.',
+    content: 'Ten, kdo v sobě nechová zášť a je naopak vlídným přítelem všech živých bytostí, nepovažuje se za vlastníka a je prostý falešného ega, vyrovnaný při štěstí i neštěstí, snášenlivý a vždy spokojený, ovládající sám sebe a s odhodláním vykonávající oddanou službu s myslí a inteligencí upřenou na Mě - tento Můj oddaný je Mi velice drahý.',
     quote: 'Bhagavad-Gītā 12.13-14',
    },
    {
@@ -344,11 +344,11 @@ quotes = [
     quote: 'Bhagavad-Gītā 12.16',
    },
    {
-    content: 'Ten, kdo se neraduje ani netruchlí, neběduje ani netouží a zříká se příznivých i nepříznivých věcí — takový oddaný je Mi velice drahý.',
+    content: 'Ten, kdo se neraduje ani netruchlí, neběduje ani netouží a zříká se příznivých i nepříznivých věcí - takový oddaný je Mi velice drahý.',
     quote: 'Bhagavad-Gītā 12.17',
    },
    {
-    content: 'Ten, kdo hledí stejně na přátele i nepřátele a zůstává vyrovnaný, ať se setkává s poctou či zneuctěním, teplem či zimou, štěstím či neštěstím, slávou či hanbou, kdo není ve styku se znečišťující společností, vždy je mlčenlivý a se vším spokojený, nestará se o to, kde bude bydlet, neochvějně setrvává na úrovni poznání a je zaměstnaný oddanou službou — ten je Mi velmi drahý.',
+    content: 'Ten, kdo hledí stejně na přátele i nepřátele a zůstává vyrovnaný, ať se setkává s poctou či zneuctěním, teplem či zimou, štěstím či neštěstím, slávou či hanbou, kdo není ve styku se znečišťující společností, vždy je mlčenlivý a se vším spokojený, nestará se o to, kde bude bydlet, neochvějně setrvává na úrovni poznání a je zaměstnaný oddanou službou - ten je Mi velmi drahý.',
     quote: 'Bhagavad-Gītā 12.18-19',
    },
    {
@@ -356,7 +356,7 @@ quotes = [
     quote: 'Bhagavad-Gītā 12.20',
    },
    {
-    content: 'Pokora, skromnost, nenásilí, snášenlivost, přímost, obracení se na pravého duchovního učitele, čistota, stálost, sebeovládání, zříkání se objektů smyslového požitku, oproštěnost od falešného ega, chápání špatnosti zrození, smrti, stáří a nemoci, neulpívání, nezapletenost s dětmi, manželkou, domovem a ostatními věcmi, vyrovnanost mysli za příjemných i nepříjemných událostí, trvalá a ryzí oddanost Mně, tíhnutí k životu v ústraní, neulpívání na masách lidí, uznávání důležitosti seberealizace a filozofické hledání Absolutní Pravdy — to vše prohlašuji za poznání. Všechno ostatní je naopak nevědomost.',
+    content: 'Pokora, skromnost, nenásilí, snášenlivost, přímost, obracení se na pravého duchovního učitele, čistota, stálost, sebeovládání, zříkání se objektů smyslového požitku, oproštěnost od falešného ega, chápání špatnosti zrození, smrti, stáří a nemoci, neulpívání, nezapletenost s dětmi, manželkou, domovem a ostatními věcmi, vyrovnanost mysli za příjemných i nepříjemných událostí, trvalá a ryzí oddanost Mně, tíhnutí k životu v ústraní, neulpívání na masách lidí, uznávání důležitosti seberealizace a filozofické hledání Absolutní Pravdy - to vše prohlašuji za poznání. Všechno ostatní je naopak nevědomost.',
     quote: 'Bhagavad-Gītā 13.8-12',
    },
    {
@@ -368,7 +368,7 @@ quotes = [
     quote: 'Bhagavad-Gītā 14.4',
    },
    {
-    content: 'Hmotná příroda se skládá ze tří kvalit — dobra, vášně a nevědomosti. Arjuno, bojovníku mocných paží, když věčná živá bytost přijde do styku s přírodou, je těmito kvalitami podmíněna.',
+    content: 'Hmotná příroda se skládá ze tří kvalit - dobra, vášně a nevědomosti. Arjuno, bojovníku mocných paží, když věčná živá bytost přijde do styku s přírodou, je těmito kvalitami podmíněna.',
     quote: 'Bhagavad-Gītā 14.5',
    },
    {
