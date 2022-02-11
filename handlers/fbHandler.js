@@ -18,6 +18,7 @@ async function fbHandler() {
             let selectedQuote = quotes[Math.floor(Math.random() * quotes.length)]
             let resultText = selectedQuote.content
             let resultQuote = selectedQuote.quote
+            let photoDescription = 'https://reinkarnacia.sk/'
             
             await createQuote(message,resultText, resultQuote,true).then(imageBuffer => {
                 fs.writeFileSync('./temp/fbImage.png', imageBuffer)
@@ -27,7 +28,7 @@ async function fbHandler() {
                 else image.write("./temp/fbImage.jpg")
             })
             setTimeout( async () => {
-                await axios.post(`https://graph.facebook.com/111383764782486/photos?url=${photo}&access_token=${process.env.FB_ACCESS_TOKEN}`)
+                await axios.post(`https://graph.facebook.com/111383764782486/photos?url=${photo}&access_token=${process.env.FB_ACCESS_TOKEN}&message=${photoDescription}`)
                 .then((res) => console.log(res))
                 .catch(err => console.log(err))
             }, 10000);
