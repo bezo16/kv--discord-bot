@@ -36,9 +36,9 @@ async function postImageInstagram() {
                 fs.unlink('./temp/igImage.png',() => {})
             }, 10000);
         })()
-        setTimeout(postImageInstagram, 3600000 * (Math.random() * 7 + 7))
+        setTimeout(postImageInstagram, 3600000 * (Math.random() * 20 + 20))
 
-    }, 3600000 * (Math.random() * 7 + 1))
+    }, 3600000 * (Math.random() * 20 + 20))
 } 
 
 
