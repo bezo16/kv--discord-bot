@@ -18,7 +18,10 @@ function bgHandler(message) {
             if(secondWord.includes('.')  && secondWord.charAt(0) != '.' && secondWord.charAt(secondWord.length-1) != '.' ){ 
                 let splitSecondWord = secondWord.split(".")
                 let chapter = splitSecondWord[0]           
-                let chapterText = splitSecondWord[1]       
+                let chapterText = splitSecondWord[1]    
+                
+                console.log('BG WRITEN')
+
                 if(!isNaN(chapterText) && !isNaN(chapter) ){  
                     if(chapter < 1 ) chapter = 1                
                     if(chapterText < 1 ) chapterText = 1
@@ -32,11 +35,18 @@ function bgHandler(message) {
                     
                     if(firstWord.toLowerCase() === 'bgi' || firstWord.toLowerCase() === 'bgisk') sendImg(message,resultText, `Bhagavad-Gītā ${chapter}.${chapterText}`) 
                     else if(firstWord.toLowerCase() === 'bg' || firstWord.toLowerCase() === 'bgsk') {
-                        let gitaEmbed = new Discord.MessageEmbed()
-                        .setColor('#0099ff')
-                        .setTitle( resultText)
-                        .setDescription(`[Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`)
-                        message.channel.send(gitaEmbed)
+                        if(resultText.length <= 256) {
+                            let gitaEmbed = new Discord.MessageEmbed()
+                            .setColor('#0099ff')
+                            .setTitle( resultText)
+                            .setDescription(`[Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`)
+                            message.channel.send(gitaEmbed)
+                        } else {
+                            let gitaEmbed = new Discord.MessageEmbed()
+                            .setColor('#0099ff')
+                            .setDescription(`${resultText} \n [Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`)
+                            message.channel.send(gitaEmbed)
+                        }
                     }
                 }
             }
