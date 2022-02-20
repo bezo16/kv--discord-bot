@@ -35,10 +35,11 @@ function bgHandler(message) {
                     
                     if(firstWord.toLowerCase() === 'bgi' || firstWord.toLowerCase() === 'bgisk') sendImg(message,resultText, `Bhagavad-Gītā ${chapter}.${chapterText}`) 
                     else if(firstWord.toLowerCase() === 'bg' || firstWord.toLowerCase() === 'bgsk') {
-                        if(`[Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`.length <= 256) {
+                        let link = `[Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`
+                        if((link.length + resultText.length) <= 256) {
                             let gitaEmbed = new Discord.MessageEmbed()
                             .setColor('#0099ff')
-                            .setTitle( resultText)
+                            .setTitle(resultText)
                             .setDescription(`[Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`)
                             message.channel.send(gitaEmbed)
                         } else {
