@@ -1,4 +1,6 @@
 const sendImg = require('../functions/sendImageQuote')
+const ekadashiDates = require('../data/eka')
+const moment = require('moment')
 
 function custom(message) {
 
@@ -11,6 +13,24 @@ function custom(message) {
             message.delete()
             }, 2000);
         }
+
+
+    if(message.content === 'neko') {
+        let ekadashiFound = false
+        ekadashiDates.forEach(eka => {
+            let date1 = moment(eka.date)
+            let diff = date1.diff(moment(),'days')
+
+            let month = eka.date.split(' ')[0].split('-')[1]
+            let day = eka.date.split(' ')[0].split('-')[2]
+
+            if(diff >= 0 && !ekadashiFound) {
+                message.channel.send(`najbližšie ekadashi je (${day}.${month}) \n${eka.link}`)
+                ekadashiFound = true
+            }
+
+        })
+    }
 }
 
 

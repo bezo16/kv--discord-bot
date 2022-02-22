@@ -1,5 +1,13 @@
 let eka = [
 
+   // { 
+   //    name: 'test ékádaší',
+   //    date: '2022-02-22 07:35',
+   //    link: 'https://yogapit.sk/program/putrada-ekadasi/',
+   //    break: '2022-01-15 10:33',
+   //    end: '2022-01-15 07:38',
+   // },
+
    { 
       name: 'Putradá ékádaší',
       date: '2022-01-14 07:35',

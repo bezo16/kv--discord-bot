@@ -16,7 +16,7 @@ const dailyQuotes = require('./handlers/dailyQuotes')
 const custom = require('./handlers/custom');
 
 client.once('ready',() => {     
-    ekadashi()
+    ekadashi(client)
     dailyQuotes(client)
     fbHandler()
 
