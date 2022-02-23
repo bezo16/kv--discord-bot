@@ -15,7 +15,7 @@ function custom(message) {
         }
 
 
-    if(message.content === 'neko') {
+    if(message.content === '?ekadashi') {
         let ekadashiFound = false
         ekadashiDates.forEach(eka => {
             let date1 = moment(eka.date)
@@ -23,9 +23,10 @@ function custom(message) {
 
             let month = eka.date.split(' ')[0].split('-')[1]
             let day = eka.date.split(' ')[0].split('-')[2]
+            let end = eka.end.split(' ')[1].split(':')[0] + ':' + eka.end.split(' ')[1].split(':')[1] + ' ' + eka.end.split(' ')[0].split('-')[2] + '.' + eka.end.split(' ')[0].split('-')[1]
 
             if(diff >= 0 && !ekadashiFound) {
-                message.channel.send(`najbližšie ekadashi je (${day}.${month}) \n${eka.link}`)
+                message.channel.send(`najbližšie ekadashi je **${eka.name}** (${day}.${month}) \nprerušenie: ${end} \n${eka.link}`)
                 ekadashiFound = true
             }
 
