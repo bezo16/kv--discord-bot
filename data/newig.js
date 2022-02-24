@@ -297,7 +297,7 @@ quotes = [
    },
    {
     content: 'Ó synu Pṛthy! Ti, kdo se ke Mně uchýlí, byť jsou i nižšího původu, ženy, vaiśyové (obchodníci) a śūdrové (dělníci), mohou dosáhnout nejvyššího cíle.',
-    quote: 'Bhagavad-Gītā 9.30',
+    quote: 'Bhagavad-Gītā 9.32',
    },
    {
     content: 'Inteligenci, poznání, oproštěnost od pochyb a klamu, schopnost odpouštět, věrnost pravdě, ovládání smyslů, ovládání mysli, štěstí a neštěstí, zrození, smrt, strach, nepřítomnost strachu, nenásilí, vyrovnanost, spokojenost, askezi, dobročinnost, slávu a hanbu, tyto různé stavy živých bytostí nestvořil nikdo jiný než Já sám.',

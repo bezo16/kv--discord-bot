@@ -22,10 +22,10 @@ function resize(text,ctx,obj) {
      // 101 - 150
      if(text.length > 100 && text.length <= 150 ) {
 
-         ctx.font="53px Gabriola";
-         obj.posY = 160
-         obj.posYChange = 65 
-         obj.charLength = 19
+         ctx.font="50px Gabriola";
+         obj.posY = 140
+         obj.posYChange = 61
+         obj.charLength = 21
      }
 
      // 151 - 200
@@ -34,7 +34,7 @@ function resize(text,ctx,obj) {
          ctx.font="47px Gabriola";
          obj.posY = 105
          obj.posYChange = 58
-         obj.charLength = 21
+         obj.charLength = 23
      }
 
      // 201 - 250
