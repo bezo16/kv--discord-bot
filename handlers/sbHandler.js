@@ -3,6 +3,7 @@ const fs = require('fs')
 const { dirname } = require('path');
 const appDir = dirname(require.main.filename);
 const sb = JSON.parse(fs.readFileSync(appDir + '/data/sb2.json'));
+const rkQuotesSb = require('../data/rk-sb')
 const sendImg = require('../functions/sendImageQuote')
 
 
@@ -76,10 +77,15 @@ const sendImg = require('../functions/sendImageQuote')
      }
 
      if(secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === 'sbi') { 
-         let selQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length )].split('.')
-         let cantoNum = Number(selQuote[0])   
-         let chapterNum = Number(selQuote[1])
-         let quoteNum = Number(selQuote[2])
+         let selQuote = ''
+         while(!selQuote) {
+            const quote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length )]
+            if(typeof(quote) === 'string') selQuote = quote
+
+         }
+         let cantoNum = Number(selQuote.split('.')[0])   
+         let chapterNum = Number(selQuote.split('.')[1])
+         let quoteNum = Number(selQuote.split('.')[2])
          sendImg(message,sb[cantoNum -1][chapterNum -1][quoteNum -1],`Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
        }
 
