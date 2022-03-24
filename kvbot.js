@@ -32,6 +32,8 @@ client.on('message',message => {
     sbHandler(message) 
     ccHandler(message)
 
+    if(message.content === 'pes') message.channel.send('hurray')
+
 
     vedicMantras(message)
     kvEvents(message)
