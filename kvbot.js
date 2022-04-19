@@ -30,7 +30,6 @@ client.once('ready',() => {
 
     // postImageInstagram() 
 
-    eventReminder(client)
 
 
 })
@@ -43,7 +42,7 @@ client.on('messageCreate',message => {
     ccHandler(message)
 
 
-
+    eventReminder(client,message)
     vedicMantras(message)
     kvEvents(message)
     custom(message)
