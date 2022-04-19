@@ -8,6 +8,14 @@ const sendImg = require('../functions/sendImageQuote')
 
 
     function sbHandler(message) {
+    console.log('SB HANDLER')
+    console.log('SB HANDLER')
+    console.log('SB HANDLER')
+    console.log('SB HANDLER')
+    console.log('SB HANDLER')
+    console.log('SB HANDLER')
+
+
     let firstWord = message.content.split(" ")[0]  
     let secondWord = message.content.split(" ")[1]
     
@@ -37,7 +45,7 @@ const sendImg = require('../functions/sendImageQuote')
                  let srimadEmbed = new Discord.MessageEmbed()
                  .setColor('#0099ff')
                  .setDescription(` ${sendMessageText} \n [Śrīmad-Bhāgavatam ${canto}.${chapter }.${quote}](https://vedabase.io/cs/library/sb/${canto}/${chapter}/${quote}/)`)
-                 message.channel.send(srimadEmbed)
+                 message.channel.send({embeds: [srimadEmbed]})
              }
               else {
                 sendImg(message,sendMessageText,` Śrīmad-Bhāgavatam ${canto}.${chapter}.${quote}`) 
@@ -55,7 +63,7 @@ const sendImg = require('../functions/sendImageQuote')
         let srimadEmbed = new Discord.MessageEmbed()
          .setColor('#0099ff')
          .setDescription(` ${chapter[quoteNum]} \n [Śrīmad-Bhāgavatam ${cantoNum + 1}.${chapterNum +1}.${quoteNum +1}](https://vedabase.io/cs/library/sb/${cantoNum + 1}/${chapterNum +1 }/${quoteNum + 1}/)`)
-         message.channel.send(srimadEmbed)
+         message.channel.send({embeds: [srimadEmbed]})
       }  
       
      if(secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === 'sbi') { 

@@ -1,6 +1,7 @@
 require('dotenv').config()
 const Discord = require('discord.js')
-const client = new Discord.Client()
+const { Intents } = require('discord.js');
+const client = new Discord.Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] })
 const express = require('express')
 const app = express()
 // FUNKCIE + HANDLERE
@@ -13,19 +14,21 @@ const vedicMantras = require('./handlers/vedicMantras');
 const kvEvents = require('./handlers/kvEvents');
 const ekadashi = require('./handlers/ekadashi');
 const dailyQuotes = require('./handlers/dailyQuotes')
+const eventReminder = require('./handlers/eventReminder')
 const custom = require('./handlers/custom');
-
 client.once('ready',() => {     
     ekadashi(client)
     dailyQuotes(client)
-    fbHandler()
+    // fbHandler() 
 
     // postImageInstagram() 
+
+    eventReminder(client)
 
 
 })
 
-client.on('message',message => { 
+client.on('messageCreate',message => { 
     if(message.author.bot) return 
     
     bgHandler(message)

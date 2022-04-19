@@ -26,7 +26,7 @@ require('dotenv').config()
                 .setColor('#0099ff')
                 .setTitle(bg[chapter - 1][quote - 1])
                 .setDescription(`[Bhagavad-Gītā ${chapter}.${quote}](https://vedabase.io/sk/library/bg/${chapter}/${quote}/)`)
-                client.channels.cache.get(channelID).send(gitaEmbed)
+                client.channels.cache.get(channelID).send({embeds: [gitaEmbed]})
             } else {
                 let ranQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length )]
                 let allQuotes = []
@@ -45,7 +45,7 @@ require('dotenv').config()
                             // .setTitle('Śrīmad-Bhāgavatam')
                             .setDescription(`${sb[cantoNum -1][chapterNum -1][quoteNum -1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum }/${quoteNum}/)`)
                             
-                            client.channels.cache.get(channelID).send(srimadEmbed)
+                            client.channels.cache.get(channelID).send({embeds:[srimadEmbed]})
                         }
                     }
                 }
@@ -61,7 +61,7 @@ require('dotenv').config()
                     // .setTitle('Śrīmad-Bhāgavatam')
                     .setDescription(`${sb[cantoNum -1][chapterNum -1][quoteNum -1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum }/${quoteNum}/)`)
                     
-                    client.channels.cache.get(channelID).send(srimadEmbed)
+                    client.channels.cache.get(channelID).send({embeds:[srimadEmbed]})
                 }
             }      
     }, 3600000 * cooldown);

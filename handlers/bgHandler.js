@@ -20,7 +20,6 @@ function bgHandler(message) {
                 let chapter = splitSecondWord[0]           
                 let chapterText = splitSecondWord[1]    
                 
-                console.log('BG WRITEN')
 
                 if(!isNaN(chapterText) && !isNaN(chapter) ){  
                     if(chapter < 1 ) chapter = 1                
@@ -41,12 +40,12 @@ function bgHandler(message) {
                             .setColor('#0099ff')
                             .setTitle(resultText)
                             .setDescription(`[Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`)
-                            message.channel.send(gitaEmbed)
+                            message.channel.send({embeds:[gitaEmbed]})
                         } else {
                             let gitaEmbed = new Discord.MessageEmbed()
                             .setColor('#0099ff')
                             .setDescription(`${resultText} \n [Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`)
-                            message.channel.send(gitaEmbed)
+                            message.channel.send({embeds: [gitaEmbed]})
                         }
                     }
                 }
@@ -64,7 +63,7 @@ function bgHandler(message) {
                 .setColor('#0099ff')
                 .setTitle( resultText)
                 .setDescription(`[Bhagavad-Gītā ${resultQuote}](https://vedabase.io/sk/library/bg/${chapter + 1}/${chapterText + 1}/)`)
-                message.channel.send(gitaEmbed)
+                message.channel.send({embeds:[gitaEmbed]})
             }
             if(secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === 'bgi'){ 
                 chapter = Math.floor(Math.random() * 18);   
