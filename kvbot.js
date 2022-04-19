@@ -36,7 +36,6 @@ client.on('messageCreate',message => {
     ccHandler(message)
 
 
-
     vedicMantras(message)
     kvEvents(message)
     custom(message)

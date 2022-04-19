@@ -8,12 +8,6 @@ const sendImg = require('../functions/sendImageQuote')
 
 
     function sbHandler(message) {
-    console.log('SB HANDLER')
-    console.log('SB HANDLER')
-    console.log('SB HANDLER')
-    console.log('SB HANDLER')
-    console.log('SB HANDLER')
-    console.log('SB HANDLER')
 
 
     let firstWord = message.content.split(" ")[0]  

@@ -109,7 +109,7 @@ async function sendImageQuote(message,text,quote,canvasreturn=false) {
     if(canvasreturn) return canvas.toBuffer()
     else {
         const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'bot-quotes.png')
-        message.channel.send({embeds:[atachment]})
+        message.channel.send({files:[atachment]})
     }
 }
 
