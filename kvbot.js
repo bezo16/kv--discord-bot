@@ -41,6 +41,8 @@ client.on('messageCreate',message => {
     sbHandler(message) 
     ccHandler(message)
 
+    if(message.content === '?atri') message.channel.send('namysleny gogod')
+
 
     eventReminder(client,message)
     vedicMantras(message)
