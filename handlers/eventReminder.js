@@ -1,9 +1,9 @@
 
 
   function eventReminder(client,message) {
-    // const Guild = client.guilds.cache.get("810552435470237717"); 
-    // let allUsers = Guild.members.cache.map(member => member); 
-    // allUsers = allUsers.filter(member => !member.user.bot) // filter out bots
+    const Guild = client.guilds.cache.get("810552435470237717"); 
+    let allUsers = Guild.members.cache.map(member => member); 
+    allUsers = allUsers.filter(member => !member.user.bot) // filter out bots
 
     if(message.content.split(' ').length <= 1) return
 
