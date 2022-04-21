@@ -10,7 +10,7 @@
     if(message.content.split(' ')[0] === `?reminderall`) {
         let reminderText = message.content.slice(12)
         
-        allUsers = ['353870168792891392','900473347668840449'] 
+        // allUsers = ['353870168792891392','900473347668840449']  
         
         allUsers.forEach( async (user) => {
             
