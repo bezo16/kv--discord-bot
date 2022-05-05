@@ -25,7 +25,7 @@ const custom = require('./handlers/custom');
 client.once('ready',() => {     
     ekadashi(client)
     dailyQuotes(client)
-    // fbHandler() 
+    fbHandler() 
 
 
     // postImageInstagram() 
