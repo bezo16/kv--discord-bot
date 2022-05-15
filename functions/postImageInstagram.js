@@ -5,6 +5,8 @@ const Instagram = require('instagram-web-api')
 const instagramClient = new Instagram({username:process.env.IGUSERNAME,password:process.env.IGPASSWORD})
 let func = require('../functions/sendImageQuote')
 let message = ''
+
+// can edit 
 let hashtags = '#duchovno#poznanie#bhagavadgita#hinduizmus#sanathanadharma#citaty#slovensko'
 
 

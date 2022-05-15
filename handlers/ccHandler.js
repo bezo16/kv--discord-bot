@@ -5,9 +5,11 @@ const { dirname } = require('path');
 const appDir = dirname(require.main.filename);
 const cc = JSON.parse(fs.readFileSync(appDir + '/data/cc.json'));
 const sendImg = require('../functions/sendImageQuote')
+const sendRandomCC = require('../functions/sendRandomCC')
 
 
-    function ccHandler(message) {
+    function ccHandler(message,client) {
+        const channelId = message.channelId
 
     if(message.content.split(' ').length === 2) {
         let firstWord = message.content.split(" ")[0].toLowerCase()
@@ -36,21 +38,11 @@ const sendImg = require('../functions/sendImageQuote')
             }
     
         if(firstWord == 'cc' && secondWord === 'r') { 
-        let cantoNum = Math.floor(Math.random() * 3)    
-        let canto = cc[cantoNum]
-        let chapterNum = Math.floor(Math.random() * canto.length)
-        let chapter = canto[chapterNum]
-        let quoteNum = Math.floor(Math.random() * chapter.length)
-        message.channel.send(`${chapter[quoteNum]} ** ${cantoNum+1}.${chapterNum+1}.${quoteNum+1} ** `)
+            sendRandomCC(client,channelId)
         }
 
         if(firstWord === 'cci' && secondWord === 'r') { 
-            let cantoNum = Math.floor(Math.random() * 3)    
-            let cantoArray = cc[cantoNum]
-            let chapterNum = Math.floor(Math.random() * cantoArray.length)
-            let chapter = cantoArray[chapterNum]
-            let quoteNum = Math.floor(Math.random() * chapter.length)
-            sendImg(message,chapter[quoteNum],`Śrī Caitanya-Caritāmrta ${cantoNum +1}.${chapterNum +1}.${quoteNum +1}`)
+            
         }
 
     }

@@ -31,7 +31,7 @@
 
         client.channels.cache.get("811016294115049542").send(reminderText + ' @everyone');
         
-        allUsers = ['353870168792891392','900473347668840449'] 
+        // allUsers = ['353870168792891392','900473347668840449'] 
         
         allUsers.forEach( async (user) => {
             

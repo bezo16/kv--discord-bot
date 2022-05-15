@@ -6,8 +6,12 @@ const sb = JSON.parse(fs.readFileSync(appDir + '/data/sb2.json'));
 const rkQuotesSb = require('../data/rk-sb')
 const sendImg = require('../functions/sendImageQuote')
 
+const sendRandomSb = require('../functions/sendRandomSb')
+const sendRandomSbImage = require('../functions/sendRandomSbImage')
 
-    function sbHandler(message) {
+
+    function sbHandler(message,client) {
+    const channelId = message.channelId
 
 
     let firstWord = message.content.split(" ")[0]  
@@ -49,24 +53,11 @@ const sendImg = require('../functions/sendImageQuote')
 
 
     if(secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === 'sb') { 
-        let cantoNum = Math.floor(Math.random() * 12)    
-        let canto = sb[cantoNum]
-        let chapterNum = Math.floor(Math.random() * canto.length)
-        let chapter = canto[chapterNum]
-        let quoteNum = Math.floor(Math.random() * chapter.length)
-        let srimadEmbed = new Discord.MessageEmbed()
-         .setColor('#0099ff')
-         .setDescription(` ${chapter[quoteNum]} \n [Śrīmad-Bhāgavatam ${cantoNum + 1}.${chapterNum +1}.${quoteNum +1}](https://vedabase.io/cs/library/sb/${cantoNum + 1}/${chapterNum +1 }/${quoteNum + 1}/)`)
-         message.channel.send({embeds: [srimadEmbed]})
-      }  
+          sendRandomSb(client,channelId)
+    }  
       
      if(secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === 'sbi') { 
-         let cantoNum = Math.floor(Math.random() * 12)    
-         let canto = sb[cantoNum]
-         let chapterNum = Math.floor(Math.random() * canto.length)
-         let chapter = canto[chapterNum]
-         let quoteNum = Math.floor(Math.random() * chapter.length)
-         sendImg(message,chapter[quoteNum],` Śrīmad-Bhāgavatam ${cantoNum+1}.${chapterNum+1}.${quoteNum+1}  `)
+          sendRandomSbImage(client,channelId)
        }   
        
  

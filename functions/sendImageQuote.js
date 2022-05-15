@@ -4,7 +4,7 @@ const resize = require('../functions/resizes')
 const { registerFont} = require('canvas'); 
 registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
 
-async function sendImageQuote(message,text,quote,canvasreturn=false) {
+async function sendImageQuote(client,channelId,text,quote,canvasreturn=false) {
     let imageUrl
     let textLength = 0
     let resultText = ''
@@ -109,7 +109,7 @@ async function sendImageQuote(message,text,quote,canvasreturn=false) {
     if(canvasreturn) return canvas.toBuffer()
     else {
         const atachment = new Discord.MessageAttachment(canvas.toBuffer(),'bot-quotes.png')
-        message.channel.send({files:[atachment]})
+        client.channels.cache.get(channelId).send({files:[atachment]})
     }
 }
 
