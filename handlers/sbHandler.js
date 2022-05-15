@@ -1,3 +1,4 @@
+const { channel } = require('diagnostics_channel');
 const Discord = require('discord.js')
 const fs = require('fs')
 const { dirname } = require('path');
@@ -46,7 +47,7 @@ const sendRandomSbImage = require('../functions/sendRandomSbImage')
                  message.channel.send({embeds: [srimadEmbed]})
              }
               else {
-                sendImg(message,sendMessageText,` Śrīmad-Bhāgavatam ${canto}.${chapter}.${quote}`) 
+                sendImg(client,channelId,sendMessageText,` Śrīmad-Bhāgavatam ${canto}.${chapter}.${quote}`) 
              }
              }
          }
