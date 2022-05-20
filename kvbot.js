@@ -60,7 +60,6 @@ client.on('messageCreate',message => {
     ccHandler(message,client)
     buttonsHandler(message)
 
-    if(message.content = 'pes') message.channel.send('pes')
 
 
     eventReminder(client,message)
