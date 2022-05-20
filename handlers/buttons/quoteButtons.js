@@ -14,7 +14,7 @@ const { MessageActionRow, MessageButton } = require('discord.js');
 					.setLabel('bg-img')
 					.setStyle('SUCCESS'),
                     new MessageButton()
-					.setCustomId('sb') 
+					.setCustomId('sb')
 					.setLabel('sb')
 					.setStyle('SUCCESS'),
                     new MessageButton()
