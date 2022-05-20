@@ -33,7 +33,7 @@ const sendRandomCC = require('../functions/sendRandomCC')
                 if(cc[canto -1].length  < chapter) chapter = cc[canto -1].length
                 if(cc[canto -1][chapter -1].length  < quote) quote = cc[canto -1][chapter -1].length
                 if(firstWord === 'cc')message.channel.send(cc[canto -1][chapter -1][quote -1])
-                else sendImg(message,cc[canto -1][chapter -1][quote -1],`Śrī Caitanya-Caritāmrta ${canto}.${chapter}.${quote}`)
+                else sendImg(client,channelId,cc[canto -1][chapter -1][quote -1],`Śrī Caitanya-Caritāmrta ${canto}.${chapter}.${quote}`)
                 }
             }
     

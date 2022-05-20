@@ -65,7 +65,7 @@ client.on('messageCreate',message => {
     eventReminder(client,message)
     vedicMantras(message)
     kvEvents(message)
-    custom(message)
+    custom(message,client)
 
 })
 client.login(process.env.TOKEN)

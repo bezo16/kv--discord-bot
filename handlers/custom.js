@@ -2,12 +2,13 @@ const sendImg = require('../functions/sendImageQuote')
 const ekadashiDates = require('../data/eka')
 const moment = require('moment')
 
-function custom(message) {
+function custom(message,client) {
+    const channelId = message.channelId
 
     if(message.content.split(' ')[0].toLowerCase() === 'customquote' && message.content.includes('"') && message.content.includes('"') && message.content.includes('{') && message.content.includes('}')) {
         let text = message.content.slice(message.content.indexOf('"') + 1,message.content.lastIndexOf('"'))
         let book = message.content.slice(message.content.indexOf('{') + 1,message.content.indexOf('}'))
-        sendImg(message,`${text}`,`${book}`)
+        sendImg(client,channelId,`${text}`,`${book}`)
         setTimeout(() => {
             message.delete()
             }, 2000);
