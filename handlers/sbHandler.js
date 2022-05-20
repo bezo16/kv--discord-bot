@@ -25,7 +25,7 @@ const sendRandomSbImage = require('../functions/sendRandomSbImage')
     if(secondWord.charAt(0) !== '.' && secondWord.charAt(secondWord.length -1) !== '.' && secondWord.includes('.')) { 
         let canto = secondWord.split('.')[0]
         let chapter = secondWord.split('.')[1]
-        let quote = secondWord.split('.')[2] 
+        let quote = secondWord.split('.')[2]
         
         if(!isNaN(canto) && !isNaN(chapter) && !isNaN(quote)) { 
             canto = Number(canto)
