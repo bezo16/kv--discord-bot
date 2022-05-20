@@ -80,7 +80,7 @@ const sendRandomSbImage = require('../functions/sendRandomSbImage')
          let cantoNum = Number(selQuote.split('.')[0])   
          let chapterNum = Number(selQuote.split('.')[1])
          let quoteNum = Number(selQuote.split('.')[2])
-         sendImg(message,sb[cantoNum -1][chapterNum -1][quoteNum -1],`Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
+         sendImg(client,channelId,sb[cantoNum -1][chapterNum -1][quoteNum -1],`Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
        }
 
 } 

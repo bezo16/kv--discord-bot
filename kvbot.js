@@ -43,7 +43,7 @@ client.once('ready',() => {
 
 client.on('interactionCreate', interaction => {
 	if (!interaction.isButton()) return;
-	// console.log(interaction); 
+	console.log(interaction); 
     if(interaction.customId === 'bg') sendRandomBg(client,interaction.channelId)
     if(interaction.customId === 'bg-img') sendRandomBgImage(client,interaction.channelId)
     if(interaction.customId === 'sb') sendRandomSb(client,interaction.channelId)

@@ -36,7 +36,7 @@ const { MessageActionRow, MessageButton } = require('discord.js');
 			);
 
         message.channel.send({ephemeral: false,components: [row,row2]})
-        message.delete()
+		setTimeout(() => message.delete(), 1000);
     }
 
     module.exports = quoteButtons
