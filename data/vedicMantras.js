@@ -2,11 +2,11 @@
 
     const mantras = [
         {
-            trigger: '?pancha-tattva',
+            trigger: ['pancha-tattva'],
             text: 'śrī-kṛṣṇa-caitanya prabhu-nityānanda,śrī-advaita gadādhara śrīvāsādi-gaura-bhakta-vṛnda',
         },
         {
-            trigger: '?maha-mantra',
+            trigger: ['maha-mantra','mm'],
             text: 'text',
         },    
         // {

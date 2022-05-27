@@ -15,7 +15,7 @@ const mantras = require('../data/vedicMantras')
         } 
 
         mantras.forEach((mantra,index) => {
-            if(content === mantra.trigger) message.channel.send(mantra.text)
+            if(mantra.trigger.some(trigger => `?${trigger}` === content)) message.channel.send(mantra.text)
         })
 
     }
