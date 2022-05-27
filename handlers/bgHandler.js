@@ -67,7 +67,7 @@ function bgHandler(message,client) {
                 let selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length )].split('.')
                 let chapter = selectedQuoteBg[0]
                 let quote = selectedQuoteBg[1]
-                message.channel.send(`${bg[chapter -1][quote -1].text}  Bhagavad-Gītā ** ${chapter}.${quote} ** `)
+                message.channel.send(`${bg[chapter -1][quote -1]}  Bhagavad-Gītā ** ${chapter}.${quote} ** `)
             }
             if(secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === 'bgi') {
                 let selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length )].split('.')
