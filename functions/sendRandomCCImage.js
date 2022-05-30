@@ -2,11 +2,12 @@ const fs = require('fs')
 const { dirname } = require('path');
 const appDir = dirname(require.main.filename);
 const cc = JSON.parse(fs.readFileSync(appDir + '/data/cc.json'));
+const sendImg = require('../functions/sendImageQuote')
 
 
 
 
-    function sendRandomCC(client,channelId) {
+    function sendRandomCCImage(client,channelId) {
         const cantoNum = Math.floor(Math.random() * 3)    
         const cantoArray = cc[cantoNum]
         const chapterNum = Math.floor(Math.random() * cantoArray.length)
@@ -17,4 +18,4 @@ const cc = JSON.parse(fs.readFileSync(appDir + '/data/cc.json'));
 
 
 
-    module.exports = sendRandomCC
+    module.exports = sendRandomCCImage

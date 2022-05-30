@@ -6,7 +6,7 @@ const appDir = dirname(require.main.filename);
 const cc = JSON.parse(fs.readFileSync(appDir + '/data/cc.json'));
 const sendImg = require('../functions/sendImageQuote')
 const sendRandomCC = require('../functions/sendRandomCC')
-
+const sendRandomCCImage = require('../functions/sendRandomCCImage')
 
     function ccHandler(message,client) {
         const channelId = message.channelId
@@ -42,7 +42,7 @@ const sendRandomCC = require('../functions/sendRandomCC')
         }
 
         if(firstWord === 'cci' && secondWord === 'r') { 
-            
+            sendRandomCCImage(client,channelId)
         }
 
     }
