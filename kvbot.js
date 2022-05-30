@@ -42,14 +42,15 @@ client.once('ready',() => {
 })
 
 client.on('interactionCreate', interaction => {
-	if (!interaction.isButton()) return;
-	console.log(interaction); 
-    if(interaction.customId === 'bg') sendRandomBg(client,interaction.channelId)
-    if(interaction.customId === 'bg-img') sendRandomBgImage(client,interaction.channelId)
-    if(interaction.customId === 'sb') sendRandomSb(client,interaction.channelId)
-    if(interaction.customId === 'sb-img') sendRandomSbImage(client,interaction.channelId)
-    if(interaction.customId === 'cc') sendRandomCC(client,interaction.channelId)
-    if(interaction.customId === 'cc-img') sendRandomSbImage(client,interaction.channelId)
+	if (interaction.isButton()) {
+        if(interaction.customId === 'bg') sendRandomBg(client,interaction.channelId)
+        if(interaction.customId === 'bg-img') sendRandomBgImage(client,interaction.channelId)
+        if(interaction.customId === 'sb') sendRandomSb(client,interaction.channelId)
+        if(interaction.customId === 'sb-img') sendRandomSbImage(client,interaction.channelId)
+        if(interaction.customId === 'cc') sendRandomCC(client,interaction.channelId)
+        if(interaction.customId === 'cc-img') sendRandomSbImage(client,interaction.channelId)
+    }
+    
 });
 
 client.on('messageCreate',message => { 
