@@ -72,6 +72,27 @@ function custom(message,client) {
 
         message.channel.send(`first name: ${firstNameNum} surname: ${surnameNameNum} result num: ${resultNum}`)
     }
+
+    if(message.content.split(' ')[0].toLowerCase() === '?numpsychic' && message.content.split(' ').length === 2) {
+        let dateArr = message.content.split(' ')[1].split('.')[0].split('')
+        let psychicNum = 0
+        dateArr.forEach(n => psychicNum += Number(n))
+
+        message.channel.send(`psychic num is: ${psychicNum}`)
+    }
+
+    if(message.content.split(' ')[0].toLowerCase() === '?numdestiny' && message.content.split(' ').length === 2) {
+        let dateArr = message.content.split(' ')[1].split('.').join('').split('')
+        let destinyNum = 0
+        console.log(dateArr)
+        dateArr.forEach(n => {
+            destinyNum += Number(n)
+            let destinyNumStr = destinyNum.toString()
+            if(destinyNum >= 10) destinyNum = Number(destinyNumStr.split('')[0]) + Number(destinyNumStr.split('')[1])
+        })
+
+        message.channel.send(`destiny num is: ${destinyNum}`)
+    }
 }
 
 
