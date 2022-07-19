@@ -32,6 +32,46 @@ function custom(message,client) {
 
         })
     }
+
+    if(message.content.split(' ')[0].toLowerCase() === '?numname' && message.content.split(' ').length === 3) {
+        const firstName = message.content.split(' ')[1].split('')
+        const surName = message.content.split(' ')[2].split('')
+        let firstNameNum = 0
+        let surnameNameNum = 0
+
+        console.log(firstName,surName)
+
+        const letters = {
+            'a': 1,'i': 1,'j': 1,'q': 1,'y': 1,
+            'b': 2,'c': 2,'k': 2,'r': 2,
+            'g': 3,'l': 3,'s': 3,
+            'd': 4,'m': 4,'t': 4,
+            'n': 5,'e': 5,
+            'u': 6,'v': 6,'w': 6,'x': 6,
+            'o': 7,'z': 7,
+            'f': 8,'h': 8,'p': 8,
+        }
+        
+        firstName.forEach(letter => {
+            firstNameNum += letters[letter.toLowerCase()]
+        })
+        surName.forEach(letter => {
+            surnameNameNum += letters[letter.toLowerCase()]
+        })
+
+        let resultNum = firstNameNum + surnameNameNum
+
+        while (resultNum >= 10) {
+            let sumedNum = 0
+            let splitedResultNumArr = resultNum.toString().split('')
+            splitedResultNumArr.forEach(num => sumedNum += Number(num))
+            console.log(sumedNum)
+            resultNum = sumedNum
+        }
+
+
+        message.channel.send(`first name: ${firstNameNum} surname: ${surnameNameNum} result num: ${resultNum}`)
+    }
 }
 
 
