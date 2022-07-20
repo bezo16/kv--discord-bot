@@ -33,13 +33,10 @@ function custom(message,client) {
         })
     }
 
-    if(message.content.split(' ')[0].toLowerCase() === '?numname' && message.content.split(' ').length === 3) {
-        const firstName = message.content.split(' ')[1].split('')
-        const surName = message.content.split(' ')[2].split('')
-        let firstNameNum = 0
-        let surnameNameNum = 0
-
-        console.log(firstName,surName)
+    if(message.content.split(' ')[0].toLowerCase() === '?numname' && message.content.split(' ').length >= 3) {
+        const nameWords = message.content.split(' ').slice(1)
+        let resultNum = 0
+        console.log(nameWords)
 
         const letters = {
             'a': 1,'i': 1,'j': 1,'q': 1,'y': 1,
@@ -51,26 +48,25 @@ function custom(message,client) {
             'o': 7,'z': 7,
             'f': 8,'h': 8,'p': 8,
         }
-        
-        firstName.forEach(letter => {
-            firstNameNum += letters[letter.toLowerCase()]
-        })
-        surName.forEach(letter => {
-            surnameNameNum += letters[letter.toLowerCase()]
-        })
 
-        let resultNum = firstNameNum + surnameNameNum
+        let wordNum = 0
+        nameWords.forEach(word => {
+            wordNum = 0
+            word.split('').forEach(letter => {
+                wordNum += letters[letter.toLowerCase()]
+            }) 
+            resultNum += wordNum
+        })
 
         while (resultNum >= 10) {
             let sumedNum = 0
             let splitedResultNumArr = resultNum.toString().split('')
             splitedResultNumArr.forEach(num => sumedNum += Number(num))
-            console.log(sumedNum)
             resultNum = sumedNum
         }
 
 
-        message.channel.send(`first name: ${firstNameNum} surname: ${surnameNameNum} result num: ${resultNum}`)
+        message.channel.send(`result num: ${resultNum}`)
     }
 
     if(message.content.split(' ')[0].toLowerCase() === '?numpsychic' && message.content.split(' ').length === 2) {
