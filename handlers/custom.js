@@ -1,5 +1,6 @@
 const sendImg = require('../functions/sendImageQuote')
 const ekadashiDates = require('../data/eka')
+const vanipediaEssential = require('../data/vanipedia-essential')
 const moment = require('moment')
 
 function custom(message,client) {
@@ -88,6 +89,14 @@ function custom(message,client) {
         })
 
         message.channel.send(`destiny num is: ${destinyNum}`)
+    }
+
+    if(message.content.split(' ')[0].toLowerCase() === '?vanipedia' && message.content.split(' ').length >= 2) {
+        const category = message.content.split(' ').slice(1).join(' ')
+        if (vanipediaEssential.hasOwnProperty(category)) {
+            const text = vanipediaEssential[category][Math.floor(Math.random() * vanipediaEssential[category].length)]
+            message.channel.send(`${text}`)
+        } else message.channel.send(`invalid category name`)
     }
 }
 
