@@ -103,7 +103,7 @@ function custom(message,client) {
     if(message.content === '?help') {
         let text = 
         `
-    \n**Knihy:**\n
+      **Knihy:**\n
 \t\`--bg 2.2\` - kapitola 2 verš 2
 \t\`--bgi 2.2\` - kapitola 2 verš 2 (obrázková verzia)
 \t\`--bgsk 2.2\` - kapitola 2 verš 2 (slovenská verzia)
@@ -123,7 +123,7 @@ function custom(message,client) {
 \t\`--cc 2.2.2\` - kniha 2 (madhya-lila) kapitola 2 verš 2
 \t\`--cc 2.2.2\` - kniha 2 (madhya-lila) kapitola 2 verš 2 (obrázková verzia)
 
-    \n**Ostatné:**\n
+    \n**Ostatné:**
 
 \t\`--kv events\` - nefunguje
 \t\`--kv events221\` - nefunguje
