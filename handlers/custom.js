@@ -98,6 +98,40 @@ function custom(message,client) {
             message.channel.send(`${text}`)
         } else message.channel.send(`invalid category name`)
     }
+
+
+    if(message.content === '?help') {
+        let text = 
+        `
+    \n**Knihy:**\n
+\t\`--bg 2.2\` - kapitola 2 verš 2
+\t\`--bgi 2.2\` - kapitola 2 verš 2 (obrázková verzia)
+\t\`--bgsk 2.2\` - kapitola 2 verš 2 (slovenská verzia)
+\t\`--bg r\` - náhodný verš
+\t\`--bgi r\` - náhodný verš (obrázková verzia)
+\t\`--bg top\` - najviac zaujímave verše
+\t\`--bgi top\` - najviac zaujímave verše (obrázková verzia)
+\t\`--bg k\` - výpis názvov kapitol
+
+\t\`--sb 2.2.2\` - spev 2 kapitola 2 verš 2
+\t\`--sbi 2.2.2\` - spev 2 kapitola 2 verš 2 (obrázková verzia)
+\t\`--sb top\` - najviac zaujímave verše
+\t\`--sbi top\` - najviac zaujímave verše (obrázková verzia)
+\t\`--sb r\` - náhodný verš
+\t\`--sbi r\` - náhodný verš (obrázková verzia)
+
+\t\`--cc 2.2.2\` - kniha 2 (madhya-lila) kapitola 2 verš 2
+\t\`--cc 2.2.2\` - kniha 2 (madhya-lila) kapitola 2 verš 2 (obrázková verzia)
+
+    \n**Ostatné:**\n
+
+\t\`--kv events\` - nefunguje
+\t\`--kv events221\` - nefunguje
+\t\`--customquote "fajn fajnovy"{bezo16}\` - vlastný verš, fajn fajnovy - text, bezo16 - autor (obrázková verzia)
+
+        `
+        message.author.send(text)        
+    }
 }
 
 
