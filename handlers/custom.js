@@ -102,8 +102,9 @@ function custom(message,client) {
 
     if(message.content === '?help') {
         let text = 
-        `
-      **Knihy:**\n
+`
+      **Knihy:**
+
 \t\`--bg 2.2\` - kapitola 2 verš 2
 \t\`--bgi 2.2\` - kapitola 2 verš 2 (obrázková verzia)
 \t\`--bgsk 2.2\` - kapitola 2 verš 2 (slovenská verzia)
@@ -123,13 +124,24 @@ function custom(message,client) {
 \t\`--cc 2.2.2\` - kniha 2 (madhya-lila) kapitola 2 verš 2
 \t\`--cc 2.2.2\` - kniha 2 (madhya-lila) kapitola 2 verš 2 (obrázková verzia)
 
-    \n**Ostatné:**
+    **Numerologia:**
+
+\t\`?numname jakub bezak\` - vypočíta numerologicke menné číslo    
+\t\`?numpsychic 3.3.2000\` - vypočíta numerologicke psychicke číslo    
+\t\`?numdestiny 3.3.2000\` - vypočíta numerologicke osudové číslo    
+výpočty robené podla knihy: https://www.pdfdrive.com/numerology-with-tantra-ayurveda-and-astrology-d176038913.html
+
+    **Vanipedia:**
+
+\t\`?vanipedia ability\` - vypíše náhodny citát z kategorie (ability)
+zoznam kategorií: https://vanipedia.org/wiki/Category:Essential_Subjects
+
+    **Ostatné:**
 
 \t\`--kv events\` - nefunguje
 \t\`--kv events221\` - nefunguje
 \t\`--customquote "fajn fajnovy"{bezo16}\` - vlastný verš, fajn fajnovy - text, bezo16 - autor (obrázková verzia)
-
-        `
+`
         message.author.send(text)        
     }
 }
