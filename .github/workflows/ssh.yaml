@@ -15,7 +15,7 @@ jobs:
         port: "22"
         script: |
           cd /root/kv--discord-bot
-          echo pespes
+          echo | pespes
           pm2 delete kvbot
           git pull
           npm install
