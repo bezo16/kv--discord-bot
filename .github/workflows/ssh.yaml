@@ -13,4 +13,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: "22"
-        script: whoami
+        script: |
+          cd /root/kv--discord-bot
+          pm2 start kvbot.js
