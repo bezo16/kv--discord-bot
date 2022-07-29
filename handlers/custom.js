@@ -156,6 +156,10 @@ zoznam kategorií: https://vanipedia.org/wiki/Category:Essential_Subjects
 `
     message.author.send(text)
   }
+
+  if (message.content === '?test') {
+    message.channel.send('testičok')
+  }
 }
 
 module.exports = custom
