@@ -17,7 +17,5 @@ jobs:
           cd /root/kv--discord-bot
           pm2 delete kvbot
           git pull
-          echo beforeinstall
           npm install
-          echo afterinstall
           pm2 start kvbot.js
