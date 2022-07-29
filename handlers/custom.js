@@ -92,11 +92,11 @@ function custom(message,client) {
     }
 
     if(message.content.split(' ')[0].toLowerCase() === '?vanipedia' && message.content.split(' ').length >= 2) {
-        const category = message.content.trim().split(' ').slice(1).join(' ')
-        if (vanipediaEssential.hasOwnProperty(category)) {
+    const category = message.content.trim().split(' ').slice(1).join(' ')
+    if (vanipediaEssential.hasOwnProperty(category)) {
             const text = vanipediaEssential[category][Math.floor(Math.random() * vanipediaEssential[category].length)]
             message.channel.send(`${text}`)
-        } else message.channel.send(`invalid category name`)
+        } else message.channel.send('invalid category name')
     }
 
 
