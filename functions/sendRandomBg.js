@@ -10,7 +10,7 @@ function sendRandomBg(client, channelId) {
   const chapter = Math.floor(Math.random() * 18);
   const chapterText = Math.floor(Math.random() * bg[chapter].length)
   const resultText = bg[chapter][chapterText]
-  const resultQuote = ` ${chapter + 1}.${chapterText + 1}`
+  const resultQuote = ` ${chapter + 1}.${chapterText + 1} `
   // embed
   let gitaEmbed
   if (chapterText.length <= 256) {
