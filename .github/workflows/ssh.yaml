@@ -15,9 +15,9 @@ jobs:
         port: "22"
         script: |
           cd /root/kv--discord-bot
-          echo | pwd
-          echo | whoami
           pm2 delete kvbot
           git pull
+          echo beforeinstall
           npm install
+          echo afterinstall
           pm2 start kvbot.js
