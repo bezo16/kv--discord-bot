@@ -16,6 +16,7 @@ jobs:
         script: |
           cd /root/kv--discord-bot
           echo | pwd
+          echo | whoami
           pm2 delete kvbot
           git pull
           npm install
