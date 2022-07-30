@@ -39,7 +39,10 @@ function ekadashi(client) {
     ekadashiDates.forEach((eka) => {
       if (eka.end) {
         const end = moment(eka.end)
-        if (end.month() === moment().month() && end.day() === moment().day() && end.hours() === moment().hours() && end.minutes() === moment().minutes()) {
+        if (end.month() === moment().month()
+        && end.day() === moment().day()
+        && end.hours() === moment().hours()
+        && end.minutes() === moment().minutes()) {
           const startDva = Number(eka.end.split(' ')[1].split(':')[0]) * 60 + Number(eka.end.split(' ')[1].split(':')[1])
           const endDva = Number(eka.break.split(':')[0] * 60) + Number(eka.break.split(':')[1])
           const minutesLeft = endDva - startDva

@@ -33,7 +33,7 @@ function eventReminder(client, message) {
         const fetchedUser = await client.users.fetch(user, false)
         await fetchedUser.send(`${reminderText}`);
       } catch (err) {
-        console.log(`${user}`)
+        console.error(`${user}`)
       }
     })
     message.delete()

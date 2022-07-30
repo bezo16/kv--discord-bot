@@ -39,23 +39,23 @@ async function sendImageQuote(client, channelId, text, quote, canvasreturn = fal
   splitedText.forEach((item, index) => {
     textLength += item.length
     const splititem = item.split('')
-    item = ''
+    let parsedItem = ''
     splititem.forEach((letter) => {
-      if (letter === String.fromCharCode(7779)) item += 's'
-      else if (letter === 'ṇ') item += 'n'
-      else if (letter === 'ṅ') item += 'n'
-      else if (letter === 'Ṛ') item += 'R'
-      else if (letter === 'ṛ') item += 'r'
-      else if (letter === 'ṁ') item += 'm'
-      else if (letter === 'ḥ') item += 'h'
-      else if (letter === 'ṭ') item += 't'
-      else if (letter === 'Ṭ') item += 'T'
-      else if (letter === 'ḍ') item += 'd'
-      else item += letter
+      if (letter === String.fromCharCode(7779)) parsedItem += 's'
+      else if (letter === 'ṇ') parsedItem += 'n'
+      else if (letter === 'ṅ') parsedItem += 'n'
+      else if (letter === 'Ṛ') parsedItem += 'R'
+      else if (letter === 'ṛ') parsedItem += 'r'
+      else if (letter === 'ṁ') parsedItem += 'm'
+      else if (letter === 'ḥ') parsedItem += 'h'
+      else if (letter === 'ṭ') parsedItem += 't'
+      else if (letter === 'Ṭ') parsedItem += 'T'
+      else if (letter === 'ḍ') parsedItem += 'd'
+      else parsedItem += letter
     })
 
     if (textLength < resizeValues.charLength) {
-      resultText += `${item} `
+      resultText += `${parsedItem} `
       if (index === splitedText.length - 1) {
         textLength = 0
         textWidth = ctx.measureText(resultText)
@@ -70,7 +70,7 @@ async function sendImageQuote(client, channelId, text, quote, canvasreturn = fal
         resizeValues.posY += resizeValues.posYChange
       }
     } else {
-      resultText += `${item} `
+      resultText += `${parsedItem} `
       textLength = 0
       textWidth = ctx.measureText(resultText)
       ctx.shadowColor = 'black';
@@ -104,6 +104,8 @@ async function sendImageQuote(client, channelId, text, quote, canvasreturn = fal
 
   const atachment = new Discord.MessageAttachment(canvas.toBuffer(), 'bot-quotes.png')
   client.channels.cache.get(channelId).send({ files: [atachment] })
+
+  return 'nice'
 }
 
 module.exports = sendImageQuote

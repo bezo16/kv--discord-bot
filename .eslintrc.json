@@ -13,6 +13,7 @@
     "rules": {
         "linebreak-style": 0,
         "semi": 0,
-        "comma-dangle": "off"
+        "comma-dangle": "off",
+        "no-console": ["error", { "allow": ["warn", "error"] }]
     }
 }
