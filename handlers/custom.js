@@ -103,10 +103,9 @@ function custom(message, client) {
 
     message.channel.send(`destiny num is: ${destinyNum}`)
   }
-
   if (message.content.split(' ')[0].toLowerCase() === '?vanipedia' && message.content.split(' ').length >= 2) {
     const category = message.content.trim().split(' ').slice(1).join(' ')
-    if (vanipediaEssential.hasOwnProperty(category)) {
+    if (Object.prototype.hasOwnProperty.call(vanipediaEssential, category)) {
       const randomCategoryNumber = Math.floor(Math.random() * vanipediaEssential[category].length)
       const text = vanipediaEssential[category][randomCategoryNumber]
       message.channel.send(`${text}`)
