@@ -158,7 +158,7 @@ zoznam kategorií: https://vanipedia.org/wiki/Category:Essential_Subjects
   }
 
   if (message.content === '?test') {
-    message.channel.send('testičokkkk')
+    message.channel.send('testičokkkkkkk')
   }
 }
 
