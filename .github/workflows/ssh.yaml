@@ -16,6 +16,7 @@ jobs:
         script: |
           cd /root/kv--discord-bot
           echo najs
+          nvm list
           nvm use 16.13.1
           node -v
           pm2 delete kvbot
@@ -23,3 +24,4 @@ jobs:
           npm install
           sleep 2
           pm2 start kvbot.js
+          echo end
