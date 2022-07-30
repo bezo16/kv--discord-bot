@@ -22,8 +22,8 @@
     "instagram-web-api": "^2.2.2",
     "jimp": "^0.16.1",
     "moment": "^2.29.1",
-    "nodemon": "^2.0.12",
     "puppeteer": "^10.4.0",
+    "puppeteer-full-page-screenshot": "^1.2.2",
     "request": "^2.88.2"
   },
   "engines": {

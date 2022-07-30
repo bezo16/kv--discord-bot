@@ -2,22 +2,14 @@ const Discord = require('discord.js')
 const puppeteer = require('puppeteer')
 const Canvas = require('canvas')
 const fs = require('fs')
-
-const fullScreenshot = () => {}
+const fullPageScreenshot = require('../node_modules/fullpage-puppeteer-screenshot/index')
 
 async function sendScreen(message) {
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox']
-  });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto('https://objective-archimedes-06e9ca.netlify.app/?st=1', {
-    waitUntil: 'networkidle2'
-  });
-  await fullScreenshot(page, {
-    path: 'foo.png'
-  });
-
+  await page.setViewport({ width: 1920, height: 1080 });
+  await page.goto('https://kv-events.netlify.app/?st=1');
+  await fullPageScreenshot(page, { path: './foo.png' });
   await browser.close();
 
   const screenshot = await Canvas.loadImage('./foo.png')
@@ -25,7 +17,7 @@ async function sendScreen(message) {
   const ctx = canvas.getContext('2d')
   ctx.drawImage(screenshot, 0, 0, canvas.width, canvas.height)
   const atachment = new Discord.MessageAttachment(canvas.toBuffer(), 'screenshot.png')
-  message.channel.send({ embeds: [atachment] })
+  message.channel.send({ files: [atachment] })
   fs.unlink('./foo.png', () => {})
 }
 
