@@ -22,6 +22,5 @@ jobs:
           pm2 delete kvbot
           git pull
           npm install
-          sleep 2
           pm2 start kvbot.js
           echo end
