@@ -64,7 +64,7 @@ function dailyQuotes(client) {
     }
   }, 3600000 * cooldown);
 
-  setTimeout(async () => {
+  setInterval(async () => {
     const date = dayjs()
     const month = (date.month() + 1).toString().padStart(2, '0')
     const day = date.date().toString().padStart(2, '0')
