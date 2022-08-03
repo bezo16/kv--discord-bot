@@ -80,7 +80,7 @@ function dailyQuotes(client) {
       const background = await Canvas.loadImage(imgPath)
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
       const atachment = new Discord.MessageAttachment(canvas.toBuffer(), 'bot-quotes.png')
-      client.channels.cache.get(process.env.TESTCHANNELID).send({ files: [atachment] })
+      client.channels.cache.get(process.env.MAINCHANNELID).send({ files: [atachment] })
     }
   }, 3600000);
 }
