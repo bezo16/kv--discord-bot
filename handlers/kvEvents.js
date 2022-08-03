@@ -2,7 +2,7 @@ const sendScreen = require('../functions/sendEventsScreen')
 const sendScreenDate = require('../functions/sendEventsScreenDate')
 
 function kvEvents(message) {
-  if (!message.content.split(' ').length === 2) return
+  if (message.content.split(' ').length !== 2) return
   const firstWord = message.content.split(' ')[0].toLowerCase()
   const secondWord = message.content.split(' ')[1].toLowerCase()
 

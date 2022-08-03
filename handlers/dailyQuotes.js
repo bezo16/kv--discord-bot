@@ -1,12 +1,15 @@
 const Discord = require('discord.js')
 const fs = require('fs')
 const { dirname } = require('path');
+const Canvas = require('canvas')
+const path = require('path')
+const dayjs = require('dayjs')
 
 const appDir = dirname(require.main.filename);
 const sb = JSON.parse(fs.readFileSync(`${appDir}/data/sb2.json`));
 const bg = JSON.parse(fs.readFileSync(`${appDir}/data/BG-cs.json`));
 const rkQuotesSb = require('../data/rk-sb')
-const rkQuotesBg = require('../data/rk-bg')
+const rkQuotesBg = require('../data/rk-bg');
 require('dotenv').config()
 
 function dailyQuotes(client) {
@@ -60,6 +63,26 @@ function dailyQuotes(client) {
       }
     }
   }, 3600000 * cooldown);
+
+  setTimeout(async () => {
+    const date = dayjs()
+    const month = (date.month() + 1).toString().padStart(2, '0')
+    const day = date.date().toString().padStart(2, '0')
+
+    if (new Date().getHours() === 6) {
+      const canvas = Canvas.createCanvas(800, 800)
+      const ctx = canvas.getContext('2d')
+      const imgPath = path.join(__dirname, `../img/spb-calendar/spb-calendar-${day}-${month}.png`)
+
+      ctx.fillStyle = 'white' // paint background on white (because its png)
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+      const background = await Canvas.loadImage(imgPath)
+      ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
+      const atachment = new Discord.MessageAttachment(canvas.toBuffer(), 'bot-quotes.png')
+      client.channels.cache.get(process.env.TESTCHANNELID).send({ files: [atachment] })
+    }
+  }, 3600000);
 }
 
 module.exports = dailyQuotes

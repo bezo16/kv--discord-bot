@@ -1,4 +1,4 @@
-let data = 
+const data = 
 {
     "ability": [
         "While Śrutadeva was welcoming Lord Kṛṣṇa and His associates, he simply forgot himself in transcendental joy. After welcoming the Lord and His companions, according to his ability he brought fruits, incense, scented water, scented clay, tulasī leaves, kuśa straw and lotus flowers. They were not costly items and could be secured very easily, but because they were offered with devotional love, Lord Kṛṣṇa and His associates accepted them gladly. (Kṛṣṇa Book, Chapter 86)",
