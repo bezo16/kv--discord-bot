@@ -65,14 +65,15 @@ function dailyQuotes(client) {
   }, 3600000 * cooldown);
 
   setInterval(async () => {
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const date = dayjs()
-    const month = (date.month() + 1).toString().padStart(2, '0')
-    const day = date.date().toString().padStart(2, '0')
+    const month = monthNames[new Date().getMonth()].toLowerCase()
+    const day = date.date().toString()
 
-    if (new Date().getHours() === 6) {
+    if (date.hour() !== 6) {
       const canvas = Canvas.createCanvas(800, 800)
       const ctx = canvas.getContext('2d')
-      const imgPath = path.join(__dirname, `../img/spb-calendar/spb-calendar-${day}-${month}.png`)
+      const imgPath = path.join(__dirname, `../img/spb-calendar/${month}/${day}.png`)
 
       ctx.fillStyle = 'white' // paint background on white (because its png)
       ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -80,7 +81,7 @@ function dailyQuotes(client) {
       const background = await Canvas.loadImage(imgPath)
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
       const atachment = new Discord.MessageAttachment(canvas.toBuffer(), 'bot-quotes.png')
-      client.channels.cache.get(process.env.MAINCHANNELID).send({ files: [atachment] })
+      client.channels.cache.get(process.env.TESTCHANNELID).send({ files: [atachment] })
     }
   }, 3600000);
 }
