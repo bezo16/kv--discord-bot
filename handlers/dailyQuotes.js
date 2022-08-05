@@ -70,7 +70,7 @@ function dailyQuotes(client) {
     const month = monthNames[new Date().getMonth()].toLowerCase()
     const day = date.date().toString()
 
-    if (date.hour() !== 6) {
+    if (date.hour() === 6) {
       const canvas = Canvas.createCanvas(800, 800)
       const ctx = canvas.getContext('2d')
       const imgPath = path.join(__dirname, `../img/spb-calendar/${month}/${day}.png`)
