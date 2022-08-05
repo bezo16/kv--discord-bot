@@ -70,7 +70,9 @@ function dailyQuotes(client) {
     const day = date.date().toString().padStart(2, '0')
 
     if (new Date().getHours() !== 6) {
-      console.warn(date, month, day)
+      console.log(date, month, day)
+      console.log('sending image')
+      console.log(path.join(__dirname, `../img/spb-calendar/spb-calendar-${day}-${month}.png`))
       const canvas = Canvas.createCanvas(800, 800)
       const ctx = canvas.getContext('2d')
       const imgPath = path.join(__dirname, `../img/spb-calendar/spb-calendar-${day}-${month}.png`)
@@ -81,7 +83,7 @@ function dailyQuotes(client) {
       const background = await Canvas.loadImage(imgPath)
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
       const atachment = new Discord.MessageAttachment(canvas.toBuffer(), 'bot-quotes.png')
-      client.channels.cache.get(process.env.MAINCHANNELID).send({ files: [atachment] })
+      client.channels.cache.get(process.env.TESTCHANNELID).send({ files: [atachment] })
     }
   }, 3600);
 }
