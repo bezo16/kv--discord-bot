@@ -116,24 +116,24 @@ function custom(message, client) {
     const text = `
       **Knihy:**
 
-\t\`--bg 2.2\` - kapitola 2 verš 2
-\t\`--bgi 2.2\` - kapitola 2 verš 2 (obrázková verzia)
-\t\`--bgsk 2.2\` - kapitola 2 verš 2 (slovenská verzia)
-\t\`--bg r\` - náhodný verš
-\t\`--bgi r\` - náhodný verš (obrázková verzia)
-\t\`--bg top\` - najviac zaujímave verše
-\t\`--bgi top\` - najviac zaujímave verše (obrázková verzia)
-\t\`--bg k\` - výpis názvov kapitol
+\t\`bg 2.2\` - kapitola 2 verš 2
+\t\`bgi 2.2\` - kapitola 2 verš 2 (obrázková verzia)
+\t\`bgsk 2.2\` - kapitola 2 verš 2 (slovenská verzia)
+\t\`bg r\` - náhodný verš
+\t\`bgi r\` - náhodný verš (obrázková verzia)
+\t\`bg top\` - najviac zaujímave verše
+\t\`bgi top\` - najviac zaujímave verše (obrázková verzia)
+\t\`bg k\` - výpis názvov kapitol
 
-\t\`--sb 2.2.2\` - spev 2 kapitola 2 verš 2
-\t\`--sbi 2.2.2\` - spev 2 kapitola 2 verš 2 (obrázková verzia)
-\t\`--sb top\` - najviac zaujímave verše
-\t\`--sbi top\` - najviac zaujímave verše (obrázková verzia)
-\t\`--sb r\` - náhodný verš
-\t\`--sbi r\` - náhodný verš (obrázková verzia)
+\t\`sb 2.2.2\` - spev 2 kapitola 2 verš 2
+\t\`sbi 2.2.2\` - spev 2 kapitola 2 verš 2 (obrázková verzia)
+\t\`sb top\` - najviac zaujímave verše
+\t\`sbi top\` - najviac zaujímave verše (obrázková verzia)
+\t\`sb r\` - náhodný verš
+\t\`sbi r\` - náhodný verš (obrázková verzia)
 
-\t\`--cc 2.2.2\` - kniha 2 (madhya-lila) kapitola 2 verš 2
-\t\`--cc 2.2.2\` - kniha 2 (madhya-lila) kapitola 2 verš 2 (obrázková verzia)
+\t\`cc 2.2.2\` - kniha 2 (madhya-lila) kapitola 2 verš 2
+\t\`cc 2.2.2\` - kniha 2 (madhya-lila) kapitola 2 verš 2 (obrázková verzia)
 
     **Numerologia:**
 
@@ -149,9 +149,9 @@ zoznam kategorií: https://vanipedia.org/wiki/Category:Essential_Subjects
 
     **Ostatné:**
 
-\t\`--kv events\` - nefunguje
-\t\`--kv events221\` - nefunguje
-\t\`--customquote "fajn fajnovy"{bezo16}\` - vlastný verš, fajn fajnovy - text, bezo16 - autor (obrázková verzia)
+\t\`kv events\` - obrázok udalosti v tomto mesiaci
+\t\`kv events221\` - obrázok udalosti z roku 20(22), januara(1)
+\t\`customquote "fajn fajnovy"{bezo16}\` - vlastný verš, fajn fajnovy - text, bezo16 - autor (obrázková verzia)
 `
     message.author.send(text)
   }
