@@ -2,6 +2,7 @@ require('dotenv').config()
 const Discord = require('discord.js')
 const { Intents } = require('discord.js');
 const express = require('express')
+const path = require('path')
 
 const client = new Discord.Client({
   intents: [
@@ -36,14 +37,6 @@ client.once('ready', () => {
   dailyQuotes(client)
 })
 
-//  MEMBER ADD JOIN
-// client.on('guildMemberAdd', (guild) => {
-// eslint-disable-next-line max-len
-//   const welcomeText = `${guild.user.username}, vítaj v Yogapite Toto je hlavný spoločný chat, píše tu veľa ľudí a rieši sa tu naozaj kadečo. Občas tu zahliadneš svetské záležitosti ale poväčšine tu riešime Krišnu. Vľavo hore je menu, vyroluje sa ti panel s pod-témami, kde sa konkrétnejšie rozoberajú rôzne dilemy. V pravo keď potiahneš prstom v každom chate sú “Piny”, tu nájdeš pripnuté dôležité/zaujímavé správy. Keď sa vrátiš späť k témam, pod týmito témami sú hlasové kanály. Tu sa prehrávajú prednášky. Máme spoločné programy: púšťame záznamy z prednášok každú stredu cca o 16:00, čítanie cca o 19:00 každý štvrtok a v nedeľu o 15:00 prednáška, buď live s duchovným učiteľom alebo sa prehrá znovu záznam z prednášky. Ďalej môžeš nájsť aj rádio, ktoré prehráva rôzne kirtany a mantry. 🙂 Ak by bolo dačo sme tu, každý ti tu rád odpovie na otázky.`
-//   client.channels.cache.get(process.env.MAINCHANNELID).send(welcomeText)
-//   console.log(guild)
-// })
-
 client.on('interactionCreate', (interaction) => {
   if (interaction.isButton()) {
     if (interaction.customId === 'bg') sendRandomBg(client, interaction.channelId)
@@ -69,7 +62,8 @@ client.on('messageCreate', (message) => {
 })
 client.login(process.env.TOKEN)
 
-app.use(express.static('temp'))
+app.use('/temp', express.static(path.join(__dirname, '/public')))
+app.use('/img', express.static(path.join(__dirname, '/img')))
 app.get('/', (req, res) => {
   res.send('pes')
 })

@@ -1,10 +1,8 @@
 /* eslint-disable */
-const objtest = {c: 3}
-const obj = { a: 1, b: 2, ...objtest};
-const { a, b, c } = obj;
+const dayjs = require('dayjs')
+var relativeTime = require('dayjs/plugin/relativeTime')
+dayjs.extend(relativeTime)
 
-function logNums({a,b,c}) {
-    console.log(a,b,c)
-}
+const result = dayjs().to(dayjs('2022-08-08 12:59:00')) // in 31 years
 
-logNums(obj)
+console.log(result)

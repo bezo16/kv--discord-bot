@@ -25,7 +25,8 @@
     "moment": "^2.29.1",
     "puppeteer": "^10.4.0",
     "puppeteer-full-page-screenshot": "^1.2.2",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "update-dotenv": "^1.1.1"
   },
   "engines": {
     "node": "14.15.4",
