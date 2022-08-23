@@ -31,10 +31,12 @@ const ekadashi = require('./handlers/ekadashi')
 const dailyQuotes = require('./handlers/dailyQuotes')
 const eventReminder = require('./handlers/eventReminder')
 const custom = require('./handlers/custom')
+const facebookGroupPoster = require('./handlers/facebookGroupPoster')
 
 client.once('ready', () => {
   ekadashi(client)
   dailyQuotes(client)
+  facebookGroupPoster()
 })
 
 client.on('interactionCreate', (interaction) => {
