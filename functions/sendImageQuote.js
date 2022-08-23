@@ -11,9 +11,9 @@ async function sendImageQuote(client, channelId, text, quote, canvasreturn = fal
   let textWidth = null
   const quoteImage = { url: '' }
   const randomNum = Math.floor(Math.random() * 64) + 1
-  quoteImage.url = `./img/bg${randomNum}.jpg`
+  quoteImage.url = `./img/quotes-bgs/bg${randomNum}.jpg`
   const imageUrl = quoteImage.url
-  const imageUrl2 = './img/logo.png'
+  const imageUrl2 = './img/logos/logo.png'
 
   const canvas = Canvas.createCanvas(700, 700)
   const ctx = canvas.getContext('2d')
