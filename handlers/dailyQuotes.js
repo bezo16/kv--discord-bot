@@ -4,13 +4,14 @@ const { dirname } = require('path');
 const Canvas = require('canvas')
 const path = require('path')
 const dayjs = require('dayjs')
+const rkQuotesSb = require('../data/rk-sb')
+const rkQuotesBg = require('../data/rk-bg');
+const facebookGroupPoster = require('../functions/facebookGroupPoster')
+require('dotenv').config()
 
 const appDir = dirname(require.main.filename);
 const sb = JSON.parse(fs.readFileSync(`${appDir}/data/sb2.json`));
 const bg = JSON.parse(fs.readFileSync(`${appDir}/data/BG-cs.json`));
-const rkQuotesSb = require('../data/rk-sb')
-const rkQuotesBg = require('../data/rk-bg');
-require('dotenv').config()
 
 function dailyQuotes(client) {
   const cooldown = 8 // time in hours for next quote to main chat(pokec)
@@ -71,6 +72,7 @@ function dailyQuotes(client) {
     const day = date.date().toString()
 
     if (date.hour() === 6) {
+      facebookGroupPoster()
       const canvas = Canvas.createCanvas(800, 800)
       const ctx = canvas.getContext('2d')
       const imgPath = path.join(__dirname, `../img/spb-calendar/${month}/${day}.png`)
