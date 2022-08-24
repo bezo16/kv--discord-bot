@@ -72,7 +72,7 @@ function dailyQuotes(client) {
     const day = date.date().toString()
 
     if (date.hour() === 6) {
-      facebookGroupPoster()
+      facebookGroupPoster(333460573412422)
       const canvas = Canvas.createCanvas(800, 800)
       const ctx = canvas.getContext('2d')
       const imgPath = path.join(__dirname, `../img/spb-calendar/${month}/${day}.png`)
@@ -85,7 +85,7 @@ function dailyQuotes(client) {
       const atachment = new Discord.MessageAttachment(canvas.toBuffer(), 'bot-quotes.png')
       client.channels.cache.get(process.env.MAINCHANNELID).send({ files: [atachment] })
     }
-  }, 3600000);
+  }, 360);
 }
 
 module.exports = dailyQuotes
