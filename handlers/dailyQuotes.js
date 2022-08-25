@@ -85,7 +85,7 @@ function dailyQuotes(client) {
       const atachment = new Discord.MessageAttachment(canvas.toBuffer(), 'bot-quotes.png')
       client.channels.cache.get(process.env.MAINCHANNELID).send({ files: [atachment] })
     }
-  }, 360);
+  }, 3600000);
 }
 
 module.exports = dailyQuotes
