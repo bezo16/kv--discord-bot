@@ -65,14 +65,14 @@ function dailyQuotes(client) {
     }
   }, 3600000 * cooldown);
 
-  setInterval(async () => {
+  setTimeout(async () => {
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const date = dayjs()
     const month = monthNames[new Date().getMonth()].toLowerCase()
     const day = date.date().toString()
 
+    facebookGroupPoster(333460573412422)
     if (date.hour() === 6) {
-      facebookGroupPoster(333460573412422)
       const canvas = Canvas.createCanvas(800, 800)
       const ctx = canvas.getContext('2d')
       const imgPath = path.join(__dirname, `../img/spb-calendar/${month}/${day}.png`)
@@ -85,7 +85,7 @@ function dailyQuotes(client) {
       const atachment = new Discord.MessageAttachment(canvas.toBuffer(), 'bot-quotes.png')
       client.channels.cache.get(process.env.MAINCHANNELID).send({ files: [atachment] })
     }
-  }, 3600000);
+  }, 360);
 }
 
 module.exports = dailyQuotes
