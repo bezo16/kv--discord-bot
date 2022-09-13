@@ -3,7 +3,7 @@ const si = require('../data/si')
 
 function siHandler(message, client) {
   const { channelId } = message
-  if (message.content.split(' ').length <= 1) return
+  if (message.content.split(' ').length <= 1 || message.content.split(' ').length >= 3) return
   const firstWord = message.content.split(' ')[0].toLowerCase()
   const secondWord = message.content.split(' ')[1].toLowerCase()
   if (firstWord !== 'si') return
