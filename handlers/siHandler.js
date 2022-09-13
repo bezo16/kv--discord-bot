@@ -8,7 +8,7 @@ function siHandler(message, client) {
   const secondWord = message.content.split(' ')[1]
   if (firstWord !== 'si') return
 
-  if (Number.isNaN(parseInt(secondWord))) {
+  if (Number.isNaN(parseInt(secondWord, 10))) {
     client.channels.cache.get(channelId).send(`${secondWord} isn't valid number`)
     return
   }
@@ -18,9 +18,7 @@ function siHandler(message, client) {
     return
   }
 
-  if (firstWord === 'si') {
-    client.channels.cache.get(channelId).send(si[secondWord - 1])
-  }
+  client.channels.cache.get(channelId).send(si[secondWord - 1])
 }
 
 module.exports = siHandler
