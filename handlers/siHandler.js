@@ -1,4 +1,4 @@
-// const sendImg = require('../functions/sendImageQuote')
+// const  sendImg = require('../functions/sendImageQuote')
 const si = require('../data/si')
 
 function siHandler(message, client) {
