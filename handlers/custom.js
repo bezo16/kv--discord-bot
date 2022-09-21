@@ -6,7 +6,7 @@ const vanipediaEssential = require('../data/vanipedia-essential')
 function custom(message, client) {
   const { channelId } = message
 
-  if (message.content.split(' ')[0].toLowerCase() === 'customquote' && message.content.includes('"') && message.content.includes('"') && message.content.includes('{') && message.content.includes('}')) {
+  if (message.content.split(' ')[0].toLowerCase() === '?customquote' && message.content.includes('"') && message.content.includes('"') && message.content.includes('{') && message.content.includes('}')) {
     const text = message.content.slice(message.content.indexOf('"') + 1, message.content.lastIndexOf('"'))
     const book = message.content.slice(message.content.indexOf('{') + 1, message.content.indexOf('}'))
     sendImg(client, channelId, `${text}`, `${book}`)

@@ -14,8 +14,8 @@ function ccHandler(message, client) {
     const firstWord = message.content.split(' ')[0].toLowerCase()
     const secondWord = message.content.split(' ')[1].toLowerCase()
 
-    if (firstWord === 'cc' || firstWord === 'cci') {
-      if (secondWord.charAt(0) !== '.' && secondWord.charAt(secondWord.length - 1) !== '.' && secondWord.includes('.') && (firstWord === 'cc' || firstWord === 'cci')) {
+    if (firstWord === '?cc' || firstWord === '?cci') {
+      if (secondWord.charAt(0) !== '.' && secondWord.charAt(secondWord.length - 1) !== '.' && secondWord.includes('.') && (firstWord === '?cc' || firstWord === '?cci')) {
         let canto = secondWord.split('.')[0]
         let chapter = secondWord.split('.')[1]
         let quote = secondWord.split('.')[2]
@@ -26,16 +26,16 @@ function ccHandler(message, client) {
           if (canto > 12) canto = 12
           if (cc[canto - 1].length < chapter) chapter = cc[canto - 1].length
           if (cc[canto - 1][chapter - 1].length < quote) quote = cc[canto - 1][chapter - 1].length
-          if (firstWord === 'cc')message.channel.send(cc[canto - 1][chapter - 1][quote - 1])
+          if (firstWord === '?cc')message.channel.send(cc[canto - 1][chapter - 1][quote - 1])
           else sendImg(client, channelId, cc[canto - 1][chapter - 1][quote - 1], `Śrī Caitanya-Caritāmrta ${canto}.${chapter}.${quote}`)
         }
       }
 
-      if (firstWord === 'cc' && secondWord === 'r') {
+      if (firstWord === '?cc' && secondWord === 'r') {
         sendRandomCC(client, channelId)
       }
 
-      if (firstWord === 'cci' && secondWord === 'r') {
+      if (firstWord === '?cci' && secondWord === 'r') {
         sendRandomCCImage(client, channelId)
       }
     }

@@ -16,7 +16,7 @@ function sbHandler(message, client) {
   const firstWord = message.content.split(' ')[0]
   const secondWord = message.content.split(' ')[1]
 
-  if (firstWord.toLowerCase() === 'sb' || firstWord.toLowerCase() === 'sbi') {
+  if (firstWord.toLowerCase() === '?sb' || firstWord.toLowerCase() === '?sbi') {
     if (secondWord.charAt(0) !== '.' && secondWord.charAt(secondWord.length - 1) !== '.' && secondWord.includes('.')) {
       let canto = secondWord.split('.')[0]
       let chapter = secondWord.split('.')[1]
@@ -35,7 +35,7 @@ function sbHandler(message, client) {
 
         const sendMessageText = sb[canto - 1][chapter - 1][quote - 1]
 
-        if (firstWord.toLowerCase() === 'sb') {
+        if (firstWord.toLowerCase() === '?sb') {
           const srimadEmbed = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setDescription(` ${sendMessageText} \n [Śrīmad-Bhāgavatam ${canto}.${chapter}.${quote}](https://vedabase.io/cs/library/sb/${canto}/${chapter}/${quote}/)`)
@@ -46,15 +46,10 @@ function sbHandler(message, client) {
       }
     }
 
-    if (secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === 'sb') {
-      sendRandomSb(client, channelId)
-    }
+    if (secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === '?sb') sendRandomSb(client, channelId)
+    if (secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === '?sbi') sendRandomSbImage(client, channelId)
 
-    if (secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === 'sbi') {
-      sendRandomSbImage(client, channelId)
-    }
-
-    if (secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === 'sb') {
+    if (secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === '?sb') {
       const selQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)].split('.')
       const cantoNum = Number(selQuote[0])
       const chapterNum = Number(selQuote[1])
@@ -62,7 +57,7 @@ function sbHandler(message, client) {
       message.channel.send(` Śrīmad-Bhāgavatam ${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1]} ** Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum} **`)
     }
 
-    if (secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === 'sbi') {
+    if (secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === '?sbi') {
       let selQuote = ''
       while (!selQuote) {
         const quote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)]
