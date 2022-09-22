@@ -18,4 +18,4 @@ jobs:
           pm2 delete kvbot
           git pull
           npm install
-          pm2 start kvbot.js
+          pm2 start "npm run start" --name kvbot
