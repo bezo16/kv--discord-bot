@@ -13,7 +13,8 @@ function sbHandler(message: Message, client: Client) {
   const secondWord = message.content.split(' ')[1]
 
     if (secondWord.charAt(0) !== '.' && secondWord.charAt(secondWord.length - 1) !== '.' && secondWord.includes('.')) {
-      const words = message.content.split('.').map(w => Number(w))
+      const words = message.content.split(' ')[1].split('.').map(w => Number(w))
+      console.log(words)
       if (words.some(w => !w)) return
       let [canto, chapter, quote] = words
 
