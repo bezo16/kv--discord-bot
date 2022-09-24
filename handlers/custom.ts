@@ -141,6 +141,8 @@ function custom(message: Message, client: Client) {
 
 \t\`?np 2\` - Nektár Pokynov - 2 verš
 
+\t\`?brsm 2\` - Brahma Samhita - 2 verš
+
     **Numerologia:**
 
 \t\`?numname jakub bezak\` - vypočíta numerologicke menné číslo    
