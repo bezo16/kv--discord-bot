@@ -23,6 +23,7 @@ import sendRandomSbImage from './functions/sb/sendRandomSbImage'
 import sendRandomCC from './functions/cc/sendRandomCC'
 import bgHandler from './handlers/bgHandler'
 import sbHandler from './handlers/sbHandler'
+import npHandler from './handlers/npHandler'
 import ccHandler from './handlers/ccHandler'
 import siHandler from './handlers/siHandler'
 import buttonsHandler from './handlers/buttonsHandler'
@@ -55,6 +56,7 @@ client.on('messageCreate', (message) => {
   sbHandler(message, client)
   ccHandler(message, client)
   siHandler(message, client)
+  npHandler(message, client)
   buttonsHandler(message)
 
   eventReminder(client, message)

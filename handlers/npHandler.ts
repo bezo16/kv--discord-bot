@@ -1,9 +1,9 @@
-import si from '../data/other/si'
+import np from '../data/other/np'
 import type {  Message, Client, TextChannel  } from 'discord.js'
 
 
 
-function siHandler(message: Message<boolean>, client: Client<boolean>) {
+function npHandler(message: Message<boolean>, client: Client<boolean>) {
   const { channelId } = message
   if(!message.guild) return
   const channel = message.guild.channels.cache.get(channelId) as TextChannel
@@ -12,8 +12,9 @@ function siHandler(message: Message<boolean>, client: Client<boolean>) {
   const messageWords = message.content.split(' ').length
   if (messageWords !== 2) return
   const firstWord = message.content.split(' ')[0].toLowerCase()
-  if (firstWord !== '?si') return
+  if (firstWord !== '?np') return
   const secondWord = Number(message.content.split(' ')[1].toLowerCase())
+  console.log(secondWord)
   
   
   if (secondWord === NaN) {
@@ -22,12 +23,12 @@ function siHandler(message: Message<boolean>, client: Client<boolean>) {
     return // second word isnt number
   }
 
-  if (secondWord <= 0 || secondWord >= 19) {
-    channel.send(`${secondWord} isnt valid number enter (1-18)`)
+  if (secondWord <= 0 || secondWord >= 12) {
+    channel.send(`${secondWord} isnt valid number enter (1-11)`)
     return // second word is number but not valid
   }
 
-  channel.send(si[secondWord - 1])
+  channel.send(np[secondWord - 1])
 }
 
-export default siHandler
+export default npHandler
