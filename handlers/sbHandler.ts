@@ -1,9 +1,9 @@
 import Discord, { Message, Client } from 'discord.js' 
-import sb from '../data/sb2'
-import rkQuotesSb from '../data/rk-sb'
-import sendImg from '../functions/sendImageQuote'
-import sendRandomSb from '../functions/sendRandomSb'
-import sendRandomSbImage from '../functions/sendRandomSbImage'
+import sb from '../data/sb/sb2'
+import rkQuotesSb from '../data/sb/rk-sb'
+import sendImg from '../functions/utils/sendImageQuote'
+import sendRandomSb from '../functions/sb/sendRandomSb'
+import sendRandomSbImage from '../functions/sb/sendRandomSbImage'
 
 function sbHandler(message: Message, client: Client) {
   const { channelId } = message

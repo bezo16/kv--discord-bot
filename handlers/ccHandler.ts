@@ -1,8 +1,8 @@
 import type {  Message, Client  } from 'discord.js'
-import cc from '../data/cc'
-import sendImg from '../functions/sendImageQuote'
-import sendRandomCC from '../functions/sendRandomCC'
-import sendRandomCCImage from '../functions/sendRandomCCImage'
+import cc from '../data/cc/cc'
+import sendImg from '../functions/utils/sendImageQuote'
+import sendRandomCC from '../functions/cc/sendRandomCC'
+import sendRandomCCImage from '../functions/cc/sendRandomCCImage'
 
 function ccHandler(message: Message, client: Client) {
   const { channelId } = message

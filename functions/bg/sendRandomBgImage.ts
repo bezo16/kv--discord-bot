@@ -1,6 +1,6 @@
 
-import bg from '../data/BG-cs'
-import sendImg from './sendImageQuote'
+import bg from '../../data/bg/BG-cs'
+import sendImg from '../utils/sendImageQuote'
 import { Client } from 'discord.js'
 
 function sendRandomBgImage(client: Client, channelId: string) {

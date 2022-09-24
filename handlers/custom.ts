@@ -1,7 +1,7 @@
 import moment from 'moment'
-import sendImg from '../functions/sendImageQuote'
-import ekadashiDates from '../data/eka'
-import vanipediaEssential from '../data/vanipedia-essential'
+import sendImg from '../functions/utils/sendImageQuote'
+import ekadashiDates from '../data/other/eka'
+import vanipediaEssential from '../data/other/vanipedia-essential'
 import { Message, Client } from 'discord.js'
 
 function custom(message: Message, client: Client) {

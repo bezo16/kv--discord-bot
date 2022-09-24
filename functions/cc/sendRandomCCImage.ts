@@ -1,5 +1,5 @@
-import cc from '../data/cc'
-import sendImg from './sendImageQuote'
+import cc from '../../data/cc/cc'
+import sendImg from '../utils/sendImageQuote'
 import { Client } from 'discord.js'
 
 function sendRandomCCImage(client: Client, channelId: string) {

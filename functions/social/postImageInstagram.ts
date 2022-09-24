@@ -2,8 +2,8 @@ import Jimp from 'jimp'
 import fs from 'fs'
 // @ts-ignore
 import Instagram from 'instagram-web-api'
-import quotes from '../data/newig'
-import func from './sendImageQuote'
+import quotes from '../../data/other/newig'
+import func from '../utils/sendImageQuote'
 
 const instagramClient = new Instagram({
   username: process.env.IGUSERNAME,

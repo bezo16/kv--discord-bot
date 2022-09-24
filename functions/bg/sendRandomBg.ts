@@ -1,5 +1,5 @@
 import Discord, { Client, TextChannel } from 'discord.js'
-import bg from '../data/BG-cs'
+import bg from '../../data/bg/BG-cs'
 
 function sendRandomBg(client: Client, channelId: string) {
   // data

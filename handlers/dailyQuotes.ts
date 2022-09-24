@@ -1,11 +1,11 @@
-import rkQuotesSb from '../data/rk-sb'
-import rkQuotesBg from '../data/rk-bg'
+import rkQuotesSb from '../data/sb/rk-sb'
+import rkQuotesBg from '../data/bg/rk-bg'
 import Discord, { Client, TextChannel } from 'discord.js'
 import Canvas from 'canvas'
 import dayjs from 'dayjs'
-import facebookGroupPoster from '../functions/facebookGroupPoster'
-import sb from '../data/sb2'
-import bg from '../data/BG-cs'
+import facebookGroupPoster from '../functions/social/facebookGroupPoster'
+import sb from '../data/sb/sb2'
+import bg from '../data/bg/BG-cs'
 import path from 'path'
 
 function dailyQuotes(client: Client) {

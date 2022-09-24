@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer'
 import Canvas from 'canvas'
 import fs from 'fs'
 // @ts-ignore
-import fullPageScreenshot from '../node_modules/fullpage-puppeteer-screenshot/index'
+import fullPageScreenshot from 'fullpage-puppeteer-screenshot'
 
 const width = 2100
 const height = 800

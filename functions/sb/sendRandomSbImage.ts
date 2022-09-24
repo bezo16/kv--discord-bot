@@ -1,5 +1,5 @@
-import sb from '../data/sb2'
-import sendImg from './sendImageQuote'
+import sb from '../../data/sb/sb2'
+import sendImg from '../utils/sendImageQuote'
 import { Client } from 'discord.js'
 
 function sendRandomSbImage(client: Client, channelId: string) {

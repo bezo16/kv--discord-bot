@@ -1,11 +1,11 @@
 import Discord, { Message, Client } from 'discord.js'
-import bg from '../data/BG-cs'
-import bgsk from '../data/BG-sk'
-import rkQuotesBg from '../data/rk-bg'
-import sendImg from '../functions/sendImageQuote'
+import bg from '../data/bg/BG-cs'
+import bgsk from '../data/bg/BG-sk'
+import rkQuotesBg from '../data/bg/rk-bg'
+import sendImg from '../functions/utils/sendImageQuote'
 
-import sendRandomBg from '../functions/sendRandomBg'
-import sendRandomBgImage from '../functions/sendRandomBgImage'
+import sendRandomBg from '../functions/bg/sendRandomBg'
+import sendRandomBgImage from '../functions/bg/sendRandomBgImage'
 
 function bgHandler(message: Message, client: Client) {
   const { channelId } = message

@@ -1,4 +1,4 @@
-import ekadashiDates from '../data/eka'
+import ekadashiDates from '../data/other/eka'
 import { Client, TextChannel } from 'discord.js'
 
 function ekadashi(client: Client) {

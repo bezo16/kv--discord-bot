@@ -1,5 +1,5 @@
-import sendScreen from '../functions/sendEventsScreen'
-import sendScreenDate from '../functions/sendEventsScreenDate'
+import sendScreen from '../functions/events/sendEventsScreen'
+import sendScreenDate from '../functions/events/sendEventsScreenDate'
 import { Message } from 'discord.js'
 
 function kvEvents(message: Message) {

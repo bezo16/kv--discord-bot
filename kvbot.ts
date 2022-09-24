@@ -16,11 +16,11 @@ const client = new Discord.Client({
 const app = express()
 
 // FUNCTIONS + HANDLERS
-import sendRandomBg from './functions/sendRandomBg'
-import sendRandomBgImage from './functions/sendRandomBgImage'
-import sendRandomSb from './functions/sendRandomSb'
-import sendRandomSbImage from './functions/sendRandomSbImage'
-import sendRandomCC from './functions/sendRandomCC'
+import sendRandomBg from './functions/bg/sendRandomBg'
+import sendRandomBgImage from './functions/bg/sendRandomBgImage'
+import sendRandomSb from './functions/sb/sendRandomSb'
+import sendRandomSbImage from './functions/sb/sendRandomSbImage'
+import sendRandomCC from './functions/cc/sendRandomCC'
 import bgHandler from './handlers/bgHandler'
 import sbHandler from './handlers/sbHandler'
 import ccHandler from './handlers/ccHandler'

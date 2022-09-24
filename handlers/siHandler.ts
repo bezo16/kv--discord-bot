@@ -1,4 +1,4 @@
-import si from '../data/si'
+import si from '../data/other/si'
 import type {  Message, Client, TextChannel  } from 'discord.js'
 
 

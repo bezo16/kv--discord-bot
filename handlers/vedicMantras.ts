@@ -1,4 +1,4 @@
-import mantras from '../data/vedicMantras'
+import mantras from '../data/other/vedicMantras'
 import { Message } from 'discord.js'
 
 function vedicMantras(message: Message) {

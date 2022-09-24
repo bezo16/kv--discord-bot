@@ -1,4 +1,4 @@
-import cc from '../data/cc'
+import cc from '../../data/cc/cc'
 import { Client, TextChannel } from 'discord.js'
 
 function sendRandomCC(client: Client, channelId: string) {

@@ -1,8 +1,8 @@
 import Jimp from 'jimp'
 import fs from 'fs'
 import axios from 'axios'
-import quotes from '../data/newig'
-import createQuote from '../functions/sendImageQuote'
+import quotes from '../data/other/newig'
+import createQuote from '../functions/utils/sendImageQuote'
 
 const message = ''
 
