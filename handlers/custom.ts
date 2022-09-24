@@ -137,7 +137,9 @@ function custom(message: Message, client: Client) {
 \t\`?cc r\` - náhodný verš z CC
 \t\`?cci r\` - náhodný verš z CC (obrázková verzia)
 
-\t\`?si 2\` - Sri isopanisad - 2 sloha
+\t\`?si 2\` - Sri isopanisad - 2 verš
+
+\t\`?np 2\` - Nektár Pokynov - 2 verš
 
     **Numerologia:**
 
