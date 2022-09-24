@@ -27,7 +27,7 @@ import ccHandler from './handlers/ccHandler'
 import siHandler from './handlers/siHandler'
 import buttonsHandler from './handlers/buttonsHandler'
 import vedicMantras from './handlers/vedicMantras'
-// import kvEvents from './handlers/kvEvents'
+import kvEvents from './handlers/kvEvents'
 import ekadashi from './handlers/ekadashi'
 // const dailyQuotes = require('./handlers/dailyQuotes')
 import eventReminder from './handlers/eventReminder'
@@ -59,7 +59,7 @@ client.on('messageCreate', (message) => {
 
   eventReminder(client, message)
   vedicMantras(message)
-  // kvEvents(message)
+  kvEvents(message)
   custom(message, client)
 })
 client.login(process.env.TOKEN)
