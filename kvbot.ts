@@ -31,13 +31,13 @@ import buttonsHandler from './handlers/buttonsHandler'
 import vedicMantras from './handlers/vedicMantras'
 import kvEvents from './handlers/kvEvents'
 import ekadashi from './handlers/ekadashi'
-// const dailyQuotes = require('./handlers/dailyQuotes')
+import dailyQuotes from './handlers/dailyQuotes'
 import eventReminder from './handlers/eventReminder'
 import custom from './handlers/custom'
 
 client.once('ready', () => {
   ekadashi(client)
-  // dailyQuotes(client)
+  dailyQuotes(client)
 })
 
 client.on('interactionCreate', (interaction) => {
