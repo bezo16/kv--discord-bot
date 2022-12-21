@@ -27,6 +27,7 @@ import npHandler from './handlers/npHandler'
 import ccHandler from './handlers/ccHandler'
 import siHandler from './handlers/siHandler'
 import brsmHandler from './handlers/brsmHandler'
+import chatGPTHandler from './handlers/chatGPTHandler'
 import buttonsHandler from './handlers/buttonsHandler'
 import vedicMantras from './handlers/vedicMantras'
 import kvEvents from './handlers/kvEvents'
@@ -59,6 +60,7 @@ client.on('messageCreate', (message) => {
   siHandler(message, client)
   npHandler(message, client)
   brsmHandler(message, client)
+  chatGPTHandler(message, client)
   buttonsHandler(message)
 
   eventReminder(client, message)
