@@ -1,5 +1,5 @@
 import np from '../data/other/np'
-import type {  Message, Client, TextChannel  } from 'discord.js'
+import type { Message, Client, TextChannel } from 'discord.js'
 
 
 
@@ -17,7 +17,7 @@ function npHandler(message: Message<boolean>, client: Client<boolean>) {
   console.log(secondWord)
   
   
-  if (secondWord === NaN) {
+  if (isNaN(secondWord)) {
     if (!client.channels.cache.get(channelId)) return
     channel.send(`${secondWord} isn't valid number`)
     return // second word isnt number

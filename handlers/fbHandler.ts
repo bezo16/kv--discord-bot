@@ -4,8 +4,6 @@ import axios from 'axios'
 import quotes from '../data/other/newig'
 import createQuote from '../functions/utils/sendImageQuote'
 
-const message = ''
-
 const photo = '173.212.239.101:7777/fbImage.jpg'
 
 async function fbHandler() {

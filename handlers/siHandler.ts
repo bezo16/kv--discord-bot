@@ -1,5 +1,5 @@
 import si from '../data/other/si'
-import type {  Message, Client, TextChannel  } from 'discord.js'
+import type { Message, Client, TextChannel } from 'discord.js'
 
 
 
@@ -16,7 +16,7 @@ function siHandler(message: Message<boolean>, client: Client<boolean>) {
   const secondWord = Number(message.content.split(' ')[1])
   
   
-  if (secondWord === NaN) {
+  if (isNaN(secondWord)) {
     if (!client.channels.cache.get(channelId)) return
     channel.send(`${secondWord} isn't valid number`)
     return // second word isnt number

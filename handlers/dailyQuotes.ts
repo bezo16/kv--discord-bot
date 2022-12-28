@@ -24,7 +24,7 @@ function dailyQuotes(client: Client) {
         .setColor('#0099ff')
         .setTitle(bg[chapter - 1][quote - 1])
         .setDescription(`[Bhagavad-Gītā ${chapter}.${quote}](https://vedabase.io/sk/library/bg/${chapter}/${quote}/)`)
-        channel.send({ embeds: [gitaEmbed] })
+      channel.send({ embeds: [gitaEmbed] })
     } else {
       const ranQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)]
       const allQuotes: string[] = []
@@ -41,7 +41,7 @@ function dailyQuotes(client: Client) {
               // .setTitle('Śrīmad-Bhāgavatam')
               .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
 
-              channel.send({ embeds: [srimadEmbed] })
+            channel.send({ embeds: [srimadEmbed] })
           }
         }
       } else {
@@ -55,7 +55,7 @@ function dailyQuotes(client: Client) {
         // .setTitle('Śrīmad-Bhāgavatam')
           .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
 
-          channel.send({ embeds: [srimadEmbed] })
+        channel.send({ embeds: [srimadEmbed] })
       }
     }
   }, 3600000 * cooldown);

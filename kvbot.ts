@@ -1,19 +1,7 @@
-require('dotenv').config()
-import Discord from 'discord.js'
-import { Intents } from 'discord.js'
+import Discord, { Intents } from 'discord.js'
+
 import express from 'express'
-import path  from 'path'
-
-const client = new Discord.Client({
-  intents: [
-    Intents.FLAGS.GUILDS,
-    Intents.FLAGS.GUILD_MESSAGES,
-    Intents.FLAGS.DIRECT_MESSAGES,
-    Intents.FLAGS.GUILD_MEMBERS,
-    Intents.FLAGS.GUILD_PRESENCES,]
-})
-
-const app = express()
+import path from 'path'
 
 // FUNCTIONS + HANDLERS
 import sendRandomBg from './functions/bg/sendRandomBg'
@@ -22,7 +10,7 @@ import sendRandomSb from './functions/sb/sendRandomSb'
 import sendRandomSbImage from './functions/sb/sendRandomSbImage'
 import sendRandomCC from './functions/cc/sendRandomCC'
 import bgHandler from './handlers/bgHandler'
-import sbHandler from './handlers/sbHandler'
+import sbHandler from './handlers/sbHandler'  
 import npHandler from './handlers/npHandler'
 import ccHandler from './handlers/ccHandler'
 import siHandler from './handlers/siHandler'
@@ -35,6 +23,19 @@ import ekadashi from './handlers/ekadashi'
 import dailyQuotes from './handlers/dailyQuotes'
 import eventReminder from './handlers/eventReminder'
 import custom from './handlers/custom'
+
+require('dotenv').config()
+
+const client = new Discord.Client({
+  intents: [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MESSAGES,
+    Intents.FLAGS.DIRECT_MESSAGES,
+    Intents.FLAGS.GUILD_MEMBERS,
+    Intents.FLAGS.GUILD_PRESENCES,]
+})
+
+const app = express()
 
 client.once('ready', () => {
   ekadashi(client)
@@ -61,7 +62,7 @@ client.on('messageCreate', (message) => {
   siHandler(message, client)
   npHandler(message, client)
   brsmHandler(message, client)
-  chatGPTHandler(message, client)
+  chatGPTHandler(message)
   buttonsHandler(message)
 
   eventReminder(client, message)
@@ -70,7 +71,6 @@ client.on('messageCreate', (message) => {
   custom(message, client)
 })
 client.login(process.env.TOKEN)
-
 
 app.use('/temp', express.static(path.join(__dirname, '/public')))
 app.use('/img', express.static(path.join(__dirname, '/img')))

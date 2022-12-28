@@ -1,5 +1,5 @@
 import brsm from '../data/other/brsm'
-import type {  Message, Client, TextChannel  } from 'discord.js'
+import type { Message, Client, TextChannel } from 'discord.js'
 
 
 function siHandler(message: Message, client: Client) {
@@ -16,7 +16,7 @@ function siHandler(message: Message, client: Client) {
   const secondWord = Number(message.content.split(' ')[1])
   
   
-  if (secondWord === NaN) {
+  if (isNaN(secondWord)) {
     if (!client.channels.cache.get(channelId)) return
     channel.send(`${secondWord} isn't valid number`)
     return // second word isnt number
