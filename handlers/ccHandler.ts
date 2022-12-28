@@ -8,9 +8,9 @@ function ccHandler(message: Message, client: Client) {
   const { channelId } = message
 
   if (message.content.split(' ').length !== 2) return
-  const firstWord = message.content.split(' ')[0].toLowerCase()
+  const firstWord = message.content.split(' ')[0]
   if (!['?cc', '?cci'].includes(firstWord)) return
-  const secondWord = message.content.split(' ')[1].toLowerCase()
+  const secondWord = message.content.split(' ')[1]
 
       if (secondWord.charAt(0) !== '.' && secondWord.charAt(secondWord.length - 1) !== '.' && secondWord.includes('.')) {
         const words = secondWord.split('.').map(w => Number(w))

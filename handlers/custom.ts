@@ -7,7 +7,7 @@ import { Message, Client } from 'discord.js'
 function custom(message: Message, client: Client) {
   const { channelId } = message
 
-  if (message.content.split(' ')[0].toLowerCase() === '?customquote' && message.content.includes('"') && message.content.includes('"') && message.content.includes('{') && message.content.includes('}')) {
+  if (message.content.split(' ')[0] === '?customquote' && message.content.includes('"') && message.content.includes('"') && message.content.includes('{') && message.content.includes('}')) {
     const text = message.content.slice(message.content.indexOf('"') + 1, message.content.lastIndexOf('"'))
     const book = message.content.slice(message.content.indexOf('{') + 1, message.content.indexOf('}'))
     sendImg(client, channelId, `${text}`, `${book}`)
@@ -33,7 +33,7 @@ function custom(message: Message, client: Client) {
     })
   }
 
-  if (message.content.split(' ')[0].toLowerCase() === '?numname' && message.content.split(' ').length >= 3) {
+  if (message.content.split(' ')[0] === '?numname' && message.content.split(' ').length >= 3) {
     const nameWords = message.content.split(' ').slice(1)
     let resultNum = 0
 
@@ -70,7 +70,7 @@ function custom(message: Message, client: Client) {
     nameWords.forEach(word => {
       wordNum = 0
       word.split('').forEach(letter => {
-        wordNum += letters[letter.toLowerCase()]
+        wordNum += letters[letter]
       })
       resultNum += wordNum
     })
@@ -85,7 +85,7 @@ function custom(message: Message, client: Client) {
     message.channel.send(`result num: ${resultNum}`)
   }
 
-  if (message.content.split(' ')[0].toLowerCase() === '?numpsychic' && message.content.split(' ').length === 2) {
+  if (message.content.split(' ')[0] === '?numpsychic' && message.content.split(' ').length === 2) {
     const dateArr = message.content.split(' ')[1].split('.')[0].split('')
     const psychicNum = 0
     dateArr.forEach((n) => psychicNum + Number(n))
@@ -93,7 +93,7 @@ function custom(message: Message, client: Client) {
     message.channel.send(`psychic num is: ${psychicNum}`)
   }
 
-  if (message.content.split(' ')[0].toLowerCase() === '?numdestiny' && message.content.split(' ').length === 2) {
+  if (message.content.split(' ')[0] === '?numdestiny' && message.content.split(' ').length === 2) {
     const dateArr = message.content.split(' ')[1].split('.').join('').split('')
     let destinyNum = 0
     dateArr.forEach((n) => {
@@ -104,7 +104,7 @@ function custom(message: Message, client: Client) {
 
     message.channel.send(`destiny num is: ${destinyNum}`)
   }
-  if (message.content.split(' ')[0].toLowerCase() === '?vanipedia' && message.content.split(' ').length >= 2) {
+  if (message.content.split(' ')[0] === '?vanipedia' && message.content.split(' ').length >= 2) {
     const category = message.content.trim().split(' ').slice(1).join(' ')
     if (!Object.hasOwnProperty.call(vanipediaEssential, category)) return message.channel.send('invalid category name')
     const randomCategoryNumber = Math.floor(Math.random() * vanipediaEssential[category].length)

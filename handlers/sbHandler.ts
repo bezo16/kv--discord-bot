@@ -31,7 +31,7 @@ function sbHandler(message: Message, client: Client) {
 
         const sendMessageText = sb[canto - 1][chapter - 1][quote - 1]
 
-        if (firstWord.toLowerCase() === '?sb') {
+        if (firstWord === '?sb') {
           const srimadEmbed = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setDescription(` ${sendMessageText} \n [Śrīmad-Bhāgavatam ${canto}.${chapter}.${quote}](https://vedabase.io/cs/library/sb/${canto}/${chapter}/${quote}/)`)
@@ -42,17 +42,17 @@ function sbHandler(message: Message, client: Client) {
       }
     }
 
-    if (secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === '?sb') sendRandomSb(client, channelId)
-    if (secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === '?sbi') sendRandomSbImage(client, channelId)
+    if (secondWord === 'r' && firstWord === '?sb') sendRandomSb(client, channelId)
+    if (secondWord === 'r' && firstWord === '?sbi') sendRandomSbImage(client, channelId)
 
-    // if (secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === '?sb') {
+    // if (secondWord === 'top' && firstWord === '?sb') {
     //   // const selQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)].split('.').map(w => Number(w)) TODO
     //   const selQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)].split('.').map(w => Number(w)) 
     //   const [cantoNum, chapterNum, quoteNum] = selQuote
     //   message.channel.send(` Śrīmad-Bhāgavatam ${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1]} ** Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum} **`)
     // }
 
-    if (secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === '?sbi') {
+    if (secondWord === 'top' && firstWord === '?sbi') {
       let selQuote = ''
       while (!selQuote) {
         const quote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)]

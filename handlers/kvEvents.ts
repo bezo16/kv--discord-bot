@@ -4,8 +4,8 @@ import { Message } from 'discord.js'
 
 function kvEvents(message: Message) {
   if (message.content.split(' ').length !== 2) return
-  const firstWord = message.content.split(' ')[0].toLowerCase()
-  const secondWord = message.content.split(' ')[1].toLowerCase()
+  const firstWord = message.content.split(' ')[0]
+  const secondWord = message.content.split(' ')[1]
 
   if (secondWord === 'events' && firstWord === '?kv') {
     console.warn('hmm')

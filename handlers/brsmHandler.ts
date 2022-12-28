@@ -2,18 +2,18 @@ import brsm from '../data/other/brsm'
 import type {  Message, Client, TextChannel  } from 'discord.js'
 
 
-
-function siHandler(message: Message<boolean>, client: Client<boolean>) {
+function siHandler(message: Message, client: Client) {
   const { channelId } = message
   if(!message.guild) return
   const channel = message.guild.channels.cache.get(channelId) as TextChannel
   if (!channel) return
 
+
   const messageWords = message.content.split(' ').length
   if (messageWords !== 2) return
-  const firstWord = message.content.split(' ')[0].toLowerCase()
+  const firstWord = message.content.split(' ')[0]
   if (firstWord !== '?brsm') return
-  const secondWord = Number(message.content.split(' ')[1].toLowerCase())
+  const secondWord = Number(message.content.split(' ')[1])
   
   
   if (secondWord === NaN) {

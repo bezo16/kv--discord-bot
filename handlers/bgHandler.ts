@@ -15,7 +15,7 @@ function bgHandler(message: Message, client: Client) {
     const firstWord = message.content.split(' ')[0]
     const secondWord = message.content.split(' ')[1]
 
-    if (firstWord.toLowerCase() === '?bg' || firstWord.toLowerCase() === '?bgi' || firstWord.toLowerCase() === '?bgsk' || firstWord.toLowerCase() === '?bgisk') {
+    if (firstWord === '?bg' || firstWord === '?bgi' || firstWord === '?bgsk' || firstWord === '?bgisk') {
       if (secondWord.includes('.') && secondWord.charAt(0) !== '.' && secondWord.charAt(secondWord.length - 1) !== '.') {
         const splitSecondWord = secondWord.split('.').map(w => Number(w))
         splitSecondWord.some(w => !w)
@@ -30,10 +30,10 @@ function bgHandler(message: Message, client: Client) {
 
           // LANGUAGES
           // change to svk
-          if (firstWord.toLowerCase() === '?bgsk' || firstWord.toLowerCase() === '?bgisk') resultText = bgsk[chapter - 1][chapterText - 1]
+          if (firstWord === '?bgsk' || firstWord === '?bgisk') resultText = bgsk[chapter - 1][chapterText - 1]
 
-          if (firstWord.toLowerCase() === '?bgi' || firstWord.toLowerCase() === '?bgisk') sendImg(client, channelId, resultText, `Bhagavad-Gītā ${chapter}.${chapterText}`)
-          else if (firstWord.toLowerCase() === '?bg' || firstWord.toLowerCase() === '?bgsk') {
+          if (firstWord === '?bgi' || firstWord === '?bgisk') sendImg(client, channelId, resultText, `Bhagavad-Gītā ${chapter}.${chapterText}`)
+          else if (firstWord === '?bg' || firstWord === '?bgsk') {
             const link = `[Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`
             if ((link.length + resultText.length) <= 256) {
               const gitaEmbed = new Discord.MessageEmbed()
@@ -51,19 +51,19 @@ function bgHandler(message: Message, client: Client) {
         }
       }
 
-      if (secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === '?bg') {
+      if (secondWord === 'r' && firstWord === '?bg') {
         sendRandomBg(client, channelId)
       }
-      if (secondWord.toLowerCase() === 'r' && firstWord.toLowerCase() === '?bgi') {
+      if (secondWord === 'r' && firstWord === '?bgi') {
         sendRandomBgImage(client, channelId)
       }
-      if (secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === '?bg') {
+      if (secondWord === 'top' && firstWord === '?bg') {
         const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split('.')
         const chapter = Number(selectedQuoteBg[0])
         const quote = Number(selectedQuoteBg[1])
         message.channel.send(`${bg[chapter - 1][quote - 1]}  Bhagavad-Gītā ** ${chapter}.${quote} ** `)
       }
-      if (secondWord.toLowerCase() === 'top' && firstWord.toLowerCase() === '?bgi') {
+      if (secondWord === 'top' && firstWord === '?bgi') {
         const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split('.')
         const chapter = Number(selectedQuoteBg[0])
         const quote = Number(selectedQuoteBg[1])

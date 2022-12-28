@@ -11,9 +11,9 @@ function siHandler(message: Message<boolean>, client: Client<boolean>) {
 
   const messageWords = message.content.split(' ').length
   if (messageWords !== 2) return
-  const firstWord = message.content.split(' ')[0].toLowerCase()
+  const firstWord = message.content.split(' ')[0]
   if (firstWord !== '?si') return
-  const secondWord = Number(message.content.split(' ')[1].toLowerCase())
+  const secondWord = Number(message.content.split(' ')[1])
   
   
   if (secondWord === NaN) {

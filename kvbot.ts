@@ -54,6 +54,7 @@ client.on('interactionCreate', (interaction) => {
 
 client.on('messageCreate', (message) => {
   if (message.author.bot) return
+  message.content = message.content.toLowerCase()
   bgHandler(message, client)
   sbHandler(message, client)
   ccHandler(message, client)
