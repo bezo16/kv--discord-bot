@@ -79,7 +79,10 @@
       "comma-spacing": "warn",
       "object-curly-spacing": ["warn", "always"],
       "key-spacing": "warn",
-      "semi": ["warn", "never"]
+      "semi": ["warn", "never"],
+      "array-bracket-spacing": ["warn", "never"],
+      "quotes": ["warn", "double"],
+      "no-duplicate-imports": "warn"
     },
     "parser": "@typescript-eslint/parser",
     "plugins": ["@typescript-eslint"]
