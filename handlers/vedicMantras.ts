@@ -1,11 +1,11 @@
-import mantras from '../data/other/vedicMantras'
-import { Message } from 'discord.js'
+import mantras from "../data/other/vedicMantras"
+import { Message } from "discord.js"
 
 function vedicMantras(message: Message) {
   const { content } = message
-  let allMantras = ''
+  let allMantras = ""
 
-  if (content === '?mantras') {
+  if (content === "?mantras") {
     mantras.forEach((mantra, index) => {
       if (mantras.length - 1 === index) allMantras += `${mantra.trigger}`
       else allMantras += `${mantra.trigger},`
