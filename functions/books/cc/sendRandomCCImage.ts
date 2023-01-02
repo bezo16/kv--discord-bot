@@ -1,6 +1,6 @@
-import cc from '../../data/cc/cc'
-import sendImg from '../helpers/sendImageQuote'
-import { Client } from 'discord.js'
+import cc from "../../../data/cc/cc"
+import sendImg from "../../canvas/sendImageQuote"
+import { Client } from "discord.js"
 
 function sendRandomCCImage(client: Client, channelId: string) {
   const cantoNum = Math.floor(Math.random() * 3)

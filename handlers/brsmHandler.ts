@@ -1,5 +1,5 @@
-import brsm from '../data/other/brsm'
-import type { Message, Client, TextChannel } from 'discord.js'
+import brsm from "../data/other/brsm"
+import type { Message, Client, TextChannel } from "discord.js"
 
 
 function siHandler(message: Message, client: Client) {
@@ -9,23 +9,23 @@ function siHandler(message: Message, client: Client) {
   if (!channel) return
 
 
-  const messageWords = message.content.split(' ').length
+  const messageWords = message.content.split(" ").length
   if (messageWords !== 2) return
-  const firstWord = message.content.split(' ')[0]
-  if (firstWord !== '?brsm') return
-  const secondWord = Number(message.content.split(' ')[1])
-  
-  
+  const firstWord = message.content.split(" ")[0]
+  if (firstWord !== "?brsm") return
+  const secondWord = Number(message.content.split(" ")[1])
+
+
   if (isNaN(secondWord)) {
     if (!client.channels.cache.get(channelId)) return
     channel.send(`${secondWord} isn't valid number`)
-    
+
     return // second word isnt number
   }
 
   if (secondWord <= 0 || secondWord >= 63) {
     channel.send(`${secondWord} isnt valid number enter (1-62)`)
-    
+
     return // second word is number but not valid
   }
 

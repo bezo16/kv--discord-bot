@@ -1,6 +1,6 @@
-import { Client, TextChannel } from 'discord.js'
-import dayjs from 'dayjs'
-import sendClosestEvent from '../functions/events/sendClosestEvent'
+import { Client, TextChannel } from "discord.js"
+import dayjs from "dayjs"
+import sendClosestEvent from "../functions/events/sendClosestEvent"
 
 
 const intervalsHandler = (client: Client) => {

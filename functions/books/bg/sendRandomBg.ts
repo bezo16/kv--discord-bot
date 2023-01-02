@@ -1,10 +1,10 @@
-import { Client, TextChannel, EmbedBuilder } from 'discord.js'
-import bg from '../../data/bg/BG-cs'
+import { Client, TextChannel, EmbedBuilder } from "discord.js"
+import bg from "../../../data/bg/BG-cs"
 
 function sendRandomBg(client: Client, channelId: string) {
   // data
   const channel = client.channels.cache.get(channelId) as TextChannel
-  const chapter = Math.floor(Math.random() * 18);
+  const chapter = Math.floor(Math.random() * 18)
   const chapterNum = Math.floor(Math.random() * bg[chapter].length)
   const resultText = bg[chapter][chapterNum]
   const resultQuote = ` ${chapter + 1}.${chapterNum + 1}`
@@ -12,12 +12,12 @@ function sendRandomBg(client: Client, channelId: string) {
   let gitaEmbed
   if (resultText.length <= 256) {
     gitaEmbed = new EmbedBuilder()
-      .setColor('#0099ff')
+      .setColor("#0099ff")
       .setTitle(resultText)
       .setDescription(`[Bhagavad-Gītā ${resultQuote}](https://vedabase.io/sk/library/bg/${chapter + 1}/${chapterNum + 1}/)`)
   } else {
     gitaEmbed = new EmbedBuilder()
-      .setColor('#0099ff')
+      .setColor("#0099ff")
       .setDescription(`${resultText} \n[Bhagavad-Gītā ${resultQuote}](https://vedabase.io/sk/library/bg/${chapter + 1}/${chapterNum + 1}/)`)
   }
   // output

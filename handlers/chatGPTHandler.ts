@@ -1,9 +1,9 @@
-import { Message } from 'discord.js'
-import axios from 'axios'
+import { Message } from "discord.js"
+import axios from "axios"
 
 
 async function chatGPTHandler(message: Message) {
-  const words = message.content.split(' ')
+  const words = message.content.split(" ")
   const firstWord = words[0]
   const input = words.slice(1).join(" ")
 
@@ -21,7 +21,7 @@ async function chatGPTHandler(message: Message) {
   } catch (err) {
     console.log(err)
     message.channel.send("something went wrong")
-    
+
     return
   }
 

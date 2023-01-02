@@ -1,9 +1,9 @@
-import Jimp from 'jimp'
-import fs from 'fs'
+import Jimp from "jimp"
+import fs from "fs"
 // @ts-ignore
-import Instagram from 'instagram-web-api'
-import quotes from '../../data/other/newig'
-import func from '../helpers/sendImageQuote'
+import Instagram from "instagram-web-api"
+import quotes from "../../data/other/newig"
+import func from "../canvas/sendImageQuote"
 
 const instagramClient = new Instagram({
   username: process.env.IGUSERNAME,
@@ -11,7 +11,7 @@ const instagramClient = new Instagram({
 })
 
 // can edit
-const hashtags = '#duchovno#poznanie#bhagavadgita#hinduizmus#sanathanadharma#citaty#slovensko'
+const hashtags = "#duchovno#poznanie#bhagavadgita#hinduizmus#sanathanadharma#citaty#slovensko"
 
 async function postImageInstagram() {
   setTimeout(async () => {
@@ -19,21 +19,21 @@ async function postImageInstagram() {
     const resultText = selectedQuote.content
     const resultQuote = selectedQuote.quote
 
-    await func(null, resultText, resultQuote, '', true).then((res) => {
-      fs.writeFileSync('./temp/igImage.png', res)
+    await func(null, resultText, resultQuote, "", true).then((res) => {
+      fs.writeFileSync("./temp/igImage.png", res)
     });
     (async () => {
       await instagramClient.login()
-      Jimp.read('./temp/igImage.png', (err2, image) => {
+      Jimp.read("./temp/igImage.png", (err2, image) => {
         if (err2) console.error(err2)
-        else image.write('./temp/igImage.jpg')
+        else image.write("./temp/igImage.jpg")
       })
       setTimeout(async () => {
-        const photo = './temp/igImage.jpg'
-        await instagramClient.uploadPhoto({ photo, caption: `${resultQuote}\n${hashtags}`, post: 'feed' })
-        fs.unlink('./temp/igImage.jpg', () => {})
-        fs.unlink('./temp/igImage.png', () => {})
-      }, 10000);
+        const photo = "./temp/igImage.jpg"
+        await instagramClient.uploadPhoto({ photo, caption: `${resultQuote}\n${hashtags}`, post: "feed" })
+        fs.unlink("./temp/igImage.jpg", () => {})
+        fs.unlink("./temp/igImage.png", () => {})
+      }, 10000)
     })()
     setTimeout(postImageInstagram, 3600000 * (Math.random() * 20 + 20))
   }, 3600000 * (Math.random() * 20 + 20))

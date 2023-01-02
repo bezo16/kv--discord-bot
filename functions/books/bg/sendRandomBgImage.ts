@@ -1,11 +1,11 @@
 
-import bg from '../../data/bg/BG-cs'
-import sendImg from '../helpers/sendImageQuote'
-import { Client } from 'discord.js'
+import bg from "../../../data/bg/BG-cs"
+import sendImg from "../../canvas/sendImageQuote"
+import { Client } from "discord.js"
 
 function sendRandomBgImage(client: Client, channelId: string) {
   // data
-  const chapter = Math.floor(Math.random() * 18);
+  const chapter = Math.floor(Math.random() * 18)
   const chapterText = Math.floor(Math.random() * bg[chapter].length)
   const resultText = bg[chapter][chapterText]
   const resultQuote = `Bhagavad-Gītā ${chapter + 1}.${chapterText + 1}`

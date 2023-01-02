@@ -1,30 +1,30 @@
-import moment from 'moment'
-import sendImg from '../functions/helpers/sendImageQuote'
-import ekadashiDates from '../data/other/eka'
-import vanipediaEssential from '../data/other/vanipedia-essential'
-import { Message, Client } from 'discord.js'
+import moment from "moment"
+import sendImg from "../functions/canvas/sendImageQuote"
+import ekadashiDates from "../data/other/eka"
+import vanipediaEssential from "../data/other/vanipedia-essential"
+import { Message, Client } from "discord.js"
 
 function custom(message: Message, client: Client) {
   const { channelId } = message
 
-  if (message.content.split(' ')[0] === '?customquote' && message.content.includes('"') && message.content.includes('"') && message.content.includes('{') && message.content.includes('}')) {
-    const text = message.content.slice(message.content.indexOf('"') + 1, message.content.lastIndexOf('"'))
-    const book = message.content.slice(message.content.indexOf('{') + 1, message.content.indexOf('}'))
+  if (message.content.split(" ")[0] === "?customquote" && message.content.includes("\"") && message.content.includes("\"") && message.content.includes("{") && message.content.includes("}")) {
+    const text = message.content.slice(message.content.indexOf("\"") + 1, message.content.lastIndexOf("\""))
+    const book = message.content.slice(message.content.indexOf("{") + 1, message.content.indexOf("}"))
     sendImg(client, channelId, `${text}`, `${book}`)
     setTimeout(() => {
       message.delete()
-    }, 2000);
+    }, 2000)
   }
 
-  if (message.content === '?ekadashi') {
+  if (message.content === "?ekadashi") {
     let ekadashiFound = false
     ekadashiDates.forEach((eka) => {
       const date1 = moment(eka.date)
-      const diff = date1.diff(moment(), 'days')
+      const diff = date1.diff(moment(), "days")
 
-      const month = eka.date.split(' ')[0].split('-')[1]
-      const day = eka.date.split(' ')[0].split('-')[2]
-      const end = `${eka.end.split(' ')[1].split(':')[0]}:${eka.end.split(' ')[1].split(':')[1]} ${eka.end.split(' ')[0].split('-')[2]}.${eka.end.split(' ')[0].split('-')[1]}`
+      const month = eka.date.split(" ")[0].split("-")[1]
+      const day = eka.date.split(" ")[0].split("-")[2]
+      const end = `${eka.end.split(" ")[1].split(":")[0]}:${eka.end.split(" ")[1].split(":")[1]} ${eka.end.split(" ")[0].split("-")[2]}.${eka.end.split(" ")[0].split("-")[1]}`
 
       if (diff >= 0 && !ekadashiFound) {
         message.channel.send(`najbližšie ekadashi je **${eka.name}** (${day}.${month}) \nprerušenie: ${end} \n${eka.link}`)
@@ -33,11 +33,11 @@ function custom(message: Message, client: Client) {
     })
   }
 
-  if (message.content.split(' ')[0] === '?numname' && message.content.split(' ').length >= 3) {
-    const nameWords = message.content.split(' ').slice(1)
+  if (message.content.split(" ")[0] === "?numname" && message.content.split(" ").length >= 3) {
+    const nameWords = message.content.split(" ").slice(1)
     let resultNum = 0
 
-    const letters: Record<string,number> = {
+    const letters: Record<string, number> = {
       a: 1,
       i: 1,
       j: 1,
@@ -69,7 +69,7 @@ function custom(message: Message, client: Client) {
     let wordNum = 0
     nameWords.forEach(word => {
       wordNum = 0
-      word.split('').forEach(letter => {
+      word.split("").forEach(letter => {
         wordNum += letters[letter]
       })
       resultNum += wordNum
@@ -77,7 +77,7 @@ function custom(message: Message, client: Client) {
 
     while (resultNum >= 10) {
       const sumedNum = 0
-      const splitedResultNumArr = resultNum.toString().split('')
+      const splitedResultNumArr = resultNum.toString().split("")
       splitedResultNumArr.forEach((num) => sumedNum + Number(num))
       resultNum = sumedNum
     }
@@ -85,34 +85,34 @@ function custom(message: Message, client: Client) {
     message.channel.send(`result num: ${resultNum}`)
   }
 
-  if (message.content.split(' ')[0] === '?numpsychic' && message.content.split(' ').length === 2) {
-    const dateArr = message.content.split(' ')[1].split('.')[0].split('')
+  if (message.content.split(" ")[0] === "?numpsychic" && message.content.split(" ").length === 2) {
+    const dateArr = message.content.split(" ")[1].split(".")[0].split("")
     const psychicNum = 0
     dateArr.forEach((n) => psychicNum + Number(n))
 
     message.channel.send(`psychic num is: ${psychicNum}`)
   }
 
-  if (message.content.split(' ')[0] === '?numdestiny' && message.content.split(' ').length === 2) {
-    const dateArr = message.content.split(' ')[1].split('.').join('').split('')
+  if (message.content.split(" ")[0] === "?numdestiny" && message.content.split(" ").length === 2) {
+    const dateArr = message.content.split(" ")[1].split(".").join("").split("")
     let destinyNum = 0
     dateArr.forEach((n) => {
       destinyNum += Number(n)
       const destinyNumStr = destinyNum.toString()
-      if (destinyNum >= 10) destinyNum = Number(destinyNumStr.split('')[0]) + Number(destinyNumStr.split('')[1])
+      if (destinyNum >= 10) destinyNum = Number(destinyNumStr.split("")[0]) + Number(destinyNumStr.split("")[1])
     })
 
     message.channel.send(`destiny num is: ${destinyNum}`)
   }
-  if (message.content.split(' ')[0] === '?vanipedia' && message.content.split(' ').length >= 2) {
-    const category = message.content.trim().split(' ').slice(1).join(' ')
-    if (!Object.hasOwnProperty.call(vanipediaEssential, category)) return message.channel.send('invalid category name')
+  if (message.content.split(" ")[0] === "?vanipedia" && message.content.split(" ").length >= 2) {
+    const category = message.content.trim().split(" ").slice(1).join(" ")
+    if (!Object.hasOwnProperty.call(vanipediaEssential, category)) return message.channel.send("invalid category name")
     const randomCategoryNumber = Math.floor(Math.random() * vanipediaEssential[category].length)
     const text = vanipediaEssential[category][randomCategoryNumber]
     message.channel.send(`${text}`)
   }
 
-  if (message.content === '?help') {
+  if (message.content === "?help") {
     const text = `
       **Knihy:**
 

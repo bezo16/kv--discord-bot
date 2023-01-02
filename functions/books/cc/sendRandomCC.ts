@@ -1,5 +1,5 @@
-import cc from '../../data/cc/cc'
-import { Client, TextChannel } from 'discord.js'
+import cc from "../../../data/cc/cc"
+import { Client, TextChannel } from "discord.js"
 
 function sendRandomCC(client: Client, channelId: string) {
   const channel = client.channels.cache.get(channelId) as TextChannel

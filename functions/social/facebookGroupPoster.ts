@@ -1,7 +1,7 @@
-import axios from 'axios'
-import dayjs from 'dayjs'
+import axios from "axios"
+import dayjs from "dayjs"
 
-const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
 async function facebookGroupPoster(groupId: string) {
   const month = monthNames[new Date().getMonth()].toLowerCase()

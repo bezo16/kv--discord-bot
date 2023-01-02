@@ -1,6 +1,6 @@
-import sb from '../../data/sb/sb2'
-import sendImg from '../helpers/sendImageQuote'
-import { Client } from 'discord.js'
+import sb from "../../../data/sb/sb2"
+import sendImg from "../../canvas/sendImageQuote"
+import { Client } from "discord.js"
 
 function sendRandomSbImage(client: Client, channelId: string) {
   const cantoNum = Math.floor(Math.random() * 12)

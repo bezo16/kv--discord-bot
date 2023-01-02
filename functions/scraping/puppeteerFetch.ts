@@ -6,7 +6,7 @@ const puppeteerFetch = async (url : string) => {
   const page = await browser.newPage()
   await page.goto(url)
   const data = await page.content() as string
-  await browser.close();
+  await browser.close()
 
   return data
 }

@@ -1,5 +1,5 @@
 import Cheerio from "cheerio"
-import puppeteerFetch from "../helpers/puppeteerFetch"
+import puppeteerFetch from "../scraping/puppeteerFetch"
 import { Client, TextChannel, EmbedBuilder } from "discord.js"
 import dayjs from "dayjs"
 import monthToNumber from "../../utils/date/monthToNumber"
@@ -31,7 +31,7 @@ const sendClosestEvent = async (client: Client, channelId: string) => {
   for (const event of events) {
     const currentYear = dayjs().year()
     const isAfter = dayjs().isBefore(dayjs(`${currentYear}-${monthToNumber(event.month.padStart(2, "0"))}-${event.day.padStart(2, "0")}T10:00:00`))
-    const daaysLeft = dayjs(`${currentYear}-${monthToNumber(event.month.padStart(2, "0"))}-${event.day.padStart(2, "0")}T10:00:00`).diff(dayjs(), "days")
+    // const daaysLeft = dayjs(`${currentYear}-${monthToNumber(event.month.padStart(2, "0"))}-${event.day.padStart(2, "0")}T10:00:00`).diff(dayjs(), "days")
     if (isAfter) {
       const closeEventEmbed = new EmbedBuilder()
         .setColor(0x9900FF)

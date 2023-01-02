@@ -1,19 +1,19 @@
-import { Message, Client, EmbedBuilder } from 'discord.js'
-import sb from '../data/sb/sb2'
-import rkQuotesSb from '../data/sb/rk-sb'
-import sendImg from '../functions/helpers/sendImageQuote'
-import sendRandomSb from '../functions/sb/sendRandomSb'
-import sendRandomSbImage from '../functions/sb/sendRandomSbImage'
+import { Message, Client, EmbedBuilder } from "discord.js"
+import sb from "../data/sb/sb2"
+import rkQuotesSb from "../data/sb/rk-sb"
+import sendImg from "../functions/canvas/sendImageQuote"
+import sendRandomSb from "../functions/books/sb/sendRandomSb"
+import sendRandomSbImage from "../functions/books/sb/sendRandomSbImage"
 
 function sbHandler(message: Message, client: Client) {
   const { channelId } = message
 
-  const firstWord = message.content.split(' ')[0]
+  const firstWord = message.content.split(" ")[0]
   if (!["?sb", "?sbi"].includes(firstWord)) return
-  const secondWord = message.content.split(' ')[1]
+  const secondWord = message.content.split(" ")[1]
 
-  if (secondWord.charAt(0) !== '.' && secondWord.charAt(secondWord.length - 1) !== '.' && secondWord.includes('.')) {
-    const words = message.content.split(' ')[1].split('.').map(w => Number(w))
+  if (secondWord.charAt(0) !== "." && secondWord.charAt(secondWord.length - 1) !== "." && secondWord.includes(".")) {
+    const words = message.content.split(" ")[1].split(".").map(w => Number(w))
     console.log(words)
     if (words.some(w => !w)) return
     let [canto, chapter, quote] = words
@@ -31,9 +31,9 @@ function sbHandler(message: Message, client: Client) {
 
       const sendMessageText = sb[canto - 1][chapter - 1][quote - 1]
 
-      if (firstWord === '?sb') {
+      if (firstWord === "?sb") {
         const srimadEmbed = new EmbedBuilder()
-          .setColor('#0099ff')
+          .setColor("#0099ff")
           .setDescription(` ${sendMessageText} \n [Śrīmad-Bhāgavatam ${canto}.${chapter}.${quote}](https://vedabase.io/cs/library/sb/${canto}/${chapter}/${quote}/)`)
         message.channel.send({ embeds: [srimadEmbed] })
       } else {
@@ -42,8 +42,8 @@ function sbHandler(message: Message, client: Client) {
     }
   }
 
-  if (secondWord === 'r' && firstWord === '?sb') sendRandomSb(client, channelId)
-  if (secondWord === 'r' && firstWord === '?sbi') sendRandomSbImage(client, channelId)
+  if (secondWord === "r" && firstWord === "?sb") sendRandomSb(client, channelId)
+  if (secondWord === "r" && firstWord === "?sbi") sendRandomSbImage(client, channelId)
 
   // if (secondWord === 'top' && firstWord === '?sb') {
   //   // const selQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)].split('.').map(w => Number(w)) TODO
@@ -52,15 +52,15 @@ function sbHandler(message: Message, client: Client) {
   //   message.channel.send(` Śrīmad-Bhāgavatam ${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1]} ** Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum} **`)
   // }
 
-  if (secondWord === 'top' && firstWord === '?sbi') {
-    let selQuote = ''
+  if (secondWord === "top" && firstWord === "?sbi") {
+    let selQuote = ""
     while (!selQuote) {
       const quote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)]
-      if (typeof (quote) === 'string') selQuote = quote
+      if (typeof (quote) === "string") selQuote = quote
     }
-    const cantoNum = Number(selQuote.split('.')[0])
-    const chapterNum = Number(selQuote.split('.')[1])
-    const quoteNum = Number(selQuote.split('.')[2])
+    const cantoNum = Number(selQuote.split(".")[0])
+    const chapterNum = Number(selQuote.split(".")[1])
+    const quoteNum = Number(selQuote.split(".")[2])
     sendImg(client, channelId, sb[cantoNum - 1][chapterNum - 1][quoteNum - 1], `Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
   }
 }

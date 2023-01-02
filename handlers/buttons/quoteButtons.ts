@@ -1,35 +1,35 @@
-import { ActionRowBuilder, ButtonBuilder, Message, ButtonStyle } from 'discord.js'
+import { ActionRowBuilder, ButtonBuilder, Message, ButtonStyle } from "discord.js"
 
 function quoteButtons(message: Message) {
   const row = new ActionRowBuilder()
     .addComponents(
       new ButtonBuilder()
-        .setCustomId('bg')
-        .setLabel('bg')
+        .setCustomId("bg")
+        .setLabel("bg")
         .setStyle(ButtonStyle.Success),
       new ButtonBuilder()
-        .setCustomId('bg-img')
-        .setLabel('bg-img')
+        .setCustomId("bg-img")
+        .setLabel("bg-img")
         .setStyle(ButtonStyle.Success),
       new ButtonBuilder()
-        .setCustomId('sb')
-        .setLabel('sb')
+        .setCustomId("sb")
+        .setLabel("sb")
         .setStyle(ButtonStyle.Success),
       new ButtonBuilder()
-        .setCustomId('sb-img')
-        .setLabel('sb-img')
+        .setCustomId("sb-img")
+        .setLabel("sb-img")
         .setStyle(ButtonStyle.Success),
       new ButtonBuilder()
-        .setCustomId('cc')
-        .setLabel('cc')
+        .setCustomId("cc")
+        .setLabel("cc")
         .setStyle(ButtonStyle.Success),
     )
 
   const row2 = new ActionRowBuilder()
     .addComponents(
       new ButtonBuilder()
-        .setCustomId('cc-img')
-        .setLabel('cc-img')
+        .setCustomId("cc-img")
+        .setLabel("cc-img")
         .setStyle(ButtonStyle.Success),
     )
 
