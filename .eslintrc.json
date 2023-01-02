@@ -75,8 +75,11 @@
       "no-multiple-empty-lines" : "warn",
       "keyword-spacing": "warn",
       "newline-before-return": "warn",
-      "no-trailing-spaces" :"warn",
-      "comma-spacing": "warn"
+      "no-trailing-spaces": "warn",
+      "comma-spacing": "warn",
+      "object-curly-spacing": ["warn", "always"],
+      "key-spacing": "warn",
+      "semi": ["warn", "never"]
     },
     "parser": "@typescript-eslint/parser",
     "plugins": ["@typescript-eslint"]
