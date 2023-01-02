@@ -21,6 +21,7 @@ async function chatGPTHandler(message: Message) {
   } catch (err) {
     console.log(err)
     message.channel.send("something went wrong")
+    
     return
   }
 

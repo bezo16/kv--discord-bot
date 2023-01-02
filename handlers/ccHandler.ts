@@ -1,6 +1,6 @@
 import type { Message, Client } from 'discord.js'
 import cc from '../data/cc/cc'
-import sendImg from '../functions/utils/sendImageQuote'
+import sendImg from '../functions/helpers/sendImageQuote'
 import sendRandomCC from '../functions/cc/sendRandomCC'
 import sendRandomCCImage from '../functions/cc/sendRandomCCImage'
 

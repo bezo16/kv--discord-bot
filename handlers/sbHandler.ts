@@ -1,7 +1,7 @@
 import Discord, { Message, Client } from 'discord.js' 
 import sb from '../data/sb/sb2'
 import rkQuotesSb from '../data/sb/rk-sb'
-import sendImg from '../functions/utils/sendImageQuote'
+import sendImg from '../functions/helpers/sendImageQuote'
 import sendRandomSb from '../functions/sb/sendRandomSb'
 import sendRandomSbImage from '../functions/sb/sendRandomSbImage'
 

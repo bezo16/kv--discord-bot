@@ -2,7 +2,7 @@ import Jimp from 'jimp'
 import fs from 'fs'
 import axios from 'axios'
 import quotes from '../data/other/newig'
-import createQuote from '../functions/utils/sendImageQuote'
+import createQuote from '../functions/helpers/sendImageQuote'
 
 const photo = '173.212.239.101:7777/fbImage.jpg'
 

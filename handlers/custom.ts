@@ -1,5 +1,5 @@
 import moment from 'moment'
-import sendImg from '../functions/utils/sendImageQuote'
+import sendImg from '../functions/helpers/sendImageQuote'
 import ekadashiDates from '../data/other/eka'
 import vanipediaEssential from '../data/other/vanipedia-essential'
 import { Message, Client } from 'discord.js'

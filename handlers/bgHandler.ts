@@ -2,7 +2,7 @@ import Discord, { Message, Client } from 'discord.js'
 import bg from '../data/bg/BG-cs'
 import bgsk from '../data/bg/BG-sk'
 import rkQuotesBg from '../data/bg/rk-bg'
-import sendImg from '../functions/utils/sendImageQuote'
+import sendImg from '../functions/helpers/sendImageQuote'
 
 import sendRandomBg from '../functions/bg/sendRandomBg'
 import sendRandomBgImage from '../functions/bg/sendRandomBgImage'

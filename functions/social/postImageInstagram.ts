@@ -3,7 +3,7 @@ import fs from 'fs'
 // @ts-ignore
 import Instagram from 'instagram-web-api'
 import quotes from '../../data/other/newig'
-import func from '../utils/sendImageQuote'
+import func from '../helpers/sendImageQuote'
 
 const instagramClient = new Instagram({
   username: process.env.IGUSERNAME,
