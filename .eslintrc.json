@@ -74,7 +74,8 @@
       "no-multi-spaces": "warn",
       "no-multiple-empty-lines" : "warn",
       "keyword-spacing": "warn",
-      "newline-before-return": "warn"
+      "newline-before-return": "warn",
+      "no-trailing-spaces" :"warn"
     },
     "parser": "@typescript-eslint/parser",
     "plugins": ["@typescript-eslint"]
