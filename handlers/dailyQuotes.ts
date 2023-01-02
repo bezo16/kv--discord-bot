@@ -1,6 +1,6 @@
 import rkQuotesSb from '../data/sb/rk-sb'
 import rkQuotesBg from '../data/bg/rk-bg'
-import Discord, { Client, TextChannel } from 'discord.js'
+import { Client, TextChannel, AttachmentBuilder, EmbedBuilder } from 'discord.js'
 import Canvas from 'canvas'
 import dayjs from 'dayjs'
 import facebookGroupPoster from '../functions/social/facebookGroupPoster'
@@ -20,7 +20,7 @@ function dailyQuotes(client: Client) {
       const chapter = Number(selectedQuoteBg[0])
       const quote = Number(selectedQuoteBg[1])
 
-      const gitaEmbed = new Discord.MessageEmbed()
+      const gitaEmbed = new EmbedBuilder()
         .setColor('#0099ff')
         .setTitle(bg[chapter - 1][quote - 1])
         .setDescription(`[Bhagavad-Gītā ${chapter}.${quote}](https://vedabase.io/sk/library/bg/${chapter}/${quote}/)`)
@@ -36,7 +36,7 @@ function dailyQuotes(client: Client) {
           if (!allQuotes.includes(sb[cantoNum - 1][chapterNum - 1][quoteNum - 1])) {
             allQuotes.push(sb[cantoNum - 1][chapterNum - 1][quoteNum - 1])
 
-            const srimadEmbed = new Discord.MessageEmbed()
+            const srimadEmbed = new EmbedBuilder()
               .setColor('#0099ff')
               // .setTitle('Śrīmad-Bhāgavatam')
               .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
@@ -50,7 +50,7 @@ function dailyQuotes(client: Client) {
         const chapterNum = Number(selQuote[1])
         const quoteNum = Number(selQuote[2])
 
-        const srimadEmbed = new Discord.MessageEmbed()
+        const srimadEmbed = new EmbedBuilder()
           .setColor('#0099ff')
         // .setTitle('Śrīmad-Bhāgavatam')
           .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
@@ -58,10 +58,10 @@ function dailyQuotes(client: Client) {
         channel.send({ embeds: [srimadEmbed] })
       }
     }
-  }, 3600000 * cooldown);
+  }, 3600000 * cooldown)
 
   setInterval(async () => {
-    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     const date = dayjs()
     const month = monthNames[new Date().getMonth()].toLowerCase()
     const day = date.date().toString()
@@ -77,10 +77,10 @@ function dailyQuotes(client: Client) {
 
       const background = await Canvas.loadImage(imgPath)
       ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
-      const atachment = new Discord.MessageAttachment(canvas.toBuffer(), 'bot-quotes.png')
+      const atachment = new AttachmentBuilder(canvas.toBuffer(), { name: 'bot-quotes.png' })
       channel.send({ files: [atachment] })
     }
-  }, 3600000);
+  }, 3600000)
 }
 
 export default dailyQuotes

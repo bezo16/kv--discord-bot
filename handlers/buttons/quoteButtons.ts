@@ -1,40 +1,40 @@
-import { MessageActionRow, MessageButton, Message } from 'discord.js'
+import { ActionRowBuilder, ButtonBuilder, Message, ButtonStyle } from 'discord.js'
 
 function quoteButtons(message: Message) {
-  const row = new MessageActionRow()
+  const row = new ActionRowBuilder()
     .addComponents(
-      new MessageButton()
+      new ButtonBuilder()
         .setCustomId('bg')
         .setLabel('bg')
-        .setStyle('PRIMARY'),
-      new MessageButton()
+        .setStyle(ButtonStyle.Success),
+      new ButtonBuilder()
         .setCustomId('bg-img')
         .setLabel('bg-img')
-        .setStyle('SUCCESS'),
-      new MessageButton()
+        .setStyle(ButtonStyle.Success),
+      new ButtonBuilder()
         .setCustomId('sb')
         .setLabel('sb')
-        .setStyle('SUCCESS'),
-      new MessageButton()
+        .setStyle(ButtonStyle.Success),
+      new ButtonBuilder()
         .setCustomId('sb-img')
         .setLabel('sb-img')
-        .setStyle('SUCCESS'),
-      new MessageButton()
+        .setStyle(ButtonStyle.Success),
+      new ButtonBuilder()
         .setCustomId('cc')
         .setLabel('cc')
-        .setStyle('SUCCESS'),
-    );
+        .setStyle(ButtonStyle.Success),
+    )
 
-  const row2 = new MessageActionRow()
+  const row2 = new ActionRowBuilder()
     .addComponents(
-      new MessageButton()
+      new ButtonBuilder()
         .setCustomId('cc-img')
         .setLabel('cc-img')
-        .setStyle('SUCCESS'),
-    );
+        .setStyle(ButtonStyle.Success),
+    )
 
-  message.channel.send({ components: [row, row2] })
-  setTimeout(() => message.delete(), 1000);
+  // message.channel.send({ content: "some cool buttons", components: [row, row2] })
+  setTimeout(() => message.delete(), 1000)
 }
 
 export default quoteButtons

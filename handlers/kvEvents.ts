@@ -1,8 +1,9 @@
 import sendScreen from '../functions/events/sendEventsScreen'
 import sendScreenDate from '../functions/events/sendEventsScreenDate'
-import { Message } from 'discord.js'
+import { Message, Client } from 'discord.js'
+import sendClosestEvent from '../functions/events/sendClosestEvent'
 
-function kvEvents(message: Message) {
+function kvEvents(client: Client, message: Message) {
   if (message.content.split(' ').length !== 2) return
   const firstWord = message.content.split(' ')[0]
   const secondWord = message.content.split(' ')[1]
@@ -15,6 +16,11 @@ function kvEvents(message: Message) {
     const year = secondWord.slice(6, 8)
     const month = secondWord.slice(8)
     sendScreenDate(message, { year, month })
+  }
+
+  if (firstWord === "?kv" && secondWord === "nextevent") {
+    console.log("pes")
+    sendClosestEvent(client, message.channelId)
   }
 }
 

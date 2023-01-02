@@ -14,18 +14,18 @@ function npHandler(message: Message<boolean>, client: Client<boolean>) {
   if (firstWord !== '?np') return
   const secondWord = Number(message.content.split(' ')[1])
   console.log(secondWord)
-  
-  
+
+
   if (isNaN(secondWord)) {
     if (!client.channels.cache.get(channelId)) return
     channel.send(`${secondWord} isn't valid number`)
-    
+
     return // second word isnt number
   }
 
   if (secondWord <= 0 || secondWord >= 12) {
     channel.send(`${secondWord} isnt valid number enter (1-11)`)
-    
+
     return // second word is number but not valid
   }
 

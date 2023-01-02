@@ -1,4 +1,4 @@
-import Discord, { Client, TextChannel } from 'discord.js'
+import { Client, TextChannel, EmbedBuilder } from 'discord.js'
 import bg from '../../data/bg/BG-cs'
 
 function sendRandomBg(client: Client, channelId: string) {
@@ -11,12 +11,12 @@ function sendRandomBg(client: Client, channelId: string) {
   // embed
   let gitaEmbed
   if (resultText.length <= 256) {
-    gitaEmbed = new Discord.MessageEmbed()
+    gitaEmbed = new EmbedBuilder()
       .setColor('#0099ff')
       .setTitle(resultText)
       .setDescription(`[Bhagavad-Gītā ${resultQuote}](https://vedabase.io/sk/library/bg/${chapter + 1}/${chapterNum + 1}/)`)
   } else {
-    gitaEmbed = new Discord.MessageEmbed()
+    gitaEmbed = new EmbedBuilder()
       .setColor('#0099ff')
       .setDescription(`${resultText} \n[Bhagavad-Gītā ${resultQuote}](https://vedabase.io/sk/library/bg/${chapter + 1}/${chapterNum + 1}/)`)
   }

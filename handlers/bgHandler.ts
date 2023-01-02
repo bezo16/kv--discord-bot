@@ -1,4 +1,4 @@
-import Discord, { Message, Client } from 'discord.js'
+import { Message, Client, EmbedBuilder } from 'discord.js'
 import bg from '../data/bg/BG-cs'
 import bgsk from '../data/bg/BG-sk'
 import rkQuotesBg from '../data/bg/rk-bg'
@@ -36,13 +36,13 @@ function bgHandler(message: Message, client: Client) {
         else if (firstWord === '?bg' || firstWord === '?bgsk') {
           const link = `[Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`
           if ((link.length + resultText.length) <= 256) {
-            const gitaEmbed = new Discord.MessageEmbed()
+            const gitaEmbed = new EmbedBuilder()
               .setColor('#0099ff')
               .setTitle(resultText)
               .setDescription(`[Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`)
             message.channel.send({ embeds: [gitaEmbed] })
           } else {
-            const gitaEmbed = new Discord.MessageEmbed()
+            const gitaEmbed = new EmbedBuilder()
               .setColor('#0099ff')
               .setDescription(`${resultText} \n [Bhagavad-Gītā ${chapter}.${chapterText}](https://vedabase.io/sk/library/bg/${chapter}/${chapterText}/)`)
             message.channel.send({ embeds: [gitaEmbed] })
@@ -51,7 +51,7 @@ function bgHandler(message: Message, client: Client) {
       }
     }
 
-    if (secondWord === 'r' && firstWord === '?bg') {
+    if (secondWord === "r" && firstWord === '?bg') {
       sendRandomBg(client, channelId)
     }
     if (secondWord === 'r' && firstWord === '?bgi') {

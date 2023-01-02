@@ -1,11 +1,11 @@
-import Discord, { Client, TextChannel } from 'discord.js'
+import Discord, { Client, TextChannel, AttachmentBuilder } from 'discord.js'
 import Canvas, { registerFont } from 'canvas'
 import resize from './resizes'
 registerFont('./fonts/Gabriola.ttf', { family: 'Comic Sans' })
 
 async function sendImageQuote(client: Client | null, channelId: string, text: string, quote: string, canvasreturn = false) {
   const channel = client ? client.channels.cache.get(channelId) as TextChannel : null
-  
+
 
   let textLength = 0
   let resultText = ''
@@ -103,7 +103,7 @@ async function sendImageQuote(client: Client | null, channelId: string, text: st
 
   if (canvasreturn) return canvas.toBuffer()
 
-  const atachment = new Discord.MessageAttachment(canvas.toBuffer(), 'bot-quotes.png')
+  const atachment = new AttachmentBuilder(canvas.toBuffer(), { name: 'bot-quotes.png' })
   if (channel) channel.send({ files: [atachment] })
 
   return 'nice'
