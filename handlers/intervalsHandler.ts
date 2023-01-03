@@ -1,16 +1,18 @@
-import { Client, TextChannel } from "discord.js"
+import { Client } from "discord.js"
 import dayjs from "dayjs"
 import sendClosestEvent from "../functions/events/sendClosestEvent"
+import yogapitEvents from "../functions/scraping/yogapitEvents"
 
 
 const intervalsHandler = (client: Client) => {
 
-  setInterval(() => {
+  setInterval(async () => {
     const hour = dayjs().hour()
 
 
     if (hour === 18) {
-      sendClosestEvent(client, process.env.ANNOUNCEMENTCHANNELID as string)
+      const { isTomorrowEvent } = await yogapitEvents()
+      if (isTomorrowEvent) sendClosestEvent(client, process.env.ANNOUNCEMENTCHANNELID)
     }
 
 
