@@ -12,7 +12,7 @@ const intervalsHandler = (client: Client) => {
 
     if (hour === 18) {
       const { isTomorrowEvent } = await yogapitEvents()
-      if (isTomorrowEvent) sendClosestEvent(client, process.env.ANNOUNCEMENTCHANNELID)
+      if (isTomorrowEvent) sendClosestEvent(client, process.env.ANNOUNCEMENTCHANNELID as string)
     }
 
 

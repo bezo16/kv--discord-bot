@@ -2,14 +2,14 @@
 declare global {
     namespace NodeJS {
       interface ProcessEnv {
-        TOKEN: string
-        IGUSERNAME: string
-        MAINCHANNELID: string
-        TESTCHANNELID: string
-        ANNOUNCEMENTCHANNELID: string
-        FB_ACCESS_TOKEN: string
-        FB_ACCESS_TOKEN_KV_GROUPS: string
-        OPENAI_TOKEN: string
+        TOKEN: string | undefined
+        IGUSERNAME: string | undefined
+        MAINCHANNELID: string | undefined
+        TESTCHANNELID: string | undefined
+        ANNOUNCEMENTCHANNELID: string | undefined
+        FB_ACCESS_TOKEN: string | undefined
+        FB_ACCESS_TOKEN_KV_GROUPS: string | undefined
+        OPENAI_TOKEN: string | undefined
       }
     }
   }
