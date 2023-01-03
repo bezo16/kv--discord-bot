@@ -19,7 +19,6 @@ import chatGPTHandler from "./handlers/chatGPTHandler"
 import buttonsHandler from "./handlers/buttonsHandler"
 import vedicMantras from "./handlers/vedicMantras"
 import kvEvents from "./handlers/kvEvents"
-import ekadashi from "./handlers/ekadashi"
 import dailyQuotes from "./handlers/dailyQuotes"
 import eventReminder from "./handlers/eventReminder"
 import intervalsHandler from "./handlers/intervalsHandler"
@@ -41,7 +40,6 @@ const client = new Discord.Client({
 const app = express()
 
 client.once("ready", () => {
-  ekadashi(client)
   dailyQuotes(client)
   intervalsHandler(client)
 })

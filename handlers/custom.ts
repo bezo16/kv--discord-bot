@@ -1,6 +1,4 @@
-import moment from "moment"
 import sendImg from "../functions/canvas/sendImageQuote"
-import ekadashiDates from "../data/other/eka"
 import vanipediaEssential from "../data/other/vanipedia-essential"
 import { Message, Client } from "discord.js"
 
@@ -14,23 +12,6 @@ function custom(message: Message, client: Client) {
     setTimeout(() => {
       message.delete()
     }, 2000)
-  }
-
-  if (message.content === "?ekadashi") {
-    let ekadashiFound = false
-    ekadashiDates.forEach((eka) => {
-      const date1 = moment(eka.date)
-      const diff = date1.diff(moment(), "days")
-
-      const month = eka.date.split(" ")[0].split("-")[1]
-      const day = eka.date.split(" ")[0].split("-")[2]
-      const end = `${eka.end.split(" ")[1].split(":")[0]}:${eka.end.split(" ")[1].split(":")[1]} ${eka.end.split(" ")[0].split("-")[2]}.${eka.end.split(" ")[0].split("-")[1]}`
-
-      if (diff >= 0 && !ekadashiFound) {
-        message.channel.send(`najbližšie ekadashi je **${eka.name}** (${day}.${month}) \nprerušenie: ${end} \n${eka.link}`)
-        ekadashiFound = true
-      }
-    })
   }
 
   if (message.content.split(" ")[0] === "?numname" && message.content.split(" ").length >= 3) {
