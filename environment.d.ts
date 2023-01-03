@@ -6,6 +6,7 @@ declare global {
         IGUSERNAME: string
         MAINCHANNELID: string
         TESTCHANNELID: string
+        ANNOUNCEMENTID: string
         FB_ACCESS_TOKEN: string
         FB_ACCESS_TOKEN_KV_GROUPS: string
         OPENAI_TOKEN: string

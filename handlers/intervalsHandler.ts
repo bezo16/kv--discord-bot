@@ -9,9 +9,9 @@ const intervalsHandler = (client: Client) => {
   setInterval(() => {
     const hour = dayjs().hour()
 
-    if (hour === 13) {
-    //   sendClosestEvent(client, process.env.TESTCHANNELID as string)
-    //   testChannel.send("je devad hodin")
+
+    if (hour === 18) {
+      sendClosestEvent(client, process.env.TESTCHANNELID as string)
     }
 
 
