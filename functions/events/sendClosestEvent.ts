@@ -15,12 +15,12 @@ const sendClosestEvent = async (client: Client, channelId: string) => {
     if (isAfter) {
       const closeEventEmbed = new EmbedBuilder()
         .setColor(0x9900FF)
-        .setTitle(event.title)
+        .setTitle(`${event.title}`)
         .setURL(event.link)
-        .setDescription(`${Number(event.day)}. ${event.month} \n${event.desc}`)
-        .setThumbnail("https://yogapit.sk/wp-content/uploads/2023/01/logo_fialove_event.jpg")
+        .setDescription(`${event.desc}`)
+        .setImage("https://reinkarnacia.sk/engine/wp-content/uploads/2023/01/yp_udalost-scaled.jpg")
 
-      channel.send({ embeds: [closeEventEmbed] })
+      channel.send({ content: `**Najbližšia udalosť - ${Number(event.day)}. ${event.month}**`, embeds: [closeEventEmbed] })
 
       break
     }
