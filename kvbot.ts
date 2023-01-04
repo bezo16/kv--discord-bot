@@ -1,4 +1,4 @@
-import Discord, { GatewayIntentBits } from "discord.js"
+import { GatewayIntentBits, REST, Routes, Client } from "discord.js"
 
 import express from "express"
 import path from "path"
@@ -24,9 +24,13 @@ import eventReminder from "./handlers/eventReminder"
 import intervalsHandler from "./handlers/intervalsHandler"
 import custom from "./handlers/custom"
 
+// Commands
+import { Handler, Modal } from "./commands/CreateEventEmbed"
+import createEvent from "./functions/events/createEvent"
+
 require("dotenv").config()
 
-const client = new Discord.Client({
+const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMessages,
@@ -45,13 +49,30 @@ client.once("ready", () => {
 })
 
 client.on("interactionCreate", (interaction) => {
-  if (interaction.isButton()) {
-    if (interaction.customId === "bg") sendRandomBg(client, interaction.channelId)
-    if (interaction.customId === "bg-img") sendRandomBgImage(client, interaction.channelId)
-    if (interaction.customId === "sb") sendRandomSb(client, interaction.channelId)
-    if (interaction.customId === "sb-img") sendRandomSbImage(client, interaction.channelId)
-    if (interaction.customId === "cc") sendRandomCC(client, interaction.channelId)
-    if (interaction.customId === "cc-img") sendRandomSbImage(client, interaction.channelId)
+  if (!interaction.isButton()) return
+  if (interaction.customId === "bg") sendRandomBg(client, interaction.channelId)
+  if (interaction.customId === "bg-img") sendRandomBgImage(client, interaction.channelId)
+  if (interaction.customId === "sb") sendRandomSb(client, interaction.channelId)
+  if (interaction.customId === "sb-img") sendRandomSbImage(client, interaction.channelId)
+  if (interaction.customId === "cc") sendRandomCC(client, interaction.channelId)
+  if (interaction.customId === "cc-img") sendRandomSbImage(client, interaction.channelId)
+
+})
+
+client.on("interactionCreate", (interaction) => { // SLASH COMMANDS
+  if (!interaction.isChatInputCommand()) return
+  if (interaction.commandName === "createevent") interaction.showModal(Modal)
+})
+
+client.on("interactionCreate", async interaction => { // MODAL SUBMITIONS
+  if (!interaction.isModalSubmit()) return
+  if (interaction.customId === "eventCreateModal") {
+    const name = interaction.fields.getTextInputValue("name")
+    const desc = interaction.fields.getTextInputValue("desc")
+    const date = interaction.fields.getTextInputValue("date")
+    createEvent(client, interaction.channelId as string, { name, desc, date } )
+    // await interaction.reply({ content: "done" })
+    interaction.deferReply()
   }
 })
 
@@ -74,6 +95,13 @@ client.on("messageCreate", (message) => {
   custom(message, client)
 })
 client.login(process.env.TOKEN)
+
+const rest = new REST({ version: "10" }).setToken(process.env.TOKEN as string)
+rest.put(
+  Routes.applicationGuildCommands("814813554510659594", "810552435470237717"),
+  { body: [Handler] },
+)
+
 
 app.use("/temp", express.static(path.join(__dirname, "/public")))
 app.use("/img", express.static(path.join(__dirname, "/img")))
