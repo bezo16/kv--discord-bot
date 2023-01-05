@@ -71,8 +71,7 @@ client.on("interactionCreate", async interaction => { // MODAL SUBMITIONS
     const desc = interaction.fields.getTextInputValue("desc")
     const date = interaction.fields.getTextInputValue("date")
     createEvent(client, interaction.channelId as string, { name, desc, date } )
-    // await interaction.reply({ content: "done" })
-    interaction.deferReply()
+    await interaction.reply({ content: "uspešne si vytvoril událosť", ephemeral: true })
   }
 })
 
