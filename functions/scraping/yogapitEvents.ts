@@ -38,6 +38,7 @@ const yogapitEvents = async () => {
       isTomorrowEvent = true
       break
     }
+    else if (dayDifference >= 2) break
   }
 
   return { events, isTomorrowEvent }
