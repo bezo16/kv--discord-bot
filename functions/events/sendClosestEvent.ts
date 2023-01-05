@@ -3,7 +3,7 @@ import dayjs from "dayjs"
 import monthToNumber from "../../utils/date/monthToNumber"
 import yogapitEvents from "../scraping/yogapitEvents"
 
-const sendClosestEvent = async (client: Client, channelId: string) => {
+const sendClosestEvent = async (client: Client, channelId: string, everyone: boolean = false) => {
   const channel = client.channels.cache.get(channelId) as TextChannel
   const { events, isTomorrowEvent } = await yogapitEvents()
   console.log(isTomorrowEvent)
@@ -15,7 +15,7 @@ const sendClosestEvent = async (client: Client, channelId: string) => {
     if (isAfter) {
       const closeEventEmbed = new EmbedBuilder()
         .setColor(0x9900FF)
-        .setTitle(`${event.title}`)
+        .setTitle(`${event.title} ${everyone && "@everyone"}`)
         .setURL(event.link)
         .setDescription(`${event.desc}`)
         .setImage("https://reinkarnacia.sk/engine/wp-content/uploads/2023/01/yp_udalost-scaled.jpg")
