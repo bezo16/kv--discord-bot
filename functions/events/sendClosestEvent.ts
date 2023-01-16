@@ -15,12 +15,12 @@ const sendClosestEvent = async (client: Client, channelId: string, everyone: boo
     if (isAfter) {
       const closeEventEmbed = new EmbedBuilder()
         .setColor(0x9900FF)
-        .setTitle(`${event.title} ${everyone && "@everyone"}`)
+        .setTitle(`${event.title}`)
         .setURL(event.link)
         .setDescription(`${event.desc}`)
         .setImage("https://reinkarnacia.sk/engine/wp-content/uploads/2023/01/yp_udalost-scaled.jpg")
 
-      channel.send({ content: `**Najbližšia udalosť - ${Number(event.day)}. ${event.month}**`, embeds: [closeEventEmbed] })
+      channel.send({ content: `**Najbližšia udalosť - ${Number(event.day)}. ${event.month}** ${everyone ? "@everyone" : ""}`, embeds: [closeEventEmbed] })
 
       break
     }
