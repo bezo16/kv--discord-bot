@@ -34,7 +34,8 @@ const yogapitEvents = async () => {
   for (const event of events) {
     const currentYear = dayjs().year()
     const dayDifference = dayjs(`${currentYear}-${monthToNumber(event.month.padStart(2, "0"))}-${event.day.padStart(2, "0")}T10:00:00`).diff(dayjs(), "days")
-    if (dayDifference === 0) {
+    const isFromNow = dayjs().isBefore(`${currentYear}-${monthToNumber(event.month.padStart(2, "0"))}-${event.day.padStart(2, "0")}T10:00:00`)
+    if (dayDifference === 0 && isFromNow) {
       isTomorrowEvent = true
       break
     }
