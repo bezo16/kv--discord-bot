@@ -9,7 +9,7 @@ import bg from "../data/bg/BG-cs"
 import path from "path"
 
 function dailyQuotes(client: Client) {
-  const cooldown = 8
+  const cooldown = 16
   const channelID = typeof(process.env.MAINCHANNELID) === "string" ? process.env.MAINCHANNELID : ""
   const channel = client.channels.cache.get(channelID) as TextChannel
 
@@ -22,7 +22,7 @@ function dailyQuotes(client: Client) {
 
       const gitaEmbed = new EmbedBuilder()
         .setColor("#0099ff")
-        .setTitle(bg[chapter - 1][quote - 1])
+        .setTitle(bg[chapter - 1][quote - 1].text)
         .setDescription(`[Bhagavad-Gītā ${chapter}.${quote}](https://vedabase.io/sk/library/bg/${chapter}/${quote}/)`)
       channel.send({ embeds: [gitaEmbed] })
     } else {

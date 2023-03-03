@@ -6,7 +6,7 @@ function sendRandomBg(client: Client, channelId: string) {
   const channel = client.channels.cache.get(channelId) as TextChannel
   const chapter = Math.floor(Math.random() * 18)
   const chapterNum = Math.floor(Math.random() * bg[chapter].length)
-  const resultText = bg[chapter][chapterNum]
+  const resultText = bg[chapter][chapterNum].text
   const resultQuote = ` ${chapter + 1}.${chapterNum + 1}`
   // embed
   let gitaEmbed
