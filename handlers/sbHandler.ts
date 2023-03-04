@@ -1,5 +1,5 @@
 import { Message, Client, EmbedBuilder } from "discord.js"
-import sb from "../data/sb/sb2"
+import sb from "../data/sb/sb"
 import rkQuotesSb from "../data/sb/rk-sb"
 import sendImg from "../functions/canvas/sendImageQuote"
 import sendRandomSb from "../functions/books/sb/sendRandomSb"
@@ -16,29 +16,34 @@ function sbHandler(message: Message, client: Client) {
     const words = message.content.split(" ")[1].split(".").map(w => Number(w))
     console.log(words)
     if (words.some(w => !w)) return
-    let [canto, chapter, quote] = words
+    let [canto, chapter, quoteNum] = words
 
-    if (!Number.isNaN(canto) && !Number.isNaN(chapter) && !Number.isNaN(quote)) {
-      canto = Number(canto)
-      chapter = Number(chapter)
-      quote = Number(quote)
-      if (canto < 1) canto = 1
-      if (chapter < 1) chapter = 1
-      if (quote < 1) quote = 1
-      if (canto > 12) canto = 12
-      if (sb[canto - 1].length < chapter) chapter = sb[canto - 1].length
-      if (sb[canto - 1][chapter - 1].length < quote) quote = sb[canto - 1][chapter - 1].length
-
-      const sendMessageText = sb[canto - 1][chapter - 1][quote - 1]
-
-      if (firstWord === "?sb") {
-        const srimadEmbed = new EmbedBuilder()
-          .setColor("#0099ff")
-          .setDescription(` ${sendMessageText} \n [Śrīmad-Bhāgavatam ${canto}.${chapter}.${quote}](https://vedabase.io/cs/library/sb/${canto}/${chapter}/${quote}/)`)
-        message.channel.send({ embeds: [srimadEmbed] })
-      } else {
-        sendImg(client, channelId, sendMessageText, ` Śrīmad-Bhāgavatam ${canto}.${chapter}.${quote}`)
+    if (Number.isNaN(canto) || Number.isNaN(chapter) || Number.isNaN(quoteNum)) return
+    canto = Number(canto)
+    chapter = Number(chapter)
+    quoteNum = Number(quoteNum)
+    if (canto < 1 || canto > 12) return message.channel.send("wrong canto number")
+    if (chapter < 1 || sb[canto - 1].length < chapter) return message.channel.send("wrong chapter number")
+    if (quoteNum < 1 ||
+    (Number(sb[canto - 1][chapter - 1][sb[canto - 1][chapter - 1].length - 1].number.split("-")[0]) < quoteNum)) return message.channel.send("wrong quote number")
+    const quoteIndex = sb[canto - 1][chapter - 1].findIndex(q => {
+      if (q.number === String(quoteNum)) return true
+      if (q.number.includes("-")) {
+        const firstNum = q.number.split("-")[0]
+        const secondNum = q.number.split("-")[1]
+        if (quoteNum >= Number(firstNum) && quoteNum <= Number(secondNum)) return true
       }
+    })
+
+    const resultQuote = sb[canto - 1][chapter - 1][quoteIndex]
+
+    if (firstWord === "?sb") {
+      const srimadEmbed = new EmbedBuilder()
+        .setColor("#0099ff")
+        .setDescription(`${resultQuote.text} \n\n[Śrīmad-Bhāgavatam ${canto}.${chapter}.${resultQuote.number}](https://vedabase.io${resultQuote.link})`)
+      message.channel.send({ embeds: [srimadEmbed] })
+    } else {
+      sendImg(client, channelId, resultQuote.text, `Śrīmad-Bhāgavatam ${canto}.${chapter}.${quoteNum}`)
     }
   }
 
@@ -61,7 +66,7 @@ function sbHandler(message: Message, client: Client) {
     const cantoNum = Number(selQuote.split(".")[0])
     const chapterNum = Number(selQuote.split(".")[1])
     const quoteNum = Number(selQuote.split(".")[2])
-    sendImg(client, channelId, sb[cantoNum - 1][chapterNum - 1][quoteNum - 1], `Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
+    sendImg(client, channelId, sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text, `Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
   }
 }
 
