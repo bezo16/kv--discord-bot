@@ -50,12 +50,17 @@ function sbHandler(message: Message, client: Client) {
   if (secondWord === "r" && firstWord === "?sb") sendRandomSb(client, channelId)
   if (secondWord === "r" && firstWord === "?sbi") sendRandomSbImage(client, channelId)
 
-  // if (secondWord === 'top' && firstWord === '?sb') {
-  //   // const selQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)].split('.').map(w => Number(w)) TODO
-  //   const selQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)].split('.').map(w => Number(w))
-  //   const [cantoNum, chapterNum, quoteNum] = selQuote
-  //   message.channel.send(` Śrīmad-Bhāgavatam ${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1]} ** Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum} **`)
-  // }
+  if (secondWord === "top" && firstWord === "?sb") {
+    let selQuote = ""
+    while (!selQuote) {
+      const quote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)]
+      if (typeof (quote) === "string") selQuote = quote
+    }
+    const cantoNum = Number(selQuote.split(".")[0])
+    const chapterNum = Number(selQuote.split(".")[1])
+    const quoteNum = Number(selQuote.split(".")[2])
+    message.channel.send(` Śrīmad-Bhāgavatam ${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text} ** Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum} **`)
+  }
 
   if (secondWord === "top" && firstWord === "?sbi") {
     let selQuote = ""
