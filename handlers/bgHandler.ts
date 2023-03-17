@@ -58,7 +58,7 @@ function bgHandler(message: Message, client: Client) {
     const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
     const chapter = Number(selectedQuoteBg[0])
     const quote = Number(selectedQuoteBg[1])
-    message.channel.send(`${bg[chapter - 1][quote - 1]}  Bhagavad-Gītā ** ${chapter}.${quote} ** `)
+    message.channel.send(`${bg[chapter - 1][quote - 1].text}  Bhagavad-Gītā ** ${chapter}.${quote} ** `)
   }
   if (secondWord === "top" && firstWord === "?bgi") {
     const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
