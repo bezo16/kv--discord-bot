@@ -15,7 +15,7 @@ function sendRandomBg(message: Message) {
   }
 
 
-  const embed = createTextEmbed({ description: `${resultquote.text} \n\n[Bhagavad-Gītā ${resultquote.number}](https://vedabase.io${resultquote.link})`, title: "Hare Krišna" })
+  const embed = createTextEmbed({ description: `${resultquote.text} \n\n[Bhagavad-Gītā ${chapterNum}.${resultquote.number}](https://vedabase.io${resultquote.link})`, title: "Hare Krišna" })
   message.channel.send({ embeds: [embed] })
 }
 
