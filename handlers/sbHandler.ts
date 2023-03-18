@@ -7,14 +7,15 @@ import sendRandomSbImage from "../functions/books/sb/sendRandomSbImage"
 
 function sbHandler(message: Message, client: Client) {
   const { channelId } = message
-
-  const firstWord = message.content.split(" ")[0]
+  const words = message.content.split(" ")
+  if (words.length !== 2) return
+  const firstWord = words[0]
   if (!["?sb", "?sbi"].includes(firstWord)) return
-  const secondWord = message.content.split(" ")[1]
+  const secondWord = words[1]
 
-  if (secondWord.charAt(0) !== "." && secondWord.charAt(secondWord.length - 1) !== "." && secondWord.includes(".")) {
+
+  if (secondWord.match(/^\d+\.\d+\.\d+$/g)) {
     const words = message.content.split(" ")[1].split(".").map(w => Number(w))
-    console.log(words)
     if (words.some(w => !w)) return
     let [canto, chapter, quoteNum] = words
 
@@ -43,12 +44,12 @@ function sbHandler(message: Message, client: Client) {
         .setDescription(`${resultQuote.text} \n\n[Śrīmad-Bhāgavatam ${canto}.${chapter}.${resultQuote.number}](https://vedabase.io${resultQuote.link})`)
       message.channel.send({ embeds: [srimadEmbed] })
     } else {
-      sendImg(client, channelId, resultQuote.text, `Śrīmad-Bhāgavatam ${canto}.${chapter}.${quoteNum}`)
+      sendImg(message, resultQuote.text, `Śrīmad-Bhāgavatam ${canto}.${chapter}.${quoteNum}`)
     }
   }
 
   if (secondWord === "r" && firstWord === "?sb") sendRandomSb(client, channelId)
-  if (secondWord === "r" && firstWord === "?sbi") sendRandomSbImage(client, channelId)
+  if (secondWord === "r" && firstWord === "?sbi") sendRandomSbImage(message)
 
   if (secondWord === "top" && firstWord === "?sb") {
     let selQuote = ""
@@ -71,7 +72,7 @@ function sbHandler(message: Message, client: Client) {
     const cantoNum = Number(selQuote.split(".")[0])
     const chapterNum = Number(selQuote.split(".")[1])
     const quoteNum = Number(selQuote.split(".")[2])
-    sendImg(client, channelId, sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text, `Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
+    sendImg(message, sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text, `Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
   }
 }
 

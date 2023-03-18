@@ -1,14 +1,13 @@
 import sendImg from "../functions/canvas/sendImageQuote"
 import vanipediaEssential from "../data/other/vanipedia-essential"
-import { Message, Client } from "discord.js"
+import { Message } from "discord.js"
 
-function custom(message: Message, client: Client) {
-  const { channelId } = message
+function custom(message: Message) {
 
   if (message.content.split(" ")[0] === "?customquote" && message.content.includes("\"") && message.content.includes("\"") && message.content.includes("{") && message.content.includes("}")) {
     const text = message.content.slice(message.content.indexOf("\"") + 1, message.content.lastIndexOf("\""))
     const book = message.content.slice(message.content.indexOf("{") + 1, message.content.indexOf("}"))
-    sendImg(client, channelId, `${text}`, `${book}`)
+    sendImg(message, `${text}`, `${book}`)
     setTimeout(() => {
       message.delete()
     }, 2000)

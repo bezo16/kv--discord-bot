@@ -63,7 +63,7 @@ client.on("interactionCreate", async interaction => { // MODAL SUBMITIONS
 client.on("messageCreate", (message) => {
   if (message.author.bot) return
   message.content = message.content.toLowerCase()
-  bgHandler(message, client)
+  bgHandler(message)
   sbHandler(message, client)
   ccHandler(message, client)
   siHandler(message, client)
@@ -75,7 +75,7 @@ client.on("messageCreate", (message) => {
   eventReminder(client, message)
   vedicMantras(message)
   kvEvents(client, message)
-  custom(message, client)
+  custom(message)
 })
 client.login(process.env.TOKEN)
 
