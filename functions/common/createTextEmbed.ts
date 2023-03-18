@@ -3,7 +3,6 @@ import { EmbedBuilder } from "discord.js"
 type Config = {
     title: string
     description: string
-    color?: string
 }
 
 const createTextEmbed = (config: Config) => {

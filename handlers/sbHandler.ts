@@ -1,10 +1,10 @@
-import { Message, Client, EmbedBuilder } from "discord.js"
-import sb from "../data/sb/sb"
+import { Message, EmbedBuilder } from "discord.js"
 import rkQuotesSb from "../data/sb/rk-sb"
 import sendImg from "../functions/canvas/sendImageQuote"
 import sendRandomSb from "../functions/books/sb/sendRandomSb"
 import sendRandomSbImage from "../functions/books/sb/sendRandomSbImage"
 import findSBQuote from "../functions/books/sb/findSbQuote"
+import createTextEmbed from "../functions/common/createTextEmbed"
 
 function sbHandler(message: Message) {
   const words = message.content.split(" ")
@@ -15,26 +15,23 @@ function sbHandler(message: Message) {
 
 
   if (secondWord.match(/^\d+\.\d+\.\d+$/g)) {
-    const words = message.content.split(" ")[1].split(".").map(w => Number(w))
-    const cantoNum = Number(words[0])
-    const chapterNum = Number(words[1])
-    const quoteNum = Number(words[2])
+    const [cantoNum, chapterNum, quoteNum] = secondWord.split(".")
 
 
     const resultQuote = findSBQuote(`${cantoNum}.${chapterNum}.${quoteNum}`, message)
     if (!resultQuote) return
 
     if (firstWord === "?sb") {
-      const srimadEmbed = new EmbedBuilder()
-        .setColor("#0099ff")
-        .setDescription(`${resultQuote.text} \n\n[Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote.number}](https://vedabase.io${resultQuote.link})`)
-      message.channel.send({ embeds: [srimadEmbed] })
+      const embed = createTextEmbed({ description: `${resultQuote.text} \n\n[Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote.number}](https://vedabase.io${resultQuote.link})`, title: "Hare Krišna" })
+      message.channel.send({ embeds: [embed] })
     }
     if (firstWord === "?sbi") sendImg(message, resultQuote.text, `Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
   }
 
+
   if (secondWord === "r" && firstWord === "?sb") sendRandomSb(message)
   if (secondWord === "r" && firstWord === "?sbi") sendRandomSbImage(message)
+
 
   if (secondWord === "top" && firstWord === "?sb") {
     let selQuote = ""
