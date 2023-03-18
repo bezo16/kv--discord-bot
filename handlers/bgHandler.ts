@@ -37,12 +37,11 @@ function bgHandler(message: Message, client: Client) {
     message.channel.send(`${resultQuote?.text} \n\n**Bhagavad-Gītā ${selectedQuoteBg[0]}.${resultQuote?.number} ** `)
   }
 
-  // if (secondWord === "top" && firstWord === "?bgi") {
-  //   const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
-  //   const chapter = Number(selectedQuoteBg[0])
-  //   const quote = Number(selectedQuoteBg[1])
-  //   sendImg(client, channelId, `${bg[chapter - 1][quote - 1].text}`, `Bhagavad-Gītā ${chapter}.${bg[chapter - 1][quote - 1].number}`)
-  // }
+  if (secondWord === "top" && firstWord === "?bgi") {
+    const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
+    const resultQuote = findBgQuote(selectedQuoteBg.join("."), message)
+    sendImg(client, channelId, `${resultQuote?.text}`, `Bhagavad-Gītā ${selectedQuoteBg[0]}.${resultQuote?.number}`)
+  }
 }
 
 export default bgHandler
