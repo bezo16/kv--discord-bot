@@ -64,7 +64,7 @@ client.on("messageCreate", (message) => {
   if (message.author.bot) return
   message.content = message.content.toLowerCase()
   bgHandler(message)
-  sbHandler(message, client)
+  sbHandler(message)
   ccHandler(message, client)
   siHandler(message, client)
   npHandler(message, client)

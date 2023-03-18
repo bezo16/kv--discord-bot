@@ -6,8 +6,7 @@ import sendRandomSb from "../functions/books/sb/sendRandomSb"
 import sendRandomSbImage from "../functions/books/sb/sendRandomSbImage"
 import findSBQuote from "../functions/books/sb/findSbQuote"
 
-function sbHandler(message: Message, client: Client) {
-  const { channelId } = message
+function sbHandler(message: Message) {
   const words = message.content.split(" ")
   if (words.length !== 2) return
   const firstWord = words[0]
