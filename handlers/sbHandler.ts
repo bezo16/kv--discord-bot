@@ -4,6 +4,7 @@ import rkQuotesSb from "../data/sb/rk-sb"
 import sendImg from "../functions/canvas/sendImageQuote"
 import sendRandomSb from "../functions/books/sb/sendRandomSb"
 import sendRandomSbImage from "../functions/books/sb/sendRandomSbImage"
+import findSBQuote from "../functions/books/sb/findSbQuote"
 
 function sbHandler(message: Message, client: Client) {
   const { channelId } = message
@@ -16,39 +17,24 @@ function sbHandler(message: Message, client: Client) {
 
   if (secondWord.match(/^\d+\.\d+\.\d+$/g)) {
     const words = message.content.split(" ")[1].split(".").map(w => Number(w))
-    if (words.some(w => !w)) return
-    let [canto, chapter, quoteNum] = words
+    const cantoNum = Number(words[0])
+    const chapterNum = Number(words[1])
+    const quoteNum = Number(words[2])
 
-    if (Number.isNaN(canto) || Number.isNaN(chapter) || Number.isNaN(quoteNum)) return
-    canto = Number(canto)
-    chapter = Number(chapter)
-    quoteNum = Number(quoteNum)
-    if (canto < 1 || canto > 12) return message.channel.send("wrong canto number")
-    if (chapter < 1 || sb[canto - 1].length < chapter) return message.channel.send("wrong chapter number")
-    if (quoteNum < 1 ||
-    (Number(sb[canto - 1][chapter - 1][sb[canto - 1][chapter - 1].length - 1].number.split("-")[0]) < quoteNum)) return message.channel.send("wrong quote number")
-    const quoteIndex = sb[canto - 1][chapter - 1].findIndex(q => {
-      if (q.number === String(quoteNum)) return true
-      if (q.number.includes("-")) {
-        const firstNum = q.number.split("-")[0]
-        const secondNum = q.number.split("-")[1]
-        if (quoteNum >= Number(firstNum) && quoteNum <= Number(secondNum)) return true
-      }
-    })
 
-    const resultQuote = sb[canto - 1][chapter - 1][quoteIndex]
+    const resultQuote = findSBQuote(`${cantoNum}.${chapterNum}.${quoteNum}`, message)
+    if (!resultQuote) return
 
     if (firstWord === "?sb") {
       const srimadEmbed = new EmbedBuilder()
         .setColor("#0099ff")
-        .setDescription(`${resultQuote.text} \n\n[Śrīmad-Bhāgavatam ${canto}.${chapter}.${resultQuote.number}](https://vedabase.io${resultQuote.link})`)
+        .setDescription(`${resultQuote.text} \n\n[Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote.number}](https://vedabase.io${resultQuote.link})`)
       message.channel.send({ embeds: [srimadEmbed] })
-    } else {
-      sendImg(message, resultQuote.text, `Śrīmad-Bhāgavatam ${canto}.${chapter}.${quoteNum}`)
     }
+    if (firstWord === "?sbi") sendImg(message, resultQuote.text, `Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}`)
   }
 
-  if (secondWord === "r" && firstWord === "?sb") sendRandomSb(client, channelId)
+  if (secondWord === "r" && firstWord === "?sb") sendRandomSb(message)
   if (secondWord === "r" && firstWord === "?sbi") sendRandomSbImage(message)
 
   if (secondWord === "top" && firstWord === "?sb") {

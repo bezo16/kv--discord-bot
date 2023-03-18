@@ -4,7 +4,7 @@ import { Client, TextChannel, AttachmentBuilder, EmbedBuilder } from "discord.js
 import Canvas from "canvas"
 import dayjs from "dayjs"
 import facebookGroupPoster from "../functions/social/facebookGroupPoster"
-import sb from "../data/sb/sb2"
+import sb from "../data/sb/sb"
 import bg from "../data/bg/BG-cs"
 import path from "path"
 
@@ -33,8 +33,8 @@ function dailyQuotes(client: Client) {
           const cantoNum = Number(ranQuote[i].split(".")[0])
           const chapterNum = Number(ranQuote[i].split(".")[1])
           const quoteNum = Number(ranQuote[i].split(".")[2])
-          if (!allQuotes.includes(sb[cantoNum - 1][chapterNum - 1][quoteNum - 1])) {
-            allQuotes.push(sb[cantoNum - 1][chapterNum - 1][quoteNum - 1])
+          if (!allQuotes.includes(sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text)) {
+            allQuotes.push(sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text)
 
             const srimadEmbed = new EmbedBuilder()
               .setColor("#0099ff")

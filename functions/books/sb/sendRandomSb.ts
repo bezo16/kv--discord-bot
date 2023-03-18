@@ -1,20 +1,20 @@
-import { Client, TextChannel, EmbedBuilder } from "discord.js"
-import sb from "../../../data/sb/sb2"
+import { Message, EmbedBuilder } from "discord.js"
+import sb from "../../../data/sb/sb"
+import findSBQuote from "./findSbQuote"
 
-function sendRandomSb(client: Client, channelId: string) {
-  // data
-  const channel = client.channels.cache.get(channelId) as TextChannel
+function sendRandomSb(message: Message) {
   const cantoNum = Math.floor(Math.random() * 12)
-  const canto = sb[cantoNum]
-  const chapterNum = Math.floor(Math.random() * canto.length)
-  const chapter = canto[chapterNum]
-  const quoteNum = Math.floor(Math.random() * chapter.length)
-  // embed
+  const chapterNum = Math.floor(Math.random() * sb[cantoNum].length)
+  const quoteNum = Math.floor(Math.random() * sb[cantoNum][chapterNum].length)
+  const resultQuote = findSBQuote(`${cantoNum + 1}.${chapterNum + 1}.${quoteNum + 1}`, message)
+
+
   const srimadEmbed = new EmbedBuilder()
     .setColor("#0099ff")
-    .setDescription(` ${chapter[quoteNum]} \n [Śrīmad-Bhāgavatam ${cantoNum + 1}.${chapterNum + 1}.${quoteNum + 1}](https://vedabase.io/cs/library/sb/${cantoNum + 1}/${chapterNum +1 }/${quoteNum + 1}/)`)
-  // output
-  channel.send({ embeds: [srimadEmbed] })
+    .setDescription(`${resultQuote?.text} \n\n[Śrīmad-Bhāgavatam ${cantoNum + 1}.${chapterNum + 1}.${resultQuote?.number}](https://vedabase.io${resultQuote?.link})`)
+
+
+  message.channel.send({ embeds: [srimadEmbed] })
 }
 
 export default sendRandomSb
