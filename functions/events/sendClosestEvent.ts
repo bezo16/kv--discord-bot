@@ -1,6 +1,6 @@
 import { Client, TextChannel, EmbedBuilder } from "discord.js"
 import dayjs from "dayjs"
-import monthToNumber from "../../utils/date/monthToNumber"
+import monthToNumber from "../date/monthToNumber"
 import yogapitEvents from "../scraping/yogapitEvents"
 
 const sendClosestEvent = async (client: Client, channelId: string, everyone: boolean = false) => {

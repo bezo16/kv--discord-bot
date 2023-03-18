@@ -1,7 +1,7 @@
 import Cheerio from "cheerio"
 import puppeteerFetch from "../scraping/puppeteerFetch"
 import dayjs = require("dayjs")
-import monthToNumber from "../../utils/date/monthToNumber"
+import monthToNumber from "../date/monthToNumber"
 
 type event = {
     day: string
