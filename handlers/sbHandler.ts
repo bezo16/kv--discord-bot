@@ -42,10 +42,9 @@ function sbHandler(message: Message) {
       const quote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)]
       if (typeof (quote) === "string") selQuote = quote
     }
-    const cantoNum = Number(selQuote.split(".")[0])
-    const chapterNum = Number(selQuote.split(".")[1])
-    const quoteNum = Number(selQuote.split(".")[2])
-    message.channel.send(` Śrīmad-Bhāgavatam ${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text} ** Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum} **`)
+    const [cantoNum, chapterNum, quoteNum] = selQuote.split(".")
+    const resultQuote = findSBQuote( `${cantoNum}.${chapterNum}.${quoteNum}`, message)
+    message.channel.send(`Śrīmad-Bhāgavatam ${resultQuote?.text} ** Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote?.number} **`)
   }
 
   if (secondWord === "top" && firstWord === "?sbi") {
