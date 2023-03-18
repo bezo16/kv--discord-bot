@@ -48,17 +48,6 @@ client.once("ready", () => {
   intervalsHandler(client)
 })
 
-client.on("interactionCreate", (interaction) => {
-  if (!interaction.isButton()) return
-  if (interaction.customId === "bg") sendRandomBg(client, interaction.channelId)
-  if (interaction.customId === "bg-img") sendRandomBgImage(client, interaction.channelId)
-  if (interaction.customId === "sb") sendRandomSb(client, interaction.channelId)
-  if (interaction.customId === "sb-img") sendRandomSbImage(client, interaction.channelId)
-  if (interaction.customId === "cc") sendRandomCC(client, interaction.channelId)
-  if (interaction.customId === "cc-img") sendRandomSbImage(client, interaction.channelId)
-
-})
-
 client.on("interactionCreate", (interaction) => { // SLASH COMMANDS
   if (!interaction.isChatInputCommand()) return
   if (interaction.commandName === "createevent") interaction.showModal(Modal)
