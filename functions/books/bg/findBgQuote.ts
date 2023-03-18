@@ -5,7 +5,7 @@ const findBgQuote = (quoteString: string, message: Message) => {
   if (!quoteString || !message) return null
 
   const chapterNum = Number(quoteString.split(".")[0])
-  const quoteNum = Number(quoteString.split(".")[0])
+  const quoteNum = Number(quoteString.split(".")[1])
 
   if (!quoteString.match(/^\d+\.\d+$/g)) {
     message.channel.send("wrong regex")
