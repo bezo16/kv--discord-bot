@@ -4,11 +4,6 @@ import express from "express"
 import path from "path"
 
 // FUNCTIONS + HANDLERS
-import sendRandomBg from "./functions/books/bg/sendRandomBg"
-import sendRandomBgImage from "./functions/books/bg/sendRandomBgImage"
-import sendRandomSb from "./functions/books/sb/sendRandomSb"
-import sendRandomSbImage from "./functions/books/sb/sendRandomSbImage"
-import sendRandomCC from "./functions/books/cc/sendRandomCC"
 import bgHandler from "./handlers/bgHandler"
 import sbHandler from "./handlers/sbHandler"
 import npHandler from "./handlers/npHandler"
