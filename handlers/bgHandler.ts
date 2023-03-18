@@ -41,7 +41,7 @@ function bgHandler(message: Message, client: Client) {
   }
 
 
-  if (firstWord === "?bg" && secondWord === "r") sendRandomBg(client, channelId)
+  if (firstWord === "?bg" && secondWord === "r") sendRandomBg(message)
   if (firstWord === "?bgi" && secondWord === "r") sendRandomBgImage(client, channelId)
 }
 

@@ -1,27 +1,22 @@
-import { Client, TextChannel, EmbedBuilder } from "discord.js"
+import { Message } from "discord.js"
 import bg from "../../../data/bg/BG-cs"
+import findBgQuote from "./findBgQuote"
+import createTextEmbed from "../../common/createTextEmbed"
 
-function sendRandomBg(client: Client, channelId: string) {
-  // data
-  const channel = client.channels.cache.get(channelId) as TextChannel
-  const chapter = Math.floor(Math.random() * 18)
-  const chapterNum = Math.floor(Math.random() * bg[chapter].length)
-  const resultText = bg[chapter][chapterNum].text
-  const resultQuote = ` ${chapter + 1}.${chapterNum + 1}`
-  // embed
-  let gitaEmbed
-  if (resultText.length <= 256) {
-    gitaEmbed = new EmbedBuilder()
-      .setColor("#0099ff")
-      .setTitle(resultText)
-      .setDescription(`[Bhagavad-Gītā ${resultQuote}](https://vedabase.io/sk/library/bg/${chapter + 1}/${chapterNum + 1}/)`)
-  } else {
-    gitaEmbed = new EmbedBuilder()
-      .setColor("#0099ff")
-      .setDescription(`${resultText} \n[Bhagavad-Gītā ${resultQuote}](https://vedabase.io/sk/library/bg/${chapter + 1}/${chapterNum + 1}/)`)
+function sendRandomBg(message: Message) {
+  const chapterNum = Math.floor(Math.random() * 18)
+  const quoteNum = Math.floor(Math.random() * bg[chapterNum].length)
+  const resultquote = findBgQuote(`${chapterNum}.${quoteNum}`, message)
+
+  if (!resultquote) {
+    message.channel.send("quote not found")
+
+    return
   }
-  // output
-  channel.send({ embeds: [gitaEmbed] })
+
+
+  const embed = createTextEmbed({ description: `${resultquote.text} \n\n[Bhagavad-Gītā ${resultquote.number}](https://vedabase.io${resultquote.link})`, title: "Hare Krišna" })
+  message.channel.send({ embeds: [embed] })
 }
 
 export default sendRandomBg
