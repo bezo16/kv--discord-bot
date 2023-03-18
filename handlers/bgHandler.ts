@@ -10,11 +10,10 @@ import rkQuotesBg from "../data/bg/rk-bg"
 function bgHandler(message: Message, client: Client) {
   const { channelId } = message
   const words = message.content.split(" ")
-
   if (words.length !== 2) return
   const [firstWord, secondWord] = words
-
   if (!["?bg", "?bgi", "?bgsk", "?bgisk"].includes(firstWord)) return
+
 
   if (secondWord.match(/^\d+\.\d+$/g)) {
     const resultQuote = findBgQuote(secondWord, message)
@@ -28,8 +27,6 @@ function bgHandler(message: Message, client: Client) {
     }
   }
 
-  if (firstWord === "?bg" && secondWord === "r") sendRandomBg(client, channelId)
-  if (firstWord === "?bgi" && secondWord === "r") sendRandomBgImage(client, channelId)
 
   if (secondWord === "top" && firstWord === "?bg") {
     const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
@@ -42,6 +39,10 @@ function bgHandler(message: Message, client: Client) {
     const resultQuote = findBgQuote(selectedQuoteBg.join("."), message)
     sendImg(client, channelId, `${resultQuote?.text}`, `Bhagavad-Gītā ${selectedQuoteBg[0]}.${resultQuote?.number}`)
   }
+
+
+  if (firstWord === "?bg" && secondWord === "r") sendRandomBg(client, channelId)
+  if (firstWord === "?bgi" && secondWord === "r") sendRandomBgImage(client, channelId)
 }
 
 export default bgHandler
