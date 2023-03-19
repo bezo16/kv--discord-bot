@@ -65,10 +65,10 @@ client.on("messageCreate", (message) => {
   message.content = message.content.toLowerCase()
   bgHandler(message)
   sbHandler(message)
-  ccHandler(message, client)
-  siHandler(message, client)
-  npHandler(message, client)
-  brsmHandler(message, client)
+  ccHandler(message)
+  siHandler(message)
+  npHandler(message)
+  brsmHandler(message)
   chatGPTHandler(message)
   buttonsHandler(message)
 
@@ -88,7 +88,7 @@ rest.put(
 
 app.use("/temp", express.static(path.join(__dirname, "/public")))
 app.use("/img", express.static(path.join(__dirname, "/img")))
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
   res.send("pes")
 })
 app.listen(7777)

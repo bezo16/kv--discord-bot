@@ -1,4 +1,4 @@
-import { Message, EmbedBuilder } from "discord.js"
+import { Message } from "discord.js"
 import rkQuotesSb from "../data/sb/rk-sb"
 import sendImg from "../functions/canvas/sendImageQuote"
 import sendRandomSb from "../functions/books/sb/sendRandomSb"

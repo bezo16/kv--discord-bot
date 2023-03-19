@@ -1,11 +1,10 @@
-import type { Message, Client } from "discord.js"
+import type { Message } from "discord.js"
 import cc from "../data/cc/cc"
 import sendImg from "../functions/canvas/sendImageQuote"
 import sendRandomCC from "../functions/books/cc/sendRandomCC"
 import sendRandomCCImage from "../functions/books/cc/sendRandomCCImage"
 
-function ccHandler(message: Message, client: Client) {
-  const { channelId } = message
+function ccHandler(message: Message) {
 
   if (message.content.split(" ").length !== 2) return
   const firstWord = message.content.split(" ")[0]
@@ -26,7 +25,7 @@ function ccHandler(message: Message, client: Client) {
     else sendImg(message, cc[canto - 1][chapter - 1][quote - 1], `Śrī Caitanya-Caritāmrta ${canto}.${chapter}.${quote}`)
   }
 
-  if (firstWord === "?cc" && secondWord === "r") sendRandomCC(client, channelId)
+  if (firstWord === "?cc" && secondWord === "r") sendRandomCC(message)
   if (firstWord === "?cci" && secondWord === "r") sendRandomCCImage(message)
 }
 
