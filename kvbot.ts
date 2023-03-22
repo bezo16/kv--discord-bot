@@ -71,11 +71,11 @@ client.on("messageCreate", (message) => {
   brsmHandler(message)
   chatGPTHandler(message)
   buttonsHandler(message)
+  custom(message)
+  vedicMantras(message)
 
   eventReminder(client, message)
-  vedicMantras(message)
   kvEvents(client, message)
-  custom(message)
 })
 client.login(process.env.TOKEN)
 

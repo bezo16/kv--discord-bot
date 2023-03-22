@@ -39,7 +39,7 @@ function dailyQuotes(client: Client) {
             const srimadEmbed = new EmbedBuilder()
               .setColor("#0099ff")
               // .setTitle('Śrīmad-Bhāgavatam')
-              .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
+              .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
 
             channel.send({ embeds: [srimadEmbed] })
           }
@@ -53,14 +53,14 @@ function dailyQuotes(client: Client) {
         const srimadEmbed = new EmbedBuilder()
           .setColor("#0099ff")
         // .setTitle('Śrīmad-Bhāgavatam')
-          .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1]} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
+          .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
 
         channel.send({ embeds: [srimadEmbed] })
       }
     }
   }, 3600000 * cooldown)
 
-  setInterval(async () => {
+  setInterval(async () => { // SP daily quotes
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     const date = dayjs()
     const month = monthNames[new Date().getMonth()].toLowerCase()
