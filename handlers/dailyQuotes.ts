@@ -7,13 +7,15 @@ import facebookGroupPoster from "../functions/social/facebookGroupPoster"
 import sb from "../data/sb/sb"
 import bg from "../data/bg/BG-cs"
 import path from "path"
+import nodecron from "node-cron"
 
 function dailyQuotes(client: Client) {
-  const cooldown = 16
   const channelID = typeof(process.env.MAINCHANNELID) === "string" ? process.env.MAINCHANNELID : ""
   const channel = client.channels.cache.get(channelID) as TextChannel
 
-  setInterval(() => {
+  nodecron.schedule("0 9,12,15,18,21 * * *", () => {
+    console.log("running a task every minute")
+
     const random = Math.floor(Math.random() * 2)
     if (random === 1) {
       const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
@@ -38,7 +40,7 @@ function dailyQuotes(client: Client) {
 
             const srimadEmbed = new EmbedBuilder()
               .setColor("#0099ff")
-              // .setTitle('Śrīmad-Bhāgavatam')
+            // .setTitle('Śrīmad-Bhāgavatam')
               .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
 
             channel.send({ embeds: [srimadEmbed] })
@@ -58,7 +60,8 @@ function dailyQuotes(client: Client) {
         channel.send({ embeds: [srimadEmbed] })
       }
     }
-  }, 3600000 * cooldown)
+  })
+
 
   setInterval(async () => { // SP daily quotes
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
