@@ -1,10 +1,10 @@
-import rkQuotesSb from "../data/sb/rk-sb"
 import rkQuotesBg from "../data/bg/rk-bg"
+import findTopSbQuote from "../functions/books/sb/findTopSbQuote"
+import sendImageQuoteClient from "../functions/canvas/sendImageQuoteClient"
 import { Client, TextChannel, AttachmentBuilder, EmbedBuilder } from "discord.js"
 import Canvas from "canvas"
 import dayjs from "dayjs"
 // import facebookGroupPoster from "../functions/social/facebookGroupPoster"
-import sb from "../data/sb/sb"
 import bg from "../data/bg/BG-cs"
 import path from "path"
 import nodecron from "node-cron"
@@ -15,7 +15,7 @@ function dailyQuotes(client: Client) {
   nodecron.schedule("0 9,12,15,18,21 * * *", () => {
     const random = Math.floor(Math.random() * 2)
 
-    if (random === 1) {
+    if (random === 0) { // BG
       const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
       const chapter = Number(selectedQuoteBg[0])
       const quote = Number(selectedQuoteBg[1])
@@ -25,43 +25,21 @@ function dailyQuotes(client: Client) {
         .setTitle(bg[chapter - 1][quote - 1].text)
         .setDescription(`[Bhagavad-Gītā ${chapter}.${quote}](https://vedabase.io/sk/library/bg/${chapter}/${quote}/)`)
       mainChannel.send({ embeds: [gitaEmbed] })
-    } else {
-      const ranQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)]
-      const allQuotes: string[] = []
-      if (typeof (ranQuote) === "object") {
-        for (let i = 0; i < ranQuote.length; i += 1) {
-          const cantoNum = Number(ranQuote[i].split(".")[0])
-          const chapterNum = Number(ranQuote[i].split(".")[1])
-          const quoteNum = Number(ranQuote[i].split(".")[2])
-          if (!allQuotes.includes(sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text)) {
-            allQuotes.push(sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text)
-
-            const srimadEmbed = new EmbedBuilder()
-              .setColor("#0099ff")
-            // .setTitle('Śrīmad-Bhāgavatam')
-              .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
-
-            mainChannel.send({ embeds: [srimadEmbed] })
-          }
-        }
-      } else {
-        const selQuote = ranQuote.split(".")
-        const cantoNum = Number(selQuote[0])
-        const chapterNum = Number(selQuote[1])
-        const quoteNum = Number(selQuote[2])
-
-        const srimadEmbed = new EmbedBuilder()
-          .setColor("#0099ff")
-        // .setTitle('Śrīmad-Bhāgavatam')
-          .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
-
-        mainChannel.send({ embeds: [srimadEmbed] })
-      }
     }
+
+    else { // SB
+      const { resultQuote, cantoNum, chapterNum } = findTopSbQuote()
+      const srimadEmbed = new EmbedBuilder()
+        .setColor("#0099ff")
+        .setDescription(`${resultQuote!.text} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote?.number}](https://vedabase.io${resultQuote!.link})`)
+      mainChannel.send({ embeds: [srimadEmbed] })
+    }
+
   })
 
-  nodecron.schedule("30 10,13,16,19,22 * * *", async() => {
-
+  nodecron.schedule("30 10,13,16,19,22 * * *", async() => { // SB top --> philosophy channel
+    const { resultQuote, cantoNum, chapterNum } = findTopSbQuote()
+    sendImageQuoteClient(client, resultQuote!.text, `[Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote?.number}`, process.env.FILOSOPHYCHANNELID as string)
   })
 
   nodecron.schedule("0 6 * * *", async() => { // SP daily quotes

@@ -1,34 +1,34 @@
 import { Message } from "discord.js"
 import sb from "../../../data/sb/sb"
 
-const findSBQuote = (quoteString: string, message: Message) => {
-  if (!quoteString || !message) return null
+const findSBQuote = (quoteString: string, message: Message | undefined) => {
+  if (!quoteString) return null
 
   const cantoNum = Number(quoteString.split(".")[0])
   const chapterNum = Number(quoteString.split(".")[1])
   const quoteNum = Number(quoteString.split(".")[2])
 
   if (!quoteString.match(/^\d+\.\d+\.\d+$/g)) {
-    message.channel.send("wrong regex")
+    message?.channel.send("wrong regex")
 
     return null
   }
 
   if (cantoNum < 1 || cantoNum > 12) {
-    message.channel.send("wrong canto number")
+    message?.channel.send("wrong canto number")
 
     return null
   }
 
   if (chapterNum < 1 || sb[cantoNum - 1].length < chapterNum) {
-    message.channel.send("wrong chapter number")
+    message?.channel.send("wrong chapter number")
 
     return null
   }
 
   if (quoteNum < 1 ||
     (Number(sb[cantoNum - 1][chapterNum - 1][sb[cantoNum - 1][chapterNum - 1].length - 1].number.split("-")[0]) < quoteNum)) {
-    message.channel.send("wrong quote number")
+    message?.channel.send("wrong quote number")
 
     return null
   }

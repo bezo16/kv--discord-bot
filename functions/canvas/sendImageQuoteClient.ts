@@ -1,9 +1,9 @@
-import { Message, AttachmentBuilder } from "discord.js"
+import { Client, AttachmentBuilder, TextChannel } from "discord.js"
 import Canvas, { registerFont } from "canvas"
 import resize from "./resizes"
 registerFont("./fonts/Gabriola.ttf", { family: "Comic Sans" })
 
-async function sendImageQuote(message: Message, text: string, quote: string, canvasreturn = false) {
+async function sendImageQuoteClient(client: Client, text: string, quote: string, channelId: string) {
 
 
   let textLength = 0
@@ -100,10 +100,9 @@ async function sendImageQuote(message: Message, text: string, quote: string, can
   textWidth = ctx.measureText(reinText)
   ctx.fillText(reinText, ((350) - (textWidth.width / 2)), canvas.height - 15)
 
-  if (canvasreturn) return canvas.toBuffer()
-
   const atachment = new AttachmentBuilder(canvas.toBuffer(), { name: "bot-quotes.png" })
-  message.channel.send({ files: [atachment] })
+  const channel = client.channels.cache.get(channelId) as TextChannel
+  channel!.send({ files: [atachment] })
 }
 
-export default sendImageQuote
+export default sendImageQuoteClient

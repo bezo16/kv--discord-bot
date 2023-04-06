@@ -3,7 +3,7 @@ import rkQuotesSb from "../../../data/sb/rk-sb"
 import findSBQuote from "../../../functions/books/sb/findSbQuote"
 
 
-const findTopSbQuote = (message: Message) => {
+const findTopSbQuote = (message?: Message) => {
   let selQuote = ""
   while (!selQuote) {
     const quote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)]
