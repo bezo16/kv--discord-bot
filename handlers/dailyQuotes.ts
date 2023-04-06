@@ -3,20 +3,18 @@ import rkQuotesBg from "../data/bg/rk-bg"
 import { Client, TextChannel, AttachmentBuilder, EmbedBuilder } from "discord.js"
 import Canvas from "canvas"
 import dayjs from "dayjs"
-import facebookGroupPoster from "../functions/social/facebookGroupPoster"
+// import facebookGroupPoster from "../functions/social/facebookGroupPoster"
 import sb from "../data/sb/sb"
 import bg from "../data/bg/BG-cs"
 import path from "path"
 import nodecron from "node-cron"
 
 function dailyQuotes(client: Client) {
-  const channelID = typeof(process.env.MAINCHANNELID) === "string" ? process.env.MAINCHANNELID : ""
-  const channel = client.channels.cache.get(channelID) as TextChannel
+  const mainChannel = client.channels.cache.get(process.env.MAINCHANNELID as string) as TextChannel
 
   nodecron.schedule("0 9,12,15,18,21 * * *", () => {
-    console.log("running a task every minute")
-
     const random = Math.floor(Math.random() * 2)
+
     if (random === 1) {
       const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
       const chapter = Number(selectedQuoteBg[0])
@@ -26,7 +24,7 @@ function dailyQuotes(client: Client) {
         .setColor("#0099ff")
         .setTitle(bg[chapter - 1][quote - 1].text)
         .setDescription(`[Bhagavad-Gītā ${chapter}.${quote}](https://vedabase.io/sk/library/bg/${chapter}/${quote}/)`)
-      channel.send({ embeds: [gitaEmbed] })
+      mainChannel.send({ embeds: [gitaEmbed] })
     } else {
       const ranQuote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)]
       const allQuotes: string[] = []
@@ -43,7 +41,7 @@ function dailyQuotes(client: Client) {
             // .setTitle('Śrīmad-Bhāgavatam')
               .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
 
-            channel.send({ embeds: [srimadEmbed] })
+            mainChannel.send({ embeds: [srimadEmbed] })
           }
         }
       } else {
@@ -57,33 +55,32 @@ function dailyQuotes(client: Client) {
         // .setTitle('Śrīmad-Bhāgavatam')
           .setDescription(`${sb[cantoNum - 1][chapterNum - 1][quoteNum - 1].text} \n\n [Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${quoteNum}](https://vedabase.io/cs/library/sb/${cantoNum}/${chapterNum}/${quoteNum}/)`)
 
-        channel.send({ embeds: [srimadEmbed] })
+        mainChannel.send({ embeds: [srimadEmbed] })
       }
     }
   })
 
+  nodecron.schedule("30 10,13,16,19,22 * * *", async() => {
 
-  setInterval(async () => { // SP daily quotes
+  })
+
+  nodecron.schedule("0 6 * * *", async() => { // SP daily quotes
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     const date = dayjs()
     const month = monthNames[new Date().getMonth()].toLowerCase()
     const day = date.date().toString()
 
-    if (date.hour() === 6) {
-      facebookGroupPoster("333460573412422")
-      const canvas = Canvas.createCanvas(800, 800)
-      const ctx = canvas.getContext("2d")
-      const imgPath = path.join(__dirname, `../img/spb-calendar/${month}/${day}.png`)
-
-      ctx.fillStyle = "white" // paint background on white (because its png)
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      const background = await Canvas.loadImage(imgPath)
-      ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
-      const atachment = new AttachmentBuilder(canvas.toBuffer(), { name: "bot-quotes.png" })
-      channel.send({ files: [atachment] })
-    }
-  }, 3600000)
+    // facebookGroupPoster("333460573412422")
+    const canvas = Canvas.createCanvas(800, 800)
+    const ctx = canvas.getContext("2d")
+    const imgPath = path.join(__dirname, `../img/spb-calendar/${month}/${day}.png`)
+    ctx.fillStyle = "white" // paint background on white (because its png)
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+    const background = await Canvas.loadImage(imgPath)
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
+    const atachment = new AttachmentBuilder(canvas.toBuffer(), { name: "bot-quotes.png" })
+    mainChannel.send({ files: [atachment] })
+  })
 }
 
 export default dailyQuotes

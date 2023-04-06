@@ -4,6 +4,7 @@ import sendImg from "../functions/canvas/sendImageQuote"
 import sendRandomSb from "../functions/books/sb/sendRandomSb"
 import sendRandomSbImage from "../functions/books/sb/sendRandomSbImage"
 import findSBQuote from "../functions/books/sb/findSbQuote"
+import findTopSbQuote from "../functions/books/sb/findTopSbQuote"
 import createTextEmbed from "../functions/common/createTextEmbed"
 
 function sbHandler(message: Message) {
@@ -34,24 +35,12 @@ function sbHandler(message: Message) {
 
 
   if (secondWord === "top" && firstWord === "?sb") {
-    let selQuote = ""
-    while (!selQuote) {
-      const quote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)]
-      if (typeof (quote) === "string") selQuote = quote
-    }
-    const [cantoNum, chapterNum, quoteNum] = selQuote.split(".")
-    const resultQuote = findSBQuote( `${cantoNum}.${chapterNum}.${quoteNum}`, message)
+    const { resultQuote, cantoNum, chapterNum } = findTopSbQuote(message)
     message.channel.send(`Śrīmad-Bhāgavatam ${resultQuote?.text} ** Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote?.number} **`)
   }
 
   if (secondWord === "top" && firstWord === "?sbi") {
-    let selQuote = ""
-    while (!selQuote) {
-      const quote = rkQuotesSb[Math.floor(Math.random() * rkQuotesSb.length)]
-      if (typeof (quote) === "string") selQuote = quote
-    }
-    const [cantoNum, chapterNum, quoteNum] = selQuote.split(".")
-    const resultQuote = findSBQuote( `${cantoNum}.${chapterNum}.${quoteNum}`, message)
+    const { resultQuote, cantoNum, chapterNum } = findTopSbQuote(message)
     sendImg(message, resultQuote!.text, `Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote!.number}`)
   }
 }

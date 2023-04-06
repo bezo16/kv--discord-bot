@@ -6,6 +6,7 @@ declare global {
         IGUSERNAME: string | undefined
         MAINCHANNELID: string | undefined
         TESTCHANNELID: string | undefined
+        FILOSOPHYCHANNELID: string | undefined
         ANNOUNCEMENTCHANNELID: string | undefined
         FB_ACCESS_TOKEN: string | undefined
         FB_ACCESS_TOKEN_KV_GROUPS: string | undefined
