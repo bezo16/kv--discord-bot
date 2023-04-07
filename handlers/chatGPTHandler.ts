@@ -13,7 +13,7 @@ async function chatGPTHandler(message: Message) {
     const response = await axios.post("https://api.openai.com/v1/completions", {
       model: "text-davinci-003",
       temperature: 0,
-      max_tokens: 300,
+      max_tokens: 1000,
       prompt: input,
     }, { headers: { Authorization: `Bearer ${process.env.OPENAI_TOKEN}` } })
     console.log(response.data.choices)

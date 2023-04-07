@@ -39,7 +39,7 @@ function dailyQuotes(client: Client) {
 
   nodecron.schedule("30 10,13,16,19,22 * * *", async() => { // SB top --> philosophy channel
     const { resultQuote, cantoNum, chapterNum } = findTopSbQuote()
-    sendImageQuoteClient(client, resultQuote!.text, `[Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote?.number}`, process.env.FILOSOPHYCHANNELID as string)
+    sendImageQuoteClient(client, resultQuote!.text, `Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote?.number}`, process.env.FILOSOPHYCHANNELID as string)
   })
 
   nodecron.schedule("0 6 * * *", async() => { // SP daily quotes
