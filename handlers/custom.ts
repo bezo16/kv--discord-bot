@@ -1,6 +1,7 @@
 import sendImg from "../functions/canvas/sendImageQuote"
 import vanipediaEssential from "../data/other/vanipedia-essential"
 import { Message } from "discord.js"
+import createTextEmbed from "../functions/common/createTextEmbed"
 
 function custom(message: Message) {
 
@@ -84,12 +85,22 @@ function custom(message: Message) {
 
     message.channel.send(`destiny num is: ${destinyNum}`)
   }
-  if (message.content.split(" ")[0] === "?vanipedia" && message.content.split(" ").length >= 2) {
+  if (message.content.split(" ")[0] === "?vanipedia" && message.content.split(" ").length >= 2 && message.content.split(" ")[1] !== "r") {
     const category = message.content.trim().split(" ").slice(1).join(" ")
     if (!Object.hasOwnProperty.call(vanipediaEssential, category)) return message.channel.send("invalid category name")
     const randomCategoryNumber = Math.floor(Math.random() * vanipediaEssential[category].length)
     const text = vanipediaEssential[category][randomCategoryNumber]
     message.channel.send(`${text}`)
+  }
+
+  if (message.content.split(" ")[0] === "?vanipedia" && message.content.split(" ")[1] === "r") {
+    const keys = Object.keys(vanipediaEssential)
+    const keysLength = keys.length
+    const randomKey = keys[Math.floor(Math.random() * keysLength)]
+    const arrayLength = vanipediaEssential[randomKey].length
+    const randomDesc = vanipediaEssential[randomKey][Math.floor(Math.random() * arrayLength)]
+    const embed = createTextEmbed({ title: randomKey, description: randomDesc })
+    message.channel.send({ embeds: [embed] })
   }
 
   if (message.content === "?help") {
