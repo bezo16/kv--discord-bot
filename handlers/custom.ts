@@ -1,7 +1,7 @@
 import sendImg from "../functions/canvas/sendImageQuote"
 import vanipediaEssential from "../data/other/vanipedia-essential"
 import { Message } from "discord.js"
-import createTextEmbed from "../functions/common/createTextEmbed"
+import randomVanipediaEmbed from "../functions/vanipedia/randomEmbed"
 
 function custom(message: Message) {
 
@@ -94,13 +94,7 @@ function custom(message: Message) {
   }
 
   if (message.content.split(" ")[0] === "?vanipedia" && message.content.split(" ")[1] === "r") {
-    const keys = Object.keys(vanipediaEssential)
-    const keysLength = keys.length
-    const randomKey = keys[Math.floor(Math.random() * keysLength)]
-    const arrayLength = vanipediaEssential[randomKey].length
-    const randomDesc = vanipediaEssential[randomKey][Math.floor(Math.random() * arrayLength)]
-    const embed = createTextEmbed({ title: randomKey, description: randomDesc })
-    message.channel.send({ embeds: [embed] })
+    message.channel.send({ embeds: [randomVanipediaEmbed()] })
   }
 
   if (message.content === "?help") {

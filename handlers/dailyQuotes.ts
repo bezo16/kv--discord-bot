@@ -1,6 +1,5 @@
 import rkQuotesBg from "../data/bg/rk-bg"
 import findTopSbQuote from "../functions/books/sb/findTopSbQuote"
-import sendImageQuoteClient from "../functions/canvas/sendImageQuoteClient"
 import { Client, TextChannel, AttachmentBuilder, EmbedBuilder } from "discord.js"
 import Canvas from "canvas"
 import dayjs from "dayjs"
@@ -8,14 +7,16 @@ import dayjs from "dayjs"
 import bg from "../data/bg/BG-cs"
 import path from "path"
 import nodecron from "node-cron"
+import randomVanipediaEmbed from "../functions/vanipedia/randomEmbed"
 
 function dailyQuotes(client: Client) {
   const mainChannel = client.channels.cache.get(process.env.MAINCHANNELID as string) as TextChannel
+  const philosophyChannel = client.channels.cache.get(process.env.FILOSOPHYCHANNELID as string) as TextChannel
 
   nodecron.schedule("0 9,12,15,18,21 * * *", () => {
     const random = Math.floor(Math.random() * 2)
 
-    if (random === 0) { // BG
+    if (random === 0) { // BG --> main channel
       const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
       const chapter = Number(selectedQuoteBg[0])
       const quote = Number(selectedQuoteBg[1])
@@ -27,7 +28,7 @@ function dailyQuotes(client: Client) {
       mainChannel.send({ embeds: [gitaEmbed] })
     }
 
-    else { // SB
+    else { // SB --> main channel
       const { resultQuote, cantoNum, chapterNum } = findTopSbQuote()
       const srimadEmbed = new EmbedBuilder()
         .setColor("#0099ff")
@@ -37,9 +38,8 @@ function dailyQuotes(client: Client) {
 
   })
 
-  nodecron.schedule("30 10,13,16,19,22 * * *", async() => { // SB top --> philosophy channel
-    const { resultQuote, cantoNum, chapterNum } = findTopSbQuote()
-    sendImageQuoteClient(client, resultQuote!.text, `Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote?.number}`, process.env.FILOSOPHYCHANNELID as string)
+  nodecron.schedule("0 8,18 * * *", async() => { // Vanipedia --> philosophy channel
+    philosophyChannel.send({ embeds: [randomVanipediaEmbed()] })
   })
 
   nodecron.schedule("0 6 * * *", async() => { // SP daily quotes
