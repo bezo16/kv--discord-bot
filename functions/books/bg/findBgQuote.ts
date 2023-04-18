@@ -1,26 +1,26 @@
 import { Message } from "discord.js"
 import bg from "../../../data/bg/BG-cs"
 
-const findBgQuote = (quoteString: string, message: Message) => {
+const findBgQuote = (quoteString: string, message?: Message) => {
   if (!quoteString || !message) return null
 
   const chapterNum = Number(quoteString.split(".")[0])
   const quoteNum = Number(quoteString.split(".")[1])
 
   if (!quoteString.match(/^\d+\.\d+$/g)) {
-    message.channel.send("wrong regex")
+    message?.channel.send("wrong regex")
 
     return
   }
 
   if (chapterNum < 1 || chapterNum > 18) {
-    message.channel.send("wrong chapter number")
+    message?.channel.send("wrong chapter number")
 
     return null
   }
 
   if (quoteNum < 1 || quoteNum > Number(bg[chapterNum - 1][bg[chapterNum - 1].length - 1].number)) {
-    message.channel.send("wrong quote number")
+    message?.channel.send("wrong quote number")
 
     return null
   }

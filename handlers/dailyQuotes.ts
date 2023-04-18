@@ -8,6 +8,7 @@ import bg from "../data/bg/BG-cs"
 import path from "path"
 import nodecron from "node-cron"
 import randomVanipediaEmbed from "../functions/vanipedia/randomEmbed"
+import findBgQuote from "../functions/books/bg/findBgQuote"
 
 function dailyQuotes(client: Client) {
   const mainChannel = client.channels.cache.get(process.env.MAINCHANNELID as string) as TextChannel
@@ -20,11 +21,12 @@ function dailyQuotes(client: Client) {
       const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
       const chapter = Number(selectedQuoteBg[0])
       const quote = Number(selectedQuoteBg[1])
+      const resultQuote = findBgQuote(`${chapter}.${quote}`)
 
       const gitaEmbed = new EmbedBuilder()
         .setColor("#0099ff")
-        .setTitle(bg[chapter - 1][quote - 1].text)
-        .setDescription(`[Bhagavad-Gītā ${chapter}.${quote}](https://vedabase.io/sk/library/bg/${chapter}/${quote}/)`)
+        .setTitle(resultQuote!.text)
+        .setDescription(`[Bhagavad-Gītā ${chapter}.${resultQuote!.number}](https://vedabase.io${resultQuote!.link})`)
       mainChannel.send({ embeds: [gitaEmbed] })
     }
 
