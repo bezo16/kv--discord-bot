@@ -23,6 +23,7 @@
     "google-images": "^2.1.0",
     "instagram-web-api": "^2.2.2",
     "jimp": "^0.16.1",
+    "minisearch": "^6.0.1",
     "moment": "^2.29.1",
     "node-cron": "^3.0.2",
     "puppeteer": "^10.4.0",

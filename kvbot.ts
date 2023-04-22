@@ -20,8 +20,10 @@ import intervalsHandler from "./handlers/intervalsHandler"
 import custom from "./handlers/custom"
 
 // Commands
-import { Handler, Modal } from "./commands/CreateEventEmbed"
-import createEvent from "./functions/events/createEvent"
+import { Handler as createEventHandler, Modal as createEventModal } from "./functions/slash-commands/create-event/createEventHandler"
+import { Handler as findQuoteHandler, Modal as findQuoteModal } from "./functions/slash-commands/find-quote/findQuoteHandler"
+import createEvent from "./functions/slash-commands/create-event/createEvent"
+import findQuoteFunc from "./functions/slash-commands/find-quote/findQuoteFunc"
 
 require("dotenv").config()
 
@@ -45,17 +47,25 @@ client.once("ready", () => {
 
 client.on("interactionCreate", (interaction) => { // SLASH COMMANDS
   if (!interaction.isChatInputCommand()) return
-  if (interaction.commandName === "createevent") interaction.showModal(Modal)
+  if (interaction.commandName === "createevent") interaction.showModal(createEventModal)
+  if (interaction.commandName === "findquote") interaction.showModal(findQuoteModal)
 })
 
 client.on("interactionCreate", async interaction => { // MODAL SUBMITIONS
   if (!interaction.isModalSubmit()) return
+
   if (interaction.customId === "eventCreateModal") {
     const name = interaction.fields.getTextInputValue("name")
     const desc = interaction.fields.getTextInputValue("desc")
     const date = interaction.fields.getTextInputValue("date")
     createEvent(client, interaction.channelId as string, { name, desc, date } )
     await interaction.reply({ content: "uspešne si vytvoril událosť", ephemeral: true })
+  }
+
+  if (interaction.customId === "findQuote") {
+    const book = interaction.fields.getTextInputValue("book")
+    const text = interaction.fields.getTextInputValue("text")
+    findQuoteFunc(interaction, book, text)
   }
 })
 
@@ -82,7 +92,7 @@ client.login(process.env.TOKEN)
 const rest = new REST({ version: "10" }).setToken(process.env.TOKEN as string)
 rest.put(
   Routes.applicationGuildCommands("814813554510659594", "810552435470237717"),
-  { body: [Handler] },
+  { body: [createEventHandler, findQuoteHandler] },
 )
 
 
