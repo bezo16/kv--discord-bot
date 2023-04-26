@@ -1,5 +1,4 @@
 import { Message } from "discord.js"
-import rkQuotesSb from "../data/sb/rk-sb"
 import sendImg from "../functions/canvas/sendImageQuote"
 import sendRandomSb from "../functions/books/sb/sendRandomSb"
 import sendRandomSbImage from "../functions/books/sb/sendRandomSbImage"
@@ -36,7 +35,8 @@ function sbHandler(message: Message) {
 
   if (secondWord === "top" && firstWord === "?sb") {
     const { resultQuote, cantoNum, chapterNum } = findTopSbQuote(message)
-    message.channel.send(`Śrīmad-Bhāgavatam ${resultQuote?.text} ** Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote?.number} **`)
+    const embed = createTextEmbed({ title: "Hare Krišna", description: `${resultQuote!.text} \n\n[Śrīmad-Bhāgavatam ${cantoNum}.${chapterNum}.${resultQuote!.number}](https://vedabase.io${resultQuote!.link})` })
+    message.channel.send({ embeds: [embed] })
   }
 
   if (secondWord === "top" && firstWord === "?sbi") {
