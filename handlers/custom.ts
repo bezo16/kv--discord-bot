@@ -97,6 +97,10 @@ function custom(message: Message) {
     message.channel.send({ embeds: [randomVanipediaEmbed()] })
   }
 
+  if (message.content === "?roll") {
+    message.channel.send(String(Math.floor(Math.random() * 100) + 1))
+  }
+
   if (message.content === "?help") {
     const text = `
       **Knihy:**
