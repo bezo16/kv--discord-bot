@@ -6,11 +6,11 @@ export const Handler = new SlashCommandBuilder()
 
 export const Modal = new ModalBuilder()
   .setCustomId("findQuote")
-  .setTitle("Vytvorenie událosťi")
+  .setTitle("Nájdenie veršu z kníh (bg, sb)")
 
 const dateInput = new TextInputBuilder()
   .setCustomId("book")
-  .setLabel("nazov knihy (bg)")
+  .setLabel("nazov knihy (bg, sb)")
   .setStyle(TextInputStyle.Short)
 
 const nameInput = new TextInputBuilder()
