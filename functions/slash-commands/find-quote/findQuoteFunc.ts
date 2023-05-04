@@ -26,7 +26,7 @@ const findQuoteFunc = async(interaction: ModalSubmitInteraction, book: string, t
     }
 
     const result = results[0]
-    await interaction.reply({ content: `${result.text} \n${result.chapter}.${result.number}`, ephemeral: true })
+    await interaction.reply({ content: `${result.text}`, ephemeral: true })
   }
 
   else {
