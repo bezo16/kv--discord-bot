@@ -57,9 +57,9 @@ function custom(message: Message) {
     })
 
     while (resultNum >= 10) {
-      const sumedNum = 0
+      let sumedNum = 0
       const splitedResultNumArr = resultNum.toString().split("")
-      splitedResultNumArr.forEach((num) => sumedNum + Number(num))
+      splitedResultNumArr.forEach((num) => sumedNum += Number(num))
       resultNum = sumedNum
     }
 
@@ -68,8 +68,8 @@ function custom(message: Message) {
 
   if (message.content.split(" ")[0] === "?numpsychic" && message.content.split(" ").length === 2) {
     const dateArr = message.content.split(" ")[1].split(".")[0].split("")
-    const psychicNum = 0
-    dateArr.forEach((n) => psychicNum + Number(n))
+    let psychicNum = 0
+    dateArr.forEach((n) => psychicNum += Number(n))
 
     message.channel.send(`psychic num is: ${psychicNum}`)
   }
