@@ -69,6 +69,9 @@ client.on("interactionCreate", async interaction => { // MODAL SUBMITIONS
   }
 })
 
+client.on("messageDelete", (message) => {
+  console.log("message was deleted")
+})
 
 client.on("messageCreate", (message) => {
   if (message.author.bot) return

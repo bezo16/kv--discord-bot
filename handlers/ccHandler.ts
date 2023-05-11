@@ -1,8 +1,9 @@
 import type { Message } from "discord.js"
-import cc from "../data/cc/cc"
 import sendImg from "../functions/canvas/sendImageQuote"
 import sendRandomCC from "../functions/books/cc/sendRandomCC"
 import sendRandomCCImage from "../functions/books/cc/sendRandomCCImage"
+import findCcQuote from "../functions/books/cc/findCcQuote"
+import createTextEmbed from "../functions/common/createTextEmbed"
 
 function ccHandler(message: Message) {
 
@@ -12,17 +13,11 @@ function ccHandler(message: Message) {
   const secondWord = message.content.split(" ")[1]
 
   if (secondWord.charAt(0) !== "." && secondWord.charAt(secondWord.length - 1) !== "." && secondWord.includes(".")) {
-    const words = secondWord.split(".").map(w => Number(w))
-    if (words.some(w => !w)) return
-    let [canto, chapter, quote] = words
-    if (canto < 1) canto = 1
-    if (chapter < 1) chapter = 1
-    if (quote < 1) quote = 1
-    if (canto > 12) canto = 12
-    if (cc[canto - 1].length < chapter) chapter = cc[canto - 1].length
-    if (cc[canto - 1][chapter - 1].length < quote) quote = cc[canto - 1][chapter - 1].length
-    if (firstWord === "?cc")message.channel.send(cc[canto - 1][chapter - 1][quote - 1])
-    else sendImg(message, cc[canto - 1][chapter - 1][quote - 1], `Śrī Caitanya-Caritāmrta ${canto}.${chapter}.${quote}`)
+    const resultQuote = findCcQuote(secondWord, message)
+    if (!resultQuote) return
+    const embed = createTextEmbed({ description: `${resultQuote!.text} \n\n [${resultQuote?.bookName} ${resultQuote?.chapter}.${resultQuote!.number}](https://vedabase.io${resultQuote!.link})`, title: "Hare Krišna" })
+    if (firstWord === "?cc")message.channel.send({ embeds: [embed] })
+    else sendImg(message, resultQuote.text, `${resultQuote?.bookName} ${resultQuote?.chapter}.${resultQuote!.number}`)
   }
 
   if (firstWord === "?cc" && secondWord === "r") sendRandomCC(message)
