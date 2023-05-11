@@ -107,7 +107,6 @@ function custom(message: Message) {
 
 \t\`?bg 2.2\` - kapitola 2 verš 2
 \t\`?bgi 2.2\` - kapitola 2 verš 2 (obrázková verzia)
-\t\`?bgsk 2.2\` - kapitola 2 verš 2 (slovenská verzia)
 \t\`?bg r\` - náhodný verš
 \t\`?bgi r\` - náhodný verš (obrázková verzia)
 \t\`?bg top\` - najviac zaujímave verše

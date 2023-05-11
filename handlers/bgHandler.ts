@@ -11,7 +11,7 @@ function bgHandler(message: Message) {
   const words = message.content.split(" ")
   if (words.length !== 2) return
   const [firstWord, secondWord] = words
-  if (!["?bg", "?bgi", "?bgsk", "?bgisk"].includes(firstWord)) return
+  if (!["?bg", "?bgi"].includes(firstWord)) return
 
 
   if (secondWord.match(/^\d+\.\d+$/g)) {
