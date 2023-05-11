@@ -111,7 +111,6 @@ function custom(message: Message) {
 \t\`?bgi r\` - náhodný verš (obrázková verzia)
 \t\`?bg top\` - najviac zaujímave verše
 \t\`?bgi top\` - najviac zaujímave verše (obrázková verzia)
-\t\`?bg k\` - výpis názvov kapitol
 
 \t\`?sb 2.2.2\` - spev 2 kapitola 2 verš 2
 \t\`?sbi 2.2.2\` - spev 2 kapitola 2 verš 2 (obrázková verzia)
