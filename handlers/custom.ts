@@ -149,6 +149,8 @@ zoznam kategorií: https://vanipedia.org/wiki/Category:Essential_Subjects
 \t\`?kv events221\` - obrázok udalosti z roku 20(22), januara(1)
 \t\`?customquote "fajn fajnovy"{bezo16}\` - vlastný verš, fajn fajnovy - text, bezo16 - autor (obrázková verzia)
 
+\t\`?chatgpt kolko je 2 + 2\` - opytaš sa chatgpt, kolko je 2 + 2
+
 \t\`/createevent\` - vytvori udalost
 \t\`/findQuote\` - nájde verš (bg, sb)
 

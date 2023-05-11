@@ -6,11 +6,10 @@ function vedicMantras(message: Message) {
   let allMantras = ""
 
   if (content === "?mantras") {
-    mantras.forEach((mantra, index) => {
-      if (mantras.length - 1 === index) allMantras += `${mantra.trigger}`
-      else allMantras += `${mantra.trigger},`
+    mantras.forEach(mantra => {
+      allMantras += `${mantra.trigger[0]} `
     })
-    message.channel.send(allMantras)
+    message.channel.send(allMantras.trim())
   }
 
   mantras.forEach((mantra) => {
