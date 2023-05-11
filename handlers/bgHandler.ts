@@ -29,8 +29,10 @@ function bgHandler(message: Message) {
 
   if (secondWord === "top" && firstWord === "?bg") {
     const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
+    const chapterNum = selectedQuoteBg[0]
     const resultQuote = findBgQuote(selectedQuoteBg.join("."), message)
-    message.channel.send(`${resultQuote?.text} \n\n**Bhagavad-Gītā ${selectedQuoteBg[0]}.${resultQuote?.number} ** `)
+    const embed = createTextEmbed({ description: `${resultQuote!.text} \n\n [Bhagavad-Gītā ${chapterNum}.${resultQuote!.number}](https://vedabase.io${resultQuote!.link})`, title: "Hare Krišna" })
+    message.channel.send({ embeds: [embed] })
   }
 
   if (secondWord === "top" && firstWord === "?bgi") {
