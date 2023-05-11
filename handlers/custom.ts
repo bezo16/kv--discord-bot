@@ -146,6 +146,7 @@ výpočty robené podla knihy: https://www.pdfdrive.com/numerology-with-tantra-a
     **Vanipedia:**
 
 \t\`?vanipedia ability\` - vypíše náhodny citát z kategorie (ability)
+\t\`?vanipedia r\` - vypíše náhodny citát z kategorii
 zoznam kategorií: https://vanipedia.org/wiki/Category:Essential_Subjects
 
     **Ostatné:**
@@ -155,6 +156,7 @@ zoznam kategorií: https://vanipedia.org/wiki/Category:Essential_Subjects
 \t\`?customquote "fajn fajnovy"{bezo16}\` - vlastný verš, fajn fajnovy - text, bezo16 - autor (obrázková verzia)
 
 \t\`?chatgpt kolko je 2 + 2\` - opytaš sa chatgpt, kolko je 2 + 2
+\t\`?roll\` - vrati ti čislo 1-100
 
 \t\`/createevent\` - vytvori udalost
 \t\`/findQuote\` - nájde verš (bg, sb)

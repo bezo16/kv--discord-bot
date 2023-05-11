@@ -11,7 +11,7 @@ import ccHandler from "./handlers/ccHandler"
 import siHandler from "./handlers/siHandler"
 import brsmHandler from "./handlers/brsmHandler"
 import chatGPTHandler from "./handlers/chatGPTHandler"
-import buttonsHandler from "./handlers/buttonsHandler"
+// import buttonsHandler from "./handlers/buttonsHandler"
 import vedicMantras from "./handlers/vedicMantras"
 import kvEvents from "./handlers/kvEvents"
 import dailyQuotes from "./handlers/dailyQuotes"
@@ -84,7 +84,7 @@ client.on("messageCreate", (message) => {
   npHandler(message)
   brsmHandler(message)
   chatGPTHandler(message)
-  buttonsHandler(message)
+  // buttonsHandler(message)
   custom(message)
   vedicMantras(message)
 
