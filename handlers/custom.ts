@@ -131,6 +131,11 @@ function custom(message: Message) {
 
 \t\`?brsm 2\` - Brahma Samhita - 2 verš
 
+    **Mantry:**
+
+\t\`?mantras\` - vypíše mantry
+\t\`?nazovmantry\` - hociaka mantra z predošleho prikazu (?mantras)
+
     **Numerologia:**
 
 \t\`?numname jakub bezak\` - vypočíta numerologicke menné číslo    
