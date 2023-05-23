@@ -6,10 +6,10 @@ import createTextEmbed from "../../common/createTextEmbed"
 function sendRandomBg(message: Message) {
   const chapterNum = Math.floor(Math.random() * 18)
   const quoteNum = Math.floor(Math.random() * bg[chapterNum].length)
-  const resultquote = findBgQuote(`${chapterNum}.${quoteNum}`, message)
+  const resultquote = findBgQuote(`${chapterNum + 1}.${quoteNum + 1}`, message)
 
   if (!resultquote) {
-    message.channel.send("quote not found")
+    message.channel.send(`quote not found (${chapterNum} ${quoteNum})`)
 
     return
   }
