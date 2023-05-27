@@ -1,5 +1,5 @@
 
-import bg from "../../../data/bg/BG-cs"
+import bg from "../../../data/bg/bhagavad-gita-sk"
 import sendImg from "../../canvas/sendImageQuote"
 import { Message } from "discord.js"
 import findBgQuote from "./findBgQuote"
@@ -7,7 +7,7 @@ import findBgQuote from "./findBgQuote"
 function sendRandomBgImage(message: Message) {
   const chapterNum = Math.floor(Math.random() * 18)
   const quoteNum = Math.floor(Math.random() * bg[chapterNum].length)
-  const resultquote = findBgQuote(`${chapterNum}.${quoteNum}`, message)
+  const resultquote = findBgQuote(`${chapterNum}.${quoteNum}`, "sk", message)
 
   if (!resultquote) {
     message.channel.send("quote not found")

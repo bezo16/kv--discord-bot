@@ -4,7 +4,6 @@ import { Client, TextChannel, AttachmentBuilder, EmbedBuilder } from "discord.js
 import Canvas from "canvas"
 import dayjs from "dayjs"
 // import facebookGroupPoster from "../functions/social/facebookGroupPoster"
-import bg from "../data/bg/BG-cs"
 import path from "path"
 import nodecron from "node-cron"
 import randomVanipediaEmbed from "../functions/vanipedia/randomEmbed"
@@ -21,7 +20,7 @@ function dailyQuotes(client: Client) {
       const selectedQuoteBg = rkQuotesBg[Math.floor(Math.random() * rkQuotesBg.length)].split(".")
       const chapter = Number(selectedQuoteBg[0])
       const quote = Number(selectedQuoteBg[1])
-      const resultQuote = findBgQuote(`${chapter}.${quote}`)
+      const resultQuote = findBgQuote(`${chapter}.${quote}`, "cz")
 
       const gitaEmbed = new EmbedBuilder()
         .setColor("#0099ff")

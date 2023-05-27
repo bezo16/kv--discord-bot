@@ -1,5 +1,5 @@
 import { ModalSubmitInteraction } from "discord.js"
-import BG from "../../../data/bg/BG-cs"
+import BG from "../../../data/bg/bhagavad-gita-sk"
 import SB from "../../../data/sb/sb"
 import MiniSearch from "minisearch"
 

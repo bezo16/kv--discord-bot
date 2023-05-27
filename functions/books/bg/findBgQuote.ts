@@ -1,8 +1,14 @@
 import { Message } from "discord.js"
-import bg from "../../../data/bg/BG-cs"
+import sk from "../../../data/bg/bhagavad-gita-sk"
+import cz from "../../../data/bg/bhagavad-gita-cs"
+import en from "../../../data/bg/bhagavad-gita-en"
+const data = { sk, cz, en }
 
-const findBgQuote = (quoteString: string, message?: Message) => {
+
+const findBgQuote = (quoteString: string, language: "cz" | "sk" | "en", message?: Message) => {
   if (!quoteString || !message) return null
+  const bg = data[language]
+
 
   const chapterNum = Number(quoteString.split(".")[0])
   const quoteNum = Number(quoteString.split(".")[1])

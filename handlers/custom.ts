@@ -1,18 +1,8 @@
-import sendImg from "../functions/canvas/sendImageQuote"
 import vanipediaEssential from "../data/other/vanipedia-essential"
 import { Message } from "discord.js"
 import randomVanipediaEmbed from "../functions/vanipedia/randomEmbed"
 
 function custom(message: Message) {
-
-  if (message.content.split(" ")[0] === "?customquote" && message.content.includes("\"") && message.content.includes("\"") && message.content.includes("{") && message.content.includes("}")) {
-    const text = message.content.slice(message.content.indexOf("\"") + 1, message.content.lastIndexOf("\""))
-    const book = message.content.slice(message.content.indexOf("{") + 1, message.content.indexOf("}"))
-    sendImg(message, `${text}`, `${book}`)
-    setTimeout(() => {
-      message.delete()
-    }, 2000)
-  }
 
   if (message.content.split(" ")[0] === "?numname" && message.content.split(" ").length >= 3) {
     const nameWords = message.content.split(" ").slice(1)
@@ -111,6 +101,10 @@ function custom(message: Message) {
 \t\`?bgi r\` - náhodný verš (obrázková verzia)
 \t\`?bg top\` - najviac zaujímave verše
 \t\`?bgi top\` - najviac zaujímave verše (obrázková verzia)
+\t\`?bgcz 2.2\` - kapitola 2 verš 2 (CZ)
+\t\`?bgicz 2.2\` - kapitola 2 verš 2 (obrázková verzia, CZ)
+\t\`?bgen 2.2\` - kapitola 2 verš 2 (EN)
+\t\`?bgien 2.2\` - kapitola 2 verš 2 (obrázková verzia, EN)
 
 \t\`?sb 2.2.2\` - spev 2 kapitola 2 verš 2
 \t\`?sbi 2.2.2\` - spev 2 kapitola 2 verš 2 (obrázková verzia)
@@ -152,7 +146,6 @@ zoznam kategorií: https://vanipedia.org/wiki/Category:Essential_Subjects
 
 \t\`?kv events\` - obrázok udalosti v tomto mesiaci
 \t\`?kv events221\` - obrázok udalosti z roku 20(22), januara(1)
-\t\`?customquote "fajn fajnovy"{bezo16}\` - vlastný verš, fajn fajnovy - text, bezo16 - autor (obrázková verzia)
 
 \t\`?chatgpt kolko je 2 + 2\` - opytaš sa chatgpt, kolko je 2 + 2
 \t\`?roll\` - vrati ti čislo 1-100
