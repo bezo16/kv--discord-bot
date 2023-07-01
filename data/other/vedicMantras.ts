@@ -17,10 +17,10 @@ const mantras = [
     trigger: ["radha-madhava", "jayamadhava", "jaya-madhava", "jayamadhava", "jayaradhamadhava", "jaya-radha-madhava"],
     text: "(jaya) radha-madhava (jaya) kunja-bihari (jaya) gopi-jana-vallabha (jaya) giri-vara-dhari (jaya) jasoda-nandana, (jaya) braja-jana-ranjana, (jaya) jamuna-tira-vana-cari",
   },
-  // {
-  //     trigger: '?',
-  //     text: 'text',
-  // },
+  {
+    trigger: ["bhaktivinoda-pranama"],
+    text: "namo bhaktivinodaya sac-cid-ananda namine gaura shakti svarupaya rupanuga varaya te",
+  },
   // {
   //     trigger: '?',
   //     text: 'text',
