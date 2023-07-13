@@ -21,10 +21,10 @@ const mantras = [
     trigger: ["bhaktivinoda-pranama"],
     text: "namo bhaktivinodaya sac-cid-ananda namine gaura shakti svarupaya rupanuga varaya te",
   },
-  // {
-  //     trigger: '?',
-  //     text: 'text',
-  // },
+  {
+    trigger: ["gaurakisora-pranati", "srila-gaurakisora-pranati"],
+    text: "namo gaura-kisoraya sakshad-vairagya-murtaye vipralambha-rasambhode padambujaya te namah",
+  },
   // {
   //     trigger: '?',
   //     text: 'text',
