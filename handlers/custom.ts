@@ -147,6 +147,8 @@ zoznam kategorií: https://vanipedia.org/wiki/Category:Essential_Subjects
 \t\`?kv events\` - obrázok udalosti v tomto mesiaci
 \t\`?kv events221\` - obrázok udalosti z roku 20(22), januara(1)
 
+\t\`?sanskrit r\` - pošle náhodne sanskritske slovo ( z http://www.prabhupada-books.de/gita/glossary/glossary_complete.html )
+
 \t\`?chatgpt kolko je 2 + 2\` - opytaš sa chatgpt, kolko je 2 + 2
 \t\`?roll\` - vrati ti čislo 1-100
 
