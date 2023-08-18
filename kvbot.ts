@@ -24,6 +24,7 @@ import { Handler as createEventHandler, Modal as createEventModal } from "./func
 import { Handler as findQuoteHandler, Modal as findQuoteModal } from "./functions/slash-commands/find-quote/findQuoteHandler"
 import createEvent from "./functions/slash-commands/create-event/createEvent"
 import findQuoteFunc from "./functions/slash-commands/find-quote/findQuoteFunc"
+import sanskritHandler from "./handlers/sanskritHandler"
 
 require("dotenv").config()
 
@@ -87,6 +88,7 @@ client.on("messageCreate", (message) => {
   // buttonsHandler(message)
   custom(message)
   vedicMantras(message)
+  sanskritHandler(message)
 
   eventReminder(client, message)
   kvEvents(client, message)
