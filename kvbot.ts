@@ -25,8 +25,10 @@ import { Handler as findQuoteHandler, Modal as findQuoteModal } from "./function
 import createEvent from "./functions/slash-commands/create-event/createEvent"
 import findQuoteFunc from "./functions/slash-commands/find-quote/findQuoteFunc"
 import sanskritHandler from "./handlers/sanskritHandler"
+import langChainHandler from "./handlers/langChainHandler"
 
-require("dotenv").config()
+import { config } from "dotenv"
+config()
 
 const client = new Client({
   intents: [
@@ -89,6 +91,7 @@ client.on("messageCreate", (message) => {
   custom(message)
   vedicMantras(message)
   sanskritHandler(message)
+  langChainHandler(message)
 
   eventReminder(client, message)
   kvEvents(client, message)

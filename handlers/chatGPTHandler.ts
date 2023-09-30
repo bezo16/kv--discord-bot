@@ -15,7 +15,7 @@ async function chatGPTHandler(message: Message) {
       temperature: 0,
       max_tokens: 1000,
       prompt: input,
-    }, { headers: { Authorization: `Bearer ${process.env.OPENAI_TOKEN}` } })
+    }, { headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}` } })
     console.log(response.data.choices)
     message.channel.send(response.data.choices[0].text)
   } catch (err) {

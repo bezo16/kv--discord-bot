@@ -10,7 +10,7 @@ declare global {
         ANNOUNCEMENTCHANNELID: string | undefined
         FB_ACCESS_TOKEN: string | undefined
         FB_ACCESS_TOKEN_KV_GROUPS: string | undefined
-        OPENAI_TOKEN: string | undefined
+        OPENAI_API_KEY: string | undefined
       }
     }
   }
