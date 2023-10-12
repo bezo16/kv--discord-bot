@@ -11,6 +11,7 @@ declare global {
         FB_ACCESS_TOKEN: string | undefined
         FB_ACCESS_TOKEN_KV_GROUPS: string | undefined
         OPENAI_API_KEY: string | undefined
+        ENVIROMENT: "LOCALHOST" | "VPS" | undefined
       }
     }
   }
