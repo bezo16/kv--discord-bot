@@ -98,6 +98,9 @@ function custom(message: Message) {
     message.author.send(mantrasText.numerology)
     message.author.send(mantrasText.others)
   }
+
+  if (message.content === "?status") message.channel.send({ content: "bot is up and running" })
+
 }
 
 export default custom
