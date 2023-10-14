@@ -14,9 +14,5 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: "22"
         script: |
-          cd /root/kv--discord-bot
-          nvm use
-          pm2 delete kvbot
-          git pull
-          npm install
-          pm2 start "npm run start" --name kvbot
+          cd /root/scripts
+          ./discord-bot-rebuild.sh
