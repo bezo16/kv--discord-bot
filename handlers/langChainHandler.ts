@@ -32,7 +32,6 @@ async function langChainHandler(message: Message) {
   if (!["?lecturesearch",].includes(words[0])) return
 
   // if (message.author.id !== "353870168792891392") return message.channel.send("only bezo can use this command for now")
-  if (process.env.ENVIROMENT === "VPS") return
 
   const query = words.slice(1).join(" ")
 
@@ -40,12 +39,13 @@ async function langChainHandler(message: Message) {
     new OpenAIEmbeddings(),
     { collectionName: "sp_lectures" }
   );
+  console.log(query)
 
   const response = await vectorStore.similaritySearch(query, 3);
   console.log(response);
 
 
-  message.channel.send({ content: response[0].pageContent })
+  message.channel.send({ content: "**" + response[0].metadata.source.slice(28).slice(0, -4) + "**\n\n" + response[0].pageContent })
 }
 
 export default langChainHandler
