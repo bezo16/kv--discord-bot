@@ -22,8 +22,10 @@ async function langChainHandler(message: Message) {
   );
   console.log(query)
 
-  const response = await vectorStore.similaritySearch(query, 2);
-  console.log(response);
+  try {
+    const response = await vectorStore.similaritySearch(query, 2);
+    console.log(response);
+  
 
 
   const model = new OpenAI({
@@ -46,6 +48,10 @@ async function langChainHandler(message: Message) {
 
   message.channel.send({ content: res })
   // message.channel.send({ content: "**" + response[0].metadata?.source.slice(28).slice(0, -4) + "**\n\n" + response[0].pageContent })
+
+} catch {
+  return
+}
 }
 
 export default langChainHandler
