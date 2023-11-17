@@ -3,7 +3,7 @@ import { Message } from "discord.js"
 import randomVanipediaEmbed from "../functions/vanipedia/randomEmbed"
 import mantrasText from "../data/other/help-text"
 
-function custom(message: Message) {
+async function custom(message: Message) {
 
   if (message.content.split(" ")[0] === "?numname" && message.content.split(" ").length >= 3) {
     const nameWords = message.content.split(" ").slice(1)
@@ -100,6 +100,11 @@ function custom(message: Message) {
   }
 
   if (message.content === "?status") message.channel.send({ content: "bot is up and running" })
+
+  if (message.content === "?pes") {
+    const msg = await message.channel.send({ content: "hmm" })
+    message.channel.send({ content: JSON.stringify(message.author) })
+  }
 
 }
 
