@@ -37,12 +37,15 @@ async function langChainHandler(message: Message) {
 
   const messageContext = response[0].pageContent + response[1].pageContent
   console.log(messageContext)
+  const answerLectures = response[0].metadata?.source.slice(28).slice(0, -4) + ", " + response[1].metadata?.source.slice(28).slice(0, -4)
 
   const res = await model.call(`
   answer only based on context i have provided, if you dont know answer based on that context say: "I dont know"
   context: "${messageContext}"
 
-  question is: "${query}"`)
+  question is: "${query}"
+  answered based on lectures: ${answerLectures}
+  `)
   console.log({ res })
 
 
