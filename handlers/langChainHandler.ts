@@ -44,12 +44,11 @@ async function langChainHandler(message: Message) {
   context: "${messageContext}"
 
   question is: "${query}"
-  answered based on lectures: ${answerLectures}
   `)
   console.log({ res })
 
 
-  message.channel.send({ content: res })
+  message.channel.send({ content: `${res} \n\n answers are from lectures: ${answerLectures}` })
   // message.channel.send({ content: "**" + response[0].metadata?.source.slice(28).slice(0, -4) + "**\n\n" + response[0].pageContent })
 
 } catch {
