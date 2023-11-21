@@ -15,14 +15,14 @@ async function langChainHandler(message: Message) {
   // if (message.author.id !== "353870168792891392") return message.channel.send("only bezo can use this command for now")
 
   const query = words.slice(1).join(" ")
-
+  
+  try {
   const vectorStore = await Chroma.fromExistingCollection(
     new OpenAIEmbeddings(),
     { collectionName: "sp_lectures" }
   );
   console.log(query)
 
-  try {
     const response = await vectorStore.similaritySearch(query, 2);
     console.log(response);
   
@@ -51,7 +51,8 @@ async function langChainHandler(message: Message) {
   message.channel.send({ content: `${res} \n\n answers are from lectures: ${answerLectures}` })
   // message.channel.send({ content: "**" + response[0].metadata?.source.slice(28).slice(0, -4) + "**\n\n" + response[0].pageContent })
 
-} catch {
+} catch (e) {
+  console.error(e)
   return
 }
 }
