@@ -3,7 +3,6 @@ declare global {
     namespace NodeJS {
       interface ProcessEnv {
         TOKEN: string | undefined
-        IGUSERNAME: string | undefined
         MAINCHANNELID: string | undefined
         TESTCHANNELID: string | undefined
         FILOSOPHYCHANNELID: string | undefined
