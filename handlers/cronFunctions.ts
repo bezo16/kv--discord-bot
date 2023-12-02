@@ -8,8 +8,10 @@ import path from "path"
 import nodecron from "node-cron"
 import randomVanipediaEmbed from "../functions/vanipedia/randomEmbed"
 import findBgQuote from "../functions/books/bg/findBgQuote"
+import yogapitEvents from "../functions/scraping/yogapitEvents"
+import sendClosestEvent from "../functions/events/sendClosestEvent"
 
-function dailyQuotes(client: Client) {
+function cronFunctions(client: Client) {
   const mainChannel = client.channels.cache.get(process.env.MAINCHANNELID as string) as TextChannel
   const philosophyChannel = client.channels.cache.get(process.env.FILOSOPHYCHANNELID as string) as TextChannel
 
@@ -60,6 +62,12 @@ function dailyQuotes(client: Client) {
     const atachment = new AttachmentBuilder(canvas.toBuffer(), { name: "bot-quotes.png" })
     mainChannel.send({ files: [atachment] })
   })
+
+  nodecron.schedule("0 18 * * *", async () => {
+    const { isTomorrowEvent } = await yogapitEvents()
+    if (isTomorrowEvent) sendClosestEvent(client, process.env.ANNOUNCEMENTCHANNELID as string, true)
+  })
+
 }
 
-export default dailyQuotes
+export default cronFunctions

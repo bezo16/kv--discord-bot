@@ -10,9 +10,8 @@ import brsmHandler from "./handlers/brsmHandler"
 import chatGPTHandler from "./handlers/chatGPTHandler"
 import vedicMantras from "./handlers/vedicMantras"
 import kvEvents from "./handlers/kvEvents"
-import dailyQuotes from "./handlers/dailyQuotes"
+import cronFunctions from "./handlers/cronFunctions"
 import eventReminder from "./handlers/eventReminder"
-import intervalsHandler from "./handlers/intervalsHandler"
 import custom from "./handlers/custom"
 import slashCommandsHandler from "./handlers/interactions/slashCommandsHandler"
 // Commands
@@ -39,8 +38,7 @@ const client = new Client({
 
 // Initial Load
 client.once("ready", () => {
-  dailyQuotes(client)
-  intervalsHandler(client)
+  cronFunctions(client)
 })
 
 // Interactions
