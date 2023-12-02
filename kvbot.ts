@@ -18,10 +18,11 @@ import dailyQuotes from "./handlers/dailyQuotes"
 import eventReminder from "./handlers/eventReminder"
 import intervalsHandler from "./handlers/intervalsHandler"
 import custom from "./handlers/custom"
+import slashCommandsHandler from "./handlers/interactions/slashCommandsHandler"
 
 // Commands
-import { Handler as createEventHandler, Modal as createEventModal } from "./functions/slash-commands/create-event/createEventHandler"
-import { Handler as findQuoteHandler, Modal as findQuoteModal } from "./functions/slash-commands/find-quote/findQuoteHandler"
+import { Handler as createEventHandler } from "./functions/slash-commands/create-event/createEventHandler"
+import { Handler as findQuoteHandler} from "./functions/slash-commands/find-quote/findQuoteHandler"
 import createEvent from "./functions/slash-commands/create-event/createEvent"
 import findQuoteFunc from "./functions/slash-commands/find-quote/findQuoteFunc"
 import sanskritHandler from "./handlers/sanskritHandler"
@@ -48,13 +49,13 @@ client.once("ready", () => {
   intervalsHandler(client)
 })
 
-client.on("interactionCreate", (interaction) => { // SLASH COMMANDS
-  if (!interaction.isChatInputCommand()) return
-  if (interaction.commandName === "createevent") interaction.showModal(createEventModal)
-  if (interaction.commandName === "findquote") interaction.showModal(findQuoteModal)
+// SLASH COMMANDS
+client.on("interactionCreate", (interaction) => {
+  if (interaction.isChatInputCommand()) slashCommandsHandler(interaction)
 })
 
-client.on("interactionCreate", async interaction => { // MODAL SUBMITIONS
+// MODAL SUBMITIONS
+client.on("interactionCreate", async interaction => {
   if (!interaction.isModalSubmit()) return
 
   if (interaction.customId === "eventCreateModal") {
