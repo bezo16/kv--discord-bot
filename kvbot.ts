@@ -8,6 +8,7 @@ import messageHandler from "./handlers/messages/messageHandler"
 // Inits
 import restInit from "./functions/init/restInit"
 import clientInit from "./functions/init/clientInit"
+import contextMenuHandler from "./handlers/interactions/contextMenuHandler"
 
 
 const client = clientInit()
@@ -21,6 +22,7 @@ client.once("ready", () => {
 // Interactions
 client.on("interactionCreate", async interaction => {
   if (interaction.isChatInputCommand()) slashCommandsHandler(interaction)
+  if (interaction.isUserContextMenuCommand()) contextMenuHandler(interaction)
   if (interaction.isModalSubmit()) modalSubmissionHandler(interaction, client)
 })
 
