@@ -1,9 +1,6 @@
 import { GatewayIntentBits, REST, Routes, Client } from "discord.js"
-
-import express from "express"
-import path from "path"
-
-// FUNCTIONS + HANDLERS
+import { config } from "dotenv"
+// Handlers
 import bgHandler from "./handlers/bgHandler"
 import sbHandler from "./handlers/sbHandler"
 import npHandler from "./handlers/npHandler"
@@ -11,7 +8,6 @@ import ccHandler from "./handlers/ccHandler"
 import siHandler from "./handlers/siHandler"
 import brsmHandler from "./handlers/brsmHandler"
 import chatGPTHandler from "./handlers/chatGPTHandler"
-// import buttonsHandler from "./handlers/buttonsHandler"
 import vedicMantras from "./handlers/vedicMantras"
 import kvEvents from "./handlers/kvEvents"
 import dailyQuotes from "./handlers/dailyQuotes"
@@ -19,7 +15,6 @@ import eventReminder from "./handlers/eventReminder"
 import intervalsHandler from "./handlers/intervalsHandler"
 import custom from "./handlers/custom"
 import slashCommandsHandler from "./handlers/interactions/slashCommandsHandler"
-
 // Commands
 import { Handler as createEventHandler } from "./functions/slash-commands/create-event/createEventHandler"
 import { Handler as findQuoteHandler} from "./functions/slash-commands/find-quote/findQuoteHandler"
@@ -28,9 +23,8 @@ import findQuoteFunc from "./functions/slash-commands/find-quote/findQuoteFunc"
 import sanskritHandler from "./handlers/sanskritHandler"
 import langChainHandler from "./handlers/langChainHandler"
 
-import { config } from "dotenv"
-config()
 
+config()
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -42,19 +36,18 @@ const client = new Client({
   ]
 })
 
-const app = express()
-
+// Initial Load
 client.once("ready", () => {
   dailyQuotes(client)
   intervalsHandler(client)
 })
 
-// SLASH COMMANDS
+// Slash Commands
 client.on("interactionCreate", (interaction) => {
   if (interaction.isChatInputCommand()) slashCommandsHandler(interaction)
 })
 
-// MODAL SUBMITIONS
+// Modal Submitions
 client.on("interactionCreate", async interaction => {
   if (!interaction.isModalSubmit()) return
 
@@ -73,11 +66,7 @@ client.on("interactionCreate", async interaction => {
   }
 })
 
-// client.on("messageDelete", (message) => {
-//   console.log(`${message.author?.username} deleted message: ${message.content}`)
-// })
-
-
+// Message Created
 client.on("messageCreate", (message) => {
   if (message.author.bot) return
   message.content = message.content.toLowerCase()
@@ -88,12 +77,10 @@ client.on("messageCreate", (message) => {
   npHandler(message)
   brsmHandler(message)
   chatGPTHandler(message)
-  // buttonsHandler(message)
   custom(message)
   vedicMantras(message)
   sanskritHandler(message)
   langChainHandler(message)
-
   eventReminder(client, message)
   kvEvents(client, message)
 })
@@ -104,11 +91,3 @@ rest.put(
   Routes.applicationGuildCommands("814813554510659594", "810552435470237717"),
   { body: [createEventHandler, findQuoteHandler] },
 )
-
-
-app.use("/temp", express.static(path.join(__dirname, "/public")))
-app.use("/img", express.static(path.join(__dirname, "/img")))
-app.get("/", (_, res) => {
-  res.send("pes")
-})
-app.listen(7777)
