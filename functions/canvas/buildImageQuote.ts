@@ -1,0 +1,110 @@
+import { AttachmentBuilder } from "discord.js"
+import Canvas, { registerFont } from "canvas"
+import resize from "./resizes"
+registerFont("./fonts/Gabriola.ttf", { family: "Comic Sans" })
+
+type OptionsType = {
+    text: string,
+    quotationText: string
+    images?: string[]
+}
+
+async function buildImageQuote(options: OptionsType) {
+  let textLength = 0
+  let resultText = ""
+  let textWidth = null
+
+  const randomNum = Math.floor(Math.random() * 64) + 1
+  const quoteImage = `./img/quotes-bgs/bg${randomNum}.jpg`
+  const customImage = options.images ? options.images[Math.floor(Math.random() * options.images.length) + 1] : ""
+
+  const canvas = Canvas.createCanvas(700, 700)
+  const ctx = canvas.getContext("2d")
+
+  const background = await Canvas.loadImage(options.images ? customImage : quoteImage)
+  ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
+
+  const background2 = await Canvas.loadImage("./img/logos/logo.png")
+  const logoWidth = 70
+  const logoHeight = 50
+  ctx.drawImage(background2, (350 - (logoWidth / 2)), canvas.height - 85, logoWidth, logoHeight)
+
+  const resizeValues = {
+    posY: 160,
+    posYChange: 72,
+    charLength: 20,
+  }
+
+  resize(options.text, ctx, resizeValues)
+  const font = Number(ctx.font.slice(0, 2))
+
+  const splitedText = options.text.split(" ")
+  splitedText.forEach((item, index) => {
+    textLength += item.length
+    const splititem = item.split("")
+    let parsedItem = ""
+    splititem.forEach((letter) => {
+      if (letter === String.fromCharCode(7779)) parsedItem += "s"
+      else if (letter === "ṇ") parsedItem += "n"
+      else if (letter === "ṅ") parsedItem += "n"
+      else if (letter === "Ṛ") parsedItem += "R"
+      else if (letter === "ṛ") parsedItem += "r"
+      else if (letter === "ṁ") parsedItem += "m"
+      else if (letter === "ḥ") parsedItem += "h"
+      else if (letter === "ṭ") parsedItem += "t"
+      else if (letter === "Ṭ") parsedItem += "T"
+      else if (letter === "ḍ") parsedItem += "d"
+      else parsedItem += letter
+    })
+
+    if (textLength < resizeValues.charLength) {
+      resultText += `${parsedItem} `
+      if (index === splitedText.length - 1) {
+        textLength = 0
+        textWidth = ctx.measureText(resultText)
+        ctx.shadowColor = "black"
+        ctx.shadowBlur = 5
+        ctx.lineWidth = 4
+        ctx.strokeText(resultText, ((350) - (textWidth.width / 2)), resizeValues.posY)
+        ctx.shadowBlur = 0
+        ctx.fillStyle = "white"
+        ctx.fillText(resultText, ((350) - (textWidth.width / 2)), resizeValues.posY)
+        resultText = ""
+        resizeValues.posY += resizeValues.posYChange
+      }
+    } else {
+      resultText += `${parsedItem} `
+      textLength = 0
+      textWidth = ctx.measureText(resultText)
+      ctx.shadowColor = "black"
+      ctx.shadowBlur = 8
+      ctx.lineWidth = 3
+      ctx.strokeText(resultText, ((350) - (textWidth.width / 2)), resizeValues.posY)
+      ctx.shadowBlur = 0
+      ctx.fillStyle = "white"
+      ctx.fillText(resultText, ((350) - (textWidth.width / 2)), resizeValues.posY)
+      resultText = ""
+      resizeValues.posY += resizeValues.posYChange
+    }
+  })
+
+  ctx.font = `${Math.floor(font * 0.5)}px Gabriola`
+  ctx.shadowBlur = 1
+
+  const quoteText = options.quotationText
+  textWidth = ctx.measureText(quoteText)
+
+  ctx.fillText(quoteText, ((350) - (textWidth.width / 2)), resizeValues.posY)
+
+  ctx.font = "30px Gabriola"
+
+  ctx.fillStyle = "white"
+  const reinText = "@reinkarnacia.sk"
+  textWidth = ctx.measureText(reinText)
+  ctx.fillText(reinText, ((350) - (textWidth.width / 2)), canvas.height - 15)
+
+  return new AttachmentBuilder(canvas.toBuffer(), { name: "bot-quotes.png" })
+
+}
+
+export default buildImageQuote
