@@ -23,7 +23,7 @@ async function langChainHandler(message: Message) {
   );
   console.log(query)
 
-    const response = await vectorStore.similaritySearch(query, 2);
+    const response = await vectorStore.similaritySearch(query, 3);
     console.log(response);
   
 
@@ -35,9 +35,9 @@ async function langChainHandler(message: Message) {
 
   })
 
-  const messageContext = response[0].pageContent + response[1].pageContent
+  const messageContext = response.map(context => `${context.pageContent}`).join("\n")
   console.log(messageContext)
-  const answerLectures = response[0].metadata?.source.slice(28).slice(0, -4) + ", " + response[1].metadata?.source.slice(28).slice(0, -4)
+  const answerLectures = response.map(lecture => `${lecture.metadata?.source.slice(28).slice(0, -4)}`).join("\n\t")
 
   const res = await model.call(`
   answer only based on context i have provided, if you dont know answer based on that context say: "I dont know"
@@ -48,7 +48,7 @@ async function langChainHandler(message: Message) {
   console.log({ res })
 
 
-  message.channel.send({ content: `${res} \n\n answers are from lectures: ${answerLectures}` })
+  message.channel.send({ content: `${res} \n\n answers are from lectures:\n\t${answerLectures}` })
   // message.channel.send({ content: "**" + response[0].metadata?.source.slice(28).slice(0, -4) + "**\n\n" + response[0].pageContent })
 
 } catch (e) {
