@@ -6,7 +6,7 @@ const data = { sk, cz, en }
 
 
 const findBgQuote = (quoteString: string, language: "cz" | "sk" | "en", message?: Message) => {
-  if (!quoteString || !message) return null
+  if (!quoteString) return null
   const bg = data[language]
 
 
