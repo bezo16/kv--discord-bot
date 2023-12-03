@@ -11,6 +11,12 @@ const sendQuoteInit =
         .setDescription("send quote from bhagavad gita")
         .addNumberOption(option => option.setRequired(true).setDescription("enter chapter").setName("chapter"))
         .addNumberOption(option => option.setRequired(true).setDescription("enter verse").setName("verse"))
+        .addStringOption(option => option.setRequired(true).setName("language").setDescription("select language")
+          .addChoices(
+            { name: 'slovak', value: 'sk' },
+				    { name: 'czech', value: 'cz' },
+				    { name: 'english', value: 'en' },
+          ))
         )
     // SB
     
