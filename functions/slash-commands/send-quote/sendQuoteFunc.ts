@@ -1,4 +1,4 @@
-// @ts-nocheckd
+// @ts-nocheck
 import { CacheType, ChatInputCommandInteraction } from "discord.js";
 import findBgQuote from "../../books/bg/findBgQuote";
 import createTextEmbed from "../../common/createTextEmbed";
