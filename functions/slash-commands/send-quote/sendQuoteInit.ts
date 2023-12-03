@@ -19,6 +19,13 @@ const sendQuoteInit =
           ))
         )
     // SB
+    .addSubcommand(subcommand => 
+      subcommand.setName('srimad-bhagavatam')
+        .setDescription("send quote from srimad bhagavatam")
+        .addNumberOption(option => option.setRequired(true).setDescription("enter canto").setName("canto"))
+        .addNumberOption(option => option.setRequired(true).setDescription("enter chapter").setName("chapter"))
+        .addNumberOption(option => option.setRequired(true).setDescription("enter verse").setName("verse"))
+        )
     
 
 export default sendQuoteInit

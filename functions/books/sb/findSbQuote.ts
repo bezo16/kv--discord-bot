@@ -1,7 +1,7 @@
 import { Message } from "discord.js"
 import sb from "../../../data/sb/sb"
 
-const findSBQuote = (quoteString: string, message: Message | undefined) => {
+const findSBQuote = (quoteString: string, message?: Message | undefined) => {
   if (!quoteString) return null
 
   const cantoNum = Number(quoteString.split(".")[0])
