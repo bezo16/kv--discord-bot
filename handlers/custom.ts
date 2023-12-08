@@ -99,7 +99,7 @@ async function custom(message: Message) {
     message.author.send(mantrasText.others)
   }
 
-  if (message.content === "?status") message.channel.send({ content: "bot is up and running" })
+  if (message.content === "?status") message.channel.send({ content: `bot is up and running ${process.env.ENVIROMENT}` })
 
   if (message.content === "?pes") {
     const msg = await message.channel.send({ content: "hmm" })
