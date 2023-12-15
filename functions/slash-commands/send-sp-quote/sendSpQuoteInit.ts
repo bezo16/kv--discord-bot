@@ -8,6 +8,7 @@ const sendSpQuoteInit =
     .addStringOption(option => option.setRequired(true).setName("category").setDescription("select category")
       .addChoices(
         { name: 'daily', value: 'daily' },
+        { name: 'srimad bhagavatam', value: 'sb' },
       ))
     
 
