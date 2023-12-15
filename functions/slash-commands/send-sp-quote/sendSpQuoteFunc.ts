@@ -1,4 +1,4 @@
-// @ts-nocheckk
+// @ts-nocheck
 import { CacheType, ChatInputCommandInteraction } from "discord.js";
 import spDailyQuotesLinks from "../../../data/images/sp_daily_quotes_links";
 import spSBQuotesLinks from "../../../data/images/sp_photos_srimad_bhagavatam";
