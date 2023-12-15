@@ -9,6 +9,7 @@ const sendSpQuoteInit =
       .addChoices(
         { name: 'daily', value: 'daily' },
         { name: 'srimad bhagavatam', value: 'sb' },
+        { name: 'bhagavad gita', value: 'bg' },
       ))
     
 
