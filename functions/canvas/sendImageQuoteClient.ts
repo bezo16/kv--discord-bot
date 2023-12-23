@@ -1,7 +1,7 @@
 import { Client, AttachmentBuilder, TextChannel } from "discord.js"
 import Canvas, { registerFont } from "canvas"
 import resize from "./resizes"
-registerFont("./fonts/Gabriola.ttf", { family: "Comic Sans" })
+registerFont("./data/fonts/Gabriola.ttf", { family: "Comic Sans" })
 
 async function sendImageQuoteClient(client: Client, text: string, quote: string, channelId: string) {
 
@@ -11,9 +11,9 @@ async function sendImageQuoteClient(client: Client, text: string, quote: string,
   let textWidth = null
   const quoteImage = { url: "" }
   const randomNum = Math.floor(Math.random() * 64) + 1
-  quoteImage.url = `./img/quotes-bgs/bg${randomNum}.jpg`
+  quoteImage.url = `./data/images/quotes-bgs/bg${randomNum}.jpg`
   const imageUrl = quoteImage.url
-  const imageUrl2 = "./img/logos/logo.png"
+  const imageUrl2 = "./data/images/logos/logo.png"
 
   const canvas = Canvas.createCanvas(700, 700)
   const ctx = canvas.getContext("2d")

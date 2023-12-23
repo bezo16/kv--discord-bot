@@ -1,7 +1,7 @@
 import { AttachmentBuilder } from "discord.js"
 import Canvas, { registerFont } from "canvas"
 import resize from "./resizes"
-registerFont("./fonts/Gabriola.ttf", { family: "Comic Sans" })
+registerFont("./data/fonts/Gabriola.ttf", { family: "Comic Sans" })
 
 type OptionsType = {
     text: string,
@@ -15,7 +15,7 @@ async function buildImageQuote(options: OptionsType) {
   let textWidth = null
 
   const randomNum = Math.floor(Math.random() * 64) + 1
-  const quoteImage = `./img/quotes-bgs/bg${randomNum}.jpg`
+  const quoteImage = `./data/images/quotes-bgs/bg${randomNum}.jpg`
   const customImage = options.images ? options.images[Math.floor(Math.random() * options.images.length) + 1] : ""
 
   const canvas = Canvas.createCanvas(700, 700)
@@ -24,7 +24,7 @@ async function buildImageQuote(options: OptionsType) {
   const background = await Canvas.loadImage(options.images ? customImage : quoteImage)
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height)
 
-  const background2 = await Canvas.loadImage("./img/logos/logo.png")
+  const background2 = await Canvas.loadImage("./data/images/logos/logo.png")
   const logoWidth = 70
   const logoHeight = 50
   ctx.drawImage(background2, (350 - (logoWidth / 2)), canvas.height - 85, logoWidth, logoHeight)
