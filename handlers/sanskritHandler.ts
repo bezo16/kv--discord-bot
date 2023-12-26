@@ -21,10 +21,10 @@ async function sanskritHandler(message: Message) {
     const searchableArray: any = []
     sanskritWords.forEach(word => {
       if (!word) return
-      searchableArray.push({ word, translation: (sanskrit as any)[word] })
+      searchableArray.push({ word, translation: (sanskrit as any)[word], normalizedWord: word.normalize("NFD").replace(/[\u0300-\u036f]/g, "") })
     })
     const miniSearch = new MiniSearch({
-      fields: ["word"],
+      fields: ["normalizedWord", "word"],
       storeFields: ["word", "translation"],
       idField: "word"
     })
