@@ -1,6 +1,6 @@
 import { Message } from "discord.js"
-import sanskrit from "../data/other/sanskrit"
-import createTextEmbed from "../functions/common/createTextEmbed"
+import sanskrit from "../../data/other/sanskrit"
+import createTextEmbed from "../../functions/common/createTextEmbed"
 import MiniSearch from "minisearch"
 
 

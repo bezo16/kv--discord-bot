@@ -1,10 +1,10 @@
 import { Message } from "discord.js"
-import sendImg from "../functions/canvas/sendImageQuote"
-import sendRandomSb from "../functions/books/sb/sendRandomSb"
-import sendRandomSbImage from "../functions/books/sb/sendRandomSbImage"
-import findSBQuote from "../functions/books/sb/findSbQuote"
-import findTopSbQuote from "../functions/books/sb/findTopSbQuote"
-import createTextEmbed from "../functions/common/createTextEmbed"
+import sendImg from "../../functions/canvas/sendImageQuote"
+import sendRandomSb from "../../functions/books/sb/sendRandomSb"
+import sendRandomSbImage from "../../functions/books/sb/sendRandomSbImage"
+import findSBQuote from "../../functions/books/sb/findSbQuote"
+import findTopSbQuote from "../../functions/books/sb/findTopSbQuote"
+import createTextEmbed from "../../functions/common/createTextEmbed"
 
 function sbHandler(message: Message) {
   const words = message.content.split(" ")

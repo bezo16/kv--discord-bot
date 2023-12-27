@@ -1,11 +1,11 @@
 import { Message } from "discord.js"
-import findBgQuote from "../functions/books/bg/findBgQuote"
-import sendImg from "../functions/canvas/sendImageQuote"
-import sendRandomBg from "../functions/books/bg/sendRandomBg"
-import sendRandomBgImage from "../functions/books/bg/sendRandomBgImage"
-import createTextEmbed from "../functions/common/createTextEmbed"
+import findBgQuote from "../../functions/books/bg/findBgQuote"
+import sendImg from "../../functions/canvas/sendImageQuote"
+import sendRandomBg from "../../functions/books/bg/sendRandomBg"
+import sendRandomBgImage from "../../functions/books/bg/sendRandomBgImage"
+import createTextEmbed from "../../functions/common/createTextEmbed"
 
-import rkQuotesBg from "../data/bg/rk-bg"
+import rkQuotesBg from "../../data/bg/rk-bg"
 
 function bgHandler(message: Message) {
   const words = message.content.split(" ")

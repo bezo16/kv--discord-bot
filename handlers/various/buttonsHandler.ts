@@ -1,4 +1,4 @@
-import quoteButtons from "./buttons/quoteButtons"
+import quoteButtons from "../buttons/quoteButtons"
 import { Message } from "discord.js"
 
 function buttonsHandler(message: Message) {

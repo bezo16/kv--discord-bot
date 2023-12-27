@@ -1,16 +1,15 @@
-import np from "../data/other/np"
+import si from "../../data/other/si"
 import type { Message } from "discord.js"
 
 
-function npHandler(message: Message<boolean>) {
+function siHandler(message: Message<boolean>) {
   if (!message.guild) return
 
   const messageWords = message.content.split(" ").length
   if (messageWords !== 2) return
   const firstWord = message.content.split(" ")[0]
-  if (firstWord !== "?np") return
+  if (firstWord !== "?si") return
   const secondWord = Number(message.content.split(" ")[1])
-  console.log(secondWord)
 
 
   if (isNaN(secondWord)) {
@@ -19,13 +18,13 @@ function npHandler(message: Message<boolean>) {
     return // second word isnt number
   }
 
-  if (secondWord <= 0 || secondWord >= 12) {
-    message.channel.send(`${secondWord} isnt valid number enter (1-11)`)
+  if (secondWord <= 0 || secondWord >= 19) {
+    message.channel.send(`${secondWord} isnt valid number enter (1-18)`)
 
     return // second word is number but not valid
   }
 
-  message.channel.send(np[secondWord - 1])
+  message.channel.send(si[secondWord - 1])
 }
 
-export default npHandler
+export default siHandler

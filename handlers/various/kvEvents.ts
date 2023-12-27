@@ -1,7 +1,7 @@
-import sendScreen from "../functions/events/sendEventsScreen"
-import sendScreenDate from "../functions/events/sendEventsScreenDate"
+import sendScreen from "../../functions/events/sendEventsScreen"
+import sendScreenDate from "../../functions/events/sendEventsScreenDate"
 import { Message, Client } from "discord.js"
-import sendClosestEvent from "../functions/events/sendClosestEvent"
+import sendClosestEvent from "../../functions/events/sendClosestEvent"
 
 function kvEvents(client: Client, message: Message) {
   if (message.content.split(" ").length !== 2) return
@@ -9,7 +9,6 @@ function kvEvents(client: Client, message: Message) {
   const secondWord = message.content.split(" ")[1]
 
   if (secondWord === "events" && firstWord === "?kv") {
-    console.warn("hmm")
     sendScreen(message)
   }
   if (secondWord.includes("events") && firstWord === "?kv" && !Number.isNaN(secondWord.charAt(6)) && secondWord.length > 6) {

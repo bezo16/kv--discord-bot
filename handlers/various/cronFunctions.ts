@@ -1,15 +1,15 @@
-import rkQuotesBg from "../data/bg/rk-bg"
-import findTopSbQuote from "../functions/books/sb/findTopSbQuote"
+import rkQuotesBg from "../../data/bg/rk-bg"
+import findTopSbQuote from "../../functions/books/sb/findTopSbQuote"
 import { Client, TextChannel, AttachmentBuilder, EmbedBuilder } from "discord.js"
 import Canvas from "canvas"
 import dayjs from "dayjs"
 // import facebookGroupPoster from "../functions/social/facebookGroupPoster"
 import path from "path"
 import nodecron from "node-cron"
-import randomVanipediaEmbed from "../functions/vanipedia/randomEmbed"
-import findBgQuote from "../functions/books/bg/findBgQuote"
-import yogapitEvents from "../functions/scraping/yogapitEvents"
-import sendClosestEvent from "../functions/events/sendClosestEvent"
+import randomVanipediaEmbed from "../../functions/vanipedia/randomEmbed"
+import findBgQuote from "../../functions/books/bg/findBgQuote"
+import yogapitEvents from "../../functions/scraping/yogapitEvents"
+import sendClosestEvent from "../../functions/events/sendClosestEvent"
 
 function cronFunctions(client: Client) {
   const mainChannel = client.channels.cache.get(process.env.MAINCHANNELID as string) as TextChannel

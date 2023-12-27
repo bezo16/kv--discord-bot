@@ -1,7 +1,7 @@
 import { config } from "dotenv"
 config()
 // Handlers
-import cronFunctions from "./handlers/cronFunctions"
+import cronFunctions from "./handlers/various/cronFunctions"
 import slashCommandsHandler from "./handlers/interactions/slashCommandsHandler"
 import modalSubmissionHandler from "./handlers/interactions/modalSubmissionHandler"
 import messageHandler from "./handlers/messages/messageHandler"

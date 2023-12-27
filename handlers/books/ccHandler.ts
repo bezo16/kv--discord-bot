@@ -1,9 +1,9 @@
 import type { Message } from "discord.js"
-import sendImg from "../functions/canvas/sendImageQuote"
-import sendRandomCC from "../functions/books/cc/sendRandomCC"
-import sendRandomCCImage from "../functions/books/cc/sendRandomCCImage"
-import findCcQuote from "../functions/books/cc/findCcQuote"
-import createTextEmbed from "../functions/common/createTextEmbed"
+import sendImg from "../../functions/canvas/sendImageQuote"
+import sendRandomCC from "../../functions/books/cc/sendRandomCC"
+import sendRandomCCImage from "../../functions/books/cc/sendRandomCCImage"
+import findCcQuote from "../../functions/books/cc/findCcQuote"
+import createTextEmbed from "../../functions/common/createTextEmbed"
 
 function ccHandler(message: Message) {
 

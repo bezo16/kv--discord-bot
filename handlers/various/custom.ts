@@ -1,7 +1,7 @@
-import vanipediaEssential from "../data/other/vanipedia-essential"
+import vanipediaEssential from "../../data/other/vanipedia-essential"
 import { Message } from "discord.js"
-import randomVanipediaEmbed from "../functions/vanipedia/randomEmbed"
-import mantrasText from "../data/other/help-text"
+import randomVanipediaEmbed from "../../functions/vanipedia/randomEmbed"
+import mantrasText from "../../data/other/help-text"
 
 async function custom(message: Message) {
 
