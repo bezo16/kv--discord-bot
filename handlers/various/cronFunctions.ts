@@ -54,7 +54,7 @@ function cronFunctions(client: Client) {
     // facebookGroupPoster("333460573412422")
     const canvas = Canvas.createCanvas(800, 800)
     const ctx = canvas.getContext("2d")
-    const imgPath = path.join(__dirname, `../data/images/spb-calendar/${month}/${day}.png`)
+    const imgPath = path.join(__dirname, `data/images/spb-calendar/${month}/${day}.png`)
     ctx.fillStyle = "white" // paint background on white (because its png)
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     const background = await Canvas.loadImage(imgPath)
